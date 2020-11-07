@@ -3,16 +3,18 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+  <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="StyleSheet" ; href="/css/registro.css" ; type="text/css" />
+    <link rel="StyleSheet" ; href="/css/home.css" ; type="text/css" />
     <link rel="StyleSheet" ; href="/css/footer.css" ; type="text/css" />
     <link rel="StyleSheet" ; href="/css/header.css" ; type="text/css" />
+    <link rel="StyleSheet" ; href="/css/carrito.css" ; type="text/css" />
 
-    <title>Registro</title>
+    <title>Carrito</title>
     <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
   </head>
-<body>
+
+  <body>
     <header>
       <div class="EspacioLogo">
         <img src="/img/logo.jpg" ; class="Logo" />
@@ -60,69 +62,70 @@
         </ul>
       </div>
     </header>
-    <!--Bloque de registro-->
-    <div class="posicionamiento">
-      <div>
-        <h1 class="titulo">Registrarse</h1>
-        <hr />
-      </div>
 
-      <form id="formulario" runat="server">
-        <div class="posicion">
-          <div class="datos">
-            <div class="tituloDatos">
-              <h3>Datos del usuario</h3>
+    <!-------------------------------------------------------------------------->
+    <div class="engloba">
+      <div class="cajita">
+        <div class="tituloCarrito">
+          <label class="titulo">Carrito de compras</label>
+        </div>
+        <div class="subtitulo">
+          <hr />
+        </div>
+        <div class="detalleVenta">
+          <div class="imagen">
+            <img src="./Categorias/5.jpg" />
+          </div>
+          <div class="detalles">
+            <div class="nombre">
+              <label> Nombre del producto </label>
             </div>
-            <div>
-              <div class="lblCampo">Nombre:</div>
-
-              <div class="txtDatos">
-                <input class="txt" />
-              </div>
+            <div class="precio">
+              <label>$Precio </label>
             </div>
-
-            <div class="datDivision">
-              <div class="lblCampo">Apellido:</div>
-              <div class="txtDatos">
-                <input class="txt" />
-              </div>
+            <div class="cantidad">
+              <label
+                >Cantidad:
+                <select>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select></label
+              >
             </div>
           </div>
-
-          <div class="datAcceso">
-            <div class="tituloDatos">
-              <h3>Datos de acceso</h3>
-            </div>
-            <div>
-              <div class="lblCampo"> E-mail:</div>
-              <div class="txtDatos">
-                <input class="txt" />
-              </div>
-            </div>
-            <div class="datDivision">
-              <div class="lblCampo"> Contraseña:</div>
-              <div class="txtDatos">
-                <input class="txt" />
-              </div>
-            </div>
-            <div class="datDivision">
-              <div class="lblCampo">Repetir contraseña:</div>
-              <div class="txtDatos">
-                <input class="txt" />
-              </div>
-            </div>
-            <div class="datDivision">
-              <div class="botonRegistro">
-                <button class="registrar">Crear cuenta</button>
-              </div>
-            </div>
+          <div class="Eliminar">
+            <button class="estiloElim">Eliminar producto</button>
           </div>
         </div>
-      </form>
+      </div>
+      <div class="vaciar"><button>Vaciar carrito</button></div>
     </div>
-    <!---->
+
+    <div class="Total">
+      <ul class="Dcompra">
+        <li class="tit">
+          <label>RESUMEN DE COMPRA</label>
+        </li>
+        <div class="datImporte">
+        <div class="izquierda">
+          <li>Subtotal</li>
+          <li>Total</li>
+        </div>
+        <div class="derecha">
+          <li>$</li>
+          <li>$</li>
+        </div>
+      </div>
+        <li class="finaliza">
+          <button>FINALIZAR COMPRA</button>
+        </li>
+      </ul>
+    </div>
+
+    <!-------------------------------------------------------------------------->
     <footer>
-      <div>
+      <div class="DivFoot">
         <h2 class="cont">Contactenos</h2>
         <!-- Iconos de redes sociales -->
         <ul>
@@ -163,5 +166,6 @@
         </ul>
       </div>
     </footer>
-</body>
+  </body>
 </html>
+
