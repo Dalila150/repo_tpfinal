@@ -1,0 +1,31 @@
+Celulares del 1 al 6
+1 = Celular Motorola Moto Edge Xt 2063-3 Gris $ 74.999,00 (Alto:16.16. Ancho:7.2. Color:GRIS. Memoria RAM:6 GB. Bluetooth:5.1. Camara principal:64 MP.)
+2 = Celular Motorola Moto G8 Power Xt2041-1 Azul $ 30.999,00 (Alto:15.795. Ancho:7.584. Color:AZUL. Memoria RAM:4 GB. Bluetooth:SI. Camara principal:16 MP+8 MP(2X TELE)+8 MP(118º WDE)+2 MP(MACRO).)
+3 = Celular Lg Lg-X430hm Negro $ 23.999,00 (Alto:15.63. Ancho:7.39. Color:NEGRO. Memoria RAM:2GB. Bluetooth:SI. Camara principal:13 MP+5 MP GRAN ANGULAR 117ª.)
+4 = Celular Tcl L9s Negro $ 18.999,00 (Alto:15.8. Ancho:7.4. Color:NEGRO. Memoria RAM:2.  Bluetooth:SI. Camara principal:13MP+5MP.)
+5 = Celular Zte Blade A3 Negro $ 11.999,00 (Alto:13.375. Ancho:6.75.  Color:NEGRO. Memoria RAM:1 GB. Bluetooth:SI. Camara principal:8 MP.)
+6 = Telefono Liberado Alcatel Alcatel 1 Negro $ 11.499,00 (Alto:14.75. Ancho:7.06. Color:NEGRO. Bluetooth:4.2. Camara frontal:5. Editor de documentos:N)
+
+Televisores del 7 al 12
+7 = Smart Tv Tcl 40 Pulgadas Full Hd L40s6500 $ 35.999,00 (Alto:51.83/57.65. Ancho:90.5/90.5. Color:NEGRO.  3D: NO. Bluetooth:SI. Brillo:325.)
+8 = Smart Tv Samsung 49 Pulgadas 4k Uhd 49ru7300gczb $ 60.999,00 (Alto:63.85/71.74. Ancho:110.15. Color:NEGRO. Tipo:CD.  Base giratoria:NO. Bluetooth:SI.)
+9 = Smart Tv Philco 50 Pulgadas 4k Uhd Pld50us9a1 $ 47999,00 (Alto:64.2/38.7. Ancho:111.3. Bluetooth:NO.  Brillo:280. Entrada video compuesto:SI.)
+10 = Android Tv Tcl 55 Pulgadas 4k Uhd L55p8m $ 61.999,00 (Alto:71.5/77.5. Ancho:123. Color:GRIS.  Bluetooth:SI. Entrada video compuesto:SI.)
+11 = Hd Rca 32 Pulgadas Xf32sm $ 22.999,00  (Alto:47.5. Ancho:73.14. Color:NEGRO. Bluetooth:SI. Brillo:200.)
+12 = ANDROID TV HITACHI 32 PULGADAS LE32SMART17 $24.999,00 (Alto:43.10/48.10. Ancho:73.20. Color:NEGRO.  Bluetooth:SI. Entrada video compuesto:NO.)
+
+Tablets del 13 al 18
+13 = TABLET SAMSUNG A T510N 10" 32 GB NEGRO $ 24.999,00 ( Alto: 24.52.  Ancho: 14.94.  Color: NEGRO.  Capacidad: 32 GB.  Bluetooth: SI.)
+14 = TABLET PC SAMSUNG SM-T290N 8" 32 GB NEGRA $ 17.499,00 ( Alto: 21.  Ancho: 12.  Color: NEGRA.  Capacidad: 32 GB.  Bluetooth: SI.)
+15 = TABLET NORTECH NT-P70 7" 16 GB NEGRO $ 5.499,00 ( Alto: 0.9.  Ancho: 19.  Color: NEGRO.  Capacidad: 16 GB.  Bluetooth: SI.)
+16 = TABLET X-VIEW TITANIUM GAMER 10" 32 GB NEGRO $ 18.999,00 (Color: NEGRO.  Garantia: 12 MESES.  Modelo: TITANIUM GAMER.  Accesorios incluidos: CARGADOR.  Capacidad: 32.  Bluetooth: SI.)
+17 = TABLET X-VIEW MERCURY MONSTER 7" 16 GB ROJO / NEGRO $ 8.499,00 ( Alto: 11.  Ancho: 19.1.  Color: ROJO / NEGRO.  Accesorios incluidos: FUNDA MONSTRUO + CABLE Y MANUAL.  Capacidad: 16 GB.  Bluetooth: SI.)
+18 = TABLET TCL LT7M 7" 16 GB NEGRO $ 8.999,00 (Alto: 18.95.  Ancho: 11.1.  Color: NEGRO.  Capacidad: 16 GB.  Bluetooth: SI.)
+
+Monitores del 19 al 24
+19 = MONITOR SAMSUNG LS24F350FHLXZB $ 22.999,00 ( Alto: 32.07/41.8.  Ancho: 54.77.  Color: NEGRO.  3D: NO.  Brillo: 250.  Formato de pantalla: 16:9.)
+20 = MONITOR LED PHILIPS 193V5LHSB2/55 $13.999,00 ( Alto: 43.7.  Ancho: 33.8.  Color: NEGRO.  3D: NO.  Angulo de vision: 90.  Brillo: 200.)
+21 = MONITOR LED SAMSUNG LS22F350FHLXZB $ 19.999,00 ( Alto: 15.  Ancho: 56.  Color: NEGRO.  Brillo: 250.  Formato de pantalla: FULL HD.)
+22 = MONITOR LED V206HQL $ 14.999,00 ( Color: NEGRO.  3D: NO.  Brillo: 200.  Contraste dinamico: 100.000.000:1.)
+23 = MONITOR LED SAMSUNG S27F350FH $ 36.999,00 (Alto: 36.49/ 46.24.  Ancho: 62.62.  Color: NEGRO.  3D: NO.  Brillo: 200.  Formato de pantalla: 16:9.)
+24 = MONITOR HP 3ML60AA $ 21.499,00 ( Alto: 38.3.  Ancho: 50.4.  Color: NEGRO.  Brillo: 250.  Formato de pantalla: LED.  Frecuencia Horz.: 1920 X 1080 60.)
