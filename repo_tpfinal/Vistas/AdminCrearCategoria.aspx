@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminCrearCategoria.aspx.cs" Inherits="Vistas.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminCrearCategoria.aspx.cs" Inherits="Vistas.AdminCrearCategoria" %>
 
 <!DOCTYPE html>
 
