@@ -20,6 +20,12 @@ namespace Dao
             return ds.existe(consulta);
         }
 
+        public Boolean existeUsuarioApellido(string Nombre)
+        {
+            String consulta = "Select * from Usuario where Apellido='" + Nombre + "'";
+            return ds.existe(consulta);
+        }
+
         public DataTable getTablaUsuario()
         {
             // List<Categoria> lista = new List<Categoria>();
@@ -33,6 +39,14 @@ namespace Dao
             DataTable tabla = ds.ObtenerTabla("Usuario", "Select ID_usuario,Nombre,Apellido,Rol from Usuario where Nombre='" + Nombre + "'");
             return tabla;
         }
+
+        public DataTable getTablaUsuarioEspecificoApellido(string Nombre)
+        {
+            // List<Categoria> lista = new List<Categoria>();
+            DataTable tabla = ds.ObtenerTabla("Usuario", "Select ID_usuario,Nombre,Apellido,Rol from Usuario where Apellido ='" + Nombre + "'");
+            return tabla;
+        }
+
 
     }
 }
