@@ -74,18 +74,21 @@
               <label>Usuario</label>
             </div>
             <div class="txtDatosUsu">
-              <input class="txt" />
+                <asp:TextBox ID="txtUsuario" Class="txt" runat="server"></asp:TextBox>
             </div>
 
             <div class="contrac">
               <div class="lblCampo">Contraseña:</div>
               <div class="txtDatosCon">
-                <input class="txt" />
+                  <asp:TextBox ID="txtContraseña" type="password" Class="txt" runat="server"></asp:TextBox>
+                  <br />
               </div>
             </div>
             <div class="datDivision">
               <div class="botonInicio">
-                <button class="inicio">Iniciar sesion</button>
+                  <asp:Button ID="btnIniciarSesion" runat="server" class="inicio" OnClick="btnIniciarSesion_Click" Text="Iniciar Sesion" BorderColor="#CC0000" />
+                  <br />
+                  <asp:Label ID="lblMensaje" style="font-size:13px" runat="server"></asp:Label>
               </div>
             </div>
           </div>
