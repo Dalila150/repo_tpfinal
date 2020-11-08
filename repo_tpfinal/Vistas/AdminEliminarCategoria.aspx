@@ -14,6 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
+    <form id="form1" runat="server">
     <header>
         <div class="EspacioLogo">
             <img src="/img/logo.jpg" ; class="Logo" />
@@ -88,7 +89,7 @@
                                     <h3 style="display: inline;">Nombre Categoria:</h3>
                                 </td>
                                 <td style="width: 25%;">
-                                    <input style="display: inline;margin-left: 15px;"/>
+                                    &nbsp;<asp:TextBox ID="txtCategorias" runat="server"></asp:TextBox>
                                 </td>
                             </tr>
                             
@@ -97,12 +98,9 @@
                 </table>
             </div>
             <div style="padding-bottom: 25px; text-align:center; margin-top:3%;height: 35px;">
-                <button
-                    style="width: 25%;height: 100%;background-color: rgba(0, 255, 255, 0.685);border-radius: 5px;border-color: rgb(116, 144, 83);border: thin;"
-                    class="encontrar-id-usuario"><b>ELIMINAR CATEGORIA</b></button>
-                <div style="width: 50px;display: inline-block"></div><button
-                    style="width: 25%;height: 100%;background-color: rgb(248, 13, 13);border-radius: 5px;border-color: gray;border: thin;"
-                    class="encontrar-id-usuario"><b>CANCELAR</b></button>
+                <asp:Button ID="BtnEliminarCate" runat="server" Height="40px" OnClick="BtnEliminarCate_Click" Text="ELIMINAR CATEGORIA" Width="158px" />
+                <div style="width: 50px;display: inline-block"></div>
+                <asp:Button ID="BtnCancelar" runat="server" Height="40px" Text="CANCELAR" Width="143px" />
             </div>
         </div>
     </div>
@@ -140,6 +138,7 @@
             </ul>
         </div>
     </footer>
+    </form>
 </body>
     <script type="text/javascript">
         $(".encontrar-id-usuario").click(function () {

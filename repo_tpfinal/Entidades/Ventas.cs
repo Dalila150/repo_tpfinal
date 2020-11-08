@@ -27,7 +27,8 @@ namespace Entidades
         public Ventas(int id_venta, DateTime fecha, int id_usuario, string direccion, decimal total, int modo_envio, int modo_pago, string nro_tarjeta, string codigo_tarjeta, int id_sucursal)
         {
             ID_venta1 = id_venta;
-            Fecha1 = fecha            ID_usuario1 = id_usuario;
+            Fecha1 = fecha;
+            ID_usuario1 = id_usuario;
             Direccion1 = direccion;
             Total1 = total;
             Modo_envio1 = modo_envio;

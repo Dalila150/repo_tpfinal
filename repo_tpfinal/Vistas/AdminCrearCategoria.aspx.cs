@@ -14,7 +14,7 @@ namespace Vistas
         negocioCategorias negcat = new negocioCategorias();
         protected void Page_Load(object sender, EventArgs e)
         {
-            btnAgregarCategoria.Click += new EventHandler(btnAgregarCategoria_Click);
+           // btnAgregarCategoria.Click += new EventHandler(btnAgregarCategoria_Click);
         }
 
         
