@@ -23,6 +23,12 @@ namespace Negocio
             return dao.getTablaUsuarioEspecifico(Nombre);
         }
 
+        public DataTable getTablaBuscarApellido(string Nombre)
+        {
+            DaoUsuario dao = new DaoUsuario();
+            return dao.getTablaUsuarioEspecificoApellido(Nombre);
+        }
+
         public bool BuscarUsuarioNombre(string Nombre)
         {
             DaoUsuario dao = new DaoUsuario();
@@ -37,5 +43,20 @@ namespace Negocio
                 return false;
             }
         }
+        public bool BuscarUsuarioApellido(string Nombre)
+        {
+            DaoUsuario dao = new DaoUsuario();
+            bool Existe = dao.existeUsuarioApellido(Nombre);
+            if (Existe == true)
+            {
+                getTablaBuscar(Nombre);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }

@@ -12,8 +12,8 @@ namespace Dao
     class AccesoaDatos
     {
         //string ruta = "Data Source=localhost\\sqlexpress;Initial Catalog=TP_Final;Persist Security Info=True;User ID=sa;Password=123456";
-        string ruta = "Data Source=LAPTOP-JSEM9I72\\SQLEXPRESS;Initial Catalog=TP_Final;Integrated Security=True";
-        //string ruta = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=TP_Final;Integrated Security=True";
+        //string ruta = "Data Source=LAPTOP-JSEM9I72\\SQLEXPRESS;Initial Catalog=TP_Final;Integrated Security=True";
+        string ruta = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=TP_Final;Integrated Security=True";
          //string ruta = "Data Source=localhost\\sqlexpress;Initial Catalog=TP_Final;Integrated Security=True";
         //string ruta = "Data Source=localhost\\sqlexpress;Initial Catalog=TP_Final;Persist Security Info=True;User ID=sa;Password=123456";
 

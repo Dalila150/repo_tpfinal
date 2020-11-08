@@ -27,7 +27,38 @@ namespace Vistas
         protected void Button1_Click(object sender, EventArgs e)
         {
             int Variable = 0;
+
+            bool Nom = false;
             Boolean estado = neg.BuscarUsuarioNombre(txtBuscar.Text);
+            
+            if (estado == true && Variable != 1)
+            {
+                DataTable tablaUsuario = neg.getTablaBuscar(txtBuscar.Text);
+                grdUsuarios.DataSource = tablaUsuario;
+                grdUsuarios.DataBind();
+                lblMensaje.Text = " ";
+                Nom = true;
+            }
+            if (estado == false && Variable != 1)
+            {
+                lblMensaje.Text = "El Nombre o Apellido no se encuentra en la Base de datos";
+            }
+
+            //----------------------------------------------------------------
+            int Variable2 = 0;
+            Boolean estado2 = neg.BuscarUsuarioApellido(txtBuscar.Text);
+           
+            if (estado2 == true && Variable2 != 1)
+            {
+                DataTable tablaUsuario = neg.getTablaBuscarApellido(txtBuscar.Text);
+                grdUsuarios.DataSource = tablaUsuario;
+                grdUsuarios.DataBind();
+                lblMensaje.Text = " ";
+            }
+            if (estado2 == false && Variable2 != 1 && Nom == false)
+            {
+                lblMensaje.Text = "El Nombre o Apellido no se encuentra en la Base de datos";
+            }
             if (txtBuscar.Text == "")
             {
                 DataTable tablaUsuario = neg.getTabla();
@@ -36,17 +67,7 @@ namespace Vistas
                 Variable = 1;
                 lblMensaje.Text = " ";
             }
-            if (estado == true && Variable != 1)
-            {
-                DataTable tablaUsuario = neg.getTablaBuscar(txtBuscar.Text);
-                grdUsuarios.DataSource = tablaUsuario;
-                grdUsuarios.DataBind();
-                lblMensaje.Text = " ";
-            }
-            if (estado == false && Variable != 1)
-            {
-                lblMensaje.Text = "El nombre no existe en la base de datos";
-            }
+
         }
 
         protected void grdUsuarios_PageIndexChanging(object sender, GridViewPageEventArgs e)
