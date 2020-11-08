@@ -44,6 +44,7 @@
     <Compile Include="accesoDatos.cs" />
     <Compile Include="daoCategorias.cs" />
     <Compile Include="DaoMarca.cs" />
+    <Compile Include="DaoUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

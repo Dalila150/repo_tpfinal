@@ -14,6 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
 <body>
+    <form id="form1" runat="server">
     <header>
       <div class="EspacioLogo">
         <img src="/img/logo.jpg" ; class="Logo" />
@@ -58,48 +59,27 @@
     padding-left: 15%;padding-right: 15%;border-radius: 8px;">
       <h1 style="padding-top: 20px;">Usuarios</h1>
         <div class="EspacioBuscador">
-            <input
-              type="text"
-              name="search"
-              placeholder="Buscar"
-              class="bus"
-              autocomplete="off"
-            />
+            <asp:TextBox ID="txtBuscar" runat="server"></asp:TextBox>
+&nbsp;
+            <asp:Button ID="Button1" runat="server" BackColor="#FF3300" OnClick="Button1_Click" Text="Buscar" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="lblMensaje" runat="server"></asp:Label>
         </div>
-        <table style="width: 100%;margin-top:25px;padding-bottom: 20px">
-          <tbody>
-            <tr style="background-color:rgba(200, 78, 89, 0.404) ">
-              <td style="height: 35px;width: 15%;">ID</td>
-              <td style="height: 35px;width: 15%;">NOMBRE</td>
-              <td style="height: 35px;width: 15%;">APELLIDO</td>
-              <td style="height: 35px;width: 15%;">ACCIONES</td>
-            </tr>
-            <tr style="background-color:white;">
-              <td style="height: 35px;width: 15%;" class="info-user">39707040</td>
-              <td style="height: 35px;width: 15%;">JUAN PABLO</td>
-              <td style="height: 35px;width: 15%;">TONIOLO</td>
-              <td style="height: 35px;width: 15%;">
-                <button style="width: 50%;height: 100%;background-color: rgba(0, 255, 255, 0.685);border-radius: 5px;border-color: rgb(82, 78, 78);border: thin;" class="encontrar-id-usuario"><i class="fas fa-pencil-alt"></i></button><button style="width: 50%;height: 100%;background-color: rgb(248, 13, 13);border-radius: 5px;border-color: gray;border: thin;" class="encontrar-id-usuario"><i class="far fa-trash-alt"></i></button>
-              </td>
-            </tr>
-            <tr style="background-color:white;">
-              <td style="height: 35px;width: 15%;" class="info-user">39707041</td>
-              <td style="height: 35px;width: 15%;"></td>
-              <td style="height: 35px;width: 15%;"></td>
-              <td style="height: 35px;width: 15%;">
-                <button style="width: 50%;height: 100%;background-color: rgba(0, 255, 255, 0.685);border-radius: 5px;border-color: gray;border: thin;" class="encontrar-id-usuario"><i class="fas fa-pencil-alt"></i></button><button style="width: 50%;height: 100%;background-color:  rgb(248, 13, 13);border-radius: 5px;border-color: gray;border: thin;" class="encontrar-id-usuario"><i class="far fa-trash-alt"></i></button>
-              </td>
-            </tr>
-            <tr style="background-color:white;">
-              <td style="height: 35px;width: 15%;" class="info-user"></td>
-              <td style="height: 35px;width: 15%;"></td>
-              <td style="height: 35px;width: 15%;"></td>
-              <td style="height: 35px;width: 15%;">
-                <button style="width: 50%;height: 100%;background-color: rgba(0, 255, 255, 0.685);border-radius: 5px;border-color: rgb(0, 0, 0);border: thin;" class="encontrar-id-usuario"><i class="fas fa-pencil-alt"></i></button><button style="width: 50%;height: 100%;background-color:  rgb(248, 13, 13);border-radius: 5px;border-color: gray;border: thin;" class="encontrar-id-usuario"><i class="far fa-trash-alt"></i></button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        
+        <br />
+        
+        <asp:GridView ID="grdUsuarios" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <AlternatingRowStyle BackColor="White" />
+            <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+            <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+            <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+            <SortedAscendingCellStyle BackColor="#FDF5AC" />
+            <SortedAscendingHeaderStyle BackColor="#4D0000" />
+            <SortedDescendingCellStyle BackColor="#FCF6C0" />
+            <SortedDescendingHeaderStyle BackColor="#820000" />
+        </asp:GridView>
       </div>
     </div>
     <footer>
@@ -136,6 +116,7 @@
             </ul>
         </div>
     </footer>
+    </form>
 </body>
      <script type="text/javascript">
     $(".encontrar-id-usuario").click(function() {
