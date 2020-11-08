@@ -17,6 +17,10 @@ namespace Vistas
            // btnAgregarCategoria.Click += new EventHandler(btnAgregarCategoria_Click);
         }
 
-        
+        protected void BtnCrearCate_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

@@ -82,7 +82,9 @@
                 </table>
             </div>
             <div style="padding-bottom: 25px; text-align:center; margin-top:3%; height: 35px;">
-                <div style="width: 50px;display: inline-block"></div><asp:Button ID="btn_Cancelar" runat="server" Text="CANCELAR" BorderStyle="Inset" BackColor="Red" BorderColor="#FF6600" Width="142px" CssClass="auto-style1" Height="40px"/>
+                <asp:Button ID="BtnCrearCate" runat="server" Height="40px" OnClick="BtnCrearCate_Click" Text="CREAR CATEGORIA" Width="143px" />
+                <div style="width: 50px;display: inline-block"></div>
+                <asp:Button ID="BtnCancelar" runat="server" Height="40px" OnClick="BtnCancelar_Click" Text="CANCELAR" Width="143px" />
             &nbsp;</div>
         </div>
     </div>
