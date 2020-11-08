@@ -48,5 +48,13 @@ namespace Vistas
                 lblMensaje.Text = "El nombre no existe en la base de datos";
             }
         }
+
+        protected void grdUsuarios_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdUsuarios.PageIndex = e.NewPageIndex;
+            DataTable tablaUsuario = neg.getTabla();
+            grdUsuarios.DataSource = tablaUsuario;
+            grdUsuarios.DataBind();
+        }
     }
 }

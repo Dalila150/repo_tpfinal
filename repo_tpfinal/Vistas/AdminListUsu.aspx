@@ -55,25 +55,27 @@
     </header>
    <!------------------------------------------------------------>
    <div style="display: inline-block;width: 80%;padding-top: 100px;padding-left: 10%">
-    <div style="    background-color: rgba(197, 93, 102, 0.404);
+    <div style="    padding-bottom: 5%;background-color: rgba(197, 93, 102, 0.404);
     padding-left: 15%;padding-right: 15%;border-radius: 8px;">
-      <h1 style="padding-top: 20px;">Usuarios</h1>
+      <h1 style="padding-top: 20px; text-align:center;">Usuarios</h1>
         <div class="EspacioBuscador">
             <asp:TextBox ID="txtBuscar" runat="server"></asp:TextBox>
-&nbsp;
-            <asp:Button ID="Button1" runat="server" BackColor="#FF3300" OnClick="Button1_Click" Text="Buscar" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="lblMensaje" runat="server"></asp:Label>
+
+            <asp:Button ID="Button1" style="background-color:#a83640; color: white" runat="server" OnClick="Button1_Click" Text="Buscar" />
         </div>
-        
+        <div style="text-align:center">
+                                <asp:Label ID="lblMensaje" runat="server"></asp:Label>
+
+        </div>
+
         <br />
         
-        <asp:GridView ID="grdUsuarios" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
-            <AlternatingRowStyle BackColor="White" />
-            <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-            <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-            <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+        <asp:GridView ID="grdUsuarios" style="width: 100%; padding-bottom:5%; text-align:center" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AllowPaging="True" OnPageIndexChanging="grdUsuarios_PageIndexChanging" PageSize="5">
+            <AlternatingRowStyle BackColor="#BCC8C3" />
+            <FooterStyle BackColor="#999999" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#AE4750" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#6D887D" ForeColor="#333333" HorizontalAlign="Center" />
+            <RowStyle BackColor="#F4F6F5" ForeColor="#333333" />
             <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
             <SortedAscendingCellStyle BackColor="#FDF5AC" />
             <SortedAscendingHeaderStyle BackColor="#4D0000" />
