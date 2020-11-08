@@ -7,9 +7,9 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Runtime.InteropServices.ComTypes;
 
-namespace Datos
+namespace Dao
 {
-    public class AccesoaDatos
+    class AccesoaDatos
     {
         //string ruta = "Data Source=localhost\\sqlexpress;Initial Catalog=TP_Final;Persist Security Info=True;User ID=sa;Password=123456";
         string ruta = "Data Source=LAPTOP-JSEM9I72\\SQLEXPRESS;Initial Catalog=TP_Final;Integrated Security=True";
@@ -81,6 +81,33 @@ namespace Datos
             }
 
             return estado;
+        }
+
+        public int EjecutarProcedimientoAlmacenado(SqlCommand Comando, String NombreSP)
+        {
+            int FilasCambiadas;
+            SqlConnection Conexion = ObtenerConexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd = Comando;
+            cmd.Connection = Conexion;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = NombreSP;
+            FilasCambiadas = cmd.ExecuteNonQuery();
+            Conexion.Close();
+            return FilasCambiadas;
+        }
+
+        public int ObtenerMaximo(String consulta)
+        {
+            int max = 0;
+            SqlConnection Conexion = ObtenerConexion();
+            SqlCommand cmd = new SqlCommand(consulta, Conexion);
+            SqlDataReader datos = cmd.ExecuteReader();
+            if (datos.Read())
+            {
+                max = Convert.ToInt32(datos[0].ToString());
+            }
+            return max;
         }
 
     }

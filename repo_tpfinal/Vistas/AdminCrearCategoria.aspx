@@ -14,6 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
+    <form id="form1" runat="server">
     --------------------------------------------
 
 <header>
@@ -70,7 +71,9 @@
                                     <h3 style="display: inline;">Nombre categoria</h3>
                                 </td>
                                 <td style="width: 25%;">
-                                    <input style="display: inline;margin-left: 15px;"></input>
+                                    </input>
+                                &nbsp;<asp:TextBox ID="txtCategoria" runat="server"></asp:TextBox>
+                                    <asp:Label ID="lblMensaje" runat="server"></asp:Label>
                                 </td>
                             </tr>
                             
@@ -78,14 +81,9 @@
                     </tbody>
                 </table>
             </div>
-            <div style="padding-bottom: 25px; text-align:center; margin-top:3%;center;height: 35px;">
-                <button
-                    style="width: 25%;height: 100%;background-color: rgba(0, 255, 255, 0.685);border-radius: 5px;border-color: rgb(116, 144, 83);border: thin;"
-                    class="encontrar-id-usuario"><b>CREAR CATEGORIA</b></button>
-                <div style="width: 50px;display: inline-block"></div><button
-                    style="width: 25%;height: 100%;background-color: rgb(248, 13, 13);border-radius: 5px;border-color: gray;border: thin;"
-                    class="encontrar-id-usuario"><b>CANCELAR</b></button>
-            </div>
+            <div style="padding-bottom: 25px; text-align:center; margin-top:3%; height: 35px;">
+                <div style="width: 50px;display: inline-block"></div><asp:Button ID="btn_Cancelar" runat="server" Text="CANCELAR" BorderStyle="Inset" BackColor="Red" BorderColor="#FF6600" Width="142px" CssClass="auto-style1" Height="40px"/>
+            &nbsp;</div>
         </div>
     </div>
     </div>
@@ -123,6 +121,7 @@
             </ul>
         </div>
     </footer>
+    </form>
 </body>
     <script type="text/javascript">
     $(".encontrar-id-usuario").click(function () {
