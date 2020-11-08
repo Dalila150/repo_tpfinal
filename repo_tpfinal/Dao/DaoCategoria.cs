@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace Dao
 {
-    public class daoCategorias
+    public class DaoCategoria
     {
         AccesoaDatos ds = new AccesoaDatos();
 
@@ -53,5 +53,12 @@ namespace Dao
             SqlParametros.Value = cat.Nombre1;
         }
 
+        public DataTable ObtenerCategorias()
+        {
+            DataTable aux = new DataTable();
+            AccesoaDatos ad = new AccesoaDatos();
+            aux = ad.ObtenerTabla("categoria", "Select * from categoria");
+            return aux;
+        }
     }
 }

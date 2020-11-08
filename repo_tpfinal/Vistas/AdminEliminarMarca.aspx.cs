@@ -12,7 +12,7 @@ namespace Vistas
     public partial class WebForm9 : System.Web.UI.Page
     {
 
-        Marca_Negocios neg = new Marca_Negocios();
+        NegocioMarca neg = new NegocioMarca();
 
         protected void Page_Load(object sender, EventArgs e)
         {

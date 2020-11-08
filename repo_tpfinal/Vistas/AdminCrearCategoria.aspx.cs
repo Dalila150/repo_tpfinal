@@ -11,7 +11,7 @@ namespace Vistas
 {
     public partial class AdminCrearCategoria : System.Web.UI.Page
     {
-        negocioCategorias negcat = new negocioCategorias();
+        NegocioCategoria negcat = new NegocioCategoria();
         protected void Page_Load(object sender, EventArgs e)
         {
            // btnAgregarCategoria.Click += new EventHandler(btnAgregarCategoria_Click);

@@ -8,13 +8,13 @@ using Dao;
 
 namespace Negocio
 {
-    public class negocioCategorias
+    public class NegocioCategoria
     {
 
         public bool eliminarCategoria(int id)
         {
             //Validar id existente 
-            daoCategorias dao = new daoCategorias();
+            DaoCategoria dao = new DaoCategoria();
             Categorias cat = new Categorias();
             //cat.setIdCategoria(id);
             cat.Id_categoria = id;
@@ -34,7 +34,7 @@ namespace Negocio
             //cat.setNombreCategoria(nombre);
             cat.Nombre1 = nombre;
 
-            daoCategorias dao = new daoCategorias();
+            DaoCategoria dao = new DaoCategoria();
             if (dao.existeCategoría(cat) == false)
             {
                 cantFilas = dao.agregarCategoria(cat);

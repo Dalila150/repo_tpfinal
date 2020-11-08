@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminCrearPro.aspx.cs" Inherits="Vistas.WebForm11" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminCrearPro.aspx.cs" Inherits="Vistas.AdminCrearPro" %>
 
 <!DOCTYPE html>
 
@@ -7,146 +7,132 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="StyleSheet" ; href="/css/home.css" ; type="text/css" />
     <link rel="StyleSheet" ; href="/css/footer.css" ; type="text/css" />
-    <link rel="StyleSheet" ; href="/css//headerAdmin.css" ; type="text/css" />
+    <link rel="StyleSheet" ; href="/css/headerAdmin.css" ; type="text/css" />
+    <link rel="StyleSheet" ; href="/css/EditProAdmin.css" ; type="text/css" />
 
-    <title>Home</title>
+
+    <title>Nuevo Producto - Admin</title>
     <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-    <header>
+    <form id="form1" runat="server">
+        <header>
         <div class="EspacioLogo">
             <img src="/img/logo.jpg" ; class="Logo" />
         </div>
 
 
         <div class="EspacioAtajos" style="padding-top: 50px;">
-            <a href="/home.html" class="fa fa-sign-out"
+            <a href="/home.html?type=logout" class="fa fa-sign-out"
                 style="text-decoration: none; font-size: 30px;color: black;"></a>
         </div>
         <div class="EspacioBarraNavegacion" style="padding-top: 35px;">
             <ul class="nav">
                 <li class="name">
-                    <a href="#">Home</a>
+                    <a href="/AdminHome.aspx">Home</a>
                 </li>
                 <li class="name">
-                    <a href="#">Categorias</a>
+                    <a href="#">Administracion</a>
                     <ul>
                         <li>
-                            <a href="/categoria.html">Monitores</a>
+                            <a href="/AdminListarProductos.aspx">Productos</a>
                         </li>
                         <li>
-                            <a href="/categoria.html">Televisores</a>
+                            <a href="/AdminUsuarios.html">Usuarios</a>
                         </li>
                         <li>
-                            <a href="/categoria.html">Tablet</a>
+                            <a href="/AdminListarCategorias.html">Categorias</a>
                         </li>
                         <li>
-                            <a href="/categoria.html">Celulares</a>
+                            <a href="/AdminListarMarcas.html">Marcas</a>
                         </li>
                     </ul>
-                </li>
-                <li class="name">
-                    <a href="#">Contacto</a>
                 </li>
             </ul>
         </div>
 
     </header>
-
     <!------------------------------------------------------------>
     <div style="display: inline-block;width: 80%;padding-top: 100px;padding-left: 10%">
         <div style="    background-color: rgba(197, 93, 102, 0.404);
-       ;padding-left: 15%;padding-right: 15%;border-radius: 8px;">
+    padding-left: 15%;padding-right: 15%;border-radius: 8px; text-align:center">
             <h1 style="padding-top: 20px;">Crear producto</h1>
-            <div style="padding-top: 5%;padding-left: 25%;padding-bottom: 5%; border-top: 1px solid rgb(218, 50, 50);border-bottom: 1px solid rgb(218, 50, 50);">
-                <table style="width: 100%">
+            <table style="width: 100%;margin-top:25px;" class="styled-table">
+                <thead >
+                    <tr style="background-color:#AE4750">
+                        <td style="height: 35px;width: 11%;">Modelo</td>
+                        <td style="height: 35px;width: 11%;">Marca</td>
+                        <td style="height: 35px;width: 11%;">Categoria</td>
+                        <td style="height: 35px;width: 11%;">Stock</td>
+                        <td style="height: 35px;width: 11%;">Precio unitario</td>
+                        <td style="height: 35px;width: 11%;">Descripcion</td>
+                        <td style="height: 35px;width: 13%;">Estado</td>
+                    </tr>
+                    </thead>
                     <tbody>
-                        <div>
+                    <tr >
+                        <td style="height: 35px;width: 15%;">
+                            <asp:TextBox ID="txtModelo" runat="server" style="width: 80%;height:100%;border-radius:5px"  required="true"></asp:TextBox>
+                        </td>
+                        <td style="height: 35px;width: 15%;">
+                            <asp:DropDownList ID="ddMarca" runat="server" style="width: 80%;height:100%;border-radius:5px" required="true">
+                            </asp:DropDownList>
+                        </td>
+                        <td style="height: 35px;width: 15%;">
+                            <asp:DropDownList ID="ddCategoria" runat="server" style="width: 80%;height:100%;border-radius:5px" required="true">
+                            </asp:DropDownList>
+                        </td>
+                        
+                        <td style="height: 35px;width: 10%;">
+                            <asp:TextBox ID="txtStock" runat="server" type="number" min="0" style="width: 80%;height:100%;border-radius:5px;" required="true"></asp:TextBox>
+                        </td>
+                        <td style="height: 35px;width: 10%;">
+                            <asp:TextBox ID="txtPrecio" runat="server" type="number" min="0" style="width: 80%;height:100%;border-radius:5px" required="true"></asp:TextBox>
+                        </td>
+                        <td style="height: 35px;width: 20%;">
+                            <asp:TextBox ID="txtDescripcion" runat="server" style="width: 80%;height:100%;border-radius:5px" required="true"></asp:TextBox>
+                        </td>
+                        <td style="height: 35px;width: 10%;">
+                            <asp:DropDownList ID="ddEstado" runat="server" style="width: 80%;height:100%;border-radius:5px">
+                            </asp:DropDownList>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table style="width: 100%;padding-bottom: 20px;">
+                            <tbody>
                             <tr>
-                                <td style="width: 5%;">
-                                    <h3 style="display: inline;">Nro de modelo</h3>
-                                </td>
-                                <td style="width: 25%;">
-                                    <input style="display: inline;margin-left: 15px;"></input>
-                                </td>
+                            <td style="height: 10px;width: 15%;">
+                                <label style="color:red" id="lblModeloError"></label>
+                            </td>
+                            <td style="height: 10px;width: 15%;">
+                                <label style="color:red" id="lblMarcaError"></label>
+                            </td>
+                            <td style="height: 10px;width: 15%;">
+                                <label style="color:red" id="lblCategoriaError"></label>
+                            </td>
+                            <td style="height: 10px;width: 10%;">
+                                <label style="color:red" id="lblStockError"></label>
+                            </td>
+                            <td style="height: 10px;width: 10%;">
+                                <label style="color:red" id="lblPrecioError"></label>
+                            </td>
+                            <td style="height: 10px;width: 10%;">
+                                <label style="color:red" id="lblDescripcionError"></label>
+                            </td>
+                            <td style="height: 10px;width: 10%;">
+                                <label style="color:red" id="lblEstadoError"></label>
+                            </td>
                             </tr>
-                            <tr>
-                                <td style="width: 5%;">
-                                    <h3 style="display: inline;">Stock</h3>
-                                </td>
-                                <td style="width: 25%;">
-                                    <input type="number" min=0 style="display: inline;margin-left: 15px;"></input>
-                                </td>
-                                
-                            </tr>
-                            <tr>
-                                <td style="width: 15%;">
-                                    <h3 style="display: inline;">Marca</h3>
-                                </td>
-                                <td style="width: 25%;">
-                                    <select style="margin-left:3.5%; width: 45%";>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                      </select>
-                                </td>
-                                
-                            </tr>
-                            <tr>
-                                <td style="width: 15%;">
-                                    <h3 style="display: inline;">Precio unitario</h3>
-                                </td>
-                                <td style="width: 25%;">
-                                    <input type="number" min=0 style="display: inline;margin-left: 15px;"></input>
-                                </td>   
-                            </tr>
-                            <tr>
-                                <td style="width: 15%;">
-                                    <h3 style="display: inline;">Categoria</h3>
-                                </td>
-                                <td style="width: 25%;">
-                                    <select style="margin-left:3.5%; width: 45%";>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                      </select>
-                                </td>
-                                
-                            </tr>
-                            <tr>
-                                <td style="width: 15%;">
-                                    <h3 style="display: inline;">Estado</h3>
-                                </td>
-                                <td style="width: 25%;">
-                                    <select style="margin-left:3.5%; width: 45%";>
-                                        <option value="1">Activo</option>
-                                        <option value="2">Inactivo</option>
-                                      </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width: 15%;">
-                                    <h3 style="display: inline;">Imagen</h3>
-                                </td>
-                                <td style="width: 25%;">
-                                    <input style="display: inline;margin-left: 15px;"></input>
-                                </td>
-                            </tr>
-
-                    </tbody>
-                </table>
-            </div>
-            <div style="padding-bottom: 25px; text-align:center; margin-top:3%;center;height: 35px;">
-                <button
-                    style="width: 25%;height: 100%;background-color: rgba(0, 255, 255, 0.685);border-radius: 5px;border-color: rgb(116, 144, 83);border: thin;"
-                    class="encontrar-id-usuario"><b>CREAR PRODUCTO</b></button>
-                <div style="width: 50px;display: inline-block"></div><button
-                    style="width: 25%;height: 100%;background-color: rgb(248, 13, 13);border-radius: 5px;border-color: gray;border: thin;"
-                    class="encontrar-id-usuario"><b>CANCELAR</b></button>
-            </div>
+                            </tbody>
+                        </table>
+            <div style="padding-bottom: 25px;text-align: center;height: 35px;">
+              <asp:Button ID="btnGuardar" runat="server" Text="Crear" OnClick="btnGuardar_Click" style="width: 25%;height: 100%;background-color: #649071; border: none;border-radius: 5px;" Font-Bold="True" Font-Size="Medium"/><div style="width: 50px;display: inline-block">
+                </div><button id="btnCancelar" type="button" onclick="btnCancelar_click()" style="width: 25%;height: 100%;background-color: rgb(248, 13, 13);font-weight:bolder ;border-radius: 5px;border-color: gray;border: thin;font-size:17px"><b>Cancelar</b></button>
+          </div>
         </div>
-    </div>
+        <asp:Button ID="submitform" runat="server" Text="guarda" OnClick="btnGuardar_Click" Style="display: none" />
     </div>
     <footer>
         <div>
@@ -182,23 +168,31 @@
             </ul>
         </div>
     </footer>
+    </form>
 </body>
+
+    <%--<script type="text/javascript">
+        function comprobarcampos(){
+            var marca = $('#<%= ddMarca.ClientID %> option:selected').val();
+            var modelo = $("#txtModelo").val();
+            var categoria = $('#<%= ddCategoria.ClientID %> option:selected').val();
+            var estado = $('#<%= ddEstado.ClientID %> option:selected').val();;
+            var stock = $("#txtStock").val();
+            var precio = $("#txtStock").val();
+            var descripcion = $("#txtDescripcion").val();
+
+            if (marca == "-1" || categoria == "-1") {
+                alert("Complete todos los campos.");
+            } else {
+                var boton = document.getElementById("submitForm");
+                boton.click();
+            }
+        }
+    </script>--%>
     <script type="text/javascript">
-        $(".encontrar-id-usuario").click(function () {
-            var $id = $(this).closest("tr")//BUSCO EL TR MAS CERCANO QUE ES SOBRE EL QUE SE HIZO CLICK
-                .find(".info-user")//BUSCO EL ITEM QUE TENGA ESA CLASE
-                .text();//AGARRO EL TEXTO DEL TD
-
-            alert($id);// Outputs the answer
-        });
-</script><script type="text/javascript">
-             $(".encontrar-id-usuario").click(function () {
-                 var $id = $(this).closest("tr")//BUSCO EL TR MAS CERCANO QUE ES SOBRE EL QUE SE HIZO CLICK
-                     .find(".info-user")//BUSCO EL ITEM QUE TENGA ESA CLASE
-                     .text();//AGARRO EL TEXTO DEL TD
-
-                 alert($id);// Outputs the answer
-             });
-</script>
-</script>
+        function btnCancelar_click() {
+            window.location.href = '/AdminListPro.aspx';
+        }
+    </script>
 </html>
+

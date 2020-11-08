@@ -10,7 +10,7 @@ using System.Data;
 
 namespace Negocio
 {
-    public class Marca_Negocios
+    public class NegocioMarca
     {
         public DataTable getTabla()
         {

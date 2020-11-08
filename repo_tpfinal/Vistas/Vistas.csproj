@@ -64,6 +64,17 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\admin1.css" />
+    <Content Include="css\categorias.css" />
+    <Content Include="css\datos.css" />
+    <Content Include="css\editProAdmin.css" />
+    <Content Include="css\footer.css" />
+    <Content Include="css\header.css" />
+    <Content Include="css\headerAdmin.css" />
+    <Content Include="css\home.css" />
+    <Content Include="css\iniciosesion.css" />
+    <Content Include="css\producto.css" />
+    <Content Include="css\registro.css" />
     <Content Include="Home.aspx" />
     <Content Include="Web.config" />
     <Content Include="AdminCrearCategoria.aspx" />
@@ -225,6 +236,7 @@
       <Name>Negocio</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

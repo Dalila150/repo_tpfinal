@@ -7,32 +7,34 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Productos
+    public class Producto
     {
         private int id_producto;
         private int Stock;
         private int ID_marca;
         private decimal Precio_unitario;
         private int ID_categoria;
-        private bool Estado;
+        private int Estado;
         private String Nombre;
         private String Imagen;
+        private String Descripcion;
 
-        public Productos()
+        public Producto()
         {
 
         }
 
-        public Productos(int id_producto, int stock, int iD_marca, decimal precio_unitario, int iD_categoria, bool estado, string nombre, string imagen)
+        public Producto(int id_producto, int stock, int id_marca, decimal precio_unitario, int id_categoria, int estado, string nombre, string imagen, string descripcion)
         {
-            this.Id_producto = id_producto;
-            Stock1 = stock;
-            ID_marca1 = iD_marca;
-            Precio_unitario1 = precio_unitario;
-            ID_categoria1 = iD_categoria;
-            Estado1 = estado;
-            Nombre1 = nombre;
-            Imagen1 = imagen;
+            this.id_producto = id_producto;
+            Stock = stock;
+            ID_marca = id_marca;
+            Precio_unitario = precio_unitario;
+            ID_categoria = id_categoria;
+            Estado = estado;
+            Nombre = nombre;
+            Imagen = imagen;
+            Descripcion = descripcion;
         }
 
         public int Id_producto { get => id_producto; set => id_producto = value; }
@@ -40,8 +42,10 @@ namespace Entidades
         public int ID_marca1 { get => ID_marca; set => ID_marca = value; }
         public decimal Precio_unitario1 { get => Precio_unitario; set => Precio_unitario = value; }
         public int ID_categoria1 { get => ID_categoria; set => ID_categoria = value; }
-        public bool Estado1 { get => Estado; set => Estado = value; }
+        public int Estado1 { get => Estado; set => Estado = value; }
         public string Nombre1 { get => Nombre; set => Nombre = value; }
         public string Imagen1 { get => Imagen; set => Imagen = value; }
+        public string Descripcion1 { get => Descripcion; set => Descripcion = value; }
+
     }
 }

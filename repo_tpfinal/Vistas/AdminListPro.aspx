@@ -1,18 +1,26 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminListPro.aspx.cs" Inherits="Vistas.WebForm3" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminListPro.aspx.cs" Inherits="Vistas.AdminListPro" %>
+
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head runat="server">
+
+<head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="StyleSheet" ; href="/css/home.css" ; type="text/css" />
     <link rel="StyleSheet" ; href="/css/footer.css" ; type="text/css" />
     <link rel="StyleSheet" ; href="/css/headerAdmin.css" ; type="text/css" />
 
-    <title>Home</title>
+    <title>Lista Productos - Admin</title>
     <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  </head>
+    <style type="text/css">
+        .auto-style1 {
+            width: 45%;
+        }
+    </style>
+</head>
+
 <body>
     <form id="form1" runat="server">
     <header>
@@ -28,27 +36,24 @@
         <div class="EspacioBarraNavegacion" style="padding-top: 35px;">
             <ul class="nav">
                 <li class="name">
-                    <a href="#">Home</a>
+                    <a href="/AdminHome.aspx">Home</a>
                 </li>
                 <li class="name">
-                    <a href="#">Categorias</a>
+                    <a href="/AdminHome.aspx">Administracion</a>
                     <ul>
                         <li>
-                            <a href="/categoria.html">Monitores</a>
+                            <a href="/AdminListarProductos.aspx">Productos</a>
                         </li>
                         <li>
-                            <a href="/categoria.html">Televisores</a>
+                            <a href="/AdminUsuarios.html">Usuarios</a>
                         </li>
                         <li>
-                            <a href="/categoria.html">Tablet</a>
+                            <a href="/AdminListarCategorias.html">Categorias</a>
                         </li>
                         <li>
-                            <a href="/categoria.html">Celulares</a>
+                            <a href="/AdminListarMarcas.html">Marcas</a>
                         </li>
                     </ul>
-                </li>
-                <li class="name">
-                    <a href="#">Contacto</a>
                 </li>
             </ul>
         </div>
@@ -57,66 +62,60 @@
     <!------------------------------------------------------------>
     <div style="display: inline-block;width: 80%;padding-top: 100px;padding-left: 10%">
         <div style="    background-color: rgba(197, 93, 102, 0.404);
-    padding-left: 15%;padding-right: 15%;border-radius: 8px;">
-            <h1 style="padding-top: 20px;">Productos</h1>
+    margin-left: 15%;margin-right: 15%;border-radius: 8px;    padding-bottom: 5%;">
+            <h1 style="padding-top: 20px; text-align: center ">Productos</h1>
             <div class="EspacioBuscador">
-                <input type="text" name="search" placeholder="Buscar" class="bus" autocomplete="off" />
+                <asp:TextBox ID="txtBuscar" runat="server" name="search" placeholder="Buscar" class="bus" autocomplete="off" AutoPostBack="True" OnTextChanged="txtBuscar_TextChanged" TabIndex="1" onkeyup="RefreshUpdatePanel()" onfocus="this.selectionStart = this.selectionEnd = this.value.length;"></asp:TextBox>
             </div>
-            <table style="width: 100%;margin-top:25px;padding-bottom: 20px">
-                <tbody>
-                    <tr style="background-color:rgba(200, 78, 89, 0.404) ">
-                        <td style="height: 35px;width: 15%;">ID</td>
-                        <td style="height: 35px;width: 15%;">Modelo</td>
-                        <td style="height: 35px;width: 15%;">Marca</td>
-                        <td style="height: 35px;width: 15%;">Categoria</td>
-                        <td style="height: 35px;width: 15%;">Estado</td>
-
-                    </tr>
-                    <tr style="background-color:white">
-                        <td style="height: 35px;width: 10%;" class="info-user">39707041</td>
-                        <td style="height: 35px;width: 10%;"></td>
-                        <td style="height: 35px;width: 10%;"></td>
-                        <td style="height: 35px;width: 10%;"></td>
-
-                        <td style="height: 35px;width:5%;">
-                            <button
-                                style="width: 50%;height: 100%;background-color: rgba(0, 255, 255, 0.685);border-radius: 5px;border-color: rgb(82, 78, 78);border: thin;"
-                                class="encontrar-id-usuario"><i class="fas fa-pencil-alt"></i></button><button
-                                style="width: 50%;height: 100%;background-color: rgb(248, 13, 13);border-radius: 5px;border-color: gray;border: thin;"
-                                class="encontrar-id-usuario"><i class="far fa-trash-alt"></i></button>
-                        </td>
-                    </tr>
-                    <tr style="background-color:white;">
-                        <td style="height: 35px;width: 10%;" class="info-user">39707041</td>
-                        <td style="height: 35px;width: 10%;"></td>
-                        <td style="height: 35px;width: 10%;"></td>
-                        <td style="height: 35px;width: 10%;"></td>
-
-                        <td style="height: 35px;width: 5%;">
-                            <button
-                                style="width: 50%;height: 100%;background-color: rgba(0, 255, 255, 0.685);border-radius: 5px;border-color: gray;border: thin;"
-                                class="encontrar-id-usuario"><i class="fas fa-pencil-alt"></i></button><button
-                                style="width: 50%;height: 100%;background-color:  rgb(248, 13, 13);border-radius: 5px;border-color: gray;border: thin;"
-                                class="encontrar-id-usuario"><i class="far fa-trash-alt"></i></button>
-                        </td>
-                    </tr>
-                    <tr style="background-color:white;">
-                        <td style="height: 35px;width: 15%;" class="info-user"></td>
-                        <td style="height: 35px;width: 15%;"></td>
-                        <td style="height: 35px;width: 15%;"></td>
-                        <td style="height: 35px;width: 15%;"></td>
-                        <td style="height: 35px;width: 5%;">
-                            <button
-                                style="width: 50%;height: 100%;background-color: rgba(0, 255, 255, 0.685);border-radius: 5px;border-color: rgb(0, 0, 0);border: thin;"
-                                class="encontrar-id-usuario"><i class="fas fa-pencil-alt"></i></button><button
-                                style="width: 50%;height: 100%;background-color:  rgb(248, 13, 13);border-radius: 5px;border-color: gray;border: thin;"
-                                class="encontrar-id-usuario"><i class="far fa-trash-alt"></i></button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+           
             <br />
+            <div style="font-size: 20px;margin-left: 17%;width: 70%;" class="auto-style1">
+            <asp:GridView ID="grdProductos" runat="server" style="width:100%; border-radius:5px" CellPadding="4" AutoGenerateColumns="False" AutoGenerateSelectButton="True" OnSelectedIndexChanging="grdProductos_SelectedIndexChanging" AllowPaging="True" AutoGenerateDeleteButton="True" OnRowDeleting="grdProductos_RowDeleting" ForeColor="#333333" GridLines="None" OnPageIndexChanging="grdProductos_PageIndexChanging" PageSize="5" >
+                <AlternatingRowStyle BackColor="#BCC8C3" ForeColor="" />
+                <Columns>
+                    <asp:TemplateField HeaderText="Id" Visible="False">
+                        <ItemTemplate>
+                            <asp:Label class="info-user" ID="lblId" runat="server" Text='<%# Bind("ID") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="PRODUCTO">
+                        <ItemTemplate>
+                            <asp:Label ID="lblProd" runat="server" Text='<%# Bind("Producto") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="MARCA">
+                        <ItemTemplate>
+                            <asp:Label ID="lblMarca" runat="server" Text='<%# Bind("Marca") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="PRECIO">
+                        <ItemTemplate>
+                            <asp:Label ID="lblPrecio" runat="server" Text='<%# Bind("Precio") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="STOCK">
+                        <ItemTemplate>
+                            <asp:Label ID="lblStock" runat="server" Text='<%# Bind("Disponibles") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+                <EditRowStyle BackColor="#999999" />
+                <FooterStyle BackColor="#90648B" ForeColor="White" Font-Bold="True" />
+                <HeaderStyle BackColor="#AE4750" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#6D887D" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#F4F6F5" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+            </asp:GridView>
+                </div>
+                <div style="text-align:center;width:100%;margin:10px;height: 35px;">
+                    <asp:Button ID="btnCrearProducto" runat="server" Text="Crear Nuevo Producto" style="width: 25%;height: 100%;background-color: rgba(174, 64, 74, 0.84); border: none;border-radius: 10px;" Font-Bold="True" Font-Size="Medium" OnClick="btnCrearProducto_Click"/>
+                </div>
         </div>
+        
     </div>
     <footer>
         <div>
@@ -152,17 +151,33 @@
             </ul>
         </div>
     </footer>
+        <br />
     </form>
 </body>
+    <!-- BUSQUEDA -->
+    <!-- CADA VEZ QUE CAMBIA LA LETRA HACE POSTBACK -->
     <script type="text/javascript">
-    $(".encontrar-id-usuario").click(function() {
-      var $id = $(this).closest("tr")//BUSCO EL TR MAS CERCANO QUE ES SOBRE EL QUE SE HIZO CLICK
-                        .find(".info-user")//BUSCO EL ITEM QUE TENGA ESA CLASE
-                        .text();//AGARRO EL TEXTO DEL TD
-
-      alert($id);// Outputs the answer
-
-        window.location.replace("/adminedicusu.aspx?ID="+$id);
-    });
-  </script>
+        function RefreshUpdatePanel() {
+            __doPostBack('<%= txtBuscar.ClientID %>', '');
+        };
+    </script>
+    <!-- SI HIZO POSTBACK PARA SEGUIR ESCRIBIENDO NORMAL PONGO EL CURSOR AL FINAL -->
+    <script type="text/javascript">
+        function SetCursorToTextEnd(textControlID) {
+            document.getElementById("txtBuscar").focus();
+            var text = document.getElementById(textControlID);
+            if (text != null && text.value.length > 0) {
+                if (text.createTextRange) {
+                    var FieldRange = text.createTextRange();
+                    FieldRange.moveStart('character', text.value.length);
+                    FieldRange.collapse();
+                    FieldRange.select();
+                }
+            }
+        }
+    </script>
+    <!-- CADA VEZ QUE ENTRO PONGO LA BUSQUEDA ACTIVA -->
+    <script type="text/javascript">
+        document.getElementById("txtBuscar").focus();
+    </script>
 </html>

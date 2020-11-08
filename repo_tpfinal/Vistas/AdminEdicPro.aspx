@@ -1,55 +1,55 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminEdicPro.aspx.cs" Inherits="Vistas.WebForm13" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminEdicPro.aspx.cs" Inherits="Vistas.AdminEdicPro" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="StyleSheet" ; href="/css/home.css" ; type="text/css" />
     <link rel="StyleSheet" ; href="/css/footer.css" ; type="text/css" />
     <link rel="StyleSheet" ; href="/css/headerAdmin.css" ; type="text/css" />
-    <link rel="StyleSheet" ; href="/css/editProAdmin.css" ; type="text/css" />
+    <link rel="StyleSheet" ; href="/css/EditProAdmin.css" ; type="text/css" />
 
 
-    <title>Edicion de productos</title>
+    <title>Editar Productos - Admin</title>
     <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
+
 <body>
-   <header>
+    <form id="form1" runat="server">
+    <header>
         <div class="EspacioLogo">
             <img src="/img/logo.jpg" ; class="Logo" />
         </div>
 
 
         <div class="EspacioAtajos" style="padding-top: 50px;">
-            <a href="/home.html" class="fa fa-sign-out"
+            <a href="/home.html?type=logout" class="fa fa-sign-out"
                 style="text-decoration: none; font-size: 30px;color: black;"></a>
         </div>
         <div class="EspacioBarraNavegacion" style="padding-top: 35px;">
             <ul class="nav">
                 <li class="name">
-                    <a href="#">Home</a>
+                    <a href="/AdminHome.aspx">Home</a>
                 </li>
                 <li class="name">
-                    <a href="#">Categorias</a>
+                    <a href="/AdminHome.aspx">Administracion</a>
                     <ul>
                         <li>
-                            <a href="/categoria.html">Monitores</a>
+                            <a href="/AdminListarProductos.aspx">Productos</a>
                         </li>
                         <li>
-                            <a href="/categoria.html">Televisores</a>
+                            <a href="/AdminUsuarios.html">Usuarios</a>
                         </li>
                         <li>
-                            <a href="/categoria.html">Tablet</a>
+                            <a href="/AdminListarCategorias.html">Categorias</a>
                         </li>
                         <li>
-                            <a href="/categoria.html">Celulares</a>
+                            <a href="/AdminListarMarcas.html">Marcas</a>
                         </li>
                     </ul>
-                </li>
-                <li class="name">
-                    <a href="#">Contacto</a>
                 </li>
             </ul>
         </div>
@@ -58,39 +58,54 @@
     <!------------------------------------------------------------>
     <div style="display: inline-block;width: 80%;padding-top: 100px;padding-left: 10%">
         <div style="    background-color: rgba(197, 93, 102, 0.404);
-    ;padding-left: 15%;padding-right: 15%;border-radius: 8px;">
+    padding-left: 15%;padding-right: 15%;border-radius: 8px;">
             <h1 style="padding-top: 20px;">Edicion de producto</h1>
-            <table style="width: 100%;margin-top:25px;padding-bottom: 20px">
-                <body>
-                    <tr style="background-color:rgba(200, 78, 89, 0.404) ">
+            <table style="width: 100%;margin-top:25px;padding-bottom: 20px;" class="styled-table">
+                <thead >
+                    <tr>
                         <td style="height: 35px;width: 11%;">Modelo</td>
                         <td style="height: 35px;width: 11%;">Marca</td>
                         <td style="height: 35px;width: 11%;">Categoria</td>
                         <td style="height: 35px;width: 11%;">Stock</td>
-                        <td style="height: 35px;width: 11%;">Categoria</td>
                         <td style="height: 35px;width: 11%;">Precio unitario</td>
                         <td style="height: 35px;width: 11%;">Descripcion</td>
                         <td style="height: 35px;width: 13%;">Estado</td>
-                    <tr style="background-color:white;">
-                        <td style="height: 35px;width: 15%;" class="info-user"><input/></td>
-                        <td style="height: 35px;width: 15%;"><input/></td>
-                        <td style="height: 35px;width: 15%;"><input/></td>
-                        <td style="height: 35px;width: 15%;"><input/></td>
-                        <td style="height: 35px;width: 10%;"><input/></td>
-                        <td style="height: 35px;width: 10%;"><input/></td>
-                        <td style="height: 35px;width: 10%;"><input/></td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td style="height: 35px;width: 15%;">
+                            <asp:TextBox ID="txtModelo" runat="server" style="width: 80%;height:100%;border-radius:5px"></asp:TextBox>
+                        </td>
+                        <td style="height: 35px;width: 15%;">
+                            <asp:DropDownList ID="ddMarca" runat="server" style="width: 80%;height:100%;border-radius:5px">
+                            </asp:DropDownList>
+                        </td>
+                        <td style="height: 35px;width: 15%;">
+                            <asp:DropDownList ID="ddCategoria" runat="server" style="width: 80%;height:100%;border-radius:5px">
+                            </asp:DropDownList>
+                        </td>
+                        
                         <td style="height: 35px;width: 10%;">
-                          <select class="cantidad">
-                            <option value="1">activo</option>
-                            <option value="2">inactivo</option>
-                          </select>
+                            <asp:TextBox ID="txtStock" runat="server" style="width: 80%;height:100%;border-radius:5px"></asp:TextBox>
+                        </td>
+                        <td style="height: 35px;width: 10%;">
+                            <asp:TextBox ID="txtPrecio" runat="server" style="width: 80%;height:100%;border-radius:5px"></asp:TextBox>
+                        </td>
+                        <td style="height: 35px;width: 10%;">
+                            <asp:TextBox ID="txtDescripcion" runat="server" style="width: 80%;height:100%;border-radius:5px"></asp:TextBox>
+                        </td>
+                        <td style="height: 35px;width: 10%;">
+                            <asp:DropDownList ID="ddEstado" runat="server" style="width: 80%;height:100%;border-radius:5px">
+                            </asp:DropDownList>
                         </td>
 
                     </tr>
-                </body>
+                </tbody>
             </table>
-            <div style="padding-bottom: 25px;text-align: center;height: 35px;">
-              <button style="width: 25%;height: 100%;background-color: rgba(0, 255, 255, 0.685);border-radius: 5px;border-color: rgb(116, 144, 83);border: thin;" class="encontrar-id-usuario"><b>GUARDAR CAMBIOS</b></button><div style="width: 50px;display: inline-block"></div><button style="width: 25%;height: 100%;background-color: rgb(248, 13, 13);border-radius: 5px;border-color: gray;border: thin;" class="encontrar-id-usuario"><b>CANCELAR</b></button>
+            <div style="padding-bottom: 25px;padding-top: 10px ;text-align: center;height: 35px;">
+              <asp:Button ID="btnGuardar" runat="server" Text="Guardar cambios" OnClick="btnGuardar_Click" style="width: 25%;height: 100%;background-color: #649071; border: none;border-radius: 5px;" Font-Bold="True" Font-Size="Medium"/><div style="width: 50px;display: inline-block">
+                </div><button id="btnCancelar" type="button" onclick="btnCancelar_click()" style="width: 25%;height: 100%;background-color: rgb(248, 13, 13);font-weight:bolder ;border-radius: 5px;border-color: gray;border: thin;font-size:17px"><b>Cancelar</b></button>
           </div>
         </div>
     </div>
@@ -128,8 +143,10 @@
             </ul>
         </div>
     </footer>
+    </form>
 </body>
-    <script type="text/javascript">
+
+<script type="text/javascript">
     $(".encontrar-id-usuario").click(function () {
         var $id = $(this).closest("tr")//BUSCO EL TR MAS CERCANO QUE ES SOBRE EL QUE SE HIZO CLICK
             .find(".info-user")//BUSCO EL ITEM QUE TENGA ESA CLASE
@@ -140,4 +157,9 @@
         window.location.replace("/admin1.html?ID=" + $id);
     });
 </script>
+    <script type="text/javascript">
+        function btnCancelar_click() {
+            window.location.href = '/AdminListPro.aspx';
+        }
+    </script>
 </html>

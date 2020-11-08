@@ -9,20 +9,22 @@ using System.Runtime.InteropServices.ComTypes;
 
 namespace Dao
 {
-    class AccesoaDatos
+    public class AccesoaDatos
     {
         //string ruta = "Data Source=localhost\\sqlexpress;Initial Catalog=TP_Final;Persist Security Info=True;User ID=sa;Password=123456";
-        string ruta = "Data Source=LAPTOP-JSEM9I72\\SQLEXPRESS;Initial Catalog=TP_Final;Integrated Security=True";
+        //string ruta = "Data Source=LAPTOP-JSEM9I72\\SQLEXPRESS;Initial Catalog=TP_Final;Integrated Security=True";
         //string ruta = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=TP_Final;Integrated Security=True";
          //string ruta = "Data Source=localhost\\sqlexpress;Initial Catalog=TP_Final;Integrated Security=True";
-        //string ruta = "Data Source=localhost\\sqlexpress;Initial Catalog=TP_Final;Persist Security Info=True;User ID=sa;Password=123456";
+
+        string ruta = "Data Source=localhost\\sqlexpress;Initial Catalog=TP_Final;Persist Security Info=True;User ID=sa;Password=123456";
+
 
         public AccesoaDatos()
         {
 
         }
 
-        private SqlConnection ObtenerConexion()
+        public SqlConnection ObtenerConexion()
         {
             SqlConnection cn = new SqlConnection(ruta);
             try
@@ -36,12 +38,12 @@ namespace Dao
             }
         }
 
-        private SqlDataAdapter ObtenerAdaptador(String consultaSql, SqlConnection cn)
+        public SqlDataAdapter ObtenerAdaptador(String consultaSql)
         {
             SqlDataAdapter adaptador;
             try
             {
-                adaptador = new SqlDataAdapter(consultaSql, cn);
+                adaptador = new SqlDataAdapter(consultaSql, ObtenerConexion());
                 return adaptador;
             }
             catch (Exception ex)
@@ -54,7 +56,7 @@ namespace Dao
         {
             DataSet ds = new DataSet();
             SqlConnection Conexion = ObtenerConexion();
-            SqlDataAdapter adp = ObtenerAdaptador(Sql, Conexion);
+            SqlDataAdapter adp = ObtenerAdaptador(Sql);
             adp.Fill(ds, NombreTabla);
             Conexion.Close();
             return ds.Tables[NombreTabla];
@@ -76,9 +78,8 @@ namespace Dao
 
         public DataSet TraerDs(string NombreTabla, string consulta)
         {
-            SqlConnection con = new SqlConnection(ruta);
             DataSet ds = new DataSet();
-            SqlDataAdapter adap = ObtenerAdaptador(consulta, con);
+            SqlDataAdapter adap = ObtenerAdaptador(consulta);
             adap.Fill(ds, NombreTabla);
             return ds;
         }
