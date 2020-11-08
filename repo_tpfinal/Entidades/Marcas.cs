@@ -10,22 +10,36 @@ namespace Entidades
     {
         private int ID_marca;
         private string Nombre;
-        private bool Estado;
+        private string Estado;
 
         public Marcas()
         {
 
         }
 
-        public Marcas(int id_marca, string nombre, bool estado)
+        public int getID_Marcas()
         {
-            ID_marca1 = id_marca;
-            Nombre1 = nombre;
-            Estado1 = estado;
+            return ID_marca;
         }
-
-        public int ID_marca1 { get => ID_marca; set => ID_marca = value; }
-        public string Nombre1 { get => Nombre; set => Nombre = value; }
-        public bool Estado1 { get => Estado; set => Estado = value; }
+        public void setID_Marcas(int idMarcas)
+        {
+            ID_marca = idMarcas;
+        }
+        public String getNombre()
+        {
+            return Nombre;
+        }
+        public void setNombre(String nombreMarcas)
+        {
+            Nombre = nombreMarcas;
+        }
+        public String getEstado()
+        {
+            return Estado;
+        }
+        public void setEstado(String Estado1)
+        {
+            Estado = Estado1;
+        }
     }
 }

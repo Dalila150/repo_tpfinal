@@ -3,15 +3,29 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="StyleSheet" ; href="/css/home.css" ; type="text/css" />
     <link rel="StyleSheet" ; href="/css/footer.css" ; type="text/css" />
     <link rel="StyleSheet" ; href="/css//headerAdmin.css" ; type="text/css" />
 
-    <title>Home</title>
+    <title>Crear | Categorias</title>
     <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style type="text/css">
+        .auto-style1 {
+            font-size: x-large;
+        }
+        .auto-style2 {
+            font-size: large;
+        }
+        .auto-style3 {
+            height: 35px;
+        }
+    </style>
+    </head>
 <body>
+    <form id="form1" runat="server">
     <header>
         <div class="EspacioLogo">
             <img src="/img/logo.jpg" ; class="Logo" />
@@ -63,10 +77,16 @@
                         <div>
                             <tr>
                                 <td style="width: 15%;">
-                                    <h3 style="display: inline;">Nombre marca:</h3>
+                                    <h3 style="display: inline;">Nombre marca:<br />
+                                        <br />
+                                    </h3>
                                 </td>
                                 <td style="width: 25%;">
-                                    <input style="display: inline;margin-left: 15px;"></input>
+                                    </input>
+                                &nbsp;<asp:TextBox ID="txt_Nombre_Marca" runat="server"></asp:TextBox>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+                                    &nbsp;&nbsp;<asp:Label ID="lbl_Mensaje" runat="server" CssClass="auto-style2"></asp:Label>
+                                &nbsp;<br />
                                 </td>
                             </tr>
                             
@@ -74,14 +94,10 @@
                     </tbody>
                 </table>
             </div>
-            <div style="padding-bottom: 25px; text-align:center; margin-top:3%; height: 35px;">
-                <button
-                    style="width: 25%;height: 100%;background-color: rgba(0, 255, 255, 0.685);border-radius: 5px;border-color: rgb(116, 144, 83);border: thin;"
-                    class="encontrar-id-usuario"><b>CREAR MARCA</b></button>
-                <div style="width: 50px;display: inline-block"></div><button
-                    style="width: 25%;height: 100%;background-color: rgb(248, 13, 13);border-radius: 5px;border-color: gray;border: thin;"
-                    class="encontrar-id-usuario"><b>CANCELAR</b></button>
-            </div>
+            <div style="padding-bottom: 25px; text-align:center; margin-top:3%; " class="auto-style3">
+                <asp:Button ID="btn_Crear_Marca" runat="server" Text="CREAR MARCA" BorderStyle="Inset" BackColor="#60FDF5" BorderColor="#00FFF2" Width="202px" CssClass="auto-style1" Height="40px" OnClick="btn_Crear_Marca_Click"/>
+                <div style="width: 50px;display: inline-block"></div><asp:Button ID="btn_Cancelar" runat="server" Text="CANCELAR" BorderStyle="Inset" BackColor="Red" BorderColor="#FF6600" Width="142px" CssClass="auto-style1" Height="40px"/>
+            &nbsp;</div>
         </div>
     </div>
     </div>
@@ -119,14 +135,15 @@
             </ul>
         </div>
     </footer>
+    </form>
 </body>
     <script type="text/javascript">
-    $(".encontrar-id-usuario").click(function () {
-        var $id = $(this).closest("tr")//BUSCO EL TR MAS CERCANO QUE ES SOBRE EL QUE SE HIZO CLICK
-            .find(".info-user")//BUSCO EL ITEM QUE TENGA ESA CLASE
-            .text();//AGARRO EL TEXTO DEL TD
+        $(".encontrar-id-usuario").click(function () {
+            var $id = $(this).closest("tr")//BUSCO EL TR MAS CERCANO QUE ES SOBRE EL QUE SE HIZO CLICK
+                .find(".info-user")//BUSCO EL ITEM QUE TENGA ESA CLASE
+                .text();//AGARRO EL TEXTO DEL TD
 
-        alert($id);// Outputs the answer
-    });
-</script>
+            alert($id);// Outputs the answer
+        });
+    </script>
 </html>

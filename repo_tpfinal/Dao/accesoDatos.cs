@@ -12,8 +12,8 @@ namespace Dao
     class AccesoaDatos
     {
         //string ruta = "Data Source=localhost\\sqlexpress;Initial Catalog=TP_Final;Persist Security Info=True;User ID=sa;Password=123456";
-        string ruta = "Data Source=LAPTOP-JSEM9I72\\SQLEXPRESS;Initial Catalog=TP_Final;Integrated Security=True";
-
+        //string ruta = "Data Source=LAPTOP-JSEM9I72\\SQLEXPRESS;Initial Catalog=TP_Final;Integrated Security=True";
+        string ruta = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=TP_Final;Integrated Security=True";
 
         public AccesoaDatos()
         {
@@ -23,64 +23,39 @@ namespace Dao
         private SqlConnection ObtenerConexion()
         {
             SqlConnection cn = new SqlConnection(ruta);
-
             try
             {
                 cn.Open();
                 return cn;
             }
-
             catch (Exception ex)
             {
                 return null;
             }
         }
 
-        public SqlDataAdapter ObtenerAdaptador(string consultaSql)
+        private SqlDataAdapter ObtenerAdaptador(String consultaSql, SqlConnection cn)
         {
             SqlDataAdapter adaptador;
-
             try
             {
-                adaptador = new SqlDataAdapter(consultaSql, ObtenerConexion());
+                adaptador = new SqlDataAdapter(consultaSql, cn);
                 return adaptador;
             }
-
             catch (Exception ex)
             {
                 return null;
             }
         }
 
-        public DataTable TraerTabla(string NombreTabla, string consulta)
+        public DataTable ObtenerTabla(String NombreTabla, String Sql)
         {
             DataSet ds = new DataSet();
-            SqlDataAdapter adap = ObtenerAdaptador(consulta);
-            adap.Fill(ds, NombreTabla);
-            return ds.Tables[NombreTabla];
-        }
-
-        public DataSet TraerDs(string NombreTabla, string consulta)
-        {
-            DataSet ds = new DataSet();
-            SqlDataAdapter adap = ObtenerAdaptador(consulta);
-            adap.Fill(ds, NombreTabla);
-            return ds;
-        }
-
-
-        public Boolean Existe_en_BD(string consulta)
-        {
-            Boolean estado = false;
             SqlConnection Conexion = ObtenerConexion();
-            SqlCommand cmd = new SqlCommand(consulta, Conexion);
-            SqlDataReader datos = cmd.ExecuteReader();
-            if (datos.Read())
-            {
-                estado = true;
-            }
-
-            return estado;
+            SqlDataAdapter adp = ObtenerAdaptador(Sql, Conexion);
+            adp.Fill(ds, NombreTabla);
+            Conexion.Close();
+            return ds.Tables[NombreTabla];
         }
 
         public int EjecutarProcedimientoAlmacenado(SqlCommand Comando, String NombreSP)
@@ -95,6 +70,39 @@ namespace Dao
             FilasCambiadas = cmd.ExecuteNonQuery();
             Conexion.Close();
             return FilasCambiadas;
+        }
+
+        public DataSet TraerDs(string NombreTabla, string consulta)
+        {
+            SqlConnection con = new SqlConnection(ruta);
+            DataSet ds = new DataSet();
+            SqlDataAdapter adap = ObtenerAdaptador(consulta, con);
+            adap.Fill(ds, NombreTabla);
+            return ds;
+        }
+
+
+        public Boolean existe(String consulta)
+        {
+            Boolean estado = false;
+            SqlConnection Conexion = ObtenerConexion();
+            SqlCommand cmd = new SqlCommand(consulta, Conexion);
+            SqlDataReader datos = cmd.ExecuteReader();
+            if (datos.Read())
+            {
+                estado = true;
+            }
+            return estado;
+        }
+
+        public int ejecutar_transaccion(string consulta)
+        {
+            SqlConnection conec = new SqlConnection(ruta);
+            conec.Open();
+
+            SqlCommand comando = new SqlCommand(consulta, conec);
+
+            return comando.ExecuteNonQuery();
         }
 
         public int ObtenerMaximo(String consulta)

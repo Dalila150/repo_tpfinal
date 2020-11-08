@@ -17,7 +17,7 @@ namespace Dao
         public Boolean existeCategoría(Categorias cat)
         {
             String consulta = "Select * from categorías where NombreCategoría='" + cat.Nombre1 + "'";
-            return ds.Existe_en_BD(consulta);
+            return ds.existe(consulta);
         }
 
         public int eliminarCategoria(Categorias cat)

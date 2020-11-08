@@ -14,6 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
+    <form id="form1" runat="server">
    <header>
         <div class="EspacioLogo">
             <img src="/img/logo.jpg" ; class="Logo" />
@@ -65,10 +66,14 @@
                         <div>
                             <tr>
                                 <td style="width: 15%;">
-                                    <h3 style="display: inline;">Nombre marca:</h3>
+                                    <h3 style="display: inline;">Nombre marca:<br />
+                                    </h3>
                                 </td>
                                 <td style="width: 25%;">
-                                    <input style="display: inline;margin-left: 15px;"></input>
+                                    </input>
+                                &nbsp;<asp:TextBox ID="txtNombreMarca" runat="server"></asp:TextBox>
+                                    <br />
+                                    <asp:Label ID="lblMensaje" runat="server"></asp:Label>
                                 </td>
                             </tr>
                             
@@ -77,12 +82,9 @@
                 </table>
             </div>
             <div style="padding-bottom: 25px; text-align:center; margin-top:3%;height: 35px;">
-                <button
-                    style="width: 25%;height: 100%;background-color: rgba(0, 255, 255, 0.685);border-radius: 5px;border-color: rgb(116, 144, 83);border: thin;"
-                    class="encontrar-id-usuario"><b>ELIMINAR MARCA</b></button>
-                <div style="width: 50px;display: inline-block"></div><button
-                    style="width: 25%;height: 100%;background-color: rgb(248, 13, 13);border-radius: 5px;border-color: gray;border: thin;"
-                    class="encontrar-id-usuario"><b>CANCELAR</b></button>
+                <asp:Button runat="server" ID="BtnEliminarMarca"  Height="40px" Text="ELIMINAR MARCA" Width="142px" OnClick="BtnEliminarMarca_Click"  />
+                <div style="width: 50px;display: inline-block"></div>
+                <asp:Button  runat="server" ID="BtnCancelar" Height="40px" Text="CANCELAR" Width="143px"  />
             </div>
         </div>
     </div>
@@ -121,14 +123,15 @@
             </ul>
         </div>
     </footer>
+    </form>
 </body>
     <script type="text/javascript">
-    $(".encontrar-id-usuario").click(function () {
-        var $id = $(this).closest("tr")//BUSCO EL TR MAS CERCANO QUE ES SOBRE EL QUE SE HIZO CLICK
-            .find(".info-user")//BUSCO EL ITEM QUE TENGA ESA CLASE
-            .text();//AGARRO EL TEXTO DEL TD
+        $(".encontrar-id-usuario").click(function () {
+            var $id = $(this).closest("tr")//BUSCO EL TR MAS CERCANO QUE ES SOBRE EL QUE SE HIZO CLICK
+                .find(".info-user")//BUSCO EL ITEM QUE TENGA ESA CLASE
+                .text();//AGARRO EL TEXTO DEL TD
 
-        alert($id);// Outputs the answer
-    });
-</script>
+            alert($id);// Outputs the answer
+        });
+    </script>
 </html>
