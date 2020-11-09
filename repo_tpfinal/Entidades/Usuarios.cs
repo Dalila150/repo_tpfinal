@@ -18,6 +18,7 @@ namespace Entidades
         private string Password;
         private string Telefono;
         private string DNI;
+        private int Estado;
 
         public Usuarios()
         {
@@ -110,6 +111,14 @@ namespace Entidades
         public void setDNIUsuario(String dni)
         {
             DNI = dni;
+        }
+        public int get_Estado()
+        {
+            return Estado;
+        }
+        public void set_Estado(int Estado1)
+        {
+            Estado = Estado1;
         }
     }
 }

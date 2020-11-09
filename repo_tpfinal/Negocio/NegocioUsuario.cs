@@ -61,20 +61,28 @@ namespace Negocio
         {
             DaoUsuario dao = new DaoUsuario();
 
-
-
-
             if (dao.existeUsuario(usuario.getNombreUsuario()) && dao.existeUsuarioApellido(usuario.getApellidoUsuario()))
             {
                 return true;
             }
             else
             {
-                dao.agregarNuevoUsuario(usuario);
-
+                dao.agregarNuevoUsuario(usuario); 
                 return false;
             }
 
+        }
+        public bool eliminarUsuarioAdmin_neg(String nombre)
+        {
+            //Validar usuarioadmin
+            DaoUsuario dao = new DaoUsuario();
+            Usuarios usu = new Usuarios();
+            usu.setNombre_UsuarioUsuario(nombre);
+            int op = dao.eliminarUsuarioAdmin(usu);
+            if (op == 1)
+                return true;
+            else
+                return false;
         }
 
     }

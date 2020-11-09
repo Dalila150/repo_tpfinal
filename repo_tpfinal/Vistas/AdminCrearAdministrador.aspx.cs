@@ -16,7 +16,7 @@ namespace Vistas
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void btnAgregarUsuario_Click(object sender, EventArgs e)
         {
             NegocioUsuario nuevo_usuario = new NegocioUsuario();
             Usuarios Datos_usuario = new Usuarios();

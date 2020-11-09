@@ -64,6 +64,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminEliminarUsuariosAdmin.aspx" />
     <Content Include="css\admin1.css" />
     <Content Include="css\categorias.css" />
     <Content Include="css\datos.css" />
@@ -75,13 +76,12 @@
     <Content Include="css\iniciosesion.css" />
     <Content Include="css\producto.css" />
     <Content Include="css\registro.css" />
-    <Content Include="EliminarUsuario.aspx" />
+    <Content Include="AdminCrearAdministrador.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Web.config" />
     <Content Include="AdminCrearCategoria.aspx" />
     <Content Include="AdminCrearMarca.aspx" />
     <Content Include="AdminCrearPro.aspx" />
-    <Content Include="AdminCrearUsu.aspx" />
     <Content Include="AdminEdicPro.aspx" />
     <Content Include="AdminEdicUsu.aspx" />
     <Content Include="AdminEliminarCategoria.aspx" />
@@ -96,12 +96,19 @@
     <Content Include="AdminEliminarMarca.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EliminarUsuario.aspx.cs">
-      <DependentUpon>EliminarUsuario.aspx</DependentUpon>
+    <Compile Include="AdminCrearAdministrador.aspx.cs">
+      <DependentUpon>AdminCrearAdministrador.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="EliminarUsuario.aspx.designer.cs">
-      <DependentUpon>EliminarUsuario.aspx</DependentUpon>
+    <Compile Include="AdminCrearAdministrador.aspx.designer.cs">
+      <DependentUpon>AdminCrearAdministrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEliminarUsuariosAdmin.aspx.cs">
+      <DependentUpon>AdminEliminarUsuariosAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminEliminarUsuariosAdmin.aspx.designer.cs">
+      <DependentUpon>AdminEliminarUsuariosAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
@@ -131,13 +138,6 @@
     </Compile>
     <Compile Include="AdminCrearPro.aspx.designer.cs">
       <DependentUpon>AdminCrearPro.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AdminCrearUsu.aspx.cs">
-      <DependentUpon>AdminCrearUsu.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdminCrearUsu.aspx.designer.cs">
-      <DependentUpon>AdminCrearUsu.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminEdicPro.aspx.cs">
       <DependentUpon>AdminEdicPro.aspx</DependentUpon>

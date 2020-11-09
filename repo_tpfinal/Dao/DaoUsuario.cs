@@ -16,13 +16,13 @@ namespace Dao
 
         public Boolean existeUsuario(string Nombre)
         {
-            String consulta = "Select * from Usuario where Nombre='" + Nombre + "'";
+            String consulta = "Select * from Usuario where Nombre="+"'" + Nombre + "'";
             return ds.existe(consulta);
         }
 
         public Boolean existeUsuarioApellido(string Nombre)
         {
-            String consulta = "Select * from Usuario where Apellido='" + Nombre + "'";
+            String consulta = "Select * from usuario where Apellido='" + Nombre + "'";
             return ds.existe(consulta);
         }
 
@@ -50,7 +50,7 @@ namespace Dao
         {
 
 
-            usur.setID_usuario(ds.ObtenerMaximo("SELECT max(ID_Usuario) FROM Usuarios") + 1);
+            //usur.setID_usuario(ds.ObtenerMaximo("SELECT max(ID_Usuario) FROM Usuario") + 1);
 
             SqlCommand comando = new SqlCommand();
             ParametrosUsuarioNuevo(ref comando, usur);
@@ -81,9 +81,20 @@ namespace Dao
             SqlParametros.Value = usur.getTelefonoUsuario();
             SqlParametros = comando.Parameters.Add("@DNI", SqlDbType.VarChar);
             SqlParametros.Value = usur.getDNIUsuario();
-
         }
-
+        public int eliminarUsuarioAdmin(Usuarios usu)
+        {
+            SqlCommand comando = new SqlCommand();
+            ArmarParametrosUsuarioAdminEliminar(ref comando, usu);
+            //SE INGRESA EL NOMBRE DEL PROCEDIMIENTO ALMACENADO
+            return ds.EjecutarProcedimientoAlmacenado(comando, "sp_EliminarUsuarioAdmin");
+        }
+        private void ArmarParametrosUsuarioAdminEliminar(ref SqlCommand Comando, Usuarios usu)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+            SqlParametros = Comando.Parameters.Add("@Usuario", SqlDbType.VarChar);
+            SqlParametros.Value = usu.getNombre_UsuarioUsuario();
+        }
 
     }
 }

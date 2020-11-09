@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EliminarUsuario.aspx.cs" Inherits="Vistas.EliminarUsuario" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminCrearAdministrador.aspx.cs" Inherits="Vistas.EliminarUsuario" %>
 
 <!DOCTYPE html>
 
@@ -46,6 +46,10 @@
         .auto-style11 {
             width: 67px;
             height: 29px;
+        }
+        .auto-style12 {
+            width: 47px;
+            height: 26px;
         }
     </style>
 </head>
@@ -97,7 +101,7 @@
                     <tr>
                         <td style="background-color: #AE4750" class="auto-style10">Rol:</td>
                         <td class="auto-style11">
-                            <asp:TextBox ID="txtRol" runat="server" Width="233px"></asp:TextBox>
+                            <asp:TextBox ID="txtRol" runat="server" Width="233px">1</asp:TextBox>
                         </td>
                         <td class="auto-style11">
                             &nbsp;</td>
@@ -105,23 +109,23 @@
                     <tr>
                         <td style="background-color: #AE4750" class="auto-style8">Nombre:</td>
                         <td class="auto-style4">
-                            <asp:TextBox ID="txtNombre" runat="server" Width="229px"></asp:TextBox>
+                            <asp:TextBox ID="txtNombre" runat="server" Width="233px"></asp:TextBox>
                         </td>
                         <td class="auto-style4">
                             &nbsp;</td>
                     </tr>
                     <tr>
-                        <td style="background-color: #AE4750" class="auto-style8">Apellido:</td>
-                        <td class="auto-style4">
-                            <asp:TextBox ID="txtApellido" runat="server" Width="228px"></asp:TextBox>
+                        <td style="background-color: #AE4750" class="auto-style12">Apellido:</td>
+                        <td class="auto-style5">
+                            <asp:TextBox ID="txtApellido" runat="server" Width="233px"></asp:TextBox>
                         </td>
-                        <td class="auto-style4">
-                            &nbsp;</td>
+                        <td class="auto-style5">
+                            </td>
                     </tr>
                     <tr>
                         <td style="background-color: #AE4750" class="auto-style8">Email:</td>
                         <td class="auto-style4">
-                            <asp:TextBox ID="txtEmail" runat="server" Width="229px"></asp:TextBox>
+                            <asp:TextBox ID="txtEmail" runat="server" Width="233px"></asp:TextBox>
                         </td>
                         <td class="auto-style4">
                             &nbsp;</td>
@@ -129,7 +133,7 @@
                     <tr>
                         <td style="background-color: #AE4750" class="auto-style8"> Direccion:</td>
                         <td class="auto-style4">
-                            <asp:TextBox ID="txtDireccion" runat="server" Width="227px"></asp:TextBox>
+                            <asp:TextBox ID="txtDireccion" runat="server" Width="233px"></asp:TextBox>
                         </td>
                         <td class="auto-style4">
                             &nbsp;</td>
@@ -137,7 +141,7 @@
                     <tr>
                         <td style="background-color: #AE4750" class="auto-style8">Nombre Usuario:</td>
                         <td class="auto-style5">
-                            <asp:TextBox ID="txtNombre_de_Usuario" runat="server" Width="226px"></asp:TextBox>
+                            <asp:TextBox ID="txtNombre_de_Usuario" runat="server" Width="233px"></asp:TextBox>
                         </td>
                         <td class="auto-style5">
                             &nbsp;</td>
@@ -145,23 +149,23 @@
                     <tr>
                         <td style="background-color: #AE4750" class="auto-style8">Contraseña:</td>
                         <td class="auto-style4">
-                            <asp:TextBox ID="txtContraseña" runat="server" Width="228px" TextMode="Password"></asp:TextBox>
+                            <asp:TextBox ID="txtContraseña" runat="server" Width="233px" TextMode="Password"></asp:TextBox>
                         </td>
                         <td class="auto-style4">
                             &nbsp;</td>
                     </tr>
                     <tr>
-                        <td style="background-color: #AE4750" class="auto-style8">Telefono:</td>
+                        <td style="background-color: #AE4750" class="auto-style12">Telefono:</td>
                         <td class="auto-style5">
-                            <asp:TextBox ID="txtTelefono" runat="server" Width="231px"></asp:TextBox>
+                            <asp:TextBox ID="txtTelefono" runat="server" Width="233px"></asp:TextBox>
                         </td>
                         <td class="auto-style5">
-                            &nbsp;</td>
+                            </td>
                     </tr>
                     <tr>
                         <td style="background-color: #AE4750" class="auto-style8"> DNI:</td>
                         <td class="auto-style4">
-                            <asp:TextBox ID="txtDni" runat="server" Width="229px"></asp:TextBox>
+                            <asp:TextBox ID="txtDni" runat="server" Width="233px"></asp:TextBox>
                         </td>
                         <td class="auto-style4">
                             &nbsp;</td>
@@ -170,9 +174,9 @@
                         <td class="auto-style8">&nbsp;</td>
                         <td class="auto-style4">
                             
-                            <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
+                            <asp:Button ID="btnAgregarUsuario" runat="server" Text="AGREGAR ADMINISTRADOR" Height="40px" Width="202px" OnClick="btnAgregarUsuario_Click" />
                             
-                        </td>
+                            &nbsp;</td>
                         <td class="auto-style4">
                             <asp:Label ID="lblUsuarioExiste" runat="server"></asp:Label>
                         </td>
