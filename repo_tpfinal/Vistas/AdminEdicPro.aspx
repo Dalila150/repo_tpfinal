@@ -58,11 +58,11 @@
     <!------------------------------------------------------------>
     <div style="display: inline-block;width: 80%;padding-top: 100px;padding-left: 10%">
         <div style="    background-color: rgba(197, 93, 102, 0.404);
-    padding-left: 15%;padding-right: 15%;border-radius: 8px;">
+    padding-left: 15%;padding-right: 15%;border-radius: 8px; text-align:center">
             <h1 style="padding-top: 20px;">Edicion de producto</h1>
-            <table style="width: 100%;margin-top:25px;padding-bottom: 20px;" class="styled-table">
+            <table style="width: 100%;margin-top:25px;padding-bottom: 20px" class="styled-table">
                 <thead >
-                    <tr>
+                    <tr style="background-color:#AE4750">
                         <td style="height: 35px;width: 11%;">Modelo</td>
                         <td style="height: 35px;width: 11%;">Marca</td>
                         <td style="height: 35px;width: 11%;">Categoria</td>

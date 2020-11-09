@@ -21,7 +21,7 @@ namespace Dao
         }
         public DataTable ObtenerTodosLosProductos()
         {
-            return ObtenerTabla("producto", "Select id_Producto as ID, producto.Nombre as Producto, marca.Nombre as Marca, producto.Stock as Disponibles, producto.Precio_unitario as Precio  from producto inner join marca on producto.ID_marca = marca.ID_marca inner join categoria on categoria.id_categoria = producto.ID_categoria");
+            return ObtenerTabla("producto", "Select id_Producto as ID, producto.Nombre as Producto, marca.Nombre as Marca, producto.Stock as Disponibles, producto.Precio_unitario as Precio, producto.estado AS Estado  from producto inner join marca on producto.ID_marca = marca.ID_marca inner join categoria on categoria.id_categoria = producto.ID_categoria");
         }
 
         public DataTable BusquedaDeProductos(String texto)

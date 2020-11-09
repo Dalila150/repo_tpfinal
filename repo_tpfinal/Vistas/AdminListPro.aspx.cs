@@ -36,6 +36,8 @@ namespace Vistas
             String s_Marca = ((Label)grdProductos.Rows[e.NewSelectedIndex].FindControl("lblMarca")).Text;
             String s_Precio = ((Label)grdProductos.Rows[e.NewSelectedIndex].FindControl("lblPrecio")).Text;
             String s_Stock = ((Label)grdProductos.Rows[e.NewSelectedIndex].FindControl("lblStock")).Text;
+            String s_Estado = ((Label)grdProductos.Rows[e.NewSelectedIndex].FindControl("lblEstado")).Text;
+
 
             //creo y asigno variable session|| del grd la fila que este seleccionada busco el lblid y saco la prop txt
             Session["id_producto_modif"] = ((Label)grdProductos.Rows[e.NewSelectedIndex].FindControl("lblId")).Text;
@@ -83,6 +85,23 @@ namespace Vistas
             cargarGridView();
         }
 
-
+        protected void grdProductos_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    String estadoCelda = ((Label)(e.Row.Cells[5].FindControl("lblEstado"))).Text;
+                    if (estadoCelda == "1")
+                    {
+                        estadoCelda = "Activo";
+                    }
+                    if (estadoCelda == "0")
+                    {
+                        estadoCelda = "Inactivo";
+                    }
+                    ((Label)(e.Row.Cells[5].FindControl("lblEstado"))).Text = estadoCelda;
+            }
+            
+        }
     }
 }
