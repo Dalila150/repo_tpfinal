@@ -24,7 +24,7 @@ namespace Dao
         {
             SqlCommand comando = new SqlCommand();
             ArmarParametrosCategoriaEliminar(ref comando, cat);
-            return ds.EjecutarProcedimientoAlmacenado(comando, "spEliminarCategoria");
+            return ds.EjecutarProcedimientoAlmacenado(comando, "sp_EliminarCategoria");
         }
 
 
@@ -46,8 +46,8 @@ namespace Dao
             SqlParameter SqlParametros = new SqlParameter();
             // SqlParametros = Comando.Parameters.Add("@IDCATEGORIA", SqlDbType.Int);
             // SqlParametros = Comando.Parameters.Add("@IDCATEGORIA", SqlDbType.Int);
-            SqlParametros = Comando.Parameters.Add("@nombre", SqlDbType.VarChar, 225);
-            SqlParametros.Value = cat.Id_categoria;
+            SqlParametros = Comando.Parameters.Add("@Nombre", SqlDbType.VarChar, 225);
+            SqlParametros.Value = cat.Nombre1;
         }
 
         private void ArmarParametrosCategoriaAgregar(ref SqlCommand Comando, Categorias cat)

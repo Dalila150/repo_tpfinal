@@ -90,6 +90,8 @@
                                 </td>
                                 <td style="width: 25%;">
                                     &nbsp;<asp:TextBox ID="txtCategorias" runat="server"></asp:TextBox>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <asp:Label ID="lblMensaje" runat="server"></asp:Label>
                                 </td>
                             </tr>
                             

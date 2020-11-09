@@ -46,7 +46,18 @@ namespace Negocio
             else
                 return false;
         }
-
+        public bool eliminarMarcas_neg(String nombre)
+        {
+            //Validar id existente 
+            DaoCategoria dao = new DaoCategoria();
+            Categorias cat = new Categorias();
+            cat.Nombre1 = nombre;
+            int op = dao.eliminarCategoria(cat);
+            if (op == 1)
+                return true;
+            else
+                return false;
+        }
 
     }
 }
