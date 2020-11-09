@@ -53,7 +53,7 @@ namespace Vistas
                     dt_Pro = Gp.ObtenerProducto((String)Session["id_producto_modif"]);
 
                     //dentro del campo agrego el valor de la columna correspondiente
-                    txtModelo.Text = dt_Pro.Rows[0][6].ToString();
+                    txtModelo.Text = dt_Pro.Rows[0][6].ToString();//linea 1 columna x
                     txtPrecio.Text = dt_Pro.Rows[0][3].ToString();
                     txtDescripcion.Text = dt_Pro.Rows[0][8].ToString();
                     txtStock.Text = dt_Pro.Rows[0][1].ToString();
@@ -71,9 +71,12 @@ namespace Vistas
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             //System.Diagnostics.Debug.WriteLine("Popito");
+            //para poder acceder a la funcion
             NegocioProducto gProducto = new NegocioProducto();
+            //prod nuevo para largar los datos nuevos
             Producto prod_a_guardar = new Producto();
 
+            //necesito convertir de string a lo que va en la db
             int id_prod_guardar;
             int stock_prod_guardar;
             int marca_prod_guardar;
@@ -81,6 +84,8 @@ namespace Vistas
             int categoria_prod_guardar;
             int estado_prod_guardar;
 
+
+            //convierto
             int.TryParse(Session["id_producto_modif"].ToString(), out id_prod_guardar);
             int.TryParse(txtStock.Text, out stock_prod_guardar);
             int.TryParse(ddMarca.SelectedValue, out marca_prod_guardar);
@@ -88,6 +93,8 @@ namespace Vistas
             int.TryParse(ddCategoria.SelectedValue, out categoria_prod_guardar);
             int.TryParse(ddEstado.SelectedValue, out estado_prod_guardar);
 
+
+            //guardo en el prod nuevo los valores
             prod_a_guardar.Id_producto = id_prod_guardar;
             prod_a_guardar.Stock1 = stock_prod_guardar;
             prod_a_guardar.ID_marca1 = marca_prod_guardar;
@@ -99,10 +106,10 @@ namespace Vistas
             prod_a_guardar.Descripcion1 = txtDescripcion.Text;
 
             //System.Diagnostics.Debug.WriteLine("");
-
+            //true o false -- actualizo producto
             if (gProducto.ActualizarProducto(prod_a_guardar))
             {
-
+                //limpio la session 
                 Session["id_producto_modif"] = null;
                 Response.Redirect("AdminListPro.aspx?EdPro=true");
 
@@ -111,7 +118,7 @@ namespace Vistas
             {
 
                 Session["id_producto_modif"] = null;
-                Response.Redirect("AdminListPro.aspx?EdPro=false");
+                Response.Redirect("AdminListPro.aspx?EdPro=false");/// ? para manejar por url si salio bien la solicitud
 
             }
         }

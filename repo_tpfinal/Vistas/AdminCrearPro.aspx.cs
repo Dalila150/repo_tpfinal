@@ -27,11 +27,17 @@ namespace Vistas
                 dt_Cat = Gp.ObtenerCategorias();
                 dt_Mar = Gp.ObtenerMarcas();
 
+                //como aparecen al entrar a crear prod
                 ddCategoria.Items.Add(new ListItem { Text = "Seleccione", Value = "" });
                 ddMarca.Items.Add(new ListItem { Text = "Seleccione", Value = "" });
 
+
                 foreach (DataRow row in dt_Cat.Rows)
                 {
+                    //ListItem li_Cat = new ListItem();
+                    //li_Cat.Value = row[0].ToString();
+                    //li_Cat.Text = row[1].ToString();
+                    //ddCategoria.Items.Add(li_Cat);
                     ddCategoria.Items.Add(new ListItem { Text = row[1].ToString(), Value = row[0].ToString() });
                 }
                 foreach (DataRow row in dt_Mar.Rows)
@@ -45,15 +51,6 @@ namespace Vistas
 
             }
         }
-
-        //public void MsgBox(String ex, Page pg, Object obj)
-        //{
-        //    string s = "<SCRIPT language='javascript'>alert('" + ex.Replace("\r\n", "\\n").Replace("'", "") + "'); </SCRIPT>";
-        //    Type cstype = obj.GetType();
-        //    ClientScriptManager cs = pg.ClientScript;
-        //    cs.RegisterClientScriptBlock(cstype, s, s.ToString());
-        //}
-
 
         protected void btnCancelar_click(object sender, EventArgs e)
         {
