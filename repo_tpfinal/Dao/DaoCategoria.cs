@@ -16,7 +16,7 @@ namespace Dao
 
         public Boolean existeCategoría(Categorias cat)
         {
-            String consulta = "Select * from categorías where NombreCategoría='" + cat.Nombre1 + "'";
+            String consulta = "Select * from categoria where Nombre='" + cat.Nombre1 + "'";
             return ds.existe(consulta);
         }
 
@@ -33,12 +33,12 @@ namespace Dao
 
            
             //cat.setIdCategoria(ds.ObtenerMaximo("SELECT max(idCategoría) FROM Categorías") + 1);
-            cat.Id_categoria = ds.ObtenerMaximo("SELECT max(idCategoría) FROM Categorías") + 1;
-            string estado = "True";
+            //cat.Id_categoria = ds.ObtenerMaximo("SELECT max(idCategoria) FROM Categorias") + 1;
+            bool estado = true;
             cat.Estado1 = estado;
             SqlCommand comando = new SqlCommand();
             ArmarParametrosCategoriaAgregar(ref comando, cat);
-            return ds.EjecutarProcedimientoAlmacenado(comando, "spAgregarCategoria");
+            return ds.EjecutarProcedimientoAlmacenado(comando, "sp_CrearCategoria");
         }
 
         private void ArmarParametrosCategoriaEliminar(ref SqlCommand Comando, Categorias cat)
@@ -46,7 +46,7 @@ namespace Dao
             SqlParameter SqlParametros = new SqlParameter();
             // SqlParametros = Comando.Parameters.Add("@IDCATEGORIA", SqlDbType.Int);
             // SqlParametros = Comando.Parameters.Add("@IDCATEGORIA", SqlDbType.Int);
-            SqlParametros = Comando.Parameters.Add("@id_categoria", SqlDbType.Int);
+            SqlParametros = Comando.Parameters.Add("@nombre", SqlDbType.VarChar, 225);
             SqlParametros.Value = cat.Id_categoria;
         }
 
@@ -54,12 +54,12 @@ namespace Dao
         {
             SqlParameter SqlParametros = new SqlParameter();
             //SqlParametros = Comando.Parameters.Add("@IDCATEGORIA", SqlDbType.Int);
-            SqlParametros = Comando.Parameters.Add("@id_categoria", SqlDbType.Int);
-            SqlParametros.Value = cat.Id_categoria;
+            //SqlParametros = Comando.Parameters.Add("@id_categoria", SqlDbType.Int);
+           // SqlParametros.Value = cat.Id_categoria;
            // SqlParametros = Comando.Parameters.Add("@NOMBRECAT", SqlDbType.VarChar);
-            SqlParametros = Comando.Parameters.Add("@Nombre", SqlDbType.VarChar);
+            SqlParametros = Comando.Parameters.Add("@Nombre", SqlDbType.VarChar,225);
             SqlParametros.Value = cat.Nombre1;
-            SqlParametros = Comando.Parameters.Add("@Estado", SqlDbType.VarChar);
+            SqlParametros = Comando.Parameters.Add("@Estado", SqlDbType.Bit);
             SqlParametros.Value = cat.Estado1;
         }
 

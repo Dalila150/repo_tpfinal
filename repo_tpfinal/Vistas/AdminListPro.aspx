@@ -42,16 +42,16 @@
                     <a href="/AdminHome.aspx">Administracion</a>
                     <ul>
                         <li>
-                            <a href="/AdminListarProductos.aspx">Productos</a>
+                            <a href="/AdminListPro.aspx">Productos</a>
                         </li>
                         <li>
-                            <a href="/AdminUsuarios.html">Usuarios</a>
+                            <a href="/AdminListUsu.aspx">Usuarios</a>
                         </li>
                         <li>
-                            <a href="/AdminListarCategorias.html">Categorias</a>
+                            <a href="/AdminCrearCategoria.aspx">Categorias</a>
                         </li>
                         <li>
-                            <a href="/AdminListarMarcas.html">Marcas</a>
+                            <a href="/AdminCrearMarca.aspx">Marcas</a>
                         </li>
                     </ul>
                 </li>

@@ -24,11 +24,11 @@ namespace Vistas
 
             if (existe == true)
             {
-                lblMensaje.Text = "Marcas agregada con exito";
+                lblMensaje.Text = "Categoria agregada con exito";
             }
             else
             {
-                lblMensaje.Text = "No se pudo agregar la marca";
+                lblMensaje.Text = "No se pudo agregar la categoria";
             }
 
         }

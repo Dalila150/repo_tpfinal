@@ -60,35 +60,34 @@
     <!------------------------------------------------------------>
     <div style="display: inline-block;width: 80%;padding-top: 100px;padding-left: 10%">
         <div style="    background-color: rgba(197, 93, 102, 0.404);
-       ;padding-left: 15%;padding-right: 15%;border-radius: 8px;">
+       padding-left: 15%;padding-right: 15%;border-radius: 8px;">
             <h1 style="padding-top: 20px;">Crear categoria</h1>
             <div style="padding-top: 5%;padding-left: 25%;padding-bottom: 5%; border-top: 1px solid rgb(218, 50, 50);border-bottom: 1px solid rgb(218, 50, 50);">
                 <table style="width: 100%">
                     <tbody>
-                        <div>
+                        
                             <tr>
-                                <td style="width: 15%;">
+                                <td style="width: 15%; font-size: 19px">
                                     <h3 style="display: inline;">Nombre categoria</h3>
                                 </td>
                                 <td style="width: 25%;">
-                                    </input>
-                                &nbsp;<asp:TextBox ID="txtCategoria" runat="server"></asp:TextBox>
+                                <asp:TextBox Style="border-radius: 10px; font-size: 19px; border: 0px solid" ID="txtCategoria" runat="server"></asp:TextBox>
                                     <asp:Label ID="lblMensaje" runat="server"></asp:Label>
                                 </td>
                             </tr>
-                            
+                        
 
                     </tbody>
                 </table>
             </div>
             <div style="padding-bottom: 25px; text-align:center; margin-top:3%; height: 35px;">
-                <asp:Button ID="BtnCrearCate" runat="server" Height="40px" OnClick="BtnCrearCate_Click" Text="CREAR CATEGORIA" Width="143px" />
+                <asp:Button ID="BtnCrearCate" style="height: 40px; width: 143px;  background-color: rgba(14, 118, 85, 0.7); font-weight: bolder;border: 0px solid;color: white;border-radius: 10px" runat="server" Height="40px" OnClick="BtnCrearCate_Click" Text="CREAR CATEGORIA" Width="143px" />
                 <div style="width: 50px;display: inline-block"></div>
-                <asp:Button ID="BtnCancelar" runat="server" Height="40px" OnClick="BtnCancelar_Click" Text="CANCELAR" Width="143px" />
+                <asp:Button ID="BtnCancelar" Style="border-radius: 10px;background-color: rgba(148, 34, 34,0.8); font-weight: bolder;color: white;border: 0px solid" runat="server" Height="40px" OnClick="BtnCancelar_Click" Text="CANCELAR" Width="143px" />
             &nbsp;</div>
         </div>
     </div>
-    </div>
+    
     <footer>
         <div>
             <h2 class="cont">Contactenos</h2>
