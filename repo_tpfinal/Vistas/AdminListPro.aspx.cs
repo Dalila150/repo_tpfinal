@@ -31,14 +31,6 @@ namespace Vistas
 
         protected void grdProductos_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
-            //se buscan los datos en el item template
-            String s_Nombre = ((Label)grdProductos.Rows[e.NewSelectedIndex].FindControl("lblProd")).Text;
-            String s_Marca = ((Label)grdProductos.Rows[e.NewSelectedIndex].FindControl("lblMarca")).Text;
-            String s_Precio = ((Label)grdProductos.Rows[e.NewSelectedIndex].FindControl("lblPrecio")).Text;
-            String s_Stock = ((Label)grdProductos.Rows[e.NewSelectedIndex].FindControl("lblStock")).Text;
-            String s_Estado = ((Label)grdProductos.Rows[e.NewSelectedIndex].FindControl("lblEstado")).Text;
-
-
             //creo y asigno variable session|| del grd la fila que este seleccionada busco el lblid y saco la prop txt
             Session["id_producto_modif"] = ((Label)grdProductos.Rows[e.NewSelectedIndex].FindControl("lblId")).Text;
             Response.Redirect("AdminEdicPro.aspx");
@@ -50,7 +42,7 @@ namespace Vistas
             String s_Nombre = ((Label)grdProductos.Rows[e.RowIndex].FindControl("lblId")).Text;
 
             Producto prod = new Producto();
-            prod.Id_producto = Convert.ToInt32(s_Nombre);
+            prod.Id_producto = Convert.ToInt32(s_Nombre);//string a int
 
             NegocioProducto gProducto = new NegocioProducto();
             gProducto.EliminarProducto(prod);
