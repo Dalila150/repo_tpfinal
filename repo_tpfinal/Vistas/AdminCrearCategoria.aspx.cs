@@ -19,6 +19,17 @@ namespace Vistas
 
         protected void BtnCrearCate_Click(object sender, EventArgs e)
         {
+            bool existe = false;
+            existe = negcat.agregarCategoria(txtCategoria.Text);
+
+            if (existe == true)
+            {
+                lblMensaje.Text = "Marcas agregada con exito";
+            }
+            else
+            {
+                lblMensaje.Text = "No se pudo agregar la marca";
+            }
 
         }
 
