@@ -16,18 +16,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style type="text/css">
         .auto-style1 {
-            width: 100%;
+            width: 76%;
+            height: 469px;
         }
         .auto-style2 {
             width: 80%;
             height: 343px;
-        }
-        .auto-style4 {
-            width: 67px;
-        }
-        .auto-style5 {
-            height: 26px;
-            width: 67px;
         }
         .auto-style7 {
             height: 35px;
@@ -36,20 +30,65 @@
             width: 47px;
         }
         .auto-style9 {
-            left: 0px;
-            bottom: 0;
+            left: 15px;
+            bottom: -277px;
         }
         .auto-style10 {
             width: 47px;
-            height: 29px;
-        }
-        .auto-style11 {
-            width: 67px;
-            height: 29px;
+            height: 31px;
         }
         .auto-style12 {
             width: 47px;
             height: 26px;
+        }
+        .auto-style13 {
+            width: 116px;
+            height: 31px;
+        }
+        .auto-style14 {
+            width: 116px;
+        }
+        .auto-style15 {
+            height: 26px;
+            width: 116px;
+        }
+        .auto-style16 {
+            width: 47px;
+            height: 29px;
+        }
+        .auto-style17 {
+            width: 116px;
+            height: 29px;
+        }
+        .auto-style18 {
+            width: 130px;
+            height: 31px;
+        }
+        .auto-style19 {
+            width: 130px;
+        }
+        .auto-style20 {
+            height: 26px;
+            width: 130px;
+        }
+        .auto-style21 {
+            width: 130px;
+            height: 29px;
+        }
+        .auto-style22 {
+            height: 19px;
+        }
+        .auto-style23 {
+            width: 47px;
+            height: 19px;
+        }
+        .auto-style24 {
+            height: 19px;
+            width: 116px;
+        }
+        .auto-style25 {
+            height: 19px;
+            width: 130px;
         }
     </style>
 </head>
@@ -97,93 +136,133 @@
     padding-left: 15%;padding-right: 15%;border-radius: 8px; text-align:center">
             <h1 style="padding-top: 20px;">Crear usuario administrador</h1>
             <div style="padding-bottom: 25px;text-align: center;" class="auto-style7">
+          </div>
+        </div>
+        
                 <table class="auto-style1">
                     <tr>
                         <td style="background-color: #AE4750" class="auto-style10">Rol:</td>
-                        <td class="auto-style11">
-                            <asp:TextBox ID="txtRol" runat="server" Width="233px">1</asp:TextBox>
+                        <td class="auto-style13">
+                            <asp:TextBox ID="txtRol" runat="server" Width="201px">1</asp:TextBox>
                         </td>
-                        <td class="auto-style11">
+                        <td class="auto-style18">
+                            </td>
+                        <td class="auto-style18">
                             &nbsp;</td>
                     </tr>
                     <tr>
                         <td style="background-color: #AE4750" class="auto-style8">Nombre:</td>
-                        <td class="auto-style4">
-                            <asp:TextBox ID="txtNombre" runat="server" Width="233px"></asp:TextBox>
+                        <td class="auto-style14">
+                            <asp:TextBox ID="txtNombre" runat="server" Width="207px"></asp:TextBox>
                         </td>
-                        <td class="auto-style4">
+                        <td class="auto-style19">
+                            <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="txtNombre" ErrorMessage="RequiredFieldValidator" ForeColor="#AE4750">Ingrese nombre</asp:RequiredFieldValidator>
+                        </td>
+                        <td class="auto-style19">
                             &nbsp;</td>
                     </tr>
                     <tr>
                         <td style="background-color: #AE4750" class="auto-style12">Apellido:</td>
-                        <td class="auto-style5">
-                            <asp:TextBox ID="txtApellido" runat="server" Width="233px"></asp:TextBox>
+                        <td class="auto-style15">
+                            <asp:TextBox ID="txtApellido" runat="server" Width="205px"></asp:TextBox>
                         </td>
-                        <td class="auto-style5">
+                        <td class="auto-style20">
+                            <asp:RequiredFieldValidator ID="rfvApellido" runat="server" ControlToValidate="txtApellido" ErrorMessage="RequiredFieldValidator" ForeColor="#AE4750">Ingrese apellido</asp:RequiredFieldValidator>
                             </td>
-                    </tr>
-                    <tr>
-                        <td style="background-color: #AE4750" class="auto-style8">Email:</td>
-                        <td class="auto-style4">
-                            <asp:TextBox ID="txtEmail" runat="server" Width="233px"></asp:TextBox>
-                        </td>
-                        <td class="auto-style4">
+                        <td class="auto-style20">
                             &nbsp;</td>
                     </tr>
                     <tr>
-                        <td style="background-color: #AE4750" class="auto-style8"> Direccion:</td>
-                        <td class="auto-style4">
-                            <asp:TextBox ID="txtDireccion" runat="server" Width="233px"></asp:TextBox>
+                        <td style="background-color: #AE4750" class="auto-style8">Email:</td>
+                        <td class="auto-style14">
+                            <asp:TextBox ID="txtEmail" runat="server" Width="206px"></asp:TextBox>
                         </td>
-                        <td class="auto-style4">
+                        <td class="auto-style19">
+                            <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="RequiredFieldValidator" ForeColor="#AE4750">Ingrese Email</asp:RequiredFieldValidator>
+                        </td>
+                        <td class="auto-style19">
+                            <asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="RegularExpressionValidator" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ForeColor="#AE4750">Ingrese un email valido</asp:RegularExpressionValidator>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: #AE4750" class="auto-style16"> Direccion:</td>
+                        <td class="auto-style17">
+                            <asp:TextBox ID="txtDireccion" runat="server" Width="208px"></asp:TextBox>
+                        </td>
+                        <td class="auto-style21">
+                            <asp:RequiredFieldValidator ID="rfvDireccion" runat="server" ControlToValidate="txtDireccion" ErrorMessage="RequiredFieldValidator" ForeColor="#AE4750">Ingrese una direccion</asp:RequiredFieldValidator>
+                        </td>
+                        <td class="auto-style21">
                             &nbsp;</td>
                     </tr>
                     <tr>
                         <td style="background-color: #AE4750" class="auto-style8">Nombre Usuario:</td>
-                        <td class="auto-style5">
-                            <asp:TextBox ID="txtNombre_de_Usuario" runat="server" Width="233px"></asp:TextBox>
+                        <td class="auto-style15">
+                            <asp:TextBox ID="txtNombre_de_Usuario" runat="server" Width="208px"></asp:TextBox>
                         </td>
-                        <td class="auto-style5">
+                        <td class="auto-style20">
+                            <asp:RequiredFieldValidator ID="rfvNickname" runat="server" ControlToValidate="txtNombre_de_Usuario" ErrorMessage="RequiredFieldValidator" ForeColor=" #AE4750">Cree un nombre de Usuario</asp:RequiredFieldValidator>
+                        </td>
+                        <td class="auto-style20">
                             &nbsp;</td>
                     </tr>
                     <tr>
                         <td style="background-color: #AE4750" class="auto-style8">Contraseña:</td>
-                        <td class="auto-style4">
-                            <asp:TextBox ID="txtContraseña" runat="server" Width="233px" TextMode="Password"></asp:TextBox>
+                        <td class="auto-style14">
+                            <asp:TextBox ID="txtContraseña" runat="server" Width="207px" TextMode="Password" Height="20px"></asp:TextBox>
                         </td>
-                        <td class="auto-style4">
+                        <td class="auto-style19">
+                            <asp:RequiredFieldValidator ID="rfvContrasena" runat="server" ControlToValidate="txtContraseña" ErrorMessage="RequiredFieldValidator" ForeColor="#AE4750">Ingrese una contraseña</asp:RequiredFieldValidator>
+                        </td>
+                        <td class="auto-style19">
                             &nbsp;</td>
                     </tr>
                     <tr>
                         <td style="background-color: #AE4750" class="auto-style12">Telefono:</td>
-                        <td class="auto-style5">
-                            <asp:TextBox ID="txtTelefono" runat="server" Width="233px"></asp:TextBox>
+                        <td class="auto-style15">
+                            <asp:TextBox ID="txtTelefono" runat="server" Width="208px"></asp:TextBox>
                         </td>
-                        <td class="auto-style5">
+                        <td class="auto-style20">
+                            <asp:RequiredFieldValidator ID="rfvTelefono" runat="server" ControlToValidate="txtTelefono" ErrorMessage="RequiredFieldValidator" ForeColor="#AE4750">Ingrese un número telefonico</asp:RequiredFieldValidator>
+                            </td>
+                        <td class="auto-style20">
+                            <asp:RegularExpressionValidator ID="revTelefono" runat="server" ControlToValidate="txtTelefono" ErrorMessage="RegularExpressionValidator" ValidationExpression="^\d+$" ForeColor="#AE4750">Error, ingrese solo números</asp:RegularExpressionValidator>
                             </td>
                     </tr>
                     <tr>
-                        <td style="background-color: #AE4750" class="auto-style8"> DNI:</td>
-                        <td class="auto-style4">
-                            <asp:TextBox ID="txtDni" runat="server" Width="233px"></asp:TextBox>
+                        <td style="background-color: #AE4750" class="auto-style23"> DNI:</td>
+                        <td class="auto-style24">
+                            <asp:TextBox ID="txtDni" runat="server" Width="210px"></asp:TextBox>
                         </td>
-                        <td class="auto-style4">
+                        <td class="auto-style25">
+                            <asp:RequiredFieldValidator ID="rfvDni" runat="server" ControlToValidate="txtDni" ErrorMessage="RequiredFieldValidator" ForeColor="#AE4750">Ingrese un numero de DNI</asp:RequiredFieldValidator>
+                        </td>
+                        <td class="auto-style25">
+                            <asp:RegularExpressionValidator ID="revDni" runat="server" ControlToValidate="txtDni" ErrorMessage="RegularExpressionValidator" ValidationExpression="^\d+$" ForeColor="#AE4750">Error, ingrese solo números</asp:RegularExpressionValidator>
+                        </td>
+                        <td class="auto-style22"></td>
+                        <td class="auto-style22">
                             &nbsp;</td>
                     </tr>
                     <tr>
-                        <td class="auto-style8">&nbsp;</td>
-                        <td class="auto-style4">
+                        <td class="auto-style8">
+         
+        
+                            <asp:Button ID="btnAgregarUsuario" runat="server" Text="AGREGAR ADMINISTRADOR" Height="40px" Width="238px" OnClick="btnAgregarUsuario_Click" BorderStyle="Outset" />
                             
-                            <asp:Button ID="btnAgregarUsuario" runat="server" Text="AGREGAR ADMINISTRADOR" Height="40px" Width="202px" OnClick="btnAgregarUsuario_Click" />
+        
+                        </td>
+                        <td class="auto-style14">
                             
                             &nbsp;</td>
-                        <td class="auto-style4">
-                            <asp:Label ID="lblUsuarioExiste" runat="server"></asp:Label>
+                        <td class="auto-style19">
+                            <asp:Label ID="lblUsuarioExiste" runat="server" BorderStyle="None" Font-Bold="True" ForeColor="#AE4750"></asp:Label>
                         </td>
+                        <td class="auto-style19">
+                            &nbsp;</td>
                     </tr>
                 </table>
-          </div>
-        </div>
+                            
         
     </div>
     <footer class="auto-style9">
