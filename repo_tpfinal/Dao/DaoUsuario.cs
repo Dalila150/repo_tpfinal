@@ -46,6 +46,43 @@ namespace Dao
             DataTable tabla = ds.ObtenerTabla("Usuario", "Select ID_usuario,Nombre,Apellido,Rol from Usuario where Apellido ='" + Nombre + "'");
             return tabla;
         }
+        public int agregarNuevoUsuario(Usuarios usur)
+        {
+
+
+            usur.setID_usuario(ds.ObtenerMaximo("SELECT max(ID_Usuario) FROM Usuarios") + 1);
+
+            SqlCommand comando = new SqlCommand();
+            ParametrosUsuarioNuevo(ref comando, usur);
+            return ds.EjecutarProcedimientoAlmacenado(comando, "spCrearUsuario");
+        }
+
+
+
+        private void ParametrosUsuarioNuevo(ref SqlCommand comando, Usuarios usur)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+
+            SqlParametros = comando.Parameters.Add("@ROL", SqlDbType.Int);
+            SqlParametros.Value = usur.getRolUsuario();
+            SqlParametros = comando.Parameters.Add("@NOMBRE", SqlDbType.VarChar);
+            SqlParametros.Value = usur.getNombreUsuario();
+            SqlParametros = comando.Parameters.Add("@APELLIDO", SqlDbType.VarChar);
+            SqlParametros.Value = usur.getApellidoUsuario();
+            SqlParametros = comando.Parameters.Add("@EMAIL", SqlDbType.VarChar);
+            SqlParametros.Value = usur.getEmailUsuario();
+            SqlParametros = comando.Parameters.Add("@DIRECCION", SqlDbType.VarChar);
+            SqlParametros.Value = usur.getDireccionUsuario();
+            SqlParametros = comando.Parameters.Add("@NOMBREUSUARIO", SqlDbType.VarChar);
+            SqlParametros.Value = usur.getNombre_UsuarioUsuario();
+            SqlParametros = comando.Parameters.Add("@PASSWORD", SqlDbType.VarChar);
+            SqlParametros.Value = usur.getPasswordUsuario();
+            SqlParametros = comando.Parameters.Add("@TELEFONO", SqlDbType.VarChar);
+            SqlParametros.Value = usur.getTelefonoUsuario();
+            SqlParametros = comando.Parameters.Add("@DNI", SqlDbType.VarChar);
+            SqlParametros.Value = usur.getDNIUsuario();
+
+        }
 
 
     }

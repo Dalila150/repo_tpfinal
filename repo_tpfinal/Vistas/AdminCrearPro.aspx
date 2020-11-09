@@ -67,6 +67,7 @@
                         <td style="height: 35px;width: 11%;">Stock</td>
                         <td style="height: 35px;width: 11%;">Precio unitario</td>
                         <td style="height: 35px;width: 11%;">Descripcion</td>
+                        <td style="height: 35px;width: 11%;">DireccionImagen</td>
                         <td style="height: 35px;width: 13%;">Estado</td>
                     </tr>
                     </thead>
@@ -92,6 +93,9 @@
                         </td>
                         <td style="height: 35px;width: 20%;">
                             <asp:TextBox ID="txtDescripcion" runat="server" style="width: 80%;height:100%;border-radius:5px" required="true"></asp:TextBox>
+                        </td>
+                        <td style="height: 35px;width: 20%;">
+                            <asp:TextBox ID="txtDireccionImagen" style="width: 80%;height:100%;border-radius:5px" runat="server"></asp:TextBox>
                         </td>
                         <td style="height: 35px;width: 10%;">
                             <asp:DropDownList ID="ddEstado" runat="server" style="width: 80%;height:100%;border-radius:5px">

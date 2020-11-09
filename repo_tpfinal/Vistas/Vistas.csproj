@@ -75,6 +75,7 @@
     <Content Include="css\iniciosesion.css" />
     <Content Include="css\producto.css" />
     <Content Include="css\registro.css" />
+    <Content Include="EliminarUsuario.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Web.config" />
     <Content Include="AdminCrearCategoria.aspx" />
@@ -95,6 +96,13 @@
     <Content Include="AdminEliminarMarca.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EliminarUsuario.aspx.cs">
+      <DependentUpon>EliminarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EliminarUsuario.aspx.designer.cs">
+      <DependentUpon>EliminarUsuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

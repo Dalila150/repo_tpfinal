@@ -76,6 +76,7 @@ namespace Vistas
             int.TryParse(ddCategoria.SelectedValue, out categoria_prod_guardar);
             int.TryParse(ddEstado.SelectedValue, out estado_prod_guardar);
 
+            prod_a_guardar.Imagen1 = txtDireccionImagen.Text;
             prod_a_guardar.Stock1 = stock_prod_guardar;
             prod_a_guardar.ID_marca1 = marca_prod_guardar;
             prod_a_guardar.Precio_unitario1 = preciou_prod_guardar;

@@ -57,6 +57,25 @@ namespace Negocio
                 return false;
             }
         }
+        public bool CrearUsuario(Usuarios usuario)
+        {
+            DaoUsuario dao = new DaoUsuario();
+
+
+
+
+            if (dao.existeUsuario(usuario.getNombreUsuario()) && dao.existeUsuarioApellido(usuario.getApellidoUsuario()))
+            {
+                return true;
+            }
+            else
+            {
+                dao.agregarNuevoUsuario(usuario);
+
+                return false;
+            }
+
+        }
 
     }
 }
