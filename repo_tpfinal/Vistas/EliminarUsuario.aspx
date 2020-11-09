@@ -137,7 +137,7 @@
                     <tr>
                         <td style="background-color: #AE4750" class="auto-style8">Nombre Usuario:</td>
                         <td class="auto-style5">
-                            <asp:TextBox ID="txtNombre_de_Usuario" runat="server" Width="223px"></asp:TextBox>
+                            <asp:TextBox ID="txtNombre_de_Usuario" runat="server" Width="226px"></asp:TextBox>
                         </td>
                         <td class="auto-style5">
                             &nbsp;</td>
@@ -145,7 +145,7 @@
                     <tr>
                         <td style="background-color: #AE4750" class="auto-style8">Contraseña:</td>
                         <td class="auto-style4">
-                            <asp:TextBox ID="txtContraseña" runat="server" Width="220px" TextMode="Password"></asp:TextBox>
+                            <asp:TextBox ID="txtContraseña" runat="server" Width="228px" TextMode="Password"></asp:TextBox>
                         </td>
                         <td class="auto-style4">
                             &nbsp;</td>
@@ -153,7 +153,7 @@
                     <tr>
                         <td style="background-color: #AE4750" class="auto-style8">Telefono:</td>
                         <td class="auto-style5">
-                            <asp:TextBox ID="txtTelefono" runat="server" Width="216px"></asp:TextBox>
+                            <asp:TextBox ID="txtTelefono" runat="server" Width="231px"></asp:TextBox>
                         </td>
                         <td class="auto-style5">
                             &nbsp;</td>
@@ -161,7 +161,7 @@
                     <tr>
                         <td style="background-color: #AE4750" class="auto-style8"> DNI:</td>
                         <td class="auto-style4">
-                            <asp:TextBox ID="txtDni" runat="server" Width="216px"></asp:TextBox>
+                            <asp:TextBox ID="txtDni" runat="server" Width="229px"></asp:TextBox>
                         </td>
                         <td class="auto-style4">
                             &nbsp;</td>
