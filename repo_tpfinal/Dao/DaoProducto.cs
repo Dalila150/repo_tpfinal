@@ -11,32 +11,24 @@ namespace Dao
 {
     public class DaoProducto
     {
-        private DataTable ObtenerTabla(String Nombre, String Sql)
-        {
-            DataSet ds = new DataSet();
-            AccesoaDatos datos = new AccesoaDatos();
-            SqlDataAdapter adp = datos.ObtenerAdaptador(Sql);
-            adp.Fill(ds, Nombre);
-            return ds.Tables[Nombre];
-        }
+        AccesoaDatos ds = new AccesoaDatos();
         public DataTable ObtenerTodosLosProductos()
         {
-            return ObtenerTabla("producto", "Select id_Producto as ID, producto.Nombre as Producto, marca.Nombre as Marca, producto.Stock as Disponibles, producto.Precio_unitario as Precio, producto.estado AS Estado  from producto inner join marca on producto.ID_marca = marca.ID_marca inner join categoria on categoria.id_categoria = producto.ID_categoria");
+            return ds.ObtenerTabla("producto", "Select id_Producto as ID, producto.Nombre as Producto, marca.Nombre as Marca, producto.Stock as Disponibles, producto.Precio_unitario as Precio, producto.estado AS Estado  from producto inner join marca on producto.ID_marca = marca.ID_marca inner join categoria on categoria.id_categoria = producto.ID_categoria");
         }
 
         public DataTable BusquedaDeProductos(String texto)
         {
-            return ObtenerTabla("producto", "Select id_Producto as ID, producto.Nombre as Producto, marca.Nombre as Marca, producto.Stock as Disponibles, producto.Precio_unitario as Precio  from producto inner join marca on producto.ID_marca = marca.ID_marca inner join categoria on categoria.id_categoria = producto.ID_categoria WHERE producto.Nombre LIKE '%" + texto + "%'");
+            return ds.ObtenerTabla("producto", "Select id_Producto as ID, producto.Nombre as Producto, marca.Nombre as Marca, producto.Stock as Disponibles, producto.Precio_unitario as Precio  from producto inner join marca on producto.ID_marca = marca.ID_marca inner join categoria on categoria.id_categoria = producto.ID_categoria WHERE producto.Nombre LIKE '%" + texto + "%'");
         }
 
         public DataTable ObtenerUnProducto(String id)
         {
             DataTable aux = new DataTable();
-            aux = ObtenerTabla("producto", "Select * from producto WHERE id_producto = " + id);
+            aux = ds.ObtenerTabla("producto", "Select * from producto WHERE id_producto = " + id);
             return aux;
         }
-
-
+     
         public void ArmarParametrosProductoActualizado(ref SqlCommand Comando, Producto productos)
         {
             SqlParameter sqlparametros = new SqlParameter();
@@ -80,7 +72,15 @@ namespace Dao
             sqlparametros = Comando.Parameters.Add("@DESCRIPCION", SqlDbType.VarChar, 255);
             sqlparametros.Value = productos.Descripcion1;
         }
-
+        public int AgregarProducto(Producto pro)
+        {
+            int estado = 1;
+            Producto p = new Producto();
+            p.Estado1 = estado;
+            SqlCommand comando = new SqlCommand();
+            ArmarParametrosProductoNuevo(ref comando, pro);
+            return ds.EjecutarProcedimientoAlmacenado(comando, "spBuscarProductoRepetido");
+        }
         public int eliminarProducto(SqlCommand Comando, String NombreSP, int Id)
         {
             AccesoaDatos ad = new AccesoaDatos();

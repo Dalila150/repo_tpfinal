@@ -12,13 +12,14 @@ namespace Negocio
 {
     public class NegocioProducto
     {
+        AccesoaDatos ad = new AccesoaDatos();
         public bool ActualizarProducto(Producto Pro)
         {
             int FilasInsertadas = 0;
             SqlCommand Comando = new SqlCommand();
             AccesoaDatos ad = new AccesoaDatos();
             DaoProducto dp = new DaoProducto();
-            dp.ArmarParametrosProductoActualizado (ref Comando, Pro);
+            dp.ArmarParametrosProductoActualizado(ref Comando, Pro);
             FilasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spActualizarProducto");
             if (FilasInsertadas == 1)
                 return true;
@@ -32,14 +33,12 @@ namespace Negocio
             SqlCommand Comando = new SqlCommand();
             DaoProducto dp = new DaoProducto();
             dp.ArmarParametrosProductoNuevo(ref Comando, Pro);
-            AccesoaDatos ad = new AccesoaDatos();
             FilasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spCrearProducto");
             if (FilasInsertadas == 1)
                 return true;
             else
                 return false;
         }
-
         public bool EliminarProducto(Producto producto)
         {
             SqlCommand Comando = new SqlCommand();
