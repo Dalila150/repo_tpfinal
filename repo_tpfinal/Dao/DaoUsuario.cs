@@ -26,6 +26,17 @@ namespace Dao
             return ds.existe(consulta);
         }
 
+        public Boolean existeUsuarioNombre_Usuario(string Nombre_Usuario)
+        {
+            String consulta = "Select * from Usuario where Nombre_Usuario='" + Nombre_Usuario + "'";
+            return ds.existe(consulta);
+        }
+        public Boolean existeUsuarioPassword(string Password)
+        {
+            String consulta = "Select * from Usuario where Password='" + Password + "'";
+            return ds.existe(consulta);
+        }
+
         public DataTable getTablaUsuario()
         {
             // List<Categoria> lista = new List<Categoria>();
