@@ -25,7 +25,7 @@ namespace Vistas
             Boolean Clave = neg.BuscarUsuarioPassword(txtContraseña.Text);
             lblMensaje.Text = "";
 
-            if (Usuario == true && Clave == true)
+            if (neg.BuscarUsuarioYclave(txtUsuario.Text, txtContraseña.Text)== true)
             {
                 HttpCookie Usu = new HttpCookie("NombreUsuario", txtUsuario.Text);
                 Usu.Expires = DateTime.Now.AddDays(1);
