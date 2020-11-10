@@ -36,14 +36,13 @@ namespace Dao
         public DataTable getTablaUsuarioEspecifico(string Nombre)
         {
             // List<Categoria> lista = new List<Categoria>();
-            DataTable tabla = ds.ObtenerTabla("Usuario", "Select ID_usuario,Nombre,Apellido,Rol from Usuario where Nombre='" + Nombre + "'");
+            DataTable tabla = ds.ObtenerTabla("Usuario", "Select ID_usuario,Nombre,Apellido,Rol from Usuario where Nombre Like'" + Nombre + "%'");
             return tabla;
         }
-
         public DataTable getTablaUsuarioEspecificoApellido(string Nombre)
         {
             // List<Categoria> lista = new List<Categoria>();
-            DataTable tabla = ds.ObtenerTabla("Usuario", "Select ID_usuario,Nombre,Apellido,Rol from Usuario where Apellido ='" + Nombre + "'");
+            DataTable tabla = ds.ObtenerTabla("Usuario", "Select ID_usuario,Nombre,Apellido,Rol from Usuario where Apellido Like'" + Nombre + "%'");
             return tabla;
         }
         public int agregarNuevoUsuario(Usuarios usur)

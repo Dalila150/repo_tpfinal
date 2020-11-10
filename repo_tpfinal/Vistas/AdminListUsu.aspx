@@ -61,7 +61,11 @@
         <div class="EspacioBuscador">
             <asp:TextBox ID="txtBuscar" runat="server"></asp:TextBox>
 
-            <asp:Button ID="Button1" style="background-color:#a83640; color: white" runat="server" OnClick="Button1_Click" Text="Buscar" />
+            &nbsp;
+
+            <asp:Button ID="btnBuscarNombre" style="background-color:#a83640; color: white" class="inicio" runat="server" OnClick="Button1_Click" Text="Buscar Por Nombre" BackColor="Red" />
+        &nbsp;
+            <asp:Button ID="btnBuscarApellido" runat="server" BackColor="#CC0000" class="inicio" OnClick="btnBuscarApellido_Click" Text="Buscar Por Apellido" />
         </div>
         <div style="text-align:center">
                                 <asp:Label ID="lblMensaje" runat="server"></asp:Label>

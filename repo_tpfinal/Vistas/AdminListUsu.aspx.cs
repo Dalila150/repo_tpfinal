@@ -26,46 +26,35 @@ namespace Vistas
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            int Variable = 0;
-
-            bool Nom = false;
-            Boolean estado = neg.BuscarUsuarioNombre(txtBuscar.Text);
-            
-            if (estado == true && Variable != 1)
-            {
-                DataTable tablaUsuario = neg.getTablaBuscar(txtBuscar.Text);
-                grdUsuarios.DataSource = tablaUsuario;
-                grdUsuarios.DataBind();
-                lblMensaje.Text = " ";
-                Nom = true;
-            }
-            if (estado == false && Variable != 1)
-            {
-                lblMensaje.Text = "El Nombre o Apellido no se encuentra en la Base de datos";
-            }
-
-            //----------------------------------------------------------------
-            int Variable2 = 0;
-            Boolean estado2 = neg.BuscarUsuarioApellido(txtBuscar.Text);
-           
-            if (estado2 == true && Variable2 != 1)
-            {
-                DataTable tablaUsuario = neg.getTablaBuscarApellido(txtBuscar.Text);
-                grdUsuarios.DataSource = tablaUsuario;
-                grdUsuarios.DataBind();
-                lblMensaje.Text = " ";
-            }
-            if (estado2 == false && Variable2 != 1 && Nom == false)
-            {
-                lblMensaje.Text = "El Nombre o Apellido no se encuentra en la Base de datos";
-            }
+            Boolean estadoNombre = neg.BuscarUsuarioNombre(txtBuscar.Text);
+            lblMensaje.Text = " ";
             if (txtBuscar.Text == "")
             {
                 DataTable tablaUsuario = neg.getTabla();
                 grdUsuarios.DataSource = tablaUsuario;
                 grdUsuarios.DataBind();
-                Variable = 1;
                 lblMensaje.Text = " ";
+            }
+
+            if (estadoNombre == true && txtBuscar.Text != "")
+            {
+                DataTable tablaUsuario = neg.getTablaBuscarNombre(txtBuscar.Text);
+                grdUsuarios.DataSource = tablaUsuario;
+                grdUsuarios.DataBind();
+                lblMensaje.Text = " ";
+            }
+
+            if (txtBuscar.Text != "" && estadoNombre == false)
+            {
+                DataTable tablaUsuario = neg.getTablaBuscarNombre(txtBuscar.Text);
+                grdUsuarios.DataSource = tablaUsuario;
+                grdUsuarios.DataBind();
+                lblMensaje.Text = " ";
+            }
+
+            if (grdUsuarios.Rows.Count == 0)
+            {
+                lblMensaje.Text = "El Nombre no se encuentran en la base de datos ";
             }
 
         }
@@ -76,6 +65,41 @@ namespace Vistas
             DataTable tablaUsuario = neg.getTabla();
             grdUsuarios.DataSource = tablaUsuario;
             grdUsuarios.DataBind();
+        }
+
+        protected void btnBuscarApellido_Click(object sender, EventArgs e)
+        {
+            Boolean estadoApellido = neg.BuscarUsuarioApellido(txtBuscar.Text);
+            lblMensaje.Text = " ";
+
+            if (txtBuscar.Text == "")
+            {
+                DataTable tablaUsuario = neg.getTabla();
+                grdUsuarios.DataSource = tablaUsuario;
+                grdUsuarios.DataBind();
+                lblMensaje.Text = " ";
+            }
+
+            if (estadoApellido == true && txtBuscar.Text != "")
+            {
+                DataTable tablaUsuario = neg.getTablaBuscarApellido(txtBuscar.Text);
+                grdUsuarios.DataSource = tablaUsuario;
+                grdUsuarios.DataBind();
+                lblMensaje.Text = " ";
+            }
+
+            if (txtBuscar.Text != "" && estadoApellido == false)
+            {
+                DataTable tablaUsuario = neg.getTablaBuscarApellido(txtBuscar.Text);
+                grdUsuarios.DataSource = tablaUsuario;
+                grdUsuarios.DataBind();
+                lblMensaje.Text = " ";
+            }
+
+            if (grdUsuarios.Rows.Count == 0)
+            {
+                lblMensaje.Text = "El Apellido no se encuentran en la base de datos ";
+            }
         }
     }
 }
