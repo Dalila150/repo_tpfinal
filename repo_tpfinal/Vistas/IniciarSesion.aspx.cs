@@ -49,5 +49,10 @@ namespace Vistas
                 lblMensaje.Text = "Por favor complete todos los campos";
             }
         }
+
+        protected void btnIniciarRegistro_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Registro.aspx");
+        }
     }
 }

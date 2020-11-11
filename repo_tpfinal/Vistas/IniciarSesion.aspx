@@ -101,7 +101,7 @@
             </div>
               <div class="Redireccion">
                 <div class="botonemp">
-                    <button class="empezar">Empezar</button>
+                    <asp:Button ID="btnIniciarRegistro" class="inicio" runat="server" Text="Iniciar" OnClick="btnIniciarRegistro_Click" />
                 </div>
               </div>
           </div>
