@@ -36,32 +36,32 @@
                 <ul>
                     <li><a href="#">Productos</a>
                         <ul>
-                            <li><a href="#">Listar</a></li>
-                            <li><a href="#">Crear</a></li>
+                            <li><a href="/AdminListPro.aspx">Listar</a></li>
+                            <li><a href="/AdminCrearPro.aspx">Crear</a></li>
                         </ul>
                     </li>
                     <li><a href="#">Usuarios</a>
                         <ul>
-                            <li><a href="#">Listar</a></li>
-                            <li><a href="#">Editar</a></li>
-                            <li><a href="#">Eliminar</a></li>
-                            <li><a href="#">Crear</a></li>
+                            <li><a href="/AdminListUsu.aspx">Listar</a></li>
+                            <li><a href="/AdminEdicUsu.aspx">Editar</a></li>
+                            <li><a href="/AdminEliminarUsuariosAdmin.aspx">Eliminar</a></li>
+                            <li><a href="/AdminCrearAdministrador.aspx">Crear</a></li>
                         </ul>
                     </li>
                     <li><a href="#">Marcas</a>
                         <ul>
                             <li><a href="#">Listar</a></li>
                             <li><a href="#">Editar</a></li>
-                            <li><a href="#">Eliminar</a></li>
-                            <li><a href="#">Crear</a></li>
+                            <li><a href="/AdminEliminarMarca.aspx">Eliminar</a></li>
+                            <li><a href="/AdminCrearMarca.aspx">Crear</a></li>
                         </ul>
                     </li>
                     <li><a href="#">Categorias</a>
                         <ul>
                             <li><a href="#">Listar</a></li>
                             <li><a href="#">Editar</a></li>
-                            <li><a href="#">Eliminar</a></li>
-                            <li><a href="#">Crear</a></li>
+                            <li><a href="/AdminEliminarCategoria.aspx">Eliminar</a></li>
+                            <li><a href="/AdminCrearCategoria.aspx">Crear</a></li>
                         </ul>
                     </li>
 
@@ -79,8 +79,8 @@
         </div>
         <div class="content" >
 <!------------------------------------------------------------>
-    <div style="display: inline-block;width: 80%;padding-top: 50px">
-        <div style="background-color: rgba(197, 93, 102, 0.404);margin-left: 15%;margin-right: 15%;border-radius: 8px;margin-bottom: 5%;padding-bottom: 10px;">
+    <div style="display: inline-block;width: 80%">
+        <div style="background-color: rgba(197, 93, 102, 0.404);border-radius: 8px;margin-bottom: 5%;padding-bottom: 10px;margin-top:25px">
             <h1 style="padding-top: 20px; text-align: center;margin:0px;font-size:40px">Productos</h1>
             <hr style="width:90%" />
             <div class="EspacioBuscador">
@@ -135,7 +135,7 @@
             </asp:GridView>
                 </div>
                 <div style="text-align:center;width:100%;margin:25px;height: 35px;">
-                    <asp:Button ID="btnCrearProducto" runat="server" Text="Crear Nuevo Producto" style="width: 25%;height: 100%;background-color: rgba(174, 64, 74, 0.84); border: none;border-radius: 10px;" Font-Bold="True" Font-Size="Medium" OnClick="btnCrearProducto_Click"/>
+                    <asp:Button ID="btnCrearProducto" runat="server" Text="Crear Nuevo Producto" style="width: 30%;height: 100%;background-color: rgba(174, 64, 74, 0.84); border: none;border-radius: 10px;" Font-Bold="True" Font-Size="Medium" OnClick="btnCrearProducto_Click"/>
                 </div>
         </div>
         

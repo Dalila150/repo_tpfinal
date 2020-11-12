@@ -7,14 +7,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="StyleSheet" href="/css/template_admin.css"type="text/css" />
 
-    <title>Home</title>
+    <title>Eliminar Administrador</title>
     <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <style type="text/css">
-        .auto-style1 {
-            width: 19%;
-        }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -34,32 +29,32 @@
                 <ul>
                     <li><a href="#">Productos</a>
                         <ul>
-                            <li><a href="#">Listar</a></li>
-                            <li><a href="#">Crear</a></li>
+                            <li><a href="/AdminListPro.aspx">Listar</a></li>
+                            <li><a href="/AdminCrearPro.aspx">Crear</a></li>
                         </ul>
                     </li>
                     <li><a href="#">Usuarios</a>
                         <ul>
-                            <li><a href="#">Listar</a></li>
-                            <li><a href="#">Editar</a></li>
-                            <li><a href="#">Eliminar</a></li>
-                            <li><a href="#">Crear</a></li>
+                            <li><a href="/AdminListUsu.aspx">Listar</a></li>
+                            <li><a href="/AdminEdicUsu.aspx">Editar</a></li>
+                            <li><a href="/AdminEliminarUsuariosAdmin.aspx">Eliminar</a></li>
+                            <li><a href="/AdminCrearAdministrador.aspx">Crear</a></li>
                         </ul>
                     </li>
                     <li><a href="#">Marcas</a>
                         <ul>
                             <li><a href="#">Listar</a></li>
                             <li><a href="#">Editar</a></li>
-                            <li><a href="#">Eliminar</a></li>
-                            <li><a href="#">Crear</a></li>
+                            <li><a href="/AdminEliminarMarca.aspx">Eliminar</a></li>
+                            <li><a href="/AdminCrearMarca.aspx">Crear</a></li>
                         </ul>
                     </li>
                     <li><a href="#">Categorias</a>
                         <ul>
                             <li><a href="#">Listar</a></li>
                             <li><a href="#">Editar</a></li>
-                            <li><a href="#">Eliminar</a></li>
-                            <li><a href="#">Crear</a></li>
+                            <li><a href="/AdminEliminarCategoria.aspx">Eliminar</a></li>
+                            <li><a href="/AdminCrearCategoria.aspx">Crear</a></li>
                         </ul>
                     </li>
 
@@ -78,32 +73,28 @@
         <div class="content" >
 
     <!------------------------------------------------------------>
-    <div style="display: inline-block;width: 80%;padding-top: 100px;padding-left: 10%">
-        <div style="    background-color: rgba(197, 93, 102, 0.404);
-       padding-left: 15%;padding-right: 15%;border-radius: 8px;">
+    <div style="display: inline-block;width: 65%">
+        <div style="background-color: rgba(197, 93, 102, 0.404);border-radius: 8px;margin-bottom:25px">
             <h1 style="padding-top: 20px;">Eliminar Usuario Admin</h1>
-            <div style="padding-top: 5%;padding-left: 25%;padding-bottom: 5%; border-top: 1px solid rgb(218, 50, 50);border-bottom: 1px solid rgb(218, 50, 50);">
+            <hr style="width:90%" />
+            <div style="padding-top: 5%;padding-bottom: 5%;">
                 <table style="width: 100%">
                     <tbody>
                             <tr>
-                                <td class="auto-style1">
+                                <td style="width: 50%;">
                                     <h3 style="display: inline;">Usuario del administrador:</h3>
                                 </td>
-                                <td style="width: 25%;">
-                                    &nbsp;<asp:TextBox ID="txtEliminarAdministrador" runat="server"></asp:TextBox>
-                                &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <asp:Label ID="lblMensaje" runat="server"></asp:Label>
+                                <td style="width: 50%;">
+                                    <asp:TextBox class="txtASP" ID="txtEliminarAdministrador" runat="server" style="width: 70%;" required="true"></asp:TextBox>
                                 </td>
+                                <asp:Label ID="lblMensaje" runat="server"></asp:Label>
                             </tr>
-                            
-
                     </tbody>
                 </table>
             </div>
             <div style="padding-bottom: 25px; text-align:center; margin-top:3%;height: 35px;">
-                <asp:Button ID="BtnEliminarCate" runat="server" Height="40px" OnClick="BtnEliminarCate_Click" Text="ELIMINAR USUARIO ADMINISTRADOR" Width="270px" />
-                <div style="width: 50px;display: inline-block"></div>
-                <asp:Button ID="BtnCancelar" runat="server" Height="40px" Text="CANCELAR" Width="143px" />
+                <asp:Button class="btnASP" ID="BtnEliminarCate" runat="server" style="width: 65%;" Height="40px" OnClick="BtnEliminarCate_Click" Text="ELIMINAR USUARIO ADMINISTRADOR" Width="270px" />
+                <asp:Button class="btnASP" ID="BtnCancelar" runat="server" style="width: 20%;"  Height="40px" Text="CANCELAR" Width="143px" />
             </div>
         </div>
     </div>
