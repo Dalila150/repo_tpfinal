@@ -42,6 +42,25 @@ namespace Vistas
             {
                 lblUsuarioExiste.Text = "El usuario fue agregado con exito";
             }
+
+            limpiar_campos();
+
+            
+
+        }
+
+       public void limpiar_campos()
+        {
+            txtApellido.Text = "";
+            txtContraseña.Text = "";
+            txtNombre.Text = "";
+            txtNombre_de_Usuario.Text = "";
+            txtDireccion.Text = "";
+            txtEmail.Text = "";
+            txtTelefono.Text = "";
+            txtDni.Text = "";
+
+
         }
     }
 }

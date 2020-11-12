@@ -112,5 +112,35 @@ namespace Dao
             SqlParametros.Value = usu.getNombre_UsuarioUsuario();
         }
 
+        public int actualizar_datos_usuario_en_bd(Usuarios usur)
+        {
+            SqlCommand comando = new SqlCommand();
+            ParamatrosActualizarUsuario(ref comando, usur);
+            return ds.EjecutarProcedimientoAlmacenado(comando, "spActualizarUsuario");
+        }
+
+        private void ParamatrosActualizarUsuario(ref SqlCommand comando, Usuarios usur)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+
+            SqlParametros = comando.Parameters.Add("@NOMBRE", SqlDbType.VarChar);
+            SqlParametros.Value = usur.getNombreUsuario();
+            SqlParametros = comando.Parameters.Add("@APELLIDO", SqlDbType.VarChar);
+            SqlParametros.Value = usur.getApellidoUsuario();
+            SqlParametros = comando.Parameters.Add("@EMAIL", SqlDbType.VarChar);
+            SqlParametros.Value = usur.getEmailUsuario();
+            SqlParametros = comando.Parameters.Add("@DIRECCION", SqlDbType.VarChar);
+            SqlParametros.Value = usur.getDireccionUsuario();
+            SqlParametros = comando.Parameters.Add("@NOMBREUSUARIO", SqlDbType.VarChar);
+            SqlParametros.Value = usur.getNombre_UsuarioUsuario();
+            SqlParametros = comando.Parameters.Add("@PASSWORD", SqlDbType.VarChar);
+            SqlParametros.Value = usur.getPasswordUsuario();
+            SqlParametros = comando.Parameters.Add("@TELEFONO", SqlDbType.VarChar);
+            SqlParametros.Value = usur.getTelefonoUsuario();
+
+
+        }
+
+
     }
 }

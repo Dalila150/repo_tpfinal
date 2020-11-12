@@ -127,5 +127,19 @@ namespace Negocio
             }
         }
 
+
+        public int ActualizarUsuario(Usuarios user)
+        {
+
+
+            DaoUsuario datos = new DaoUsuario();
+
+            int actualizo = datos.actualizar_datos_usuario_en_bd(user);
+
+            return actualizo;
+
+
+        }
+
     }
 }
