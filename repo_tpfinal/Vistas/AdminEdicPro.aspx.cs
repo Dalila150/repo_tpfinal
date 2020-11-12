@@ -25,8 +25,9 @@ namespace Vistas
                     DataTable dt_Mar = new DataTable();
 
                     NegocioProducto Gp = new NegocioProducto();
+                    NegocioCategoria Gc = new NegocioCategoria();
 
-                    dt_Cat = Gp.ObtenerCategorias();
+                    dt_Cat = Gc.ObtenerCategorias();
                     dt_Mar = Gp.ObtenerMarcas();
 
                     //recorro cada fila que me devuelve obtener categoria

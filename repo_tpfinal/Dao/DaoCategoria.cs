@@ -14,6 +14,10 @@ namespace Dao
     {
         AccesoaDatos ds = new AccesoaDatos();
 
+        public DataTable ObtenerTodasLasCategorias()
+        {
+            return ds.ObtenerTabla("categorias", "SELECT categoria.Nombre, categoria.Imagen FROM categoria");
+        }
         public Boolean existeCategoría(Categorias cat)
         {
             String consulta = "Select * from categoria where Nombre='" + cat.Nombre1 + "'";
@@ -67,8 +71,9 @@ namespace Dao
         {
             DataTable aux = new DataTable();
             AccesoaDatos ad = new AccesoaDatos();
-            aux = ad.ObtenerTabla("categoria", "Select * from categoria");
+            aux = ad.ObtenerTabla("categoria", "Select * from categoria where categoria.estado = 1");
             return aux;
         }
+
     }
 }

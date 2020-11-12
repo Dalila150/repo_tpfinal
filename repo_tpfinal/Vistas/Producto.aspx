@@ -5,67 +5,42 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="StyleSheet" ; href="/css/home.css" ; type="text/css" />
-    <link rel="StyleSheet" ; href="/css/footer.css" ; type="text/css" />
-    <link rel="StyleSheet" ; href="/css/header.css" ; type="text/css" />
-    <link rel="StyleSheet" ; href="/css/producto.css" ; type="text/css" />
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">    <title>Home</title>
+    <link rel="stylesheet" href="css/template.css"/>
+    <link rel="StyleSheet" href="/css/producto.css" ; type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet" />    
+    <title>Home</title>
     <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
   </head>
 <body>
-    <header>
-      <div class="EspacioLogo">
-        <img src="/img/logo.jpg" ; class="Logo" />
-      </div>
-
-      <div class="EspacioBuscador">
-        <input
-          type="text"
-          name="search"
-          placeholder="Buscar"
-          class="bus"
-          autocomplete="off"
-        />
-      </div>
-      <div class="EspacioAtajos">
-        <a href="/carrito.html" class="fas fa-user user"></a>
-
-        <a href="/carrito.html" class="fas fa-shopping-cart cart"></a>
-      </div>
-      <div class="EspacioBarraNavegacion">
-        <ul class="nav">
+    <div class="container">
+        <div class="logo" >
+            <img src="/img/logo.jpg" class="LogoImagen" />
+        </div>
+        <div class="header" >
+            <input type="text" name="search" placeholder="Buscar" class="bus" autocomplete="off"/>
+        </div>
+        <div class="iconos" >
+            <a href="/IniciarSesion.aspx" class="fas fa-user user"></a>
+            <a href="/Carrito.aspx" class="fas fa-shopping-cart cart"></a></div>
+        <div class="navbar" style="z-index: 2;" >
+            <ul class="nav">
           <li class="name">
-            <a href="#">Home</a>
+            <a href="/Home.aspx">Home</a>
           </li>
-          <li class="name">
-            <a href="#">Categorias</a>
-            <ul>
-              <li>
-                <a href="/categoria.html">Monitores</a>
-              </li>
-              <li>
-                <a href="/categoria.html">Televisores</a>
-              </li>
-              <li>
-                <a href="/categoria.html">Tablet</a>
-              </li>
-              <li>
-                <a href="/categoria.html">Celulares</a>
-              </li>
-            </ul>
+          <li id="CargameLasCats" class="name" runat="server">
+              <!--Aca deberian ir las categorias-->
           </li>
           <li class="name">
             <a href="#">Contacto</a>
           </li>
         </ul>
-      </div>
-      
-    </header>
- 
+        </div>
+        <div class="content" >
+    <form id="carrito" runat="server">
     <!-------------------------------------------------------------------------->
-    <div class="conteiner">
-      <div class="Producto">
-        <ul class="slider">
+    <div class="conteiner" style="margin:20px 15% 20px 15%;z-index: 0;">
+      <div class="Producto" style="text-align:center">
+        <ul class="slider" style="z-index: 1;">
           <li id="slide1">
             <img
               src="https://http2.mlstatic.com/D_NQ_NP_788835-MLA40123748847_122019-O.webp"
@@ -94,7 +69,7 @@
           <h2>$5000</h2>
         </div>
         <div>
-          <h3>Cantidad: <select class="cantidad">
+          <h3>Cantidad: <select class="cantidad" style="border-radius:5px;font-size:15px">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -104,7 +79,7 @@
           <h3>Disponibles: 3</h3>
         </div>
         <div>
-          <button class="agregar">AGREGAR AL CARRITO</button>
+          <asp:button runat="server" ID="bntEliminarProdCarrito" style="width: 90%;border-radius: 8px 8px;padding: 0.5rem;font-size: 18px; border-radius: 20px 20px;color: #ffffff; border: solid 1px rgba(226, 98, 98, 0.116);background-color: rgba(184, 39, 51, 0.753);" text="Eliminar Producto"/>
         </div>
         <div class="vacio">&nbsp</div>
       </div>
@@ -147,48 +122,27 @@
         </p>
       </div>
     </div>
+        </form>
+    </div>
     <!-------------------------------------------------------------------------->
-    <footer>
-      <div class="DivFoot">
-        <h2 class="cont">Contactenos</h2>
+     <div class="footer" >
         <!-- Iconos de redes sociales -->
-        <ul>
-          <li class="primerIco">
-            <a href="https://www.instagram.com/"
-              ><i class="fab fa-instagram-square tamIcoRed" ;></i
-            ></a>
-          </li>
-          <li class="icoRedes">
-            <a href="https://twitter.com/"
-              ><i class="fab fa-twitter tamIcoRed"></i
-            ></a>
-          </li>
-          <li class="icoRedes">
-            <a href="https://facebook.com/"
-              ><i class="fab fa-facebook-square tamIcoRed"></i
-            ></a>
-          </li>
-          <li class="icoRedes">
-            <a href="https://github.com/"
-              ><i class="fab fa-github tamIcoRed"></i
-            ></a>
-          </li>
-        </ul>
-        <ul>
-          <li class="primero">
-            <i>Instagram</i>
-          </li>
-          <li class="redes">
-            <i>Twitter</i>
-          </li>
-          <li class="redes">
-            <i>Facebook</i>
-          </li>
-          <li class="redes">
-            <i>Github</i>
-          </li>
-        </ul>
-      </div>
-    </footer>
+            <h2 class="contactenos">Contactenos</h2>
+            <ul style="text-align:left">
+              <li class="redes">
+                <a href="https://www.instagram.com/"><i class="fab fa-instagram-square tamIcoRed"><b style="padding-left:10px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Instagram</b></i></a>
+              </li>
+              <li class="redes">
+                <a href="https://twitter.com/"><i class="fab fa-twitter tamIcoRed"><b style="padding-left:10px;padding-top:0px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Twitter</b></i></a>
+              </li>
+              <li class="redes">
+                <a href="https://facebook.com/"><i class="fab fa-facebook-square tamIcoRed"><b style="padding-left:10px;padding-top:0px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Facebook</b></i></a>
+              </li>
+              <li class="redes">
+                 <a href="https://github.com/"><i class="fab fa-github tamIcoRed"><b style="padding-left:10px;padding-top:0px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">GitHub</b></i></a>
+              </li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,19 +1,18 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="IniciarSesion.aspx.cs" Inherits="Vistas.WebForm6" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Productos.aspx.cs" Inherits="Vistas.WebForm8" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+  <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="StyleSheet" ; href="/css/iniciosesion.css" ; type="text/css" />
-    <link rel="stylesheet" href="css/template_home_v1.css"/>
-     <link rel="stylesheet" href="css/template.css"/>
+    <link rel="stylesheet" href="css/template.css"/>
+    <link rel="StyleSheet" ; href="/css/categorias.css" ; type="text/css" />
 
-    <title>inicio de sesion</title>
+    <title>Categoria</title>
     <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
   </head>
 <body>
-    <div class="container">
+   <div class="container">
         <div class="logo" >
             <img src="/img/logo.jpg" class="LogoImagen" />
         </div>
@@ -37,57 +36,56 @@
         </ul>
         </div>
         <div class="content" >
-        
-            <!--Bloque de registro-->
-    <div class="posicionamiento">
-      <div class="titulo">
-        <label>Iniciar sesion</label>
-        <hr />
-      </div>
-
-      <form id="formulario" runat="server">
-        <div class="posicion1">
-          <div class="datos">
-            <div class="usuario">
-              <label>Usuario</label>
+   
+    <!-------------------------------------------------------------------------->
+    <div class="filtros">
+        <div style="Background-color: rgba(233, 142, 142, 0.466);width:70%;margin-left:15%;border-radius:10px;">
+      <ul style="padding-top:10px;text-align:left">
+        <li>
+          Filtrar por:
+          <ul class="espacio">
+            <li class="espacio">
+              Orden precio
+              <ul>
+                <li>mayor</li>
+                <li>menor</li>
+              </ul>
+            </li>
+            <li class="espacio">
+              Ordenar 
+              <ul>
+                <li>mas nuevo</li>
+                <li>mas viejo</li>
+              </ul>
+            </li>
+            <li class="espacio">
+              Marca
+              <ul>
+                <li>marca1</li>
+                <li>marca2</li>
+                <li>marca3</li>
+              </ul>
+            </li>
+            <li class="espacio">
+              Precio
+              <ul>
+                <%--<label>maximo</label>--%>
+                <li>$<input class="minimo" style="width:70%" type="text"/></li>
+                <%--<label>minimo</label>--%>
+                <li>$<input class="maximo" style="width:70%" type="text"/></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
             </div>
-            <div class="txtDatosUsu">
-                <asp:TextBox ID="txtUsuario" Class="txt" runat="server"></asp:TextBox>
-            </div>
-
-            <div class="contrac">
-              <div class="lblCampo">Contraseña:</div>
-              <div class="txtDatosCon">
-                  <asp:TextBox ID="txtContraseña" type="password" Class="txt" runat="server"></asp:TextBox>
-                  <br />
-              </div>
-            </div>
-            <div class="datDivision">
-              <div class="botonInicio">
-                  <asp:Button ID="btnIniciarSesion" runat="server" class="inicio" OnClick="btnIniciarSesion_Click" Text="Iniciar Sesion" BorderColor="#CC0000" />
-                  <br />
-                  <asp:Label ID="lblMensaje" style="font-size:13px" runat="server"></asp:Label>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="posicion2">
-            <div class="datosCrear">
-              <div class="crear">
-                <label>¿No tenes cuenta? ¡Registrate ahora! </label>
-              </div>
-            </div>
-              <div class="Redireccion">
-                <div class="botonemp">
-                    <asp:Button ID="btnIniciarRegistro" class="inicio" runat="server" Text="Iniciar" OnClick="btnIniciarRegistro_Click" />
-                </div>
-              </div>
-          </div>
-      </form>
     </div>
-            </div>
-    <!---->
-        <div class="footer" >
+    <!-------------------------------------------------------------------------->
+    <div id="productosCategorias" class="productosCategorias" runat="server">
+      <!--Aca deberian ir los productos-->
+  </div>
+   </div>
+    <div class="footer" >
         <!-- Iconos de redes sociales -->
             <h2 class="contactenos">Contactenos</h2>
             <ul style="text-align:left">
@@ -108,5 +106,3 @@
     </div>
 </body>
 </html>
-
-

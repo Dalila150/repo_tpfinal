@@ -37,7 +37,7 @@ namespace Dao
             return ds.existe(consulta);
         }
 
-        public Boolean existeUsuarioYclave(string Usuario , string Clave)
+        public Boolean existeUsuarioYclave(string Usuario, string Clave)
         {
             String consulta = "Select * from Usuario where Nombre_Usuario='" + Usuario + "'and Password='" + Clave + "'";
             return ds.existe(consulta);

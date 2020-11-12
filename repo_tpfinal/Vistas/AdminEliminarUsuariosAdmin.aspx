@@ -5,9 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="StyleSheet" ; href="/css/home.css" ; type="text/css" />
-    <link rel="StyleSheet" ; href="/css/footer.css" ; type="text/css" />
-    <link rel="StyleSheet" ; href="/css//headerAdmin.css" ; type="text/css" />
+    <link rel="StyleSheet" href="/css/template_admin.css"type="text/css" />
 
     <title>Home</title>
     <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
@@ -20,66 +18,64 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <header>
-        <div class="EspacioLogo">
-            <img src="/img/logo.jpg" ; class="Logo" />
+    <div class="container">
+        <div class="logo" >
+            <img src="/img/logo.jpg" class="LogoImagen" />
         </div>
-
-
-        <div class="EspacioAtajos" style="padding-top: 50px;">
-            <a href="/home.html" class="fa fa-sign-out"
-                style="text-decoration: none; font-size: 30px;color: black;"></a>
+        <div class="header" >
         </div>
-        <div class="EspacioBarraNavegacion" style="padding-top: 35px;">
-            <ul class="nav">
-                <li class="name">
-                    <a href="#">Productos</a>
-                    <ul>
-                        <li>
-                            <a href="/categoria.html">Listar</a>
-                        </li>
-                        <li>
-                            <a href="/categoria.html">Crear</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="name">
-                    <a href="#">Usuarios</a>
-                    <ul>
-                        <li>
-                            <a href="/categoria.html">Listar</a>
-                        </li>
-                        <li>
-                            <a href="/categoria.html">Crear</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="name">
-                    <a href="#">Marcas</a>
-                    <ul>
-                        <li>
-                            <a href="/categoria.html">Eliminar</a>
-                        </li>
-                        <li>
-                            <a href="/categoria.html">Crear</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="name">
-                    <a href="#">Categorias</a>
-                    <ul>
-                        <li>
-                            <a href="/categoria.html">Eliminar</a>
-                        </li>
-                        <li>
-                            <a href="/categoria.html">Crear</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+        <div class="iconos" >
+            <a href="/Datos.aspx" class="fas fa-user user"></a>
+            <a href="/Home.aspx" class="fas fa-sign-out-alt"></a></div>
+        <div class="navbar" >
+           <ul class="nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Administrar</a>
+                <ul>
+                    <li><a href="#">Productos</a>
+                        <ul>
+                            <li><a href="#">Listar</a></li>
+                            <li><a href="#">Crear</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Usuarios</a>
+                        <ul>
+                            <li><a href="#">Listar</a></li>
+                            <li><a href="#">Editar</a></li>
+                            <li><a href="#">Eliminar</a></li>
+                            <li><a href="#">Crear</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Marcas</a>
+                        <ul>
+                            <li><a href="#">Listar</a></li>
+                            <li><a href="#">Editar</a></li>
+                            <li><a href="#">Eliminar</a></li>
+                            <li><a href="#">Crear</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Categorias</a>
+                        <ul>
+                            <li><a href="#">Listar</a></li>
+                            <li><a href="#">Editar</a></li>
+                            <li><a href="#">Eliminar</a></li>
+                            <li><a href="#">Crear</a></li>
+                        </ul>
+                    </li>
 
-    </header>
+                </ul>
+            </li>
+            <li><a href="#">Registros</a>
+                <ul>
+                    <li><a href="#">Registro 1</a></li>
+                    <li><a href="#">Registro 2</a></li>
+                    <li><a href="#">Historial de ventas</a></li>
+                </ul>
+            </li>
+
+        </ul>
+        </div>
+        <div class="content" >
 
     <!------------------------------------------------------------>
     <div style="display: inline-block;width: 80%;padding-top: 100px;padding-left: 10%">
@@ -111,49 +107,26 @@
             </div>
         </div>
     </div>
-    <footer>
-        <div>
-            <h2 class="cont">Contactenos</h2>
-            <!-- Iconos de redes sociales -->
-            <ul>
-                <li class="primerIco">
-                    <a href="https://www.instagram.com/"><i class="fab fa-instagram-square tamIcoRed" ;></i></a>
-                </li>
-                <li class="icoRedes">
-                    <a href="https://twitter.com/"><i class="fab fa-twitter tamIcoRed"></i></a>
-                </li>
-                <li class="icoRedes">
-                    <a href="https://facebook.com/"><i class="fab fa-facebook-square tamIcoRed"></i></a>
-                </li>
-                <li class="icoRedes">
-                    <a href="https://github.com/"><i class="fab fa-github tamIcoRed"></i></a>
-                </li>
-            </ul>
-            <ul>
-                <li class="primero">
-                    <i>Instagram</i>
-                </li>
-                <li class="redes">
-                    <i>Twitter</i>
-                </li>
-                <li class="redes">
-                    <i>Facebook</i>
-                </li>
-                <li class="redes">
-                    <i>Github</i>
-                </li>
+    </div>
+        <div class="footer" >
+        <!-- Iconos de redes sociales -->
+            <h2 class="contactenos">Contactenos</h2>
+            <ul style="text-align:left">
+              <li class="redes">
+                <a href="https://www.instagram.com/"><i class="fab fa-instagram-square tamIcoRed"><b style="padding-left:10px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Instagram</b></i></a>
+              </li>
+              <li class="redes">
+                <a href="https://twitter.com/"><i class="fab fa-twitter tamIcoRed"><b style="padding-left:10px;padding-top:0px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Twitter</b></i></a>
+              </li>
+              <li class="redes">
+                <a href="https://facebook.com/"><i class="fab fa-facebook-square tamIcoRed"><b style="padding-left:10px;padding-top:0px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Facebook</b></i></a>
+              </li>
+              <li class="redes">
+                 <a href="https://github.com/"><i class="fab fa-github tamIcoRed"><b style="padding-left:10px;padding-top:0px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">GitHub</b></i></a>
+              </li>
             </ul>
         </div>
-    </footer>
+    </div>
     </form>
 </body>
-    <script type="text/javascript">
-        $(".encontrar-id-usuario").click(function () {
-            var $id = $(this).closest("tr")//BUSCO EL TR MAS CERCANO QUE ES SOBRE EL QUE SE HIZO CLICK
-                .find(".info-user")//BUSCO EL ITEM QUE TENGA ESA CLASE
-                .text();//AGARRO EL TEXTO DEL TD
-
-            alert($id);// Outputs the answer
-        });
-    </script>
 </html>

@@ -39,6 +39,20 @@ namespace Negocio
             else
                 return false;
         }
+        public bool agregarProducto(Producto producto)
+        {
+            DaoProducto dao = new DaoProducto();
+            NegocioProducto ngp = new NegocioProducto();
+
+            if (dao.ComprobarNombreRepetido(producto) == false)
+            {
+                return ngp.CrearProducto(producto);
+
+            } else
+            {
+                return false;
+            }
+        }
         public bool EliminarProducto(Producto producto)
         {
             SqlCommand Comando = new SqlCommand();
@@ -59,6 +73,11 @@ namespace Negocio
             DaoProducto dp = new DaoProducto();
             return dp.ObtenerTodosLosProductos();
         }
+        public DataTable TodosLosProductosConImagen()
+        {
+            DaoProducto dp = new DaoProducto();
+            return dp.ObtenerTodosLosProductosConImagen();
+        }
         public DataTable BuscarProductos(String texto)
         {
             DaoProducto dp = new DaoProducto();
@@ -69,15 +88,16 @@ namespace Negocio
             DaoProducto dp = new DaoProducto();
             return dp.ObtenerUnProducto(id);
         }
+        public DataTable ObtenerProdsXIdCategoria(String id)
+        {
+            DaoProducto dp = new DaoProducto();
+            return dp.ObtenerProdsXIdCategoria(id);
+        }
         public DataTable ObtenerMarcas()
         {
             DaoMarcas dm = new DaoMarcas();
             return dm.getTablaMarcas();
         }
-        public DataTable ObtenerCategorias()
-        {
-            DaoCategoria dm = new DaoCategoria();
-            return dm.ObtenerCategorias();
-        }
+        
     }
 }

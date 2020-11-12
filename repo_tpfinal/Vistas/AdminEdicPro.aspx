@@ -19,41 +19,62 @@
 
 <body>
     <form id="form1" runat="server">
-    <header>
+     <header>
         <div class="EspacioLogo">
             <img src="/img/logo.jpg" ; class="Logo" />
         </div>
-
-
         <div class="EspacioAtajos" style="padding-top: 50px;">
             <a href="/home.html?type=logout" class="fa fa-sign-out"
-                style="text-decoration: none; font-size: 30px;color: black;"></a>
+                style="text-decoration: none; font-size: 30px; color: black;"></a>
         </div>
-        <div class="EspacioBarraNavegacion" style="padding-top: 35px;">
-            <ul class="nav">
-                <li class="name">
-                    <a href="/AdminHome.aspx">Home</a>
-                </li>
-                <li class="name">
-                    <a href="/AdminHome.aspx">Administracion</a>
-                    <ul>
-                        <li>
-                            <a href="/AdminListarProductos.aspx">Productos</a>
+    <div class="EspacioBarraNavegacion" style="padding-top: 35px;">
+        <ul class="nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Administrar</a>
+                <ul>
+                    <li><a href="#">Productos</a>
+                        <ul>
+                             <li><a href="/AdminListPro.aspx">Listar</a></li>
+                            <li><a href="/AdminCrearPro.aspx">Crear</a></li>
+                        </ul>
                         </li>
-                        <li>
-                            <a href="/AdminUsuarios.html">Usuarios</a>
-                        </li>
-                        <li>
-                            <a href="/AdminListarCategorias.html">Categorias</a>
-                        </li>
-                        <li>
-                            <a href="/AdminListarMarcas.html">Marcas</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+                    <li><a href="#">Usuarios</a>
+                        <ul>
+                            <li><a href="#">Listar</a></li>
+                            <li><a href="#">Editar</a></li>
+                            <li><a href="#">Eliminar</a></li>
+                            <li><a href="#">Crear</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Marcas</a>
+                        <ul>
+                            <li><a href="#">Listar</a></li>
+                            <li><a href="#">Editar</a></li>
+                            <li><a href="#">Eliminar</a></li>
+                            <li><a href="#">Crear</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Categorias</a>
+                        <ul>
+                            <li><a href="#">Listar</a></li>
+                            <li><a href="#">Editar</a></li>
+                            <li><a href="#">Eliminar</a></li>
+                            <li><a href="#">Crear</a></li>
+                        </ul>
+                    </li>
 
+                </ul>
+            </li>
+            <li><a href="#">Registros</a>
+                <ul>
+                    <li><a href="#">Registro 1</a></li>
+                    <li><a href="#">Registro 2</a></li>
+                    <li><a href="#">Historial de ventas</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
     </header>
     <!------------------------------------------------------------>
     <div style="display: inline-block;width: 80%;padding-top: 100px;padding-left: 10%">

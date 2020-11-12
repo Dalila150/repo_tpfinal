@@ -11,7 +11,7 @@ namespace Vistas
 {
 
 
-    public partial class WebForm5
+    public partial class WebForm8
     {
 
         /// <summary>
@@ -24,21 +24,12 @@ namespace Vistas
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl CargameLasCats;
 
         /// <summary>
-        /// carrito control.
+        /// productosCategorias control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm carrito;
-
-        /// <summary>
-        /// bntEliminarProdCarrito control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bntEliminarProdCarrito;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl productosCategorias;
     }
 }

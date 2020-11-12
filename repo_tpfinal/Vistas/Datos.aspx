@@ -1,182 +1,137 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Datos.aspx.cs" Inherits="Vistas.WebForm7" %>
 
-<!DOCTYPE html>
+    <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="StyleSheet" ; href="/css/datos.css" ; type="text/css" />
-    <link rel="StyleSheet" ; href="/css/footer.css" ; type="text/css" />
-    <link rel="StyleSheet" ; href="/css/header.css" ; type="text/css" />
+    <html xmlns="http://www.w3.org/1999/xhtml">
 
-    <title>Datos</title>
-    <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
-</head>
-<body>
-    <header>
-        <div class="EspacioLogo">
-            <img src="/img/logo.jpg" ; class="Logo" />
-        </div>
+    <head runat="server">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="StyleSheet" ; href="/css/datos.css" ; type="text/css" />
+        <link rel="stylesheet" href="css/template_home_v1.css" />
+        <link rel="stylesheet" href="css/iniciosesion.css" />
+        <link rel="stylesheet" href="css/template.css" />
 
-        <div class="EspacioBuscador">
-            <input type="text" name="search" placeholder="Buscar" class="bus" autocomplete="off" />
-        </div>
-        <div class="EspacioAtajos">
-            <a href="/carrito.html" class="fas fa-user user"></a>
+        <title>Datos</title>
+        <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
+    </head>
 
-            <a href="/carrito.html" class="fas fa-shopping-cart cart"></a>
-        </div>
-        <div class="EspacioBarraNavegacion">
-            <ul class="nav">
-                <li class="name">
-                    <a href="#">Home</a>
-                </li>
-                <li class="name">
-                    <a href="#">Categorias</a>
-                    <ul>
-                        <li>
-                            <a href="/categoria.html">Monitores</a>
-                        </li>
-                        <li>
-                            <a href="/categoria.html">Televisores</a>
-                        </li>
-                        <li>
-                            <a href="/categoria.html">Tablet</a>
-                        </li>
-                        <li>
-                            <a href="/categoria.html">Celulares</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="name">
-                    <a href="#">Contacto</a>
-                </li>
-            </ul>
-        </div>
-    </header>
-    <div class="posicionamiento">
-        <div>
-            <h1 class="titulo">Editar datos</h1>
-            <hr class="inferior" />
-        </div>
-        <!---->
-        <form id="formulario" runat="server">
-            <div class="posicion">
-                <label class="tituloDatos">Datos personales</label>
-                <label class="tituloDatos d1">Direccion</label>
-                <div class="container">
-            <div class="lblDatos">
-                <ul>
-                    <li>
-                        <label>Nombre:</label>
+    <body>
+        <div class="container">
+            <div class="logo">
+                <img src="/img/logo.jpg" class="LogoImagen" />
+            </div>
+            <div class="header">
+                <input type="text" name="search" placeholder="Buscar" class="bus" autocomplete="off" />
+            </div>
+            <div class="iconos">
+                <a href="/IniciarSesion.aspx" class="fas fa-user user"></a>
+                <a href="/Carrito.aspx" class="fas fa-shopping-cart cart"></a>
+            </div>
+            <div class="navbar">
+                <ul class="nav">
+                    <li class="name">
+                        <a href="home.aspx">Home</a>
                     </li>
-                    <li>
-                        <label>Apellido:</label>
+                    <li id="CargameLasCats" class="name" runat="server">
+              <!--Aca deberian ir las categorias-->
                     </li>
-                    <li>
-                        <label>E-mail:</label>
-                    </li>
-                    <li>
-                        <label>Contraseña:</label>
+                    <li class="name">
+                        <a href="#">Contacto</a>
                     </li>
                 </ul>
             </div>
-            
-            <div class="txtDatos">
-                <ul>
-                    <li>
-                    <input type="text" value="Nombre"></input>
+            <div class="content">
+
+                <!------------------------------------------------------------>
+                <div style="background-color: rgba(197, 93, 102, 0.404);width:60%;display: inline-block;padding-bottom: 2rem;border-radius: 10px;margin-bottom: 20px; padding-top: 1rem; margin-left: 20%; margin-right: 20%; margin-top: 1rem;">
+                    <div>
+                        <h1>Editar datos</h1>
+                    </div>
+                    <!---->
+                    <h2>Datos personales</h2>
+
+                    <form id="formulario" runat="server">
+                        <div style="width:100%">
+                            <div style="width:30%;display:inline">
+                                <ul style="display: inline-block;padding:0 0 0 25px">
+                                    <li style="padding-bottom: 20px;text-align:left">Nombre:</li>
+                                    <li style="padding-bottom: 20px;text-align:left">Apellido:</li>
+                                    <li style="padding-bottom: 20px;text-align:left">E-mail:</li>
+                                    <li style="padding-bottom: 20px;text-align:left">Contraseña:</li>                                       
+                                </ul>
+                            </div>
+
+                                <div style="width:30%;display:inline">
+                                    <ul style="display: inline-block;margin-left: 16px">
+                                        <li style="padding-bottom: 10px">
+                                            <asp:textbox runat="server" id="txtNombre" type="text" placeholder="Nombre" style="width: 100%;padding: 0.3rem;border-radius: 20px 20px;background-color: rgba(235, 149, 149, 0.308);border: solid 2px rgba(226, 98, 98, 0.116);"/>
+                                        </li>
+                                        <li style="padding-bottom: 10px">
+                                            <asp:textbox runat="server" id="txtApellido" type="text" placeholder="Apellido" style="width: 100%;padding: 0.3rem;border-radius: 20px 20px;background-color: rgba(235, 149, 149, 0.308);border: solid 2px rgba(226, 98, 98, 0.116);"/>
+                                        </li>
+                                        <li style="padding-bottom: 10px">
+                                            <asp:textbox runat="server" id="txtEmail" type="text" placeholder="E-mail" style="width: 100%;padding: 0.3rem;border-radius: 20px 20px;background-color: rgba(235, 149, 149, 0.308);border: solid 2px rgba(226, 98, 98, 0.116);"/>
+                                        </li>
+                                        <li style="padding-bottom: 10px">
+                                            <asp:textbox runat="server" id="txtPassword" type="text" placeholder="Contraseña" style="width: 100%;padding: 0.3rem;border-radius: 20px 20px;background-color: rgba(235, 149, 149, 0.308);border: solid 2px rgba(226, 98, 98, 0.116);"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        <h2 style="display: block">Direccion</h2>
+                            <div style="width:100%;">
+                                <div style="width:30%;display:inline;">
+                                    <ul style="display: inline-block;">
+                                        <li style="padding-bottom: 20px;text-align:left">Direccion:</li>
+                                        <li style="padding-bottom: 20px;text-align:left">Ciudad:</li>
+                                        <li style="padding-bottom: 20px;text-align:left">Provincia:</li>
+                                        <li style="padding-bottom: 20px;text-align:left">Codigo Postal:</li>
+                                    </ul>
+                                </div>
+
+                                <div style="width:30%;display:inline">
+                                    <ul style="display: inline-block;margin-right:10px">
+                                        <li style="padding-bottom: 10px">
+                                            <asp:textbox runat="server" id="txtDireccion" type="text" placeholder="Direccion" style="width: 100%;padding: 0.3rem;border-radius: 20px 20px;background-color: rgba(235, 149, 149, 0.308);border: solid 2px rgba(226, 98, 98, 0.116);"/>
+                                        </li>
+                                        <li style="padding-bottom: 10px">
+                                            <asp:textbox runat="server" id="txtCuidad" type="text" placeholder="Cuidad" style="width: 100%;padding: 0.3rem;border-radius: 20px 20px;background-color: rgba(235, 149, 149, 0.308);border: solid 2px rgba(226, 98, 98, 0.116);"/>
+                                        </li>
+                                        <li style="padding-bottom: 10px">
+                                            <asp:textbox runat="server" id="txtProv" type="text" placeholder="Provincia" style="width: 100%;padding: 0.3rem;border-radius: 20px 20px;background-color: rgba(235, 149, 149, 0.308);border: solid 2px rgba(226, 98, 98, 0.116);"/>
+                                        </li>
+                                        <li style="padding-bottom: 10px">
+                                            <asp:textbox runat="server" id="txtCP" type="text" placeholder="Codigo Postal" style="width: 100%;padding: 0.3rem;border-radius: 20px 20px;background-color: rgba(235, 149, 149, 0.308);border: solid 2px rgba(226, 98, 98, 0.116);"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        <div>
+                            <button class="btnGuardar"  style="width: 30%;border-radius: 8px 8px;padding: 0.5rem;font-size: 18px; border-radius: 20px 20px;color: #ffffff; border: solid 1px rgba(226, 98, 98, 0.116);background-color: rgba(184, 39, 51, 0.753);">Guardar cambios</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!---->
+            <div class="footer">
+                <!-- Iconos de redes sociales -->
+                <h2 class="contactenos">Contactenos</h2>
+                <ul style="text-align:left">
+                    <li class="redes">
+                        <a href="https://www.instagram.com/"><i class="fab fa-instagram-square tamIcoRed"><b style="padding-left:10px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Instagram</b></i></a>
                     </li>
-                    <li>
-                        <input type="text" value="Apellido"></input>
+                    <li class="redes">
+                        <a href="https://twitter.com/"><i class="fab fa-twitter tamIcoRed"><b style="padding-left:10px;padding-top:0px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Twitter</b></i></a>
                     </li>
-                    <li>
-                        <input type="text" value="E-mail"></input>
+                    <li class="redes">
+                        <a href="https://facebook.com/"><i class="fab fa-facebook-square tamIcoRed"><b style="padding-left:10px;padding-top:0px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Facebook</b></i></a>
                     </li>
-                    <li>
-                        <input type="text" value="Contraseña"></input>
+                    <li class="redes">
+                        <a href="https://github.com/"><i class="fab fa-github tamIcoRed"><b style="padding-left:10px;padding-top:0px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">GitHub</b></i></a>
                     </li>
                 </ul>
             </div>
-        </div>
-        <div class="container2">
-            <div class="lblDatos">
-                <ul>
-                    <li>
-                        <label>Direccion:</label>
-                    </li>
-                    <li>
-                        <label>Ciudad:</label>
-                    </li>
-                    <li>
-                        <label>Provincia:</label>
-                    </li>
-                    <li>
-                        <label>Codigo Postal:</label>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="txtDatos">
-                <ul>
-                    <li>
-                    <input type="text" value="direccion"></input>
-                    </li>
-                    <li>
-                        <input type="text" value="cuidad"></input>
-                    </li>
-                    <li>
-                        <input type="text" value="provincia"></input>
-                    </li>
-                    <li>
-                        <input type="text" value="codigo Postal"></input>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        </div>
-        
-        <div class="gCambios">
-            <hr class="inferior" />
-            <button class="btnGuardar">Guardar cambios</button>
-        </div>
-        </form>
     </div>
-    
-    <!---->
-    <footer>
-        <div>
-            <h2 class="cont">Contactenos</h2>
-            <!-- Iconos de redes sociales -->
-            <ul>
-                <li class="primerIco">
-                    <a href="https://www.instagram.com/"><i class="fab fa-instagram-square tamIcoRed" ;></i></a>
-                </li>
-                <li class="icoRedes">
-                    <a href="https://twitter.com/"><i class="fab fa-twitter tamIcoRed"></i></a>
-                </li>
-                <li class="icoRedes">
-                    <a href="https://facebook.com/"><i class="fab fa-facebook-square tamIcoRed"></i></a>
-                </li>
-                <li class="icoRedes">
-                    <a href="https://github.com/"><i class="fab fa-github tamIcoRed"></i></a>
-                </li>
-            </ul>
-            <ul>
-                <li class="primero">
-                    <i>Instagram</i>
-                </li>
-                <li class="redes">
-                    <i>Twitter</i>
-                </li>
-                <li class="redes">
-                    <i>Facebook</i>
-                </li>
-                <li class="redes">
-                    <i>Github</i>
-                </li>
-            </ul>
-        </div>
-    </footer>
 </body>
 </html>

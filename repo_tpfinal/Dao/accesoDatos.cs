@@ -76,6 +76,31 @@ namespace Dao
             return FilasCambiadas;
         }
 
+        public int EjecutarProcedimientoAlmacenado2(SqlCommand Comando, String NombreSP)
+        {
+            int FilasCambiadas = 1;
+            SqlConnection Conexion = ObtenerConexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd = Comando;
+            cmd.Connection = Conexion;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = NombreSP;
+            SqlDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+
+            try
+            {
+                string aux = dr[0].ToString();
+            }
+            catch
+            {
+                FilasCambiadas = 0;
+            }
+
+            Conexion.Close();
+            return FilasCambiadas;
+        }
+
         public DataSet TraerDs(string NombreTabla, string consulta)
         {
             DataSet ds = new DataSet();

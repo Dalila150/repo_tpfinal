@@ -85,7 +85,6 @@ namespace Negocio
                 return false;
         }
 
-
         public bool BuscarUsuarioNombre_Usuario(string Nombre_Usuario)
         {
             DaoUsuario dao = new DaoUsuario();
@@ -117,7 +116,7 @@ namespace Negocio
         public bool BuscarUsuarioYclave(string Nombre_Usuario, string Clave)
         {
             DaoUsuario dao = new DaoUsuario();
-            bool Existe = dao.existeUsuarioYclave(Nombre_Usuario,Clave);
+            bool Existe = dao.existeUsuarioYclave(Nombre_Usuario, Clave);
             if (Existe == true)
             {
                 return true;

@@ -70,6 +70,7 @@ input.bus {
     justify-content: center;
 }
 
+
 .nav {
     padding: 0;
 }
@@ -82,10 +83,12 @@ input.bus {
         font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
         display: block;
         font-size: 22px;
-        text-align: center;
+        text-align: initial;
         border-radius: 20px 20px;
     }
-
+    .nav > li {
+        float: left;
+    }
     .nav .name {
         padding-right: 0.5rem;
     }
@@ -93,27 +96,29 @@ input.bus {
         .nav .name:hover {
             color: black;
         }
-
-    .nav ul li a:hover {
+    .nav li a:hover {
         background-color: rgb(241, 194, 197);
         color: rgb(0, 0, 0);
     }
-
-    .nav > li {
-        float: left;
-    }
-
     .nav li ul {
         display: none;
         position: absolute;
         margin: 0;
         padding-left: 0;
+        min-width:-140px
+    }
+    .nav li ul li{
+        position:absolute
+    }
+    .nav li ul li ul{
+        right:-140px;
+        top:0px
     }
 
     .nav li:hover > ul {
         display: block;
     }
-
+    
 .EspacioAtajos {
     float: right;
     margin-right: 3rem;
@@ -131,3 +136,7 @@ input.bus {
         margin-right: 1.5rem;
         color: rgba(82, 28, 28, 0.959);
     }
+
+.name {
+    text-align: initial;
+}

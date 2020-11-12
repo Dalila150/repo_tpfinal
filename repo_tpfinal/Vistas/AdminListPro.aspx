@@ -1,15 +1,12 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminListPro.aspx.cs" Inherits="Vistas.AdminListPro" %>
 
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="StyleSheet" ; href="/css/home.css" ; type="text/css" />
-    <link rel="StyleSheet" ; href="/css/footer.css" ; type="text/css" />
-    <link rel="StyleSheet" ; href="/css/headerAdmin.css" ; type="text/css" />
+    <link rel="StyleSheet" href="/css/template_admin.css"type="text/css" />
 
     <title>Lista Productos - Admin</title>
     <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
@@ -22,55 +19,76 @@
 </head>
 
 <body>
-    <form id="form1" runat="server">
-    <header>
-        <div class="EspacioLogo">
-            <img src="/img/logo.jpg" ; class="Logo" />
+    <form id="form1" runat="server"> 
+        <div class="container">
+        <div class="logo" >
+            <img src="/img/logo.jpg" class="LogoImagen" />
         </div>
-
-
-        <div class="EspacioAtajos" style="padding-top: 50px;">
-            <a href="/home.html" class="fa fa-sign-out"
-                style="text-decoration: none; font-size: 30px;color: black;"></a>
+        <div class="header" >
         </div>
-        <div class="EspacioBarraNavegacion" style="padding-top: 35px;">
-            <ul class="nav">
-                <li class="name">
-                    <a href="/AdminHome.aspx">Home</a>
-                </li>
-                <li class="name">
-                    <a href="/AdminHome.aspx">Administracion</a>
-                    <ul>
-                        <li>
-                            <a href="/AdminListPro.aspx">Productos</a>
-                        </li>
-                        <li>
-                            <a href="/AdminListUsu.aspx">Usuarios</a>
-                        </li>
-                        <li>
-                            <a href="/AdminCrearCategoria.aspx">Categorias</a>
-                        </li>
-                        <li>
-                            <a href="/AdminCrearMarca.aspx">Marcas</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+        <div class="iconos" >
+            <a href="/Datos.aspx" class="fas fa-user user"></a>
+            <a href="/Home.aspx" class="fas fa-sign-out-alt"></a></div>
+        <div class="navbar" >
+           <ul class="nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Administrar</a>
+                <ul>
+                    <li><a href="#">Productos</a>
+                        <ul>
+                            <li><a href="#">Listar</a></li>
+                            <li><a href="#">Crear</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Usuarios</a>
+                        <ul>
+                            <li><a href="#">Listar</a></li>
+                            <li><a href="#">Editar</a></li>
+                            <li><a href="#">Eliminar</a></li>
+                            <li><a href="#">Crear</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Marcas</a>
+                        <ul>
+                            <li><a href="#">Listar</a></li>
+                            <li><a href="#">Editar</a></li>
+                            <li><a href="#">Eliminar</a></li>
+                            <li><a href="#">Crear</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Categorias</a>
+                        <ul>
+                            <li><a href="#">Listar</a></li>
+                            <li><a href="#">Editar</a></li>
+                            <li><a href="#">Eliminar</a></li>
+                            <li><a href="#">Crear</a></li>
+                        </ul>
+                    </li>
 
-    </header>
-    <!------------------------------------------------------------>
-    <div style="display: inline-block;width: 80%;padding-top: 100px;padding-left: 10%">
-        <div style="    background-color: rgba(197, 93, 102, 0.404);
-    margin-left: 15%;margin-right: 15%;border-radius: 8px;    padding-bottom: 5%;">
-            <h1 style="padding-top: 20px; text-align: center ">Productos</h1>
+                </ul>
+            </li>
+            <li><a href="#">Registros</a>
+                <ul>
+                    <li><a href="#">Registro 1</a></li>
+                    <li><a href="#">Registro 2</a></li>
+                    <li><a href="#">Historial de ventas</a></li>
+                </ul>
+            </li>
+
+        </ul>
+        </div>
+        <div class="content" >
+<!------------------------------------------------------------>
+    <div style="display: inline-block;width: 80%;padding-top: 50px">
+        <div style="background-color: rgba(197, 93, 102, 0.404);margin-left: 15%;margin-right: 15%;border-radius: 8px;margin-bottom: 5%;padding-bottom: 10px;">
+            <h1 style="padding-top: 20px; text-align: center;margin:0px;font-size:40px">Productos</h1>
+            <hr style="width:90%" />
             <div class="EspacioBuscador">
                 <asp:TextBox ID="txtBuscar" runat="server" name="search" placeholder="Buscar" class="bus" autocomplete="off" AutoPostBack="True" OnTextChanged="txtBuscar_TextChanged" TabIndex="1" onkeyup="RefreshUpdatePanel()" onfocus="this.selectionStart = this.selectionEnd = this.value.length;"></asp:TextBox>
             </div>
-           
             <br />
-            <div style="font-size: 20px;margin-left: 0%;width: 100%;text-align: center;" class="auto-style1">
-            <asp:GridView ID="grdProductos" runat="server" style="width:100%; border-radius:5px" CellPadding="4" AutoGenerateColumns="False" AutoGenerateSelectButton="True" OnSelectedIndexChanging="grdProductos_SelectedIndexChanging" AllowPaging="True" AutoGenerateDeleteButton="True" OnRowDeleting="grdProductos_RowDeleting" ForeColor="#333333" GridLines="None" OnPageIndexChanging="grdProductos_PageIndexChanging" PageSize="5" OnRowDataBound="grdProductos_RowDataBound" >
+            <div style="font-size: 20px;margin-left: 5%;width: 100%;text-align: center;" class="auto-style1">
+            <asp:GridView ID="grdProductos" CssClass="GridViewStyled" runat="server" CellPadding="4" AutoGenerateColumns="False" AutoGenerateSelectButton="True" OnSelectedIndexChanging="grdProductos_SelectedIndexChanging" AllowPaging="True" AutoGenerateDeleteButton="True" OnRowDeleting="grdProductos_RowDeleting" ForeColor="#333333" GridLines="None" OnPageIndexChanging="grdProductos_PageIndexChanging" PageSize="5" OnRowDataBound="grdProductos_RowDataBound" >
                 <AlternatingRowStyle BackColor="#BCC8C3" ForeColor="" />
                 <Columns>
                     <asp:TemplateField HeaderText="Id" Visible="False">
@@ -78,27 +96,27 @@
                             <asp:Label class="info-user" ID="lblId" runat="server" Text='<%# Bind("ID") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="PRODUCTO">
+                    <asp:TemplateField HeaderText="Modelo">
                         <ItemTemplate>
                             <asp:Label ID="lblProd" runat="server" Text='<%# Bind("Producto") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="MARCA">
+                    <asp:TemplateField HeaderText="Marca">
                         <ItemTemplate>
                             <asp:Label ID="lblMarca" runat="server" Text='<%# Bind("Marca") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="PRECIO">
+                    <asp:TemplateField HeaderText="Precio">
                         <ItemTemplate>
                             <asp:Label ID="lblPrecio" runat="server" Text='<%# Bind("Precio") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="STOCK">
+                    <asp:TemplateField HeaderText="Stock">
                         <ItemTemplate>
                             <asp:Label ID="lblStock" runat="server" Text='<%# Bind("Disponibles") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="ESTADO">
+                    <asp:TemplateField HeaderText="Estado">
                         <ItemTemplate>
                             <asp:Label ID="lblEstado" runat="server" Text='<%# Bind("estado") %>'></asp:Label>
                         </ItemTemplate>
@@ -106,8 +124,8 @@
                 </Columns>
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#90648B" ForeColor="White" Font-Bold="True" />
-                <HeaderStyle BackColor="#AE4750" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#6D887D" ForeColor="White" HorizontalAlign="Center" />
+                <HeaderStyle BackColor="#AE4750" Font-Bold="True" ForeColor="White" CssClass="headerTable" Height="50px"/>
+                <PagerStyle BackColor="#6D887D" ForeColor="White" HorizontalAlign="Center" CssClass="footerTable" Height="50px"/>
                 <RowStyle BackColor="#F4F6F5" ForeColor="#333333" />
                 <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
                 <SortedAscendingCellStyle BackColor="#E9E7E2" />
@@ -116,47 +134,32 @@
                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
                 </div>
-                <div style="text-align:center;width:100%;margin:10px;height: 35px;">
+                <div style="text-align:center;width:100%;margin:25px;height: 35px;">
                     <asp:Button ID="btnCrearProducto" runat="server" Text="Crear Nuevo Producto" style="width: 25%;height: 100%;background-color: rgba(174, 64, 74, 0.84); border: none;border-radius: 10px;" Font-Bold="True" Font-Size="Medium" OnClick="btnCrearProducto_Click"/>
                 </div>
         </div>
         
     </div>
-    <footer>
-        <div>
-            <h2 class="cont">Contactenos</h2>
-            <!-- Iconos de redes sociales -->
-            <ul>
-                <li class="primerIco">
-                    <a href="https://www.instagram.com/"><i class="fab fa-instagram-square tamIcoRed" ;></i></a>
-                </li>
-                <li class="icoRedes">
-                    <a href="https://twitter.com/"><i class="fab fa-twitter tamIcoRed"></i></a>
-                </li>
-                <li class="icoRedes">
-                    <a href="https://facebook.com/"><i class="fab fa-facebook-square tamIcoRed"></i></a>
-                </li>
-                <li class="icoRedes">
-                    <a href="https://github.com/"><i class="fab fa-github tamIcoRed"></i></a>
-                </li>
-            </ul>
-            <ul>
-                <li class="primero">
-                    <i>Instagram</i>
-                </li>
-                <li class="redes">
-                    <i>Twitter</i>
-                </li>
-                <li class="redes">
-                    <i>Facebook</i>
-                </li>
-                <li class="redes">
-                    <i>Github</i>
-                </li>
+    </div>
+        <div class="footer" >
+        <!-- Iconos de redes sociales -->
+            <h2 class="contactenos">Contactenos</h2>
+            <ul style="text-align:left">
+              <li class="redes">
+                <a href="https://www.instagram.com/"><i class="fab fa-instagram-square tamIcoRed"><b style="padding-left:10px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Instagram</b></i></a>
+              </li>
+              <li class="redes">
+                <a href="https://twitter.com/"><i class="fab fa-twitter tamIcoRed"><b style="padding-left:10px;padding-top:0px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Twitter</b></i></a>
+              </li>
+              <li class="redes">
+                <a href="https://facebook.com/"><i class="fab fa-facebook-square tamIcoRed"><b style="padding-left:10px;padding-top:0px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Facebook</b></i></a>
+              </li>
+              <li class="redes">
+                 <a href="https://github.com/"><i class="fab fa-github tamIcoRed"><b style="padding-left:10px;padding-top:0px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">GitHub</b></i></a>
+              </li>
             </ul>
         </div>
-    </footer>
-        <br />
+    </div>
     </form>
 </body>
     <!-- BUSQUEDA -->

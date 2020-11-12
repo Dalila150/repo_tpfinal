@@ -10,7 +10,7 @@ using Entidades;
 
 namespace Vistas
 {
-    public partial class AdminCrearPro : System.Web.UI.Page
+    public partial class AdminCrearPro_v1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,8 +23,9 @@ namespace Vistas
                 DataTable dt_Mar = new DataTable();
 
                 NegocioProducto Gp = new NegocioProducto();
+                NegocioCategoria Gc = new NegocioCategoria();
 
-                dt_Cat = Gp.ObtenerCategorias();
+                dt_Cat = Gc.ObtenerCategorias();
                 dt_Mar = Gp.ObtenerMarcas();
 
                 //como aparecen al entrar a crear prod
@@ -88,18 +89,18 @@ namespace Vistas
 
             //System.Diagnostics.Debug.WriteLine("");
 
-            if (gProducto.CrearProducto(prod_a_guardar))
+            if (gProducto.agregarProducto(prod_a_guardar))
             {
 
                 Response.Redirect("AdminListPro.aspx?NewPro=true");
 
             }
-            else
-            {
-
-                Response.Redirect("AdminListPro.aspx?NewPro=false");
-
+            else { 
+                
+                Response.Redirect("AdminListPro.aspx?NewPro=false"); 
+            
             }
+            
         }
 
       

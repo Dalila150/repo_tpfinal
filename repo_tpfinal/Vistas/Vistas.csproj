@@ -65,7 +65,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminEliminarUsuariosAdmin.aspx" />
+    <Content Include="Categorias\10.jpg" />
+    <Content Include="Categorias\4.jpg" />
+    <Content Include="Categorias\5.jpg" />
+    <Content Include="Categorias\6.jpg" />
+    <Content Include="Categorias\8.jpg" />
+    <Content Include="Categorias\9.jpg" />
+    <Content Include="Categorias\celular.png" />
+    <Content Include="Categorias\monitor.jpg" />
+    <Content Include="Categorias\pantalla.jpg" />
+    <Content Include="Categorias\tablet.jpg" />
+    <Content Include="Categorias\televisor.jpg" />
     <Content Include="css\admin1.css" />
+    <Content Include="css\carrito.css" />
     <Content Include="css\categorias.css" />
     <Content Include="css\datos.css" />
     <Content Include="css\editProAdmin.css" />
@@ -77,7 +89,11 @@
     <Content Include="css\producto.css" />
     <Content Include="css\registro.css" />
     <Content Include="AdminCrearAdministrador.aspx" />
+    <Content Include="css\template_admin.css" />
+    <Content Include="css\template.css" />
+    <Content Include="css\template_home_v1.css" />
     <Content Include="Home.aspx" />
+    <Content Include="Imagenes\4.jpg" />
     <Content Include="Web.config" />
     <Content Include="AdminCrearCategoria.aspx" />
     <Content Include="AdminCrearMarca.aspx" />
@@ -92,8 +108,9 @@
     <Content Include="Producto.aspx" />
     <Content Include="IniciarSesion.aspx" />
     <Content Include="Datos.aspx" />
-    <Content Include="Categoria.aspx" />
+    <Content Include="Productos.aspx" />
     <Content Include="AdminEliminarMarca.aspx" />
+    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminCrearAdministrador.aspx.cs">
@@ -209,12 +226,12 @@
     <Compile Include="Datos.aspx.designer.cs">
       <DependentUpon>Datos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Categoria.aspx.cs">
-      <DependentUpon>Categoria.aspx</DependentUpon>
+    <Compile Include="Productos.aspx.cs">
+      <DependentUpon>Productos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Categoria.aspx.designer.cs">
-      <DependentUpon>Categoria.aspx</DependentUpon>
+    <Compile Include="Productos.aspx.designer.cs">
+      <DependentUpon>Productos.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminEliminarMarca.aspx.cs">
       <DependentUpon>AdminEliminarMarca.aspx</DependentUpon>
@@ -222,6 +239,13 @@
     </Compile>
     <Compile Include="AdminEliminarMarca.aspx.designer.cs">
       <DependentUpon>AdminEliminarMarca.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

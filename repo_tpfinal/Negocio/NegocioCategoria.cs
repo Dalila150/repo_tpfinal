@@ -58,6 +58,15 @@ namespace Negocio
             else
                 return false;
         }
-
+        public DataTable TodasLasCategorias()
+        {
+            DaoCategoria dp = new DaoCategoria();
+            return dp.ObtenerTodasLasCategorias();
+        }
+        public DataTable ObtenerCategorias()
+        {
+            DaoCategoria dm = new DaoCategoria();
+            return dm.ObtenerCategorias();
+        }
     }
 }
