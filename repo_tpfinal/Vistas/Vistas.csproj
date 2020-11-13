@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminEliminarUsuariosAdmin.aspx" />
+    <Content Include="AdminListCategoria.aspx" />
     <Content Include="Categorias\10.jpg" />
     <Content Include="Categorias\4.jpg" />
     <Content Include="Categorias\5.jpg" />
@@ -157,6 +158,13 @@
     </Compile>
     <Compile Include="AdminEliminarUsuariosAdmin.aspx.designer.cs">
       <DependentUpon>AdminEliminarUsuariosAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminListCategoria.aspx.cs">
+      <DependentUpon>AdminListCategoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminListCategoria.aspx.designer.cs">
+      <DependentUpon>AdminListCategoria.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
