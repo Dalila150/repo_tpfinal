@@ -12,6 +12,7 @@
     <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
   </head>
 <body>
+    <form id="form1" runat="server">
    <div class="container">
         <div class="logo" >
             <img src="/img/logo.jpg" class="LogoImagen" />
@@ -47,8 +48,8 @@
             <li class="espacio">
               Orden precio
               <ul>
-                <li>mayor</li>
-                <li>menor</li>
+                <li><asp:Button ID="btnOrdenar1" runat="server" Text="mayor precio" OnClick="btnOrdenar1_Click" />  </li>
+                <li><asp:Button ID="btnOrdenar2" runat="server" Text="menor precio" OnClick="btnOrdenar1_Click" /></li>
               </ul>
             </li>
             <li class="espacio">
@@ -81,6 +82,7 @@
             </div>
     </div>
     <!-------------------------------------------------------------------------->
+            <asp:Label ID="LblNoPro" runat="server"></asp:Label>
     <div id="productosCategorias" class="productosCategorias" runat="server">
       <!--Aca deberian ir los productos-->
   </div>
@@ -104,5 +106,6 @@
             </ul>
         </div>
     </div>
+    </form>
 </body>
 </html>

@@ -59,6 +59,10 @@ namespace Dao
         {
             return ds.ObtenerTabla("producto", "Select id_Producto as ID, producto.Nombre as Producto, producto.ID_marca as Marca, producto.Stock as Disponibles, producto.Precio_unitario as Precio, producto.Imagen AS Imagen from producto where producto.estado = 1 AND producto.ID_Categoria = " + codProd);
         }
+        public DataTable ObtenerProdsXIdMayorAMenor(String codProd)
+        {
+            return ds.ObtenerTabla("producto", "Select id_Producto as ID, producto.Nombre as Producto, producto.ID_marca as Marca, producto.Stock as Disponibles, producto.Precio_unitario as Precio, producto.Imagen AS Imagen from producto where producto.estado = 1 AND producto.ID_Categoria = " +codProd+ "order by Precio desc");
+        }
 
         public DataTable ObtenerProductos()
         {
