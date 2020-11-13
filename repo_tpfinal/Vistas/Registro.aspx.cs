@@ -12,6 +12,7 @@ namespace Vistas
 {
     public partial class WebForm4 : System.Web.UI.Page
     {
+        NegocioUsuario Neg = new NegocioUsuario();
         protected void Page_Load(object sender, EventArgs e)
         {
             NegocioCategoria gC = new NegocioCategoria();
@@ -48,7 +49,44 @@ namespace Vistas
 
         protected void bntCrearCuenta_Click(object sender, EventArgs e)
         {
-            
+           // lblMensaje.Text = "";
+            Boolean Usuario = Neg.BuscarUsuarioNombre_Usuario(txtNombreUsuario.Text);
+
+            if (txtNombre.Text == "" || txtApellido.Text == "" || txtDni.Text == "" || txtTelefono.Text == "" || txtEmail.Text == "" || txtClave.Text == "" || txtValidarClave.Text == "" || txtNombreUsuario.Text == "")
+            {
+               // lblMensaje.Text = "Por favor Complete todos los campos";
+            }
+            else if (Usuario == false && txtClave.Text == txtValidarClave.Text)
+            {
+                //Codigo---------
+                Usuarios Datos_usuario = new Usuarios();
+
+                Datos_usuario.setRolUsuario(2);
+                Datos_usuario.setNombreUsuario(txtNombre.Text);
+                Datos_usuario.setApellidoUsuario(txtApellido.Text);
+                Datos_usuario.setEmailUsuario(txtEmail.Text);
+                Datos_usuario.setDireccionUsuario(txtDireccion.Text);
+                Datos_usuario.setNombre_UsuarioUsuario(txtNombreUsuario.Text);
+                Datos_usuario.setPasswordUsuario(txtClave.Text);
+                Datos_usuario.setTelefonoUsuario(txtTelefono.Text);
+                Datos_usuario.setDNIUsuario(txtDni.Text);
+
+                Neg.CrearUsuarioDirecto(Datos_usuario);
+                Response.Redirect("IniciarSesion.aspx");
+            }
+
+
+            if (Usuario == false)
+            {
+                if (txtClave.Text != txtValidarClave.Text)
+                {
+                   // lblMensaje.Text = "Las Contraseñas no coinsiden, por favor vuelva a intentar";
+                }
+            }
+            if (Usuario == true)
+            {
+                //lblMensaje.Text = "Este usuario ya exite, por favor intente con otro";
+            }
         }
     }
 }

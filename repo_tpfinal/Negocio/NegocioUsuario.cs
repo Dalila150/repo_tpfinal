@@ -72,6 +72,15 @@ namespace Negocio
             }
 
         }
+
+        public void CrearUsuarioDirecto(Usuarios usuario)
+        {
+            DaoUsuario dao = new DaoUsuario();
+            dao.agregarNuevoUsuario(usuario);
+
+        }
+
+
         public bool eliminarUsuarioAdmin_neg(String nombre)
         {
             //Validar usuarioadmin
@@ -150,5 +159,7 @@ namespace Negocio
             DaoUsuario du = new DaoUsuario();
             return du.CantidadUsuarioAdmin();
         }
+
+
     }
 }

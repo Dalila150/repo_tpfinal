@@ -53,35 +53,35 @@
               <div class="lblCampo">Nombre:</div>
 
               <div class="txtDatos">
-                <asp:TextBox ID="txtNombre" type="text" Class="txt" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtNombre" type="text" Class="txt" runat="server" required="true"></asp:TextBox>
               </div>
             </div>
 
             <div class="datDivision">
               <div class="lblCampo">Apellido:</div>
               <div class="txtDatos">
-                <asp:TextBox ID="txtApellido" type="text" Class="txt" runat="server" OnTextChanged="txtApellido_TextChanged"></asp:TextBox>
+                <asp:TextBox ID="txtApellido" type="text" Class="txt" runat="server" required="true" OnTextChanged="txtApellido_TextChanged"></asp:TextBox>
               </div>
                 </div>
 
             <div class="datDivision">
               <div class="lblCampo">Direccion:</div>
               <div class="txtDatos">
-                <asp:TextBox ID="txtDireccion" type="text" Class="txt" runat="server" OnTextChanged="txtApellido_TextChanged"></asp:TextBox>
+                <asp:TextBox ID="txtDireccion" type="text" Class="txt" runat="server" required="true" OnTextChanged="txtApellido_TextChanged"></asp:TextBox>
               </div>
                 </div>
 
             <div class="datDivision">
               <div class="lblCampo">DNI:</div>
               <div class="txtDatos">
-                <asp:TextBox ID="txtDni" type="text" Class="txt" runat="server" OnTextChanged="txtApellido_TextChanged"></asp:TextBox>
+                <asp:TextBox ID="txtDni" type="text" Class="txt" runat="server" required="true" OnTextChanged="txtApellido_TextChanged"></asp:TextBox>
               </div>
                 </div>
 
             <div class="datDivision">
               <div class="lblCampo">Telefono:</div>
               <div class="txtDatos">
-                <asp:TextBox ID="txtTelefono" type="text" Class="txt" runat="server" OnTextChanged="txtApellido_TextChanged"></asp:TextBox>
+                <asp:TextBox ID="txtTelefono" type="text" Class="txt" runat="server" required="true" OnTextChanged="txtApellido_TextChanged"></asp:TextBox>
               </div>
                 </div>
 
@@ -97,30 +97,31 @@
             <div>
               <div class="lblCampo"> Nombre de Usuario:</div>
               <div class="txtDatos">
-                <asp:TextBox ID="txtNombreUsuario" type="text" Class="txt" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtNombreUsuario" type="text" Class="txt" runat="server" required="true"></asp:TextBox>
               </div>
             </div>
             <div class="datDivision">
               <div class="lblCampo"> E-mail:</div>
               <div class="txtDatos">
-                <asp:TextBox ID="txtEmail" type="password" Class="txt" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtEmail" Class="txt" runat="server" required="true"></asp:TextBox>
               </div>
             </div>
             <div class="datDivision">
               <div class="lblCampo">&nbsp;contraseña:</div>
               <div class="txtDatos">
-                <asp:TextBox ID="txtClave" type="password" Class="txt" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtClave" type="password" Class="txt" runat="server" required="true"></asp:TextBox>
               </div>
                 </div>
             <div class="datDivision">
               <div class="lblCampo">&nbsp;Confirme contraseña:</div>
               <div class="txtDatos">
-                <asp:TextBox ID="txtValidarClave" type="password" Class="txt" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtValidarClave" type="password" Class="txt" runat="server" required="true"></asp:TextBox>
               </div>
             </div>
             <div class="datDivision">
               <div class="botonRegistro">
                 <asp:button runat="server" ID="bntCrearCuenta" style="width: 90%;border-radius: 8px 8px;padding: 0.5rem;font-size: 18px; border-radius: 20px 20px;color: #ffffff; border: solid 1px rgba(226, 98, 98, 0.116);background-color: rgba(184, 39, 51, 0.753);" text="Crear Cuenta" OnClick="bntCrearCuenta_Click"/>
+                  <br />
               </div>
             </div>
           </div>
