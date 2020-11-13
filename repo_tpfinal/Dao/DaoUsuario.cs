@@ -73,7 +73,16 @@ namespace Dao
             return ds.EjecutarProcedimientoAlmacenado(comando, "spCrearUsuario");
         }
 
-
+        public DataTable CantidadTotalUsuarios()
+        {
+            DataTable tabla = ds.ObtenerTabla("Usuario", "Select count(usuario.id_usuario) from usuario");
+            return tabla;
+        }
+        public DataTable CantidadUsuarioAdmin()
+        {
+            DataTable tabla = ds.ObtenerTabla("Usuario", "Select count(usuario.id_usuario) from usuario where rol = 2");
+            return tabla;
+        }
 
         private void ParametrosUsuarioNuevo(ref SqlCommand comando, Usuarios usur)
         {

@@ -127,7 +127,6 @@ namespace Negocio
             }
         }
 
-
         public int ActualizarUsuario(Usuarios user)
         {
 
@@ -141,5 +140,15 @@ namespace Negocio
 
         }
 
+        public DataTable ObtenerCantidadUsuarios()
+        {
+            DaoUsuario du = new DaoUsuario();
+            return du.CantidadTotalUsuarios();
+        }
+        public DataTable ObtenerCantidadAdmin()
+        {
+            DaoUsuario du = new DaoUsuario();
+            return du.CantidadUsuarioAdmin();
+        }
     }
 }

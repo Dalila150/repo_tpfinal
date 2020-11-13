@@ -64,6 +64,34 @@ namespace Dao
         {
             return ds.ObtenerTabla("producto", "Select * from producto where producto.estado = 'true'");
         }
+        public DataTable CantidadProductos()
+        {
+            DataTable aux = new DataTable();
+            AccesoaDatos ad = new AccesoaDatos();
+            aux = ad.ObtenerTabla("producto", "Select count(producto.id_producto) from producto where producto.Estado = 1");
+            return aux;
+        }
+        public DataTable CantidadTotalProductos()
+        {
+            DataTable aux = new DataTable();
+            AccesoaDatos ad = new AccesoaDatos();
+            aux = ad.ObtenerTabla("producto", "Select count(producto.id_producto) from producto");
+            return aux;
+        }
+        public DataTable CantidadUsuarios()
+        {
+            DataTable aux = new DataTable();
+            AccesoaDatos ad = new AccesoaDatos();
+            aux = ad.ObtenerTabla("usuario", "Select count(usuario.id_usuario) from usuario");
+            return aux;
+        }
+        public DataTable CantidadUsuariosAdmin()
+        {
+            DataTable aux = new DataTable();
+            AccesoaDatos ad = new AccesoaDatos();
+            aux = ad.ObtenerTabla("usuario", "Select count(usuario.id_usuario) from usuario where rol =2");
+            return aux;
+        }
         public void ArmarParametrosProductoActualizado(ref SqlCommand Comando, Producto productos)
         {
             SqlParameter sqlparametros = new SqlParameter();

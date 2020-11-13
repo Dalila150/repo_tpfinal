@@ -98,6 +98,16 @@ namespace Negocio
             DaoMarcas dm = new DaoMarcas();
             return dm.getTablaMarcas();
         }
+        public DataTable ObtenerCantidadProductos()
+        {
+            DaoProducto dm = new DaoProducto();
+            return dm.CantidadProductos();
+        }
         
+        public DataTable ObtenerCantidadTotal()
+        {
+            DaoProducto dm = new DaoProducto();
+            return dm.CantidadTotalProductos();
+        }
     }
 }
