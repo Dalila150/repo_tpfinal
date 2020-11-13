@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="css/template.css"/>
+    <link rel="stylesheet" href="/css/template.css"/>
     <link rel="StyleSheet" ; href="/css/categorias.css" ; type="text/css" />
 
     <title>Categoria</title>
@@ -39,24 +39,64 @@
         <div class="content" >
    
     <!-------------------------------------------------------------------------->
-    <div class="filtros">
-        <div style="Background-color: rgba(233, 142, 142, 0.466);width:70%;margin-left:15%;border-radius:10px;">
-      <ul style="padding-top:10px;text-align:left">
-        <li>
+    <div style="margin-left:15px;margin-top:25px;width:230px;float:left;Background-color: rgba(233, 142, 142, 0.466);border-radius:10px">
+      <ul style="padding-top:10px;text-align:left;padding-left:15px">
+        <li style="width:100%">
+          Filtrar por:
+          <ul>
+            <li>Orden precio
+              <ul>
+                <li><asp:Button class="btnASP" ID="Button1" runat="server" Text="mayor precio" OnClick="btnOrdenar1_Click" />  </li>
+                <li><asp:Button class="btnASP" ID="Button2" runat="server" Text="menor precio" OnClick="btnOrdenar2_Click" /></li>
+              </ul>
+            </li>
+            <li>
+              Ordenar 
+              <ul>
+                <li><asp:Button class="btnASP" ID="Button3" runat="server" Text="Mas viejo" OnClick="OrdenarViejo_Click" /></li>
+                <li><asp:Button class="btnASP" ID="Button4" runat="server" Text="Mas nuevo" OnClick="OrdenarNuevo_Click" /></li>
+              </ul>
+            </li>
+            <li>
+              Marca
+              <ul>
+                <li>marca1</li>
+                <li>marca2</li>
+                <li>marca3</li>
+              </ul>
+            </li>
+            <li>
+              Precio
+              <ul>
+                <%--<label>maximo</label>--%>
+                <li>$<input class="btnASP"" style="width:70%" type="text"/></li>
+                <%--<label>minimo</label>--%>
+                <li>$<input class="btnASP" style="width:70%" type="text"/></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <%--<div class="filtros" style="display:inline-block">
+        <div style="Background-color: rgba(233, 142, 142, 0.466);margin-left:15%;border-radius:10px;">
+      <ul style="padding-top:10px;text-align:left;padding-left:15px">
+        <li style="width:100%">
           Filtrar por:
           <ul class="espacio">
             <li class="espacio">
               Orden precio
               <ul>
-                <li><asp:Button ID="btnOrdenar1" runat="server" Text="mayor precio" OnClick="btnOrdenar1_Click" />  </li>
-                <li><asp:Button ID="btnOrdenar2" runat="server" Text="menor precio" OnClick="btnOrdenar1_Click" /></li>
+                <li><asp:Button class="btnASP" ID="btnOrdenar1" runat="server" Text="mayor precio" OnClick="btnOrdenar1_Click" />  </li>
+                <li><asp:Button class="btnASP" ID="btnOrdenar2" runat="server" Text="menor precio" OnClick="btnOrdenar2_Click" /></li>
               </ul>
             </li>
             <li class="espacio">
               Ordenar 
               <ul>
-                <li>mas nuevo</li>
-                <li>mas viejo</li>
+                <li><asp:Button class="btnASP" ID="OrdenarViejo" runat="server" Text="Mas viejo" OnClick="OrdenarViejo_Click" /></li>
+                <li><asp:Button class="btnASP" ID="OrdenarNuevo" runat="server" Text="Mas nuevo" OnClick="OrdenarNuevo_Click" /></li>
               </ul>
             </li>
             <li class="espacio">
@@ -70,22 +110,23 @@
             <li class="espacio">
               Precio
               <ul>
-                <%--<label>maximo</label>--%>
-                <li>$<input class="minimo" style="width:70%" type="text"/></li>
-                <%--<label>minimo</label>--%>
-                <li>$<input class="maximo" style="width:70%" type="text"/></li>
+                <%--<label>maximo</label>-->
+                <li>$<input class="btnASP"" style="width:70%" type="text"/></li>
+                <%--<label>minimo</label>-->
+                <li>$<input class="btnASP" style="width:70%" type="text"/></li>
               </ul>
             </li>
           </ul>
         </li>
       </ul>
             </div>
-    </div>
+    </div>--%>
     <!-------------------------------------------------------------------------->
-            <asp:Label ID="LblNoPro" runat="server"></asp:Label>
     <div id="productosCategorias" class="productosCategorias" runat="server">
       <!--Aca deberian ir los productos-->
+
   </div>
+            <asp:Label ID="LblNoPro" runat="server"></asp:Label>
    </div>
     <div class="footer" >
         <!-- Iconos de redes sociales -->

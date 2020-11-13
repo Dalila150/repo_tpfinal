@@ -97,25 +97,25 @@
             <div style="width:86%;display:inline-block;">
                 <ul style="font-size:18px;text-align:left;display:inline-block;margin-right:1%">
                        <li style="height: 35px;width: 40%;margin-bottom:15px">
-                           <asp:TextBox class="txtASP" ID="txtNombre" runat="server"></asp:TextBox>
+                           <asp:TextBox class="txtASP" ID="txtNombre" runat="server" required="true"></asp:TextBox>
                        </li>
                        <li style="height: 35px;width: 40%;margin-bottom:15px">
-                           <asp:TextBox class="txtASP" ID="txtNombre_de_usuario" runat="server"></asp:TextBox>
+                           <asp:TextBox class="txtASP" ID="txtNombre_de_usuario" runat="server" required="true"></asp:TextBox>
                        </li>
                        <li style="height: 35px;width: 40%;margin-bottom:15px">
-                            <asp:TextBox class="txtASP" ID="txtApellido" runat="server"></asp:TextBox>
+                            <asp:TextBox class="txtASP" ID="txtApellido" runat="server" required="true"></asp:TextBox>
                        </li>
                        <li style="height: 35px;width: 40%;margin-bottom:15px">
-                           <asp:TextBox class="txtASP" ID="txtContrasena" runat="server"></asp:TextBox>
+                           <asp:TextBox class="txtASP" ID="txtContrasena" runat="server" required="true"></asp:TextBox>
                         </li>
                         <li style="height: 35px;width: 40%;margin-bottom:15px">
-                           <asp:TextBox class="txtASP" ID="txtEmail" runat="server"></asp:TextBox>
+                           <asp:TextBox class="txtASP" ID="txtEmail" TextMode="Email" runat="server" required="true"></asp:TextBox>
                        </li>
                        <li style="height: 35px;width: 40%;margin-bottom:15px">
-                           <asp:TextBox class="txtASP" ID="txtTelefono" runat="server"></asp:TextBox>
+                           <asp:TextBox class="txtASP" ID="txtTelefono" TextMode="Number" runat="server" required="true"></asp:TextBox>
                        </li>
                        <li style="height: 35px;width: 40%;margin-bottom:15px">
-                           <asp:TextBox class="txtASP" ID="txtDireccion" runat="server"></asp:TextBox>
+                           <asp:TextBox class="txtASP" ID="txtDireccion" runat="server" required="true"></asp:TextBox>
                        </li>
                    </ul>
                </div>

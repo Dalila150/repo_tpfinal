@@ -17,6 +17,57 @@ namespace Vistas
             //string host = HttpContext.Current.Request.Url.Host;
             //string cadena = HttpContext.Current.Request.Url.AbsoluteUri;
             //string[] Separado = cadena.Split('/');
+            CargarCategoriasBarraDeNavegacion();
+
+            NegocioCategoria gC = new NegocioCategoria();
+            string cadena = Request["Cat"];
+            NegocioProducto gP = new NegocioProducto();
+            DataTable cats = new DataTable();
+            DataTable infoPro = new DataTable();
+            String InnerHTML = "";
+
+            // Si no paso parametro
+            if (cadena == null)
+            {
+                infoPro = gP.TodosLosProductosConImagen();
+
+                foreach (DataRow row in infoPro.Rows)
+                {
+                    InnerHTML = CargarInnerHTML(infoPro);
+                }
+
+            } else {
+
+                //Obtengo todas las categorias
+                cats = gC.ObtenerCategorias();
+
+                foreach (DataRow row in cats.Rows)
+                {
+                    if (row[1].ToString() == cadena)
+                    {
+                        // Si coincide busco los prods de ese id de cat
+                        infoPro = gP.ObtenerProdsXIdCategoria(row[0].ToString());
+                    }
+
+                }
+
+                if (infoPro.Rows.Count != 0) {
+
+                    foreach (DataRow row in infoPro.Rows)
+                    {
+
+                        InnerHTML = CargarInnerHTML(infoPro);
+                    }
+
+                } else
+                {
+                    LblNoPro.Text = "NO SE ENCONTRARON PRODUCTOS";
+                }
+            }
+            productosCategorias.InnerHtml = InnerHTML;
+        }
+        protected void CargarCategoriasBarraDeNavegacion()
+        {
             NegocioCategoria gC = new NegocioCategoria();
             DataTable cat = gC.ObtenerCategorias();
             String CategoriasUl = "";
@@ -39,89 +90,15 @@ namespace Vistas
                 CategoriasUl += "</ li >";
 
             }
-
             CategoriasUl += "</ul>";
             CargameLasCats.InnerHtml = CategoriasUl;
 
-            string cadena = Request["Cat"];
-            NegocioProducto gP = new NegocioProducto();
-            DataTable cats = new DataTable();
-            DataTable infoPro = new DataTable();
-            String InnerHTML = "";
-
-            // Si no paso parametro
-            if (cadena == null)
-            {
-                infoPro = gP.TodosLosProductosConImagen();
-
-                foreach (DataRow row in infoPro.Rows)
-                {
-                    String A = "<a class='p1' href=";
-                    A += '"';
-                    A += "/Producto.aspx?Pro=" + row[0].ToString();
-                    A += '"';
-                    A += " style='background: url(" + row[5].ToString() + ") no-repeat center;background-size: cover;'";
-                    A += '>';
-                    InnerHTML += A;
-                    InnerHTML += "<label class='lblp1'>" + row[1].ToString() + "</label>";
-                    InnerHTML += "</a>";
-                }
-            } else { 
-
-                //Obtengo todas las categorias
-                cats = gC.ObtenerCategorias();
-
-                foreach (DataRow row in cats.Rows)
-                {
-                    if(row[1].ToString() == cadena)
-                    {
-                        // Si coincide busco los prods de ese id de cat
-                        infoPro = gP.ObtenerProdsXIdCategoria(row[0].ToString());
-                    }
-
-                }
-
-                if (infoPro.Rows.Count != 0) { 
-
-                    foreach (DataRow row in infoPro.Rows)
-                    {
-                        String A = "<a class='p1' href=";
-                        A += '"';
-                        A += "/Producto.aspx?Pro=" + row[0].ToString();
-                        A += '"';
-                        A += " style='background: url(" + row[5].ToString() + ") no-repeat center;background-size: cover;'";
-                        A += '>';
-                        InnerHTML += A;
-                        InnerHTML += "<label class='lblp1'>" + row[1].ToString() + "</label>";
-                        InnerHTML += "</a>";
-                    }
-
-                } else
-                {
-                    LblNoPro.Text = "NO SE ENCONTRARON PRODUCTOS";
-                    //infoPro = gP.TodosLosProductosConImagen();
-
-                    //foreach (DataRow row in infoPro.Rows)
-                    //{
-                    //    String A = "<a class='p1' href=";
-                    //    A += '"';
-                    //    A += "/Producto.aspx?Pro=" + row[0].ToString();
-                    //    A += '"';
-                    //    A += " style='background: url(" + row[5].ToString() + ") no-repeat center;background-size: cover;'";
-                    //    A += '>';
-                    //    InnerHTML += A;
-                    //    InnerHTML += "<label class='lblp1'>" + row[1].ToString() + "</label>";
-                    //    InnerHTML += "</a>";
-                    //}
-                }
-            }
-            productosCategorias.InnerHtml = InnerHTML;
         }
-
         protected void btnOrdenar1_Click(object sender, EventArgs e)
         {
+            //SETEAR POR BOTON EL TIPO DE CONSULTA
+            String tipo = "Mayor";
             NegocioCategoria gC = new NegocioCategoria();
-
             string cadena = Request["Cat"];
             NegocioProducto gP = new NegocioProducto();
             DataTable cats = new DataTable();
@@ -137,29 +114,163 @@ namespace Vistas
                 if (row[1].ToString() == cadena)
                 {
                     // Si coincide busco los prods de ese id de cat
-                    infoPro = gP.ObtenerProdPorPrecio(row[0].ToString());
+                    infoPro = gP.ObtenerProductoFiltro(row[0].ToString(),tipo);
                 }
 
             }
 
-            if (infoPro.Rows.Count != 0 || cadena!=null)
+            if (infoPro.Rows.Count != 0)
             {
-
-                foreach (DataRow row in infoPro.Rows)
-                {
-                    String A = "<a class='p1' href=";
-                    A += '"';
-                    A += "/Producto.aspx?Pro=" + row[0].ToString();
-                    A += '"';
-                    A += " style='background: url(" + row[5].ToString() + ") no-repeat center;background-size: cover;'";
-                    A += '>';
-                    InnerHTML += A;
-                    InnerHTML += "<label class='lblp1'>" + row[1].ToString() + "</label>";
-                    InnerHTML += "</a>";
-                }
-                productosCategorias.InnerHtml = InnerHTML;
+                InnerHTML = CargarInnerHTML(infoPro);
             }
+            else
+            {
+                infoPro = gP.ObtenerProdPorPrecioSinCategoria(tipo);
+                InnerHTML = CargarInnerHTML(infoPro);
+            }
+
+            productosCategorias.InnerHtml = InnerHTML;
         }
+        protected void OrdenarViejo_Click(object sender, EventArgs e)
+        {
+            //SETEAR POR BOTON EL TIPO DE CONSULTA
+            String tipo = "Viejo";
+            NegocioCategoria gC = new NegocioCategoria();
+            string cadena = Request["Cat"];
+            NegocioProducto gP = new NegocioProducto();
+            DataTable cats = new DataTable();
+            DataTable infoPro = new DataTable();
+            String InnerHTML = "";
+
+            //Obtengo todas las categorias
+            cats = gC.ObtenerCategorias();
+
+
+            foreach (DataRow row in cats.Rows)
+            {
+                if (row[1].ToString() == cadena)
+                {
+                    // Si coincide busco los prods de ese id de cat
+                    infoPro = gP.ObtenerProductoFiltro(row[0].ToString(), tipo);
+                }
+
+            }
+
+            if (infoPro.Rows.Count != 0)
+            {
+                InnerHTML = CargarInnerHTML(infoPro);
+            }
+            else
+            {
+                infoPro = gP.ObtenerProdPorPrecioSinCategoria(tipo);
+                InnerHTML = CargarInnerHTML(infoPro);
+            }
+
+            productosCategorias.InnerHtml = InnerHTML;
+        }
+
+        protected void OrdenarNuevo_Click(object sender, EventArgs e)
+        {
+            //SETEAR POR BOTON EL TIPO DE CONSULTA
+            String tipo = "Nuevo";
+            NegocioCategoria gC = new NegocioCategoria();
+            string cadena = Request["Cat"];
+            NegocioProducto gP = new NegocioProducto();
+            DataTable cats = new DataTable();
+            DataTable infoPro = new DataTable();
+            String InnerHTML = "";
+
+            //Obtengo todas las categorias
+            cats = gC.ObtenerCategorias();
+
+
+            foreach (DataRow row in cats.Rows)
+            {
+                if (row[1].ToString() == cadena)
+                {
+                    // Si coincide busco los prods de ese id de cat
+                    infoPro = gP.ObtenerProductoFiltro(row[0].ToString(), tipo);
+                }
+
+            }
+
+            if (infoPro.Rows.Count != 0)
+            {
+                InnerHTML = CargarInnerHTML(infoPro);
+            }
+            else
+            {
+                infoPro = gP.ObtenerProdPorPrecioSinCategoria(tipo);
+                InnerHTML = CargarInnerHTML(infoPro);
+            }
+
+            productosCategorias.InnerHtml = InnerHTML;
+        }
+
+
+        protected void btnOrdenar2_Click(object sender, EventArgs e)
+        {
+            //SETEAR POR BOTON EL TIPO DE CONSULTA
+            String tipo = "Menor";
+            NegocioCategoria gC = new NegocioCategoria();
+            string cadena = Request["Cat"];
+            NegocioProducto gP = new NegocioProducto();
+            DataTable cats = new DataTable();
+            DataTable infoPro = new DataTable();
+            String InnerHTML = "";
+
+            //Obtengo todas las categorias
+            cats = gC.ObtenerCategorias();
+
+
+            foreach (DataRow row in cats.Rows)
+            {
+                if (row[1].ToString() == cadena)
+                {
+                    // Si coincide busco los prods de ese id de cat
+                    infoPro = gP.ObtenerProductoFiltro(row[0].ToString(), tipo);
+                }
+
+            }
+
+            if (infoPro.Rows.Count != 0)
+            {
+                InnerHTML = CargarInnerHTML(infoPro);
+            }
+            else
+            {
+                infoPro = gP.ObtenerProdPorPrecioSinCategoria(tipo);
+                InnerHTML = CargarInnerHTML(infoPro);
+            }
+
+            productosCategorias.InnerHtml = InnerHTML;
+        }
+
+
+        //FUNCION QUE CARGA A STRING INNERHTML LOS PRODUCTOS A PARTIR
+        //DE UNA TABLA Y DEVULVE STRING COMPLETO
+        protected String CargarInnerHTML(DataTable tabla)
+        {
+            String InnerHTML = "";
+
+            foreach (DataRow row in tabla.Rows)
+            {
+                String A = "<a class='p1' href=";
+                A += '"';
+                A += "/Producto.aspx?Pro=" + row[0].ToString();
+                A += '"';
+                A += " style='background: url(" + row[5].ToString() + ") no-repeat center;background-size: cover;'";
+                A += '>';
+                InnerHTML += A;
+                InnerHTML += "<label class='lblp1'>" + row[1].ToString() + "</label>";
+                InnerHTML += "</a>";
+            }
+
+            return InnerHTML;
+        }
+
+        
     }
+
 }
     

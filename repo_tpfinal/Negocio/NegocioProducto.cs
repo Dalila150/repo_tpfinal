@@ -109,10 +109,42 @@ namespace Negocio
             DaoProducto dm = new DaoProducto();
             return dm.CantidadTotalProductos();
         }
-        public DataTable ObtenerProdPorPrecio(String id)
+        public DataTable ObtenerProductoFiltro(String id, String tipo)
         {
             DaoProducto dm = new DaoProducto();
-            return dm.ObtenerProdsXIdMayorAMenor(id);
+
+            switch(tipo){
+                case "Mayor":
+                    return dm.ObtenerProdsXIdMayorAMenor(id);
+                case "Menor":
+                    return dm.ObtenerProdsXIdMayorAMenor(id);
+                case "Viejo":
+                    return dm.ObtenerProdsXIdViejos(id);
+                case "Nuevo":
+                    return dm.ObtenerProdsXIdNuevos(id);
+                default:
+                    return dm.ObtenerTodosLosProductosConImagen();
+            }
+
+        }
+
+        public DataTable ObtenerProdPorPrecioSinCategoria(String tipo)
+        {
+            DaoProducto dm = new DaoProducto();
+            switch (tipo)
+            {
+                case "Mayor":
+                    return dm.ObtenerProdsDeMayorAMenor();
+                case "Menor":
+                    return dm.ObtenerProdsDeMenorAMayor();
+                case "Viejo":
+                    return dm.ObtenerProdsViejos();
+                case "Nuevo":
+                    return dm.ObtenerProdsNuevos();
+                default:
+                    return dm.ObtenerTodosLosProductosConImagen();
+            }
+
         }
     }
 }

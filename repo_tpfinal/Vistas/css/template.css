@@ -249,3 +249,23 @@ ul li {
 .headerTable th:last-of-type {
     border-radius: 0 20px 0 0;
 }
+
+.btnASP {
+    height: 100%;
+    /*background-color: rgba(174, 64, 74, 0.84);*/
+    background-color: rgba(174, 64, 74, 0.84);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    height: 40px;
+    font-size: 18px;
+}
+
+.txtASP {
+    padding: 0.3rem;
+    border-radius: 20px 20px;
+    background-color: rgba(235, 149, 149, 0.308);
+    /*background-color: rgba(226, 98, 98, 0.548);*/
+    border: solid 2px rgb(235, 149, 149);
+    height: 20px;
+}
