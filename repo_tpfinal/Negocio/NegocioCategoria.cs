@@ -68,5 +68,6 @@ namespace Negocio
             DaoCategoria dm = new DaoCategoria();
             return dm.ObtenerCategorias();
         }
+        
     }
 }

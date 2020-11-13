@@ -101,6 +101,7 @@
                     </li>
                     <li style="height: 35px;width: 80%;margin-bottom:15px">
                     <asp:TextBox class="txtASP" ID="txtNombre" runat="server" required="true"></asp:TextBox>
+                        
                      </li>   
                     <li style="height: 35px;width: 80%;margin-bottom:15px">
                     <asp:TextBox class="txtASP" ID="txtApellido" runat="server" required="true"></asp:TextBox>
@@ -126,7 +127,7 @@
                 </ul>
                 </div>
         <asp:Button class="btnASP" ID="btnAgregarUsuario" runat="server" Text="AGREGAR ADMINISTRADOR" Height="40px" Width="60%" OnClick="btnAgregarUsuario_Click" style="margin-bottom:25px" />
-                            <asp:Label ID="lblUsuarioExiste" runat="server"></asp:Label>
+                            <asp:Label ID="lblUsuarioExiste" runat="server" Text="Label"></asp:Label>
                 </div>
     </div>
     </div>

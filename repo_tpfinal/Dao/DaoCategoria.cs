@@ -74,6 +74,7 @@ namespace Dao
             aux = ad.ObtenerTabla("categoria", "Select * from categoria where categoria.estado = 1");
             return aux;
         }
+       
 
     }
 }
