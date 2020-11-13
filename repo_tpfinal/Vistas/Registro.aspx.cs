@@ -40,5 +40,15 @@ namespace Vistas
             CategoriasUl += "</ul>";
             CargameLasCats.InnerHtml = CategoriasUl;
         }
+
+        protected void txtApellido_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void bntCrearCuenta_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
