@@ -109,5 +109,10 @@ namespace Negocio
             DaoProducto dm = new DaoProducto();
             return dm.CantidadTotalProductos();
         }
+        public DataTable ObtenerProdPorPrecio(String id)
+        {
+            DaoProducto dm = new DaoProducto();
+            return dm.ObtenerProdsXIdMayorAMenor(id);
+        }
     }
 }
