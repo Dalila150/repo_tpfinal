@@ -41,20 +41,20 @@
     <!-------------------------------------------------------------------------->
     <div style="margin-left:15px;margin-top:25px;width:230px;float:left;Background-color: rgba(233, 142, 142, 0.466);border-radius:10px">
       <ul style="padding-top:10px;text-align:left;padding-left:15px">
-        <li style="width:100%">
+        <li style="width:100%;font-size: 20px;">
           Filtrar por:
           <ul>
             <li>Orden precio
               <ul>
-                <li><asp:Button class="btnASP" ID="Button1" runat="server" Text="mayor precio" OnClick="btnOrdenar1_Click" />  </li>
-                <li><asp:Button class="btnASP" ID="Button2" runat="server" Text="menor precio" OnClick="btnOrdenar2_Click" /></li>
+                <li><asp:Button class="btnASP" ID="Button1" runat="server" Text="mayor precio" OnClick="btnOrdenar1_Click" style="height: 30px" />  </li>
+                <li><asp:Button class="btnASP" ID="Button2" runat="server" Text="menor precio" OnClick="btnOrdenar2_Click" style="margin-top:5px;height: 30px"/></li>
               </ul>
             </li>
             <li>
               Ordenar 
               <ul>
-                <li><asp:Button class="btnASP" ID="Button3" runat="server" Text="Mas viejo" OnClick="OrdenarViejo_Click" /></li>
-                <li><asp:Button class="btnASP" ID="Button4" runat="server" Text="Mas nuevo" OnClick="OrdenarNuevo_Click" /></li>
+                <li><asp:Button class="btnASP" ID="Button3" runat="server" Text="Mas viejo" OnClick="OrdenarViejo_Click" style="height: 30px;width: 85%;" /></li>
+                <li><asp:Button class="btnASP" ID="Button4" runat="server" Text="Mas nuevo" OnClick="OrdenarNuevo_Click" style="margin-top:5px;height: 30px;width: 85%;" /></li>
               </ul>
             </li>
             <li>
@@ -69,9 +69,9 @@
               Precio
               <ul>
                 <%--<label>maximo</label>--%>
-                <li>$<input class="btnASP"" style="width:70%" type="text"/></li>
+                <li>$<input class="btnASP"" style="width:70%;height: 30px" type="text"/></li>
                 <%--<label>minimo</label>--%>
-                <li>$<input class="btnASP" style="width:70%" type="text"/></li>
+                <li style="margin-top:5px">$<input class="btnASP" style="width:70%;height: 30px" type="text"/></li>
               </ul>
             </li>
           </ul>
