@@ -14,7 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
 <body>
-    <%-- <div class="container">
+<div class="container">
         <div class="logo" >
             <img src="/img/logo.jpg" class="LogoImagen" />
         </div>
@@ -37,12 +37,7 @@
           </li>
         </ul>
         </div>
-<<<<<<< Updated upstream
-        <div class="content" >--%>
-=======
         <div class="content" >
-    
->>>>>>> Stashed changes
     <form id="carrito" runat="server">
         <asp:HiddenField ID="selectCant" runat="server"/>
     <!-------------------------------------------------------------------------->
@@ -78,7 +73,7 @@
     </div>
     <!-------------------------------------------------------------------------->
      <div class="footer" >
-         <%-- <!-- Iconos de redes sociales -->
+         <!-- Iconos de redes sociales -->
             <h2 class="contactenos">Contactenos</h2>
             <ul style="text-align:left">
               <li class="redes">
@@ -95,7 +90,7 @@
               </li>
             </ul>
         </div>
-    </div>--%>
+    </div>
 </body>
     <script>
         function cambio() {

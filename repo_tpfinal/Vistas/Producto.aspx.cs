@@ -200,13 +200,6 @@ namespace Vistas
 
             // HAYA PASADO LO QUE SEA LO GUARDO
             Session["carrito"] = ProductoCarrito;
-<<<<<<< Updated upstream
-            
-
-        }
-
-    
-=======
 
             string cadenaPro = Request["Pro"];
             var nameValues = HttpUtility.ParseQueryString(Request.QueryString.ToString());
@@ -216,6 +209,5 @@ namespace Vistas
             Response.Redirect(url + updatedQueryString);
         }
 
->>>>>>> Stashed changes
     }
 }
