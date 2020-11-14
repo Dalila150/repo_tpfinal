@@ -14,6 +14,8 @@ namespace Negocio
     {
         public DataTable getTabla()
         {
+            
+
             DaoMarcas dao = new DaoMarcas();
             return dao.getTablaMarcas();
         }

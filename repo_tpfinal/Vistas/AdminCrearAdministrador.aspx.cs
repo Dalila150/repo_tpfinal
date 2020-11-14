@@ -16,8 +16,8 @@ namespace Vistas
             if (IsPostBack==false)
             {
                 ddlRol.Items.Add(new ListItem { Text = "Seleccione", Value = "" });
-                ddlRol.Items.Add(new ListItem { Text = "Admin", Value = "2" });
-                ddlRol.Items.Add(new ListItem { Text = "User", Value = "1" });
+                ddlRol.Items.Add(new ListItem { Text = "Admin", Value = "1" });
+                ddlRol.Items.Add(new ListItem { Text = "User", Value = "2" });
             }
         }
 

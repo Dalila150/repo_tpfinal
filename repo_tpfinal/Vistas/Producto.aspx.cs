@@ -122,6 +122,10 @@ namespace Vistas
             ProductoCarrito.Rows.Add(int.Parse(cadena),int.Parse(ddlCantidadSeleccion.SelectedValue),float.Parse(infoPro.Rows[0][5].ToString()), infoPro.Rows[0][2].ToString());
             
             Session["carrito"] = ProductoCarrito;
+            
+
         }
+
+    
     }
 }

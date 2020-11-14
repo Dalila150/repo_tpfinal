@@ -10,13 +10,7 @@
     <title>Nuevo Producto - Admin</title>
     <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <style type="text/css">
-        .auto-style1 {
-            width: 76%;
-            height: 469px;
-        }
-    </style>
-</head>
+    </head>
 <body>
     <form id="form1" runat="server">
         <div class="container">
@@ -98,7 +92,8 @@
                         <div style="display: inline-block;">
                             <ul style="font-size: 18px; text-align: left; display: inline-block; width: 95%; margin-right: 1%">
                                 <li style="height: 35px; width: 80%; margin-bottom: 15px">
-                                    <asp:TextBox class="txtASP" ID="txtRol" runat="server" required="true">1</asp:TextBox>
+                                    <asp:DropDownList ID="ddlRol" runat="server">
+                                    </asp:DropDownList>
                                 </li>
                                 <li style="height: 35px; width: 80%; margin-bottom: 15px">
                                     <asp:TextBox class="txtASP" ID="txtNombre" runat="server" required="true"></asp:TextBox>

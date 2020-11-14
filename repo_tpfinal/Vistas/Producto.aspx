@@ -12,7 +12,7 @@
     <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
   </head>
 <body>
-    <div class="container">
+    <%-- <div class="container">
         <div class="logo" >
             <img src="/img/logo.jpg" class="LogoImagen" />
         </div>
@@ -35,7 +35,7 @@
           </li>
         </ul>
         </div>
-        <div class="content" >
+        <div class="content" >--%>
     <form id="carrito" runat="server">
     <!-------------------------------------------------------------------------->
     <div class="conteiner" style="margin:20px 15% 20px 15%;z-index: 0;">
@@ -69,7 +69,7 @@
     </div>
     <!-------------------------------------------------------------------------->
      <div class="footer" >
-        <!-- Iconos de redes sociales -->
+         <%-- <!-- Iconos de redes sociales -->
             <h2 class="contactenos">Contactenos</h2>
             <ul style="text-align:left">
               <li class="redes">
@@ -86,6 +86,6 @@
               </li>
             </ul>
         </div>
-    </div>
+    </div>--%>
 </body>
 </html>
