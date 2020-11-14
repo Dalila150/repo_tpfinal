@@ -7,9 +7,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="css/template.css"/>
     <link rel="StyleSheet" href="/css/producto.css" ; type="text/css" />
+
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet" />    
     <title>Home</title>
     <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
 <body>
     <%-- <div class="container">
@@ -35,10 +37,17 @@
           </li>
         </ul>
         </div>
+<<<<<<< Updated upstream
         <div class="content" >--%>
+=======
+        <div class="content" >
+    
+>>>>>>> Stashed changes
     <form id="carrito" runat="server">
+        <asp:HiddenField ID="selectCant" runat="server"/>
     <!-------------------------------------------------------------------------->
     <div class="conteiner" style="margin:20px 15% 20px 15%;z-index: 0;">
+
       <div class="Producto" style="text-align:center" id="imagenProducto" runat="server">
         
           <label  style="display:block; margin-top:2%" id="lblNoPro" runat="server"></label>
@@ -50,7 +59,7 @@
 
          </div>
         <div>
-          <h3>Cantidad: <asp:DropDownList class="cantidad" style="border-radius:5px;font-size:15px" ID="ddlCantidadSeleccion" runat="server">
+          <h3>Cantidad: <asp:DropDownList class="cantidad" style="border-radius:5px;font-size:15px" ID="ddlCantidadSeleccion" runat="server" onchange="cambio()">
           </asp:DropDownList></h3>
         </div>
         <div class="disponibles">
@@ -88,4 +97,10 @@
         </div>
     </div>--%>
 </body>
+    <script>
+        function cambio() {
+            document.getElementById('selectCant').value = $("#ddlCantidadSeleccion").val();
+            return true;
+        }
+    </script>
 </html>

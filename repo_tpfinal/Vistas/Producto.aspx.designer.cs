@@ -24,7 +24,20 @@ namespace Vistas
         protected global::System.Web.UI.HtmlControls.HtmlForm carrito;
 
         /// <summary>
+<<<<<<< Updated upstream
         /// Control imagenProducto.
+=======
+        /// selectCant control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField selectCant;
+
+        /// <summary>
+        /// imagenProducto control.
+>>>>>>> Stashed changes
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
