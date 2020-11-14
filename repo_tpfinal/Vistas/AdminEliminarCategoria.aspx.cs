@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Entidades;
 using Negocio;
 
 namespace Vistas
@@ -19,7 +20,7 @@ namespace Vistas
         protected void BtnEliminarCate_Click(object sender, EventArgs e)
         {
             Boolean estado = false;
-            estado = neg.eliminarMarcas_neg(txtCategorias.Text);
+            estado = neg.eliminarCategoria(txtCategorias.Text);
             if (estado == true)
             {
                 lblMensaje.Text = "Marca borrada con exito";
