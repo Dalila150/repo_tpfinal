@@ -209,5 +209,16 @@ namespace Vistas
             Response.Redirect(url + updatedQueryString);
         }
 
+        protected void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            var nameValues = HttpUtility.ParseQueryString(Request.QueryString.ToString());
+            nameValues.Set("Busqueda", txtBuscar.Text);
+            nameValues.Remove("Pro");
+            string url = Request.Url.AbsolutePath;
+            string updatedQueryString = "?" + nameValues.ToString();
+
+            Response.Redirect("/productos.aspx" + updatedQueryString);
+        }
+
     }
 }

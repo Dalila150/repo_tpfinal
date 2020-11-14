@@ -135,5 +135,16 @@ namespace Vistas
                 lblMensajeCompra.Text = "Hubo un error al registrar su compra";
             }
         }
+
+        protected void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            var nameValues = HttpUtility.ParseQueryString(Request.QueryString.ToString());
+            nameValues.Set("Busqueda", txtBuscar.Text);
+            string url = Request.Url.AbsolutePath;
+            string updatedQueryString = "?" + nameValues.ToString();
+
+            Response.Redirect("/productos.aspx" + updatedQueryString);
+        }
+
     }
 }

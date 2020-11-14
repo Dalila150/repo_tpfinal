@@ -88,5 +88,15 @@ namespace Vistas
                 //lblMensaje.Text = "Este usuario ya exite, por favor intente con otro";
             }
         }
+
+        protected void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            var nameValues = HttpUtility.ParseQueryString(Request.QueryString.ToString());
+            nameValues.Set("Busqueda", txtBuscar.Text);
+            string url = Request.Url.AbsolutePath;
+            string updatedQueryString = "?" + nameValues.ToString();
+
+            Response.Redirect("/productos.aspx" + updatedQueryString);
+        }
     }
 }

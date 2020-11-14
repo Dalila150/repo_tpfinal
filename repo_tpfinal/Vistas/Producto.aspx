@@ -14,16 +14,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
 <body>
-<div class="container">
+        <form id="form1" runat="server">
+        <div class="container">
+
         <div class="logo" >
             <img src="/img/logo.jpg" class="LogoImagen" />
         </div>
         <div class="header" >
-            <input type="text" name="search" placeholder="Buscar" class="bus" autocomplete="off"/>
+            <asp:TextBox ID="txtBuscar" runat="server" name="search" placeholder="Buscar" class="bus" autocomplete="off" AutoPostBack="True" OnTextChanged="txtBuscar_TextChanged" TabIndex="1" onkeyup="RefreshUpdatePanel()" onfocus="this.selectionStart = this.selectionEnd = this.value.length;"></asp:TextBox>
         </div>
         <div class="iconos" >
             <a href="/IniciarSesion.aspx" class="fas fa-user user"></a>
-            <a href="/Carrito.aspx" class="fas fa-shopping-cart cart"></a></div>
+            <a href="/Carrito.aspx" class="fas fa-shopping-cart cart">$<div id="datosCarrito" runat="server" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 89%;display: inline;"></div></a></div>
         <div class="navbar" style="z-index: 2;" >
             <ul class="nav">
           <li class="name">
@@ -38,7 +40,7 @@
         </ul>
         </div>
         <div class="content" >
-    <form id="carrito" runat="server">
+    
         <asp:HiddenField ID="selectCant" runat="server"/>
     <!-------------------------------------------------------------------------->
     <div class="conteiner" style="margin:20px 15% 20px 15%;z-index: 0;">
@@ -69,7 +71,7 @@
         
       </div>
     </div>
-        </form>
+
     </div>
     <!-------------------------------------------------------------------------->
      <div class="footer" >
@@ -90,7 +92,9 @@
               </li>
             </ul>
         </div>
-    </div>
+        
+        </div>
+       </form>     
 </body>
     <script>
         function cambio() {
