@@ -33,13 +33,13 @@ namespace Vistas
         protected global::System.Web.UI.HtmlControls.HtmlForm carrito;
 
         /// <summary>
-        /// ImagenPro control.
+        /// imagenProducto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ImagenPro;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl imagenProducto;
 
         /// <summary>
         /// lblNoPro control.
@@ -60,12 +60,30 @@ namespace Vistas
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl datosDelProducto;
 
         /// <summary>
-        /// bntEliminarProdCarrito control.
+        /// ddlCantidadSeleccion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bntEliminarProdCarrito;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCantidadSeleccion;
+
+        /// <summary>
+        /// bntAgregarProdCarrito control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button bntAgregarProdCarrito;
+
+        /// <summary>
+        /// descripcion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl descripcion;
     }
 }

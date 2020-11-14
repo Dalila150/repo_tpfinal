@@ -39,72 +39,30 @@
     <form id="carrito" runat="server">
     <!-------------------------------------------------------------------------->
     <div class="conteiner" style="margin:20px 15% 20px 15%;z-index: 0;">
-      <div class="Producto" style="text-align:center">
-        <div class="slider" style="z-index: 1" id="ImagenPro" runat="server">
-        </div>
+      <div class="Producto" style="text-align:center" id="imagenProducto" runat="server">
+        
           <label  style="display:block; margin-top:2%" id="lblNoPro" runat="server"></label>
           
         
       </div>
       <div class="datosPro">
-        <div id="datosDelProducto" style="font-size:500px" runat="server">
+        <div id="datosDelProducto" runat="server">
 
-          </div>
-        <div class="precio">
-          <h2>$5000</h2>
-        </div>
+         </div>
         <div>
-          <h3>Cantidad: <select class="cantidad" style="border-radius:5px;font-size:15px">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select></h3>
+          <h3>Cantidad: <asp:DropDownList class="cantidad" style="border-radius:5px;font-size:15px" ID="ddlCantidadSeleccion" runat="server">
+          </asp:DropDownList></h3>
         </div>
         <div class="disponibles">
-          <h3>Disponibles: 3</h3>
         </div>
         <div>
-          <asp:button runat="server" ID="bntEliminarProdCarrito" style="width: 90%;border-radius: 8px 8px;padding: 0.5rem;font-size: 18px; border-radius: 20px 20px;color: #ffffff; border: solid 1px rgba(226, 98, 98, 0.116);background-color: rgba(184, 39, 51, 0.753);" text="Eliminar Producto"/>
+          <asp:button runat="server" ID="bntAgregarProdCarrito" style="width: 90%;border-radius: 8px 8px;padding: 0.5rem;font-size: 18px; border-radius: 20px 20px;color: #ffffff; border: solid 1px rgba(226, 98, 98, 0.116);background-color: rgba(184, 39, 51, 0.753);" text="Agregar al carrito" OnClick="bntAgregarProdCarrito_Click"/>
         </div>
         <div class="vacio">&nbsp</div>
       </div>
 
-      <div class="descripcion">
-        <h2>Descripción</h2>
-        <p>
-          Inteligente y predictivo.<br />
-          El sistema operativo avanzado Android 9.0 Pie aprende tus hábitos para
-          adaptarse a tu rutina y lograr la máxima eficiencia de tu equipo. Tu
-          dispositivo tendrá la autonomía necesaria para reducir el consumo
-          energético ajustando el brillo automáticamente y gestionando la
-          batería de manera inteligente para que puedas priorizar el uso de tus
-          aplicaciones habituales.<br />
-
-          Con su pantalla IPS de 6.2", disfrutá de colores intensos y mayor
-          nitidez en todos tus contenidos.<br />
-
-          El espacio que necesitás<br />
-          Con su memoria interna de 32 GB descargá tus aplicaciones favoritas y
-          guardá todas las fotos y videos que quieras.<br />
-
-          Batería superior<br />
-          ¡Desenchufate! Con la súper batería de 4000 mAh, tendrás energía por
-          mucho más tiempo para jugar, ver series o trabajar sin necesidad de
-          recargar tu teléfono.<br />
-
-          Increíble efecto bokeh<br />
-          Sus 2 cámaras traseras de 13 Mpx/2 Mpx te permitirán capturar imágenes
-          con el famoso modo retrato de poca profundidad de campo.<br />
-
-          Además, el dispositivo cuenta con cámara frontal de 5 Mpx para que
-          puedas sacarte divertidas selfies o hacer videollamadas.<br />
-
-          Reconocimiento facial para mayor seguridad<br />
-          Su precisa tecnología de reconocimiento facial te garantiza un acceso
-          al equipo rápido y seguro. Acercá el dispositivo a tu rostro para
-          desbloquearlo instantáneamente y comenzá a disfrutar de una
-          experiencia inigualable.<br />
-        </p>
+      <div class="descripcion" id="descripcion" runat="server">
+        
       </div>
     </div>
         </form>
