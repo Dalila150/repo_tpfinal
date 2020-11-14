@@ -47,7 +47,7 @@
         
       </div>
       <div class="datosPro">
-        <div id="datosPro" style="font-size:500px" runat="server">
+        <div id="datosDelProducto" style="font-size:500px" runat="server">
 
           </div>
         <div class="precio">

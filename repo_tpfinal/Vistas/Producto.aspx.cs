@@ -42,7 +42,7 @@ namespace Vistas
 
             }
 
-            datosPro.InnerHtml = InnerHTML;
+            datosDelProducto.InnerHtml = InnerHTML;
 
         }
         //FUNCION QUE CARGA A STRING INNERHTML LOS PRODUCTOS A PARTIR
@@ -53,14 +53,12 @@ namespace Vistas
 
             foreach (DataRow row in tabla.Rows)
             {
-                String A = "<h1>";
-                A += row[1].ToString();
-                InnerHTML += "</h1>";
-
+                InnerHTML += "<h1>" + row[1].ToString() + "</h1>";
             }
 
             return InnerHTML;
         }
+
         protected void CargarCategoriasBarraDeNavegacion()
         {
             NegocioCategoria gC = new NegocioCategoria();
