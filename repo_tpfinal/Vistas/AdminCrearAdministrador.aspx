@@ -12,14 +12,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style type="text/css">
         .auto-style1 {
-            width: 76%;
-            height: 469px;
+            width: 118px;
+        }
+        .auto-style2 {
+            width: 112px;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="container">
+        <%--<div class="container">
             <div class="logo" >
                 <img src="/img/logo.jpg" class="LogoImagen" />
             </div>
@@ -75,7 +77,7 @@
                 </li>
 
             </ul>
-            </div>
+            </div>--%>
             <div class="content" >
     <!------------------------------------------------------------>
     <div style="display: inline-block;width: 60%;">
@@ -95,10 +97,15 @@
                         <li style="height: 35px;width: 25%;margin-bottom:14px"> DNI:</li>
                     </ul>
             <div style="display:inline-block;">
+                <table class="auto-style1">
+                    <tr>
+                        <td class="auto-style2">
+                            <asp:DropDownList ID="ddlRol" runat="server">
+                            </asp:DropDownList>
+                        </td>
+                    </tr>
+                </table>
                 <ul style="font-size:18px;text-align:left;display:inline-block;width:95%;margin-right:1%">
-                    <li style="height: 35px;width: 80%;margin-bottom:15px">
-                        <asp:TextBox class="txtASP" ID="txtRol" runat="server" required="true">1</asp:TextBox>
-                    </li>
                     <li style="height: 35px;width: 80%;margin-bottom:15px">
                     <asp:TextBox class="txtASP" ID="txtNombre" runat="server" required="true"></asp:TextBox>
                         
@@ -133,7 +140,7 @@
     </div>
         <div class="footer" >
         <!-- Iconos de redes sociales -->
-            <h2 class="contactenos">Contactenos</h2>
+            <%-- <h2 class="contactenos">Contactenos</h2>
             <ul style="text-align:left">
               <li class="redes">
                 <a href="https://www.instagram.com/"><i class="fab fa-instagram-square tamIcoRed"><b style="padding-left:10px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Instagram</b></i></a>
@@ -149,7 +156,7 @@
               </li>
             </ul>
 
-    </div>
+    </div>--%>
     </form>
 </body>
 <script type="text/javascript">
