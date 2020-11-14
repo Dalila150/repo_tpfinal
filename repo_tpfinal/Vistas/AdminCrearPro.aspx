@@ -1,11 +1,12 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminCrearPro.aspx.cs" Inherits="Vistas.AdminCrearPro_v1" %>
 
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="StyleSheet" href="/css/template_admin.css"type="text/css" />
+    <link rel="StyleSheet" href="/css/template_admin.css" type="text/css" />
 
     <title>Nuevo Producto - Admin</title>
     <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
@@ -13,135 +14,136 @@
 </head>
 <body>
     <form id="form1" runat="server">
-         <div class="container">
-            <div class="logo" >
+        <div class="container">
+            <div class="logo">
                 <img src="/img/logo.jpg" class="LogoImagen" />
             </div>
-            <div class="header" >
+            <div class="header">
             </div>
-            <div class="iconos" >
+            <div class="iconos">
                 <a href="/Datos.aspx" class="fas fa-user user"></a>
-                <a href="/Home.aspx" class="fas fa-sign-out-alt"></a></div>
-            <div class="navbar" >
-               <ul class="nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Administrar</a>
-                    <ul>
-                        <li><a href="#">Productos</a>
-                            <ul>
-                                <li><a href="/AdminListPro.aspx">Listar</a></li>
-                                <li><a href="/AdminCrearPro.aspx">Crear</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Usuarios</a>
-                            <ul>
-                                <li><a href="/AdminListUsu.aspx">Listar</a></li>
-                                <li><a href="/AdminEdicUsu.aspx">Editar</a></li>
-                                <li><a href="/AdminEliminarUsuariosAdmin.aspx">Eliminar</a></li>
-                                <li><a href="/AdminCrearAdministrador.aspx">Crear</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Marcas</a>
-                            <ul>
-                                <li><a href="#">Listar</a></li>
-                                <li><a href="#">Editar</a></li>
-                                <li><a href="/AdminEliminarMarca.aspx">Eliminar</a></li>
-                                <li><a href="/AdminCrearMarca.aspx">Crear</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Categorias</a>
-                            <ul>
-                                <li><a href="#">Listar</a></li>
-                                <li><a href="#">Editar</a></li>
-                                <li><a href="/AdminEliminarCategoria.aspx">Eliminar</a></li>
-                                <li><a href="/AdminCrearCategoria.aspx">Crear</a></li>
-                            </ul>
-                        </li>
-
-                    </ul>
-                </li>
-                <li><a href="#">Registros</a>
-                    <ul>
-                        <li><a href="#">Registro 1</a></li>
-                        <li><a href="#">Registro 2</a></li>
-                        <li><a href="#">Historial de ventas</a></li>
-                    </ul>
-                </li>
-
-            </ul>
+                <a href="/Home.aspx" class="fas fa-sign-out-alt"></a>
             </div>
-            <div class="content" >
-    <!------------------------------------------------------------>
-     <div style="display: inline-block;width: 60%;">
-        <div style="background-color: rgba(197, 93, 102, 0.404);border-radius: 8px; text-align:center;margin-top:25px;margin-bottom:25px">
-            <h1 style="padding-top: 20px;">Edicion de producto</h1>
-            <hr style="width:90%" />
-            <ul style="font-size:18px;text-align:left;display:inline-block;width:15%;margin-left:2%">
-                <li style="height: 35px;width: 25%;margin-bottom:14px">Modelo</li>
-                <li style="height: 35px;width: 25%;margin-bottom:14px">Marca</li>
-                <li style="height: 35px;width: 25%;margin-bottom:14px">Categoria</li>
-                <li style="height: 35px;width: 25%;margin-bottom:14px">Stock</li>
-                <li style="height: 35px;width: 25%;margin-bottom:88px">Precio unitario</li>
-                <li style="height: 35px;width: 25%;margin-bottom:95px">Descripcion</li>
-                <li style="height: 35px;width: 25%;margin-bottom:14px">Direccion Imagen</li>
-                <li style="height: 35px;width: 25%;margin-bottom:14px">Estado</li>
-            </ul>
-            <div style="width:70%;display:inline-block;">
-                <ul style="font-size:18px;text-align:left;display:inline-block;width:95%;margin-right:1%">
-                    <li style="height: 35px;width: 80%;margin-bottom:15px">
-                        <asp:TextBox class="txtASP" ID="txtModelo" runat="server" style="width: 100%;font-size:18px;height:60%;-ms-box-sizing:content-box;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;" required="true"></asp:TextBox>
+            <div class="navbar">
+                <ul class="nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Administrar</a>
+                        <ul>
+                            <li><a href="#">Productos</a>
+                                <ul>
+                                    <li><a href="/AdminListPro.aspx">Listar</a></li>
+                                    <li><a href="/AdminCrearPro.aspx">Crear</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Usuarios</a>
+                                <ul>
+                                    <li><a href="/AdminListUsu.aspx">Listar</a></li>
+                                    <li><a href="/AdminEdicUsu.aspx">Editar</a></li>
+                                    <li><a href="/AdminEliminarUsuariosAdmin.aspx">Eliminar</a></li>
+                                    <li><a href="/AdminCrearAdministrador.aspx">Crear</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Marcas</a>
+                                <ul>
+                                    <li><a href="#">Listar</a></li>
+                                    <li><a href="#">Editar</a></li>
+                                    <li><a href="/AdminEliminarMarca.aspx">Eliminar</a></li>
+                                    <li><a href="/AdminCrearMarca.aspx">Crear</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Categorias</a>
+                                <ul>
+                                    <li><a href="#">Listar</a></li>
+                                    <li><a href="#">Editar</a></li>
+                                    <li><a href="/AdminEliminarCategoria.aspx">Eliminar</a></li>
+                                    <li><a href="/AdminCrearCategoria.aspx">Crear</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
                     </li>
-                    <li style="height: 35px;width: 80%;margin-bottom:15px">
-                        <asp:DropDownList class="txtASP" ID="ddMarca" runat="server" style="width: 100%;font-size:18px;-ms-box-sizing:content-box;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;" required="true"></asp:DropDownList>
-                    </li>
-                    <li style="height: 35px;width: 80%;margin-bottom:15px">
-                        <asp:DropDownList class="txtASP" ID="ddCategoria" runat="server" style="width: 100%;font-size:18px;-ms-box-sizing:content-box;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;" required="true"></asp:DropDownList>
-                    </li>       
-                    <li style="height: 35px;width: 80%;margin-bottom:15px">
-                        <asp:TextBox class="txtASP" ID="txtStock" runat="server" style="width: 100%;font-size:18px;height:60%;-ms-box-sizing:content-box;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;" required="true"></asp:TextBox>
-                    </li>
-                    <li style="height: 35px;width: 80%;margin-bottom:15px">
-                        <asp:TextBox class="txtASP" ID="txtPrecio" runat="server" style="width: 100%;font-size:18px;height:60%;-ms-box-sizing:content-box;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;" required="true"></asp:TextBox>
-                    </li>
-                    <li style="height: 180px;width: 80%;margin-bottom:15px">
-                        <asp:TextBox class="txtASP" ID="txtDescripcion" TextMode="MultiLine" runat="server" style="width: 100%;font-size:15px;height:90%;resize:none;-ms-box-sizing:content-box;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;" required="true"></asp:TextBox>
-                    </li>
-                    <li style="height: 35px;width: 80%;margin-bottom:15px">
-                        <asp:TextBox class="txtASP" ID="txtDireccionImagen" runat="server" style="width: 100%;font-size:18px;height:60%;-ms-box-sizing:content-box;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;" required="true"></asp:TextBox>
-                    </li>
-                    <li style="height: 35px;width: 80%;margin-bottom:15px">
-                        <asp:DropDownList class="txtASP" ID="ddEstado" runat="server" style="width: 100%;font-size:18px;-ms-box-sizing:content-box;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;" required="true"></asp:DropDownList>
+                    <li><a href="#">Registros</a>
+                        <ul>
+                            <li><a href="#">Registro 1</a></li>
+                            <li><a href="#">Registro 2</a></li>
+                            <li><a href="#">Historial de ventas</a></li>
+                        </ul>
                     </li>
 
                 </ul>
+            </div>
+            <div class="content">
+                <!------------------------------------------------------------>
+                <div style="display: inline-block; width: 60%;">
+                    <div style="background-color: rgba(197, 93, 102, 0.404); border-radius: 8px; text-align: center; margin-top: 25px; margin-bottom: 25px">
+                        <h1 style="padding-top: 20px;">Edicion de producto</h1>
+                        <hr style="width: 90%" />
+                        <ul style="font-size: 18px; text-align: left; display: inline-block; width: 15%; margin-left: 2%">
+                            <li style="height: 35px; width: 25%; margin-bottom: 14px">Modelo</li>
+                            <li style="height: 35px; width: 25%; margin-bottom: 14px">Marca</li>
+                            <li style="height: 35px; width: 25%; margin-bottom: 14px">Categoria</li>
+                            <li style="height: 35px; width: 25%; margin-bottom: 14px">Stock</li>
+                            <li style="height: 35px; width: 25%; margin-bottom: 88px">Precio unitario</li>
+                            <li style="height: 35px; width: 25%; margin-bottom: 95px">Descripcion</li>
+                            <li style="height: 35px; width: 25%; margin-bottom: 14px">Direccion Imagen</li>
+                            <li style="height: 35px; width: 25%; margin-bottom: 14px">Estado</li>
+                        </ul>
+                        <div style="width: 70%; display: inline-block;">
+                            <ul style="font-size: 18px; text-align: left; display: inline-block; width: 95%; margin-right: 1%">
+                                <li style="height: 35px; width: 80%; margin-bottom: 15px">
+                                    <asp:TextBox class="txtASP" ID="txtModelo" runat="server" Style="width: 100%; font-size: 18px; height: 60%; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:TextBox>
+                                </li>
+                                <li style="height: 35px; width: 80%; margin-bottom: 15px">
+                                    <asp:DropDownList class="txtASP" ID="ddMarca" runat="server" Style="width: 100%; font-size: 18px; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:DropDownList>
+                                </li>
+                                <li style="height: 35px; width: 80%; margin-bottom: 15px">
+                                    <asp:DropDownList class="txtASP" ID="ddCategoria" runat="server" Style="width: 100%; font-size: 18px; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:DropDownList>
+                                </li>
+                                <li style="height: 35px; width: 80%; margin-bottom: 15px">
+                                    <asp:TextBox class="txtASP" ID="txtStock" runat="server" Style="width: 100%; font-size: 18px; height: 60%; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:TextBox>
+                                </li>
+                                <li style="height: 35px; width: 80%; margin-bottom: 15px">
+                                    <asp:TextBox class="txtASP" ID="txtPrecio" runat="server" Style="width: 100%; font-size: 18px; height: 60%; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:TextBox>
+                                </li>
+                                <li style="height: 180px; width: 80%; margin-bottom: 15px">
+                                    <asp:TextBox class="txtASP" ID="txtDescripcion" TextMode="MultiLine" runat="server" Style="width: 100%; font-size: 15px; height: 90%; resize: none; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:TextBox>
+                                </li>
+                                <li style="height: 35px; width: 80%; margin-bottom: 15px">
+                                    <asp:TextBox class="txtASP" ID="txtDireccionImagen" runat="server" Style="width: 100%; font-size: 18px; height: 60%; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:TextBox>
+                                </li>
+                                <li style="height: 35px; width: 80%; margin-bottom: 15px">
+                                    <asp:DropDownList class="txtASP" ID="ddEstado" runat="server" Style="width: 100%; font-size: 18px; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:DropDownList>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div style="padding-bottom: 25px; text-align: center; height: 35px;">
+                            <asp:Button class="btnASP" ID="btnGuardar" runat="server" Text="Crear Producto" OnClick="btnGuardar_Click" Style="width: 30%; min-width: 158px" />
+                            <button class="btnASP" id="btnCancelar" type="button" onclick="btnCancelar_click()" style="width: 25%;">Cancelar</button>
+                        </div>
+                    </div>
+                    <asp:Button ID="submitform" runat="server" Text="guarda" OnClick="btnGuardar_Click" Style="display: none" />
                 </div>
-            <div style="padding-bottom: 25px;text-align: center;height: 35px;">
-              <asp:Button class="btnASP" ID="btnGuardar" runat="server" Text="Crear Producto" OnClick="btnGuardar_Click" style="width: 30%;min-width:158px"/>
-              <button class="btnASP" id="btnCancelar" type="button" onclick="btnCancelar_click()" style="width: 25%;">Cancelar</button>
+            </div>
+        <div class="footer">
+            <!-- Iconos de redes sociales -->
+            <h2 class="contactenos">Contactenos</h2>
+            <ul style="text-align: left">
+                <li class="redes">
+                    <a href="https://www.instagram.com/"><i class="fab fa-instagram-square tamIcoRed"><b style="padding-left: 10px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Instagram</b></i></a>
+                </li>
+                <li class="redes">
+                    <a href="https://twitter.com/"><i class="fab fa-twitter tamIcoRed"><b style="padding-left: 10px; padding-top: 0px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Twitter</b></i></a>
+                </li>
+                <li class="redes">
+                    <a href="https://facebook.com/"><i class="fab fa-facebook-square tamIcoRed"><b style="padding-left: 10px; padding-top: 0px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Facebook</b></i></a>
+                </li>
+                <li class="redes">
+                    <a href="https://github.com/"><i class="fab fa-github tamIcoRed"><b style="padding-left: 10px; padding-top: 0px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">GitHub</b></i></a>
+                </li>
+            </ul>
           </div>
         </div>
-        <asp:Button ID="submitform" runat="server" Text="guarda" OnClick="btnGuardar_Click" Style="display: none" />
-    </div>
-                        </div>
-        <div class="footer" >
-        <!-- Iconos de redes sociales -->
-            <h2 class="contactenos">Contactenos</h2>
-            <ul style="text-align:left">
-              <li class="redes">
-                <a href="https://www.instagram.com/"><i class="fab fa-instagram-square tamIcoRed"><b style="padding-left:10px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Instagram</b></i></a>
-              </li>
-              <li class="redes">
-                <a href="https://twitter.com/"><i class="fab fa-twitter tamIcoRed"><b style="padding-left:10px;padding-top:0px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Twitter</b></i></a>
-              </li>
-              <li class="redes">
-                <a href="https://facebook.com/"><i class="fab fa-facebook-square tamIcoRed"><b style="padding-left:10px;padding-top:0px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Facebook</b></i></a>
-              </li>
-              <li class="redes">
-                 <a href="https://github.com/"><i class="fab fa-github tamIcoRed"><b style="padding-left:10px;padding-top:0px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">GitHub</b></i></a>
-              </li>
-            </ul>
-
-    </div>
     </form>
 </body>
 <script type="text/javascript">

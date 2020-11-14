@@ -78,6 +78,7 @@
     <Content Include="Categorias\pantalla.jpg" />
     <Content Include="Categorias\tablet.jpg" />
     <Content Include="Categorias\televisor.jpg" />
+    <Content Include="ComprasUsuario.aspx" />
     <Content Include="css\admin1.css" />
     <Content Include="css\AdminHome.css" />
     <Content Include="css\carrito.css" />
@@ -173,6 +174,13 @@
     </Compile>
     <Compile Include="AdminListMarcas.aspx.designer.cs">
       <DependentUpon>AdminListMarcas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ComprasUsuario.aspx.cs">
+      <DependentUpon>ComprasUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComprasUsuario.aspx.designer.cs">
+      <DependentUpon>ComprasUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

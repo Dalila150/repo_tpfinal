@@ -33,12 +33,66 @@ namespace Vistas
         protected global::System.Web.UI.HtmlControls.HtmlForm carrito;
 
         /// <summary>
-        /// bntEliminarProdCarrito control.
+        /// selectCant control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bntEliminarProdCarrito;
+        protected global::System.Web.UI.WebControls.HiddenField selectCant;
+
+        /// <summary>
+        /// imagenProducto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl imagenProducto;
+
+        /// <summary>
+        /// lblNoPro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblNoPro;
+
+        /// <summary>
+        /// datosDelProducto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl datosDelProducto;
+
+        /// <summary>
+        /// ddlCantidadSeleccion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCantidadSeleccion;
+
+        /// <summary>
+        /// bntAgregarProdCarrito control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button bntAgregarProdCarrito;
+
+        /// <summary>
+        /// descripcion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl descripcion;
     }
 }

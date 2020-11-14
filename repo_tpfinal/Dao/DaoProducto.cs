@@ -55,10 +55,18 @@ namespace Dao
             return aux;
         }
 
+        // CONSULTA UNIVERSAL DE FILTROS? XD
+        public DataTable ObtenerProdsConFiltro(String Consulta)
+        {
+            return ds.ObtenerTabla("producto", "Select id_Producto as ID, producto.Nombre as Producto, producto.ID_marca as Marca, producto.Stock as Disponibles, producto.Precio_unitario as Precio, producto.Imagen AS Imagen from producto where producto.estado = 1 AND producto.Stock > 0 " + Consulta);
+        }
+        //----------------------------------------------------------------
+
         public DataTable ObtenerProdsXIdCategoria(String codProd)
         {
             return ds.ObtenerTabla("producto", "Select id_Producto as ID, producto.Nombre as Producto, producto.ID_marca as Marca, producto.Stock as Disponibles, producto.Precio_unitario as Precio, producto.Imagen AS Imagen from producto where producto.estado = 1 AND producto.Stock > 0 AND producto.ID_Categoria = " + codProd);
         }
+        //------------------FILTROS PRODUCTOS-----------------------------
         public DataTable ObtenerProdsXIdMayorAMenor(String codProd)
         {
             return ds.ObtenerTabla("producto", "Select id_Producto as ID, producto.Nombre as Producto, producto.ID_marca as Marca, producto.Stock as Disponibles, producto.Precio_unitario as Precio, producto.Imagen AS Imagen from producto where producto.estado = 1 AND producto.Stock > 0 AND producto.ID_Categoria = " + codProd + " order by Precio desc");
@@ -75,6 +83,11 @@ namespace Dao
         {
             return ds.ObtenerTabla("producto", "Select id_Producto as ID, producto.Nombre as Producto, producto.ID_marca as Marca, producto.Stock as Disponibles, producto.Precio_unitario as Precio, producto.Imagen AS Imagen from producto where producto.estado = 1 AND producto.Stock > 0 AND producto.ID_categoria =" + codProd + "order by Precio asc");
         }
+        public DataTable ObtenerProdsMarca(String id, String codigo)
+        {
+            return ds.ObtenerTabla("producto", "Select id_Producto as ID, producto.Nombre as Producto, producto.ID_marca as Marca, producto.Stock as Disponibles, producto.Precio_unitario as Precio, producto.Imagen AS Imagen from producto  inner join marca on marca.ID_marca = producto.ID_marca where producto.estado = 1 AND producto.Stock > 0 AND producto.ID_marca = " + codigo + " AND producto.ID_categoria =" +id);
+        }
+        //---sin id categoria----
         public DataTable ObtenerProdsDeMayorAMenor()
         {
             return ds.ObtenerTabla("producto", "Select id_Producto as ID, producto.Nombre as Producto, producto.ID_marca as Marca, producto.Stock as Disponibles, producto.Precio_unitario as Precio, producto.Imagen AS Imagen from producto where producto.estado = 1 AND producto.Stock > 0 order by Precio desc");
@@ -91,6 +104,7 @@ namespace Dao
         {
             return ds.ObtenerTabla("producto", "Select id_Producto as ID, producto.Nombre as Producto, producto.ID_marca as Marca, producto.Stock as Disponibles, producto.Precio_unitario as Precio, producto.Imagen AS Imagen from producto where producto.estado = 1 AND producto.Stock > 0 order by ID asc");
         }
+        //-------------------------------------------------------------------
         public DataTable ObtenerProductos()
         {
             return ds.ObtenerTabla("producto", "Select * from producto where producto.estado = 'true'");
@@ -121,6 +135,20 @@ namespace Dao
             DataTable aux = new DataTable();
             AccesoaDatos ad = new AccesoaDatos();
             aux = ad.ObtenerTabla("usuario", "Select count(usuario.id_usuario) from usuario where rol =2");
+            return aux;
+        }
+        public DataTable ObtenerProductosProd()
+        {
+            DataTable aux = new DataTable();
+            AccesoaDatos ad = new AccesoaDatos();
+            aux = ad.ObtenerTabla("producto", "select producto.id_producto as ID, producto.nombre as Nombre, producto.imagen as Imagen, producto.Stock as Stock, producto.Descripcion as Descripcion, producto.Precio_unitario as Precio, producto.Stock as Stock from producto");
+            return aux;
+        }
+        public DataTable ObtenerDatosId(String id)
+        {
+            DataTable aux = new DataTable();
+            AccesoaDatos ad = new AccesoaDatos();
+            aux = ad.ObtenerTabla("producto", "select producto.id_producto as ID, producto.nombre as Nombre, producto.imagen as Imagen, producto.Stock as Stock, producto.Descripcion as Descripcion, producto.Precio_unitario as Precio, producto.Stock as Stock from producto where id_producto = " + id);
             return aux;
         }
         public void ArmarParametrosProductoActualizado(ref SqlCommand Comando, Producto productos)

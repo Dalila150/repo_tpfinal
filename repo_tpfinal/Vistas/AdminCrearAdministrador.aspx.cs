@@ -13,7 +13,12 @@ namespace Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (IsPostBack==false)
+            {
+                ddlRol.Items.Add(new ListItem { Text = "Seleccione", Value = "" });
+                ddlRol.Items.Add(new ListItem { Text = "Admin", Value = "1" });
+                ddlRol.Items.Add(new ListItem { Text = "User", Value = "2" });
+            }
         }
 
         protected void btnAgregarUsuario_Click(object sender, EventArgs e)
@@ -21,7 +26,7 @@ namespace Vistas
             NegocioUsuario nuevo_usuario = new NegocioUsuario();
             Usuarios Datos_usuario = new Usuarios();
 
-            Datos_usuario.setRolUsuario(int.Parse(txtRol.Text));
+            Datos_usuario.setRolUsuario(int.Parse(ddlRol.SelectedValue));
             Datos_usuario.setNombreUsuario(txtNombre.Text);
             Datos_usuario.setApellidoUsuario(txtApellido.Text);
             Datos_usuario.setEmailUsuario(txtEmail.Text);

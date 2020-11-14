@@ -19,52 +19,184 @@ namespace Vistas
             //string[] Separado = cadena.Split('/');
             CargarCategoriasBarraDeNavegacion();
 
-            NegocioCategoria gC = new NegocioCategoria();
-            string cadena = Request["Cat"];
+            //-------------MARCAS---------------------
+            DataTable dt_Mar = new DataTable();
+            NegocioProducto Gp = new NegocioProducto();
+
+            dt_Mar = Gp.ObtenerMarcas();
+
+            ddMarcas.Items.Add(new ListItem { Text = "Seleccione", Value = "" });
+
+            foreach (DataRow row in dt_Mar.Rows)
+            {
+                ddMarcas.Items.Add(new ListItem { Text = row[1].ToString(), Value = row[0].ToString() });
+            }
+            //----------------------------------------
+            
+            int paso = 0;
+            int PasoAntiguedad = 0;
+            String InnerHTML = "";
+            String Consulta = "";
+            String CategoriaSeleccionada = "";
+            string cadenaCat = Request["Cat"];
+            string cadenaOrdPre = Request["OrdPre"];
+            string cadenaAntiguedad = Request["Anti"];
+            string cadenaMarca = Request["Marca"];
+            string cadenaPrecioMin = Request["PrecioMin"];
+            string cadenaPrecioMax = Request["PrecioMax"];
+
+            ddMarcas.SelectedValue = cadenaMarca;
             NegocioProducto gP = new NegocioProducto();
             DataTable cats = new DataTable();
             DataTable infoPro = new DataTable();
-            String InnerHTML = "";
+            string urlWeb = HttpContext.Current.Request.Url.AbsoluteUri;
 
-            // Si no paso parametro
-            if (cadena == null)
+            NegocioCategoria gC = new NegocioCategoria();
+            cats = gC.ObtenerCategorias();
+
+            foreach (DataRow row in cats.Rows)
             {
-                infoPro = gP.TodosLosProductosConImagen();
-
-                foreach (DataRow row in infoPro.Rows)
+                if (row[1].ToString() == cadenaCat)
                 {
-                    InnerHTML = CargarInnerHTML(infoPro);
-                }
-
-            } else {
-
-                //Obtengo todas las categorias
-                cats = gC.ObtenerCategorias();
-
-                foreach (DataRow row in cats.Rows)
-                {
-                    if (row[1].ToString() == cadena)
+                    if (cadenaOrdPre == null && cadenaAntiguedad == null && cadenaMarca == null && cadenaPrecioMin == null && cadenaPrecioMax == null)
                     {
                         // Si coincide busco los prods de ese id de cat
-                        infoPro = gP.ObtenerProdsXIdCategoria(row[0].ToString());
+                        Consulta = "AND producto.ID_Categoria = " + row[0].ToString();
+                        paso = 1;
                     }
 
-                }
-
-                if (infoPro.Rows.Count != 0) {
-
-                    foreach (DataRow row in infoPro.Rows)
+                    if (paso == 0)
                     {
+                        Consulta += " AND producto.ID_Categoria = " + row[0].ToString();
 
-                        InnerHTML = CargarInnerHTML(infoPro);
+                        if (cadenaMarca != null && cadenaMarca != "")
+                        {
+                            Consulta += " AND producto.ID_marca = " + cadenaMarca;
+                        }
+
+                        if (cadenaPrecioMin != null && cadenaPrecioMin != "")
+                        {
+                            Consulta += " AND producto.Precio_unitario > " + cadenaPrecioMin;
+                            txtMinimo.Value = cadenaPrecioMin;
+                            //HiddenPrecioMin.Value = cadenaPrecioMin;
+                        }
+                        if (cadenaPrecioMax != null && cadenaPrecioMax != "")
+                        {
+                            Consulta += " AND producto.Precio_unitario < " + cadenaPrecioMax;
+                            txtMaximo.Value = cadenaPrecioMax;
+                            //HiddenPrecioMax.Value = cadenaPrecioMax;
+                        }
+
+                        if (cadenaAntiguedad != null)
+                        {
+                            if (cadenaAntiguedad == "viejo")
+                            {
+                                Consulta += " order by ID asc";
+                            }
+                            else if (cadenaAntiguedad == "nuevo")
+                            {
+                                Consulta += " order by ID desc ";
+                            }
+                            PasoAntiguedad = 1;
+                        }
+
+                        if(cadenaOrdPre != null)
+                        {
+                            if (PasoAntiguedad == 0) {
+                                if (cadenaOrdPre == "MayorPrimero")
+                                {
+                                    Consulta += " order by Precio desc";
+                                } else if(cadenaOrdPre == "MenorPrimero")
+                                {
+                                    Consulta += " order by Precio asc";
+                                }
+                            }
+                            else
+                            {
+                                if (cadenaOrdPre == "MayorPrimero")
+                                {
+                                    Consulta += ", Precio desc";
+                                }
+                                else if (cadenaOrdPre == "MenorPrimero")
+                                {
+                                    Consulta += ", Precio asc";
+                                }
+                            }
+                        }
+
                     }
+                    System.Diagnostics.Debug.WriteLine(Consulta);
+                    infoPro = gP.ObtenerProdsConFiltro(Consulta);
+                    CategoriaSeleccionada = row[1].ToString();
 
-                } else
-                {
-                    LblNoPro.Text = "NO SE ENCONTRARON PRODUCTOS";
                 }
             }
+
+
+            if (infoPro.Rows.Count != 0)
+            {
+
+                InnerHTML = CargarInnerHTML(infoPro);
+
+            }
+            else
+            {
+                LblNoPro.Text = "NO SE ENCONTRARON PRODUCTOS";
+                //infoPro = gP.ObtenerProdPorPrecioSinCategoria(Consulta);
+                //InnerHTML = CargarInnerHTML(infoPro);
+
+            }
+
             productosCategorias.InnerHtml = InnerHTML;
+
+            //NegocioCategoria gC = new NegocioCategoria();
+            //string cadena = Request["Cat"];
+            //NegocioProducto gP = new NegocioProducto();
+            //DataTable cats = new DataTable();
+            //DataTable infoPro = new DataTable();
+            //String InnerHTML = "";
+
+            //// Si no paso parametro
+            //if (cadena == null)
+            //{
+            //    infoPro = gP.TodosLosProductosConImagen();
+
+            //    foreach (DataRow row in infoPro.Rows)
+            //    {
+            //        InnerHTML = CargarInnerHTML(infoPro);
+            //    }
+
+            //} else {
+
+            //    //Obtengo todas las categorias
+            //    cats = gC.ObtenerCategorias();
+
+            //    foreach (DataRow row in cats.Rows)
+            //    {
+            //        if (row[1].ToString() == cadena)
+            //        {
+            //            // Si coincide busco los prods de ese id de cat
+            //            infoPro = gP.ObtenerProdsXIdCategoria(row[0].ToString());
+            //        }
+
+            //    }
+
+            //    if (infoPro.Rows.Count != 0) {
+
+            //        foreach (DataRow row in infoPro.Rows)
+            //        {
+
+            //            InnerHTML = CargarInnerHTML(infoPro);
+            //        }
+
+            //    } else
+            //    {
+            //        LblNoPro.Text = "NO SE ENCONTRARON PRODUCTOS";
+            //    }
+
+
+            //}
+            //productosCategorias.InnerHtml = InnerHTML;
         }
         protected void CargarCategoriasBarraDeNavegacion()
         {
@@ -94,156 +226,293 @@ namespace Vistas
             CargameLasCats.InnerHtml = CategoriasUl;
 
         }
-        protected void btnOrdenar1_Click(object sender, EventArgs e)
+
+        protected void btnMayorPrecio_Click(object sender, EventArgs e)
         {
+
+            string cadenaCat = Request["Cat"];
+            string cadenaAntiguedad = Request["Anti"];
+            string cadenaMarca = Request["Marca"];
+            string cadenaPrecioMin = Request["PrecioMin"];
+            string cadenaPrecioMax = Request["PrecioMax"];
+
+            var nameValues = HttpUtility.ParseQueryString(Request.QueryString.ToString());
+            if(cadenaCat != null) { 
+                nameValues.Set("Cat", cadenaCat);
+            }
+            //if (cadenaAntiguedad != null)
+            //{
+            //    nameValues.Set("Anti", cadenaAntiguedad);
+            //}
+            nameValues.Remove("Anti");
+            if (cadenaMarca != null)
+            {
+                nameValues.Set("Marca", cadenaMarca);
+            }
+            if (cadenaPrecioMin != null)
+            {
+                nameValues.Set("PrecioMin", cadenaPrecioMin);
+            }
+            if (cadenaPrecioMax != null)
+            {
+                nameValues.Set("PrecioMax", cadenaPrecioMax);
+            }
+            nameValues.Set("OrdPre", "MayorPrimero");
+            string url = Request.Url.AbsolutePath;
+            string updatedQueryString = "?" + nameValues.ToString();
+            
+            Response.Redirect(url + updatedQueryString);
+
             //SETEAR POR BOTON EL TIPO DE CONSULTA
-            String tipo = "Mayor";
-            NegocioCategoria gC = new NegocioCategoria();
-            string cadena = Request["Cat"];
-            NegocioProducto gP = new NegocioProducto();
-            DataTable cats = new DataTable();
-            DataTable infoPro = new DataTable();
-            String InnerHTML = "";
+            //String tipo = "Mayor";
+            //NegocioCategoria gC = new NegocioCategoria();
+            //string cadena = Request["Cat"];
+            //NegocioProducto gP = new NegocioProducto();
+            //DataTable cats = new DataTable();
+            //DataTable infoPro = new DataTable();
+            //String InnerHTML = "";
 
-            //Obtengo todas las categorias
-            cats = gC.ObtenerCategorias();
+            ////Obtengo todas las categorias
+            //cats = gC.ObtenerCategorias();
 
 
-            foreach (DataRow row in cats.Rows)
-            {
-                if (row[1].ToString() == cadena)
-                {
-                    // Si coincide busco los prods de ese id de cat
-                    infoPro = gP.ObtenerProductoFiltro(row[0].ToString(),tipo);
-                }
+            //foreach (DataRow row in cats.Rows)
+            //{
+            //    if (row[1].ToString() == cadena)
+            //    {
+            //        // Si coincide busco los prods de ese id de cat
+            //        infoPro = gP.ObtenerProductoFiltro(row[0].ToString(),tipo);
+            //    }
 
-            }
+            //}
 
-            if (infoPro.Rows.Count != 0)
-            {
-                InnerHTML = CargarInnerHTML(infoPro);
-            }
-            else
-            {
-                infoPro = gP.ObtenerProdPorPrecioSinCategoria(tipo);
-                InnerHTML = CargarInnerHTML(infoPro);
-            }
+            //if (infoPro.Rows.Count != 0)
+            //{
+            //    InnerHTML = CargarInnerHTML(infoPro);
+            //}
+            //else
+            //{
+            //    infoPro = gP.ObtenerProdPorPrecioSinCategoria(tipo);
+            //    InnerHTML = CargarInnerHTML(infoPro);
+            //}
 
-            productosCategorias.InnerHtml = InnerHTML;
+            //productosCategorias.InnerHtml = InnerHTML;
         }
-        protected void OrdenarViejo_Click(object sender, EventArgs e)
+        protected void btnMasViejo_Click(object sender, EventArgs e)
         {
-            //SETEAR POR BOTON EL TIPO DE CONSULTA
-            String tipo = "Viejo";
-            NegocioCategoria gC = new NegocioCategoria();
-            string cadena = Request["Cat"];
-            NegocioProducto gP = new NegocioProducto();
-            DataTable cats = new DataTable();
-            DataTable infoPro = new DataTable();
-            String InnerHTML = "";
+            string cadenaCat = Request["Cat"];
+            string cadenaOrdPre = Request["OrdPre"];
+            string cadenaMarca = Request["Marca"];
+            string cadenaPrecioMin = Request["PrecioMin"];
+            string cadenaPrecioMax = Request["PrecioMax"];
 
-            //Obtengo todas las categorias
-            cats = gC.ObtenerCategorias();
-
-
-            foreach (DataRow row in cats.Rows)
+            var nameValues = HttpUtility.ParseQueryString(Request.QueryString.ToString());
+            if (cadenaCat != null)
             {
-                if (row[1].ToString() == cadena)
-                {
-                    // Si coincide busco los prods de ese id de cat
-                    infoPro = gP.ObtenerProductoFiltro(row[0].ToString(), tipo);
-                }
-
+                nameValues.Set("Cat", cadenaCat);
             }
-
-            if (infoPro.Rows.Count != 0)
+            //if (cadenaOrdPre != null)
+            //{
+            //    nameValues.Set("OrdPre", cadenaOrdPre);
+            //}
+            nameValues.Remove("OrdPre");
+            if (cadenaMarca != null)
             {
-                InnerHTML = CargarInnerHTML(infoPro);
+                nameValues.Set("Marca", cadenaMarca);
             }
-            else
+            if (cadenaPrecioMin != null)
             {
-                infoPro = gP.ObtenerProdPorPrecioSinCategoria(tipo);
-                InnerHTML = CargarInnerHTML(infoPro);
+                nameValues.Set("PrecioMin", cadenaPrecioMin);
             }
+            if (cadenaPrecioMax != null)
+            {
+                nameValues.Set("PrecioMax", cadenaPrecioMax);
+            }
+            nameValues.Set("Anti", "viejo");
+            string url = Request.Url.AbsolutePath;
+            string updatedQueryString = "?" + nameValues.ToString();
 
-            productosCategorias.InnerHtml = InnerHTML;
+            Response.Redirect(url + updatedQueryString);
+
+            ////SETEAR POR BOTON EL TIPO DE CONSULTA
+            //String tipo = "Viejo";
+            //NegocioCategoria gC = new NegocioCategoria();
+            //string cadena = Request["Cat"];
+            //NegocioProducto gP = new NegocioProducto();
+            //DataTable cats = new DataTable();
+            //DataTable infoPro = new DataTable();
+            //String InnerHTML = "";
+
+            ////Obtengo todas las categorias
+            //cats = gC.ObtenerCategorias();
+
+
+            //foreach (DataRow row in cats.Rows)
+            //{
+            //    if (row[1].ToString() == cadena)
+            //    {
+            //        // Si coincide busco los prods de ese id de cat
+            //        infoPro = gP.ObtenerProductoFiltro(row[0].ToString(), tipo);
+            //    }
+
+            //}
+
+            //if (infoPro.Rows.Count != 0)
+            //{
+            //    InnerHTML = CargarInnerHTML(infoPro);
+            //}
+            //else
+            //{
+            //    infoPro = gP.ObtenerProdPorPrecioSinCategoria(tipo);
+            //    InnerHTML = CargarInnerHTML(infoPro);
+            //}
+
+            //productosCategorias.InnerHtml = InnerHTML;
         }
 
-        protected void OrdenarNuevo_Click(object sender, EventArgs e)
+        protected void btnMasNuevo_Click(object sender, EventArgs e)
         {
-            //SETEAR POR BOTON EL TIPO DE CONSULTA
-            String tipo = "Nuevo";
-            NegocioCategoria gC = new NegocioCategoria();
-            string cadena = Request["Cat"];
-            NegocioProducto gP = new NegocioProducto();
-            DataTable cats = new DataTable();
-            DataTable infoPro = new DataTable();
-            String InnerHTML = "";
+            string cadenaCat = Request["Cat"];
+            string cadenaOrdPre = Request["OrdPre"];
+            string cadenaMarca = Request["Marca"];
+            string cadenaPrecioMin = Request["PrecioMin"];
+            string cadenaPrecioMax = Request["PrecioMax"];
 
-            //Obtengo todas las categorias
-            cats = gC.ObtenerCategorias();
-
-
-            foreach (DataRow row in cats.Rows)
+            var nameValues = HttpUtility.ParseQueryString(Request.QueryString.ToString());
+            if (cadenaCat != null)
             {
-                if (row[1].ToString() == cadena)
-                {
-                    // Si coincide busco los prods de ese id de cat
-                    infoPro = gP.ObtenerProductoFiltro(row[0].ToString(), tipo);
-                }
-
+                nameValues.Set("Cat", cadenaCat);
             }
-
-            if (infoPro.Rows.Count != 0)
+            //if (cadenaOrdPre != null)
+            //{
+            //    nameValues.Set("OrdPre", cadenaOrdPre);
+            //}
+            nameValues.Remove("OrdPre");
+            if (cadenaMarca != null)
             {
-                InnerHTML = CargarInnerHTML(infoPro);
+                nameValues.Set("Marca", cadenaMarca);
             }
-            else
+            if (cadenaPrecioMin != null)
             {
-                infoPro = gP.ObtenerProdPorPrecioSinCategoria(tipo);
-                InnerHTML = CargarInnerHTML(infoPro);
+                nameValues.Set("PrecioMin", cadenaPrecioMin);
             }
+            if (cadenaPrecioMax != null)
+            {
+                nameValues.Set("PrecioMax", cadenaPrecioMax);
+            }
+            nameValues.Set("Anti", "nuevo");
+            string url = Request.Url.AbsolutePath;
+            string updatedQueryString = "?" + nameValues.ToString();
 
-            productosCategorias.InnerHtml = InnerHTML;
+            Response.Redirect(url + updatedQueryString);
+
+            ////SETEAR POR BOTON EL TIPO DE CONSULTA
+            //String tipo = "Nuevo";
+            //NegocioCategoria gC = new NegocioCategoria();
+            //string cadena = Request["Cat"];
+            //NegocioProducto gP = new NegocioProducto();
+            //DataTable cats = new DataTable();
+            //DataTable infoPro = new DataTable();
+            //String InnerHTML = "";
+
+            ////Obtengo todas las categorias
+            //cats = gC.ObtenerCategorias();
+
+
+            //foreach (DataRow row in cats.Rows)
+            //{
+            //    if (row[1].ToString() == cadena)
+            //    {
+            //        // Si coincide busco los prods de ese id de cat
+            //        infoPro = gP.ObtenerProductoFiltro(row[0].ToString(), tipo);
+            //    }
+
+            //}
+
+            //if (infoPro.Rows.Count != 0)
+            //{
+            //    InnerHTML = CargarInnerHTML(infoPro);
+            //}
+            //else
+            //{
+            //    infoPro = gP.ObtenerProdPorPrecioSinCategoria(tipo);
+            //    InnerHTML = CargarInnerHTML(infoPro);
+            //}
+
+            //productosCategorias.InnerHtml = InnerHTML;
         }
 
 
-        protected void btnOrdenar2_Click(object sender, EventArgs e)
+        protected void btnMenorPrecio_Click(object sender, EventArgs e)
         {
-            //SETEAR POR BOTON EL TIPO DE CONSULTA
-            String tipo = "Menor";
-            NegocioCategoria gC = new NegocioCategoria();
-            string cadena = Request["Cat"];
-            NegocioProducto gP = new NegocioProducto();
-            DataTable cats = new DataTable();
-            DataTable infoPro = new DataTable();
-            String InnerHTML = "";
+            string cadenaCat = Request["Cat"];
+            string cadenaAntiguedad = Request["Anti"];
+            string cadenaMarca = Request["Marca"];
+            string cadenaPrecioMin = Request["PrecioMin"];
+            string cadenaPrecioMax = Request["PrecioMax"];
 
-            //Obtengo todas las categorias
-            cats = gC.ObtenerCategorias();
-
-
-            foreach (DataRow row in cats.Rows)
+            var nameValues = HttpUtility.ParseQueryString(Request.QueryString.ToString());
+            if (cadenaCat != null)
             {
-                if (row[1].ToString() == cadena)
-                {
-                    // Si coincide busco los prods de ese id de cat
-                    infoPro = gP.ObtenerProductoFiltro(row[0].ToString(), tipo);
-                }
-
+                nameValues.Set("Cat", cadenaCat);
             }
-
-            if (infoPro.Rows.Count != 0)
+            //if (cadenaAntiguedad != null)
+            //{
+            //    nameValues.Set("Anti", cadenaAntiguedad);
+            //}
+            nameValues.Remove("Anti");
+            if (cadenaMarca != null)
             {
-                InnerHTML = CargarInnerHTML(infoPro);
+                nameValues.Set("Marca", cadenaMarca);
             }
-            else
+            if (cadenaPrecioMin != null)
             {
-                infoPro = gP.ObtenerProdPorPrecioSinCategoria(tipo);
-                InnerHTML = CargarInnerHTML(infoPro);
+                nameValues.Set("PrecioMin", cadenaPrecioMin);
             }
+            if (cadenaPrecioMax != null)
+            {
+                nameValues.Set("PrecioMax", cadenaPrecioMax);
+            }
+            nameValues.Set("OrdPre", "MenorPrimero");
+            string url = Request.Url.AbsolutePath;
+            string updatedQueryString = "?" + nameValues.ToString();
 
-            productosCategorias.InnerHtml = InnerHTML;
+            Response.Redirect(url + updatedQueryString);
+
+            ////SETEAR POR BOTON EL TIPO DE CONSULTA
+            //String tipo = "Menor";
+            //NegocioCategoria gC = new NegocioCategoria();
+            //string cadena = Request["Cat"];
+            //NegocioProducto gP = new NegocioProducto();
+            //DataTable cats = new DataTable();
+            //DataTable infoPro = new DataTable();
+            //String InnerHTML = "";
+
+            ////Obtengo todas las categorias
+            //cats = gC.ObtenerCategorias();
+
+
+            //foreach (DataRow row in cats.Rows)
+            //{
+            //    if (row[1].ToString() == cadena)
+            //    {
+            //        // Si coincide busco los prods de ese id de cat
+            //        infoPro = gP.ObtenerProductoFiltro(row[0].ToString(), tipo);
+            //    }
+
+            //}
+
+            //if (infoPro.Rows.Count != 0)
+            //{
+            //    InnerHTML = CargarInnerHTML(infoPro);
+            //}
+            //else
+            //{
+            //    infoPro = gP.ObtenerProdPorPrecioSinCategoria(tipo);
+            //    InnerHTML = CargarInnerHTML(infoPro);
+            //}
+
+            //productosCategorias.InnerHtml = InnerHTML;
         }
 
 
@@ -263,13 +532,149 @@ namespace Vistas
                 A += '>';
                 InnerHTML += A;
                 InnerHTML += "<label class='lblp1'>" + row[1].ToString() + "</label>";
+                InnerHTML += "<label class='lblp1'>" + row[4].ToString() + "</label>";
                 InnerHTML += "</a>";
             }
 
             return InnerHTML;
         }
 
-        
+        protected void ddMarcas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine(hidden.Value);
+            if (hidden.Value != "" || hidden.Value != null)
+            {
+
+                string cadenaCat = Request["Cat"];
+                string cadenaAntiguedad = Request["Anti"];
+                string cadenaOrdPre = Request["OrdPre"];
+                string cadenaPrecioMin = Request["PrecioMin"];
+                string cadenaPrecioMax = Request["PrecioMax"];
+
+                var nameValues = HttpUtility.ParseQueryString(Request.QueryString.ToString());
+                if (cadenaCat != null)
+                {
+                    nameValues.Set("Cat", cadenaCat);
+                }
+                if (cadenaAntiguedad != null)
+                {
+                    nameValues.Set("Anti", cadenaAntiguedad);
+                }
+                if (cadenaOrdPre != null)
+                {
+                    nameValues.Set("OrdPre", cadenaOrdPre);
+                }
+                if (cadenaPrecioMin != null)
+                {
+                    nameValues.Set("PrecioMin", cadenaPrecioMin);
+                }
+                if (cadenaPrecioMax != null)
+                {
+                    nameValues.Set("PrecioMax", cadenaPrecioMax);
+                }
+                nameValues.Set("Marca", hidden.Value);
+                string url = Request.Url.AbsolutePath;
+                string updatedQueryString = "?" + nameValues.ToString();
+
+                System.Diagnostics.Debug.WriteLine(updatedQueryString);
+                Response.Redirect(url + updatedQueryString);
+
+
+            }
+        }
+
+        protected String LabelProperty
+        {
+            get
+            {
+                return hidden.Value;
+            }
+            set
+            {
+                hidden.Value = value;
+            }
+        }
+
+        protected void btnAplicarPrecio_Click(object sender, EventArgs e)
+        {
+            string cadenaCat = Request["Cat"];
+            string cadenaAntiguedad = Request["Anti"];
+            string cadenaMarca = Request["Marca"];
+            string cadenaPrecioMin = Request["PrecioMin"];
+            string cadenaPrecioMax = Request["PrecioMax"];
+            string cadenaOrdPre = Request["OrdPre"];
+
+            var nameValues = HttpUtility.ParseQueryString(Request.QueryString.ToString());
+            if (cadenaCat != null)
+            {
+                nameValues.Set("Cat", cadenaCat);
+            }
+            if (cadenaAntiguedad != null)
+            {
+                nameValues.Set("Anti", cadenaAntiguedad);
+            }
+            if (cadenaMarca != null)
+            {
+                nameValues.Set("Marca", cadenaMarca);
+            }
+            if (cadenaOrdPre != null)
+            {
+                nameValues.Set("OrdPre", cadenaOrdPre);
+            }
+
+           
+
+            if (cadenaPrecioMax != HiddenPrecioMax.Value)
+            {
+                if (HiddenPrecioMax.Value != "0") { 
+                    if (HiddenPrecioMax.Value == "" || HiddenPrecioMax.Value == null)
+                    {
+                    
+                    }
+                    else
+                    {
+                        nameValues.Set("PrecioMax", HiddenPrecioMax.Value);
+                    }
+                }
+                else
+                {
+                    nameValues.Remove("PrecioMax");
+                }
+            }
+            else
+            {
+                    nameValues.Set("PrecioMax", cadenaPrecioMax);
+            }
+
+            //System.Diagnostics.Debug.WriteLine("CADENA" + cadenaPrecioMin);
+            //System.Diagnostics.Debug.WriteLine("VALOR MODIFICADO" + HiddenPrecioMin.Value);
+
+            if (cadenaPrecioMin != HiddenPrecioMin.Value)
+            {
+                if (HiddenPrecioMin.Value != "0"){
+                    if (HiddenPrecioMin.Value == "" || HiddenPrecioMin.Value == null) {
+                    
+                    } else
+                    {
+                        nameValues.Set("PrecioMin", HiddenPrecioMin.Value);
+                    }
+                }
+                else
+                    {
+                        nameValues.Remove("PrecioMin");
+                    }
+            }
+            else
+            {
+                nameValues.Set("PrecioMin", HiddenPrecioMin.Value);
+            }
+
+            System.Diagnostics.Debug.WriteLine("");
+            string url = Request.Url.AbsolutePath;
+            string updatedQueryString = "?" + nameValues.ToString();
+
+            Response.Redirect(url + updatedQueryString);
+        }
     }
 
 }

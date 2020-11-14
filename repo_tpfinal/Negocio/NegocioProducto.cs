@@ -128,6 +128,18 @@ namespace Negocio
 
         }
 
+        public DataTable ObtenerFiltroMarca (String id, String marca)
+        {
+            DaoProducto dm = new DaoProducto();
+            return dm.ObtenerProdsMarca(id, marca);
+        }
+
+        public DataTable ObtenerProdsConFiltro(String Consulta)
+        {
+            DaoProducto dm = new DaoProducto();
+            return dm.ObtenerProdsConFiltro(Consulta);
+        }
+
         public DataTable ObtenerProdPorPrecioSinCategoria(String tipo)
         {
             DaoProducto dm = new DaoProducto();
@@ -145,6 +157,16 @@ namespace Negocio
                     return dm.ObtenerTodosLosProductosConImagen();
             }
 
+        }
+        public DataTable ObtenerDatosProducto()
+        {
+            DaoProducto dm = new DaoProducto();
+            return dm.ObtenerProductosProd();
+        }
+         public DataTable ObtenerProductoId(String id)
+        {
+            DaoProducto dm = new DaoProducto();
+            return dm.ObtenerDatosId(id);
         }
     }
 }
