@@ -14,6 +14,55 @@ namespace Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            CargarCategoriasBarraDeNavegacion();
+
+            NegocioProducto Np = new NegocioProducto();
+            string cadena = Request["Pro"];
+            DataTable prod = new DataTable();
+            DataTable infoPro = new DataTable();
+
+            String InnerHTML = "";
+
+            if (cadena == null)
+            {
+                Response.Redirect("/Productos.aspx");
+            }
+            else
+            {
+                infoPro = Np.ObtenerProductoId(cadena);
+
+                if(infoPro.Rows.Count != 0)
+                {
+                        InnerHTML = CargarInnerHTML(infoPro);
+                }
+                else
+                {
+                    lblNoPro.InnerText = "NO SE ENCONTRO UN PRODUCTO";
+                }
+
+            }
+
+            datosPro.InnerHtml = InnerHTML;
+
+        }
+        //FUNCION QUE CARGA A STRING INNERHTML LOS PRODUCTOS A PARTIR
+        //DE UNA TABLA Y DEVULVE STRING COMPLETO
+        protected String CargarInnerHTML(DataTable tabla)
+        {
+            String InnerHTML = "";
+
+            foreach (DataRow row in tabla.Rows)
+            {
+                String A = "<h1>";
+                A += row[1].ToString();
+                InnerHTML += "</h1>";
+
+            }
+
+            return InnerHTML;
+        }
+        protected void CargarCategoriasBarraDeNavegacion()
+        {
             NegocioCategoria gC = new NegocioCategoria();
             DataTable cat = gC.ObtenerCategorias();
             String CategoriasUl = "";
@@ -36,9 +85,9 @@ namespace Vistas
                 CategoriasUl += "</ li >";
 
             }
-
             CategoriasUl += "</ul>";
             CargameLasCats.InnerHtml = CategoriasUl;
+
         }
     }
 }

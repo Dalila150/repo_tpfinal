@@ -158,5 +158,15 @@ namespace Negocio
             }
 
         }
+        public DataTable ObtenerDatosProducto()
+        {
+            DaoProducto dm = new DaoProducto();
+            return dm.ObtenerProductosProd();
+        }
+         public DataTable ObtenerProductoId(String id)
+        {
+            DaoProducto dm = new DaoProducto();
+            return dm.ObtenerDatosId(id);
+        }
     }
 }

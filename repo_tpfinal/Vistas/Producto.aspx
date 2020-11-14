@@ -40,31 +40,16 @@
     <!-------------------------------------------------------------------------->
     <div class="conteiner" style="margin:20px 15% 20px 15%;z-index: 0;">
       <div class="Producto" style="text-align:center">
-        <ul class="slider" style="z-index: 1;">
-          <li id="slide1">
-            <img
-              src="https://http2.mlstatic.com/D_NQ_NP_788835-MLA40123748847_122019-O.webp"
-            />
-          </li>
-          <li id="slide2">
-            <img
-              src="https://http2.mlstatic.com/D_NQ_NP_988910-MLA40124053400_122019-O.webp"
-            />
-          </li>
-        </ul>
-        <ul class="menu">
-          <li>
-            <a href="#slide1"></a>
-          </li>
-          <li>
-            <a href="#slide2"></a>
-          </li>
-        </ul>
+        <div class="slider" style="z-index: 1" id="ImagenPro" runat="server">
+        </div>
+          <label  style="display:block; margin-top:2%" id="lblNoPro" runat="server"></label>
+          
+        
       </div>
       <div class="datosPro">
-        <div>
-          <label class="nombrePro"><h1>Motorola r9</h1></label>
-        </div>
+        <div id="datosPro" style="font-size:500px" runat="server">
+
+          </div>
         <div class="precio">
           <h2>$5000</h2>
         </div>

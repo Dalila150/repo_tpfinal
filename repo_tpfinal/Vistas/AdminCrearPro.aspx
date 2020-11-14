@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminCrearPro.aspx.cs" Inherits="Vistas.AdminCrearPro_v1" %>
 
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -124,7 +125,6 @@
                     <asp:Button ID="submitform" runat="server" Text="guarda" OnClick="btnGuardar_Click" Style="display: none" />
                 </div>
             </div>
-        </div>
         <div class="footer">
             <!-- Iconos de redes sociales -->
             <h2 class="contactenos">Contactenos</h2>
@@ -142,7 +142,7 @@
                     <a href="https://github.com/"><i class="fab fa-github tamIcoRed"><b style="padding-left: 10px; padding-top: 0px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">GitHub</b></i></a>
                 </li>
             </ul>
-
+          </div>
         </div>
     </form>
 </body>

@@ -137,6 +137,20 @@ namespace Dao
             aux = ad.ObtenerTabla("usuario", "Select count(usuario.id_usuario) from usuario where rol =2");
             return aux;
         }
+        public DataTable ObtenerProductosProd()
+        {
+            DataTable aux = new DataTable();
+            AccesoaDatos ad = new AccesoaDatos();
+            aux = ad.ObtenerTabla("producto", "select producto.id_producto as ID, producto.nombre as Nombre, producto.imagen as Imagen, producto.Stock as Stock, producto.Descripcion as Descripcion, producto.Precio_unitario as Precio, producto.Stock as Stock from producto");
+            return aux;
+        }
+        public DataTable ObtenerDatosId(String id)
+        {
+            DataTable aux = new DataTable();
+            AccesoaDatos ad = new AccesoaDatos();
+            aux = ad.ObtenerTabla("producto", "select producto.id_producto as ID, producto.nombre as Nombre, producto.imagen as Imagen, producto.Stock as Stock, producto.Descripcion as Descripcion, producto.Precio_unitario as Precio, producto.Stock as Stock from producto where id_producto = " + id);
+            return aux;
+        }
         public void ArmarParametrosProductoActualizado(ref SqlCommand Comando, Producto productos)
         {
             SqlParameter sqlparametros = new SqlParameter();
