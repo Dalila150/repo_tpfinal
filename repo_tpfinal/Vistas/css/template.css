@@ -251,6 +251,7 @@ ul li {
 }
 
 .btnASP {
+    outline: none;
     height: 100%;
     /*background-color: rgba(174, 64, 74, 0.84);*/
     background-color: rgba(174, 64, 74, 0.84);
@@ -262,6 +263,7 @@ ul li {
 }
 
 .txtASP {
+    outline: none;
     padding: 0.3rem;
     border-radius: 20px 20px;
     background-color: rgba(235, 149, 149, 0.308);

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Runtime.InteropServices.ComTypes;
+using System.Threading;
 
 namespace Dao
 {
@@ -55,11 +56,14 @@ namespace Dao
         public DataTable ObtenerTabla(String NombreTabla, String Sql)
         {
             DataSet ds = new DataSet();
-            SqlConnection Conexion = ObtenerConexion();
-            SqlDataAdapter adp = ObtenerAdaptador(Sql);
-            adp.Fill(ds, NombreTabla);
-            Conexion.Close();
-            return ds.Tables[NombreTabla];
+            int milliseconds = 100;
+            
+                SqlConnection Conexion = ObtenerConexion();
+                SqlDataAdapter adp = ObtenerAdaptador(Sql);
+                Thread.Sleep(milliseconds);
+                adp.Fill(ds, NombreTabla);
+                Conexion.Close();
+                return ds.Tables[NombreTabla];
         }
 
         public int EjecutarProcedimientoAlmacenado(SqlCommand Comando, String NombreSP)
