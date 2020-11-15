@@ -87,8 +87,34 @@
             </div>
             <br />
             <div style="font-size: 20px;margin-left: 5%;text-align: center;" class="auto-style1">
-            <asp:GridView ID="grdMarcas" CssClass="GridViewStyled" runat="server" CellPadding="4" AutoGenerateColumns="False" AllowPaging="True" ForeColor="#333333" GridLines="None" PageSize="5" AutoGenerateEditButton="True" >
+            <asp:GridView ID="grdMarcas" CssClass="GridViewStyled" runat="server" CellPadding="4" AutoGenerateColumns="False" AllowPaging="True" ForeColor="#333333" GridLines="None" AutoGenerateEditButton="True" OnPageIndexChanging="grdMarcas_PageIndexChanging" OnRowCancelingEdit="grdMarcas_RowCancelingEdit" OnRowEditing="grdMarcas_RowEditing" OnRowUpdating="grdMarcas_RowUpdating" >
                 <AlternatingRowStyle BackColor="#BCC8C3" ForeColor="" />
+                <Columns>
+                    <asp:TemplateField HeaderText="ID Marca">
+                        <EditItemTemplate>
+                            <asp:Label ID="lbl_eit_IDMarca" runat="server" Text='<%# Bind("ID_marca") %>'></asp:Label>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_IDMarca" runat="server" Text='<%# Bind("ID_marca") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Nombre">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtbox_eit_Nombre" runat="server" Text='<%# Bind("Nombre") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_Nombre" runat="server" Text='<%# Bind("Nombre") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Estado">
+                        <EditItemTemplate>
+                            <asp:CheckBox ID="cb_eit_Estado" runat="server" Checked='<%# Bind("Estado") %>' />
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_Estado" runat="server" Text='<%# Bind("Estado") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#90648B" ForeColor="White" Font-Bold="True" />
                 <HeaderStyle BackColor="#AE4750" Font-Bold="True" ForeColor="White" CssClass="headerTable" Height="50px"/>
@@ -102,7 +128,7 @@
             </asp:GridView>
                 </div>
                 <div style="text-align:center;width:100%;margin:25px;height: 35px;">
-                    <asp:Button ID="btnCrearMarcas" runat="server" Text="Crear Nueva Marca" style="width: 30%;height: 100%;background-color: rgba(174, 64, 74, 0.84); border: none;border-radius: 10px;" Font-Bold="True" Font-Size="Medium" />
+                    <asp:Button ID="btnCrearMarcas" runat="server" Text="Crear Nueva Marca" style="width: 30%;height: 100%;background-color: rgba(174, 64, 74, 0.84); border: none;border-radius: 10px;" Font-Bold="True" Font-Size="Medium" OnClick="btnCrearMarcas_Click" />
                 </div>
         </div>
         

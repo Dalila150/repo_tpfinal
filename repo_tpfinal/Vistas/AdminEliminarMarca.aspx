@@ -78,26 +78,18 @@
         <div style="background-color: rgba(197, 93, 102, 0.404);border-radius: 8px;margin-top:25px">
             <h1 style="padding-top: 20px;">Eliminar Marca</h1>
             <hr style="width:90%"/>
-            <div>
-                <table style="width: 100%">
-                    <tbody>
-                            <tr>
-                                <td style="width: 25%;">
-                                    <h3 style="display: inline;">Nombre marca:<br />
+            <div class="auto-style1">
+                <h3><strong>Nombre marca:&nbsp;&nbsp; </strong>
+                <asp:TextBox ID="txtNombreMarca" runat="server" class="txtASP"></asp:TextBox>
+                                    
                                     </h3>
-                                </td>
-                                <td style="width: 25%;">
-                                    <asp:TextBox ID="txtNombreMarca" runat="server" class="txtASP" required="true"></asp:TextBox>
-                                    <br />
+                                    
                                     <asp:Label ID="lblMensaje" runat="server"></asp:Label>
-                                </td>
-                            </tr>
-                    </tbody>
-                </table>
+                                    <br />
             </div>
             <div style="padding-bottom: 25px; text-align:center; margin-top:3%;height: 35px;">
-                <asp:Button class="btnASP" style="width:30%" runat="server" ID="BtnEliminarMarca"  Height="40px" Text="ELIMINAR MARCA" Width="142px" OnClick="BtnEliminarMarca_Click"  />
-                <asp:Button class="btnASP" style="width:30%" runat="server" ID="BtnCancelar" Height="40px" Text="CANCELAR" Width="143px"  />
+                <asp:Button class="btnASP" runat="server" ID="BtnEliminarMarca"  Height="40px" Text="ELIMINAR MARCA" Width="186px" OnClick="BtnEliminarMarca_Click"  />
+                <asp:Button class="btnASP" runat="server" ID="BtnCancelar" Height="40px" Text="CANCELAR" Width="142px" OnClick="BtnCancelar_Click"  />
             </div>
         </div>
     </div>

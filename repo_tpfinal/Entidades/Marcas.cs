@@ -10,7 +10,7 @@ namespace Entidades
     {
         private int ID_marca;
         private string Nombre;
-        private string Estado;
+        private bool Estado;
 
         public Marcas()
         {
@@ -33,11 +33,11 @@ namespace Entidades
         {
             Nombre = nombreMarcas;
         }
-        public String getEstado()
+        public bool getEstado()
         {
             return Estado;
         }
-        public void setEstado(String Estado1)
+        public void setEstado(bool Estado1)
         {
             Estado = Estado1;
         }

@@ -103,7 +103,7 @@
                                     <asp:TextBox class="txtASP" ID="txtStock" runat="server" Style="width: 100%; font-size: 18px; height: 60%; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:TextBox>
                                 </li>
                                 <li style="height: 35px; width: 80%; margin-bottom: 15px">
-                                    <asp:TextBox class="txtASP" ID="txtPrecio" runat="server" Style="width: 100%; font-size: 18px; height: 60%; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:TextBox>
+                                    <asp:TextBox class="txtASP" ID="txtPrecio" runat="server" Style="width: 100%; font-size: 18px; height: 60%; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;"  required="true"></asp:TextBox>
                                 </li>
                                 <li style="height: 180px; width: 80%; margin-bottom: 15px">
                                     <asp:TextBox class="txtASP" ID="txtDescripcion" TextMode="MultiLine" runat="server" Style="width: 100%; font-size: 15px; height: 90%; resize: none; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:TextBox>
@@ -118,11 +118,10 @@
                             </ul>
                         </div>
                         <div style="padding-bottom: 25px; text-align: center; height: 35px;">
-                            <asp:Button class="btnASP" ID="btnGuardar" runat="server" Text="Crear Producto" OnClick="btnGuardar_Click" Style="width: 30%; min-width: 158px" />
-                            <button class="btnASP" id="btnCancelar" type="button" onclick="btnCancelar_click()" style="width: 25%;">Cancelar</button>
+                            <asp:Button class="btnASP" id="btnGuardar" runat="server" Text="Crear Producto" onclientclick="return confirm('¿Esta seguro que desea continuar?');" OnClick="btnGuardar_Click" Style="width: 30%; min-width: 158px" />
+                            <asp:Button class="btnASP" id="btnCancelar" runat="server" Text="Cancelar" onclientclick="return confirm('¿Esta seguro que desea cancelar?');" OnClick="btnCancelar_click" style="width: 25%" />
                         </div>
                     </div>
-                    <asp:Button ID="submitform" runat="server" Text="guarda" OnClick="btnGuardar_Click" Style="display: none" />
                 </div>
             </div>
         <div class="footer">
@@ -146,6 +145,7 @@
         </div>
     </form>
 </body>
+    
 <script type="text/javascript">
     function btnCancelar_click() {
         window.location.href = '/AdminListPro.aspx';

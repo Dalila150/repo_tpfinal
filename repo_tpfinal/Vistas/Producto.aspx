@@ -25,7 +25,7 @@
         </div>
         <div class="iconos" >
             <a href="/IniciarSesion.aspx" class="fas fa-user user"></a>
-            <a href="/Carrito.aspx" class="fas fa-shopping-cart cart">$<div id="datosCarrito" runat="server" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 89%;display: inline;"></div></a></div>
+            <a href="/Carrito.aspx" class="fas fa-shopping-cart cart"><div id="datosCarrito" runat="server" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 89%;display: inline;"></div></a></div>
         <div class="navbar" style="z-index: 2;" >
             <ul class="nav">
           <li class="name">
