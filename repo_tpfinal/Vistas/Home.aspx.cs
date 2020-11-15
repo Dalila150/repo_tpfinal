@@ -12,6 +12,7 @@ namespace Vistas
 {
     public partial class Home : System.Web.UI.Page
     {
+        NegocioUsuario Neg = new NegocioUsuario();
         protected void Page_Load(object sender, EventArgs e)
         {
             // CATEGORIAS DEL NAVBAR
@@ -24,6 +25,21 @@ namespace Vistas
             CategoriasUl += '"';
             CategoriasUl += "> Categorias </a>";
             CategoriasUl += "<ul>";
+
+            //-----------------------------------------------
+            Usuarios Usu = new Usuarios();
+            if (Request.Cookies["NombreUsuario"] != null)
+            {
+                HttpCookie ck = Request.Cookies["NombreUsuario"];
+
+                Usu = Neg.DevolverUsuarioCompleto(Request.Cookies["NombreUsuario"].Value);
+
+
+                lblNombre.Text = Usu.getNombreUsuario();
+                lblApellido.Text = Usu.getApellidoUsuario();
+
+            }
+            //-----------------------------------------------
 
             foreach (DataRow row in cat.Rows)
             {
@@ -60,6 +76,34 @@ namespace Vistas
             }
 
             CategoriasSpace.InnerHtml = InnerHTML;
+
+            // SI HAY CARGO DATOS DEL CARRO
+            if(Session["Carrito"] != null) {
+                InnerHTML = "";
+                DataTable infoCarrito = (DataTable)Session["Carrito"];
+                int TotalCarro = 0;
+                int CantProds = 0;
+
+                foreach (DataRow row in infoCarrito.Rows)
+                {
+                    CantProds += int.Parse(row[1].ToString());
+                    TotalCarro += CantProds*int.Parse(row[2].ToString());
+                }
+
+                InnerHTML += TotalCarro +"(" + CantProds + ")";
+                datosCarrito.InnerHtml = InnerHTML;
+            }
+
+        }
+
+        protected void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            var nameValues = HttpUtility.ParseQueryString(Request.QueryString.ToString());
+            nameValues.Set("Busqueda", txtBuscar.Text);
+            string url = Request.Url.AbsolutePath;
+            string updatedQueryString = "?" + nameValues.ToString();
+
+            Response.Redirect("/productos.aspx" + updatedQueryString);
         }
     }
 }

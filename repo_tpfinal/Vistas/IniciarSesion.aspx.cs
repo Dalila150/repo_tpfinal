@@ -40,6 +40,24 @@ namespace Vistas
 
             CategoriasUl += "</ul>";
             CargameLasCats.InnerHtml = CategoriasUl;
+
+            // SI HAY CARGO DATOS DEL CARRO
+            if (Session["Carrito"] != null)
+            {
+                String InnerHTML = "";
+                DataTable infoCarrito = (DataTable)Session["Carrito"];
+                int TotalCarro = 0;
+                int CantProds = 0;
+
+                foreach (DataRow row in infoCarrito.Rows)
+                {
+                    CantProds += int.Parse(row[1].ToString());
+                    TotalCarro += CantProds * int.Parse(row[2].ToString());
+                }
+
+                InnerHTML += TotalCarro + "(" + CantProds + ")";
+                datosCarrito.InnerHtml = InnerHTML;
+            }
         }
 
         protected void btnIniciarSesion_Click(object sender, EventArgs e)
@@ -76,6 +94,16 @@ namespace Vistas
         protected void btnIniciarRegistro_Click(object sender, EventArgs e)
         {
             Response.Redirect("Registro.aspx");
+        }
+
+        protected void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            var nameValues = HttpUtility.ParseQueryString(Request.QueryString.ToString());
+            nameValues.Set("Busqueda", txtBuscar.Text);
+            string url = Request.Url.AbsolutePath;
+            string updatedQueryString = "?" + nameValues.ToString();
+
+            Response.Redirect("/productos.aspx" + updatedQueryString);
         }
     }
 }

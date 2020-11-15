@@ -50,10 +50,6 @@ namespace Vistas
             cargarGridView();
         }
 
-        protected void btnCrearProducto_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("AdminCrearPro.aspx");
-        }
 
         protected void txtBuscar_TextChanged(object sender, EventArgs e)
         {
@@ -90,10 +86,32 @@ namespace Vistas
                     if (estadoCelda == "0")
                     {
                         estadoCelda = "Inactivo";
+                        LinkButton lbtnDelete = (LinkButton)e.Row.FindControl("DeleteButton");
+                        lbtnDelete.Text = "Activar";
+                        lbtnDelete.CommandName = "Update";
+                        lbtnDelete.OnClientClick = "return confirm('¿Esta seguro de activar este producto?','Activar Producto');";
                     }
                     ((Label)(e.Row.Cells[5].FindControl("lblEstado"))).Text = estadoCelda;
             }
             
+        }
+
+        protected void grdProductos_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            String s_Nombre = ((Label)grdProductos.Rows[e.RowIndex].FindControl("lblId")).Text;
+
+            Producto prod = new Producto();
+            prod.Id_producto = Convert.ToInt32(s_Nombre);//string a int
+
+            NegocioProducto gProducto = new NegocioProducto();
+            gProducto.ActivarProducto(prod);
+
+            cargarGridView();
+        }
+
+        protected void btnCrearProducto_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminCrearPro.aspx");
         }
     }
 }

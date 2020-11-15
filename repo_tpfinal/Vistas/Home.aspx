@@ -12,16 +12,17 @@
     <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
   </head>
 <body>
+    <form id="form1" runat="server">
      <div class="container">
         <div class="logo" >
             <img src="/img/logo.jpg" class="LogoImagen" />
         </div>
         <div class="header" >
-            <input type="text" name="search" placeholder="Buscar" class="bus" autocomplete="off"/>
+            <asp:TextBox ID="txtBuscar" runat="server" name="search" placeholder="Buscar" class="bus" autocomplete="off" AutoPostBack="True" OnTextChanged="txtBuscar_TextChanged" TabIndex="1" onkeyup="RefreshUpdatePanel()" onfocus="this.selectionStart = this.selectionEnd = this.value.length;"></asp:TextBox>
         </div>
         <div class="iconos" >
             <a href="/IniciarSesion.aspx" class="fas fa-user user"></a>
-            <a href="/Carrito.aspx" class="fas fa-shopping-cart cart"></a></div>
+            <a href="/Carrito.aspx" class="fas fa-shopping-cart cart"><div id="datosCarrito" runat="server" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 89%;display: inline;"></div></a></div>
         <div class="navbar">
                 <ul class="nav">
                     <li class="name">
@@ -42,6 +43,8 @@
             <div class="slider">
               <ul>
                 <li id="slide1">
+                    <asp:Label ID="lblNombre" runat="server"></asp:Label>
+&nbsp;<asp:Label ID="lblApellido" runat="server"></asp:Label>
                   <img src="/Slider/1.png" />
                 </li>
                 <li id="slide2">
@@ -84,5 +87,6 @@
             </ul>
         </div>
     </div>
+        </form>
 </body>
 </html>

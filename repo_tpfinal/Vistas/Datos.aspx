@@ -16,18 +16,18 @@
     </head>
 
     <body>
+        <form id="formulario" runat="server">
         <div class="container">
             <div class="logo">
                 <img src="/img/logo.jpg" class="LogoImagen" />
             </div>
-            <div class="header">
-                <input type="text" name="search" placeholder="Buscar" class="bus" autocomplete="off" />
-            </div>
-            <div class="iconos">
-                <a href="/IniciarSesion.aspx" class="fas fa-user user"></a>
-                <a href="/Carrito.aspx" class="fas fa-shopping-cart cart"></a>
-            </div>
-            <div class="navbar">
+            <div class="header" >
+            <asp:TextBox ID="txtBuscar" runat="server" name="search" placeholder="Buscar" class="bus" autocomplete="off" AutoPostBack="True" OnTextChanged="txtBuscar_TextChanged" TabIndex="1" onkeyup="RefreshUpdatePanel()" onfocus="this.selectionStart = this.selectionEnd = this.value.length;"></asp:TextBox>
+        </div>
+        <div class="iconos" >
+            <a href="/IniciarSesion.aspx" class="fas fa-user user"></a>
+            <a href="/Carrito.aspx" class="fas fa-shopping-cart cart"><div id="datosCarrito" runat="server" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 89%;display: inline;"></div></a></div>
+        <div class="navbar">
                 <ul class="nav">
                     <li class="name">
                         <a href="home.aspx">Home</a>
@@ -50,7 +50,7 @@
                     <!---->
                     <h2>Datos personales</h2>
 
-                    <form id="formulario" runat="server">
+                    
                         <div style="width:100%">
                             <div style="width:30%;display:inline">
                                 <ul style="display: inline-block;padding:0 0 0 25px">
@@ -110,7 +110,7 @@
                         <div>
                             <button class="btnGuardar"  style="width: 30%;border-radius: 8px 8px;padding: 0.5rem;font-size: 18px; border-radius: 20px 20px;color: #ffffff; border: solid 1px rgba(226, 98, 98, 0.116);background-color: rgba(184, 39, 51, 0.753);">Guardar cambios</button>
                         </div>
-                    </form>
+                    
                 </div>
             </div>
             <!---->
@@ -133,5 +133,6 @@
                 </ul>
             </div>
     </div>
+            </form>
 </body>
 </html>

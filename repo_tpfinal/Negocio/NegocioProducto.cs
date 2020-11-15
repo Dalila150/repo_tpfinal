@@ -68,6 +68,21 @@ namespace Negocio
                 return false;
             }
         }
+        public bool ActivarProducto(Producto producto)
+        {
+            SqlCommand Comando = new SqlCommand();
+            AccesoaDatos ad = new AccesoaDatos();
+            DaoProducto dp = new DaoProducto();
+            int filasActualizadas = dp.eliminarProducto(Comando, "spActivarProducto", producto.Id_producto);
+            if (filasActualizadas == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public DataTable TodosLosProductos()
         {
             DaoProducto dp = new DaoProducto();
