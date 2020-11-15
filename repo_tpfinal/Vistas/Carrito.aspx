@@ -115,7 +115,7 @@
                   </td>
                   <td>Escoja sucursal (modo de pago efectivo)</td>
                   <td>
-                      <asp:DropDownList ID="ddlSucursales" runat="server">
+                      <asp:DropDownList ID="ddlSucursales" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlSucursales_SelectedIndexChanged">
                       </asp:DropDownList>
                   </td>
                   <td>&nbsp;</td>
@@ -127,7 +127,7 @@
     <div class="Total">
       <ul class="Dcompra">
         <li class="tit">
-          <label>RESUMEN DE COMPRAlabel>
+          <label>RESUMEN DE COMPRA
         </li>
           <li>
               <p>

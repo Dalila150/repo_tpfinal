@@ -12,8 +12,12 @@ namespace Vistas
 {
     public partial class WebForm16 : System.Web.UI.Page
     {
+
+        
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            
             if (IsPostBack==false)
             {
 
@@ -29,16 +33,16 @@ namespace Vistas
                 ddlModoEnvio.Items.Add(new ListItem { Text = "Seleccione", Value = "" });
                 ddlModoEnvio.Items.Add(new ListItem { Text = "Retiro por sucursal", Value = "1" });
                 ddlModoEnvio.Items.Add(new ListItem { Text = "Envio a domicilio", Value = "2" });
-                
-                foreach (DataRow dr in listasucursales.Rows)
-                {
-                    ddlSucursales.Items.Add(dr["Id_Sucursal"] + "-" + dr["Nombre"]);
-                }
+
+                ddlSucursales.DataSource = listasucursales;
+                ddlSucursales.DataTextField = "Nombre";
+                ddlSucursales.DataValueField = "Id_Sucursal";
+                ddlSucursales.DataBind();
 
 
             }
 
-            
+
 
             if (Session["carrito"]!= null)
             {
@@ -137,7 +141,7 @@ namespace Vistas
             datos_venta.Modo_pago1 = int.Parse(ddlMododePago.SelectedValue);
             datos_venta.Nro_tarjeta1 = txtNroTarjeta.Text;
             datos_venta.Codigo_tarjeta1 = txtNroSeguridad.Text;
-            datos_venta.ID_sucursal1 = int.Parse(ddlSucursales.SelectedItem.Text);
+            datos_venta.ID_sucursal1 = int.Parse(ddlSucursales.SelectedValue);
 
 
 
@@ -162,6 +166,17 @@ namespace Vistas
 
             Response.Redirect("/productos.aspx" + updatedQueryString);
         }
+
+        protected void ddlSucursales_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+            
+
+
+        }
+
+
 
     }
 }
