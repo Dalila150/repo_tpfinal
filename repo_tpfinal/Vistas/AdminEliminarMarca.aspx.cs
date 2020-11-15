@@ -21,16 +21,27 @@ namespace Vistas
 
         protected void BtnEliminarMarca_Click(object sender, EventArgs e)
         {
-            Boolean estado = false;
-            estado = neg.eliminarMarcas_neg(txtNombreMarca.Text);
-            if (estado == true)
+            if (txtNombreMarca.Text.Length != 0)
             {
-                lblMensaje.Text = "Marca borrada con exito";
+                Boolean estado = false;
+                estado = neg.eliminarMarcas_neg(txtNombreMarca.Text);
+                if (estado == true)
+                {
+                    lblMensaje.Text = "Marca borrada con exito";
+                }
+                else
+                {
+                    lblMensaje.Text = "No se pudo borrar la marca";
+                }
             }
             else
             {
-                lblMensaje.Text = "NO se pudo borrar la marca";
+                lblMensaje.Text = "Ingrese un Nombre por favor";
             }
+        }
+        protected void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("HomeAdmin.aspx");
         }
     }
 }

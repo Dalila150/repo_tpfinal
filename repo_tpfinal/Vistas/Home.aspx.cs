@@ -15,6 +15,13 @@ namespace Vistas
         NegocioUsuario Neg = new NegocioUsuario();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request["Sign-out"] == "true")
+            {
+                Response.Cookies["NombreUsuario"].Expires = DateTime.Now.AddDays(-1);
+                Session["Carrito"] = null;
+                Response.Redirect("/Home.aspx");
+            }
+
             // CATEGORIAS DEL NAVBAR
             NegocioCategoria gC = new NegocioCategoria();
             DataTable cat = gC.ObtenerCategorias();
@@ -34,10 +41,19 @@ namespace Vistas
 
                 Usu = Neg.DevolverUsuarioCompleto(Request.Cookies["NombreUsuario"].Value);
 
-
-                lblNombre.Text = Usu.getNombreUsuario();
-                lblApellido.Text = Usu.getApellidoUsuario();
-
+                String IconosInnerHTML = "";
+                Char A = '"';
+                IconosInnerHTML += "<a href=" + A + "/Datos.aspx" + A + " class=" + A + "fas fa-user user" + A + " style=" + A + "text-decoration: none;" + A + "><div id = 'UsuarioLogueadoNombre' runat='server' style='font-size:20px;'>" + Usu.getNombreUsuario() + "</div><div id = 'UsuarioLogueadoApellido' runat='server' style='font-size:20px;'>" + Usu.getApellidoUsuario() + "</div></a>";
+                infoUser.InnerHtml = IconosInnerHTML;
+                IconosInnerHTML = "";
+                IconosInnerHTML += "<a href=" + A + "/Home.aspx?Sign-out=true" + A + " class=" + A + "fas fa-sign-out-alt" + A + " style=" + A + "font-size: 1.6rem;text-decoration: none;color: rgba(82, 28, 28, 0.959);" + A + " aria-hidden=" + A + "true" + A + "></a>";
+                IconoSalir.InnerHtml = IconosInnerHTML;
+            } else
+            {
+                String IconosInnerHTML = "";
+                Char A = '"';
+                IconosInnerHTML += "<a href=" + A + "/IniciarSesion.aspx" + A + " class=" + A + "fas fa-user user" + A + "><div id = 'UsuarioLogueadoNombre' runat='server' style='font-size:20px'></div><div id = 'UsuarioLogueadoApellido' runat='server' style='font-size:20px;'></div></a>";
+                infoUser.InnerHtml = IconosInnerHTML;
             }
             //-----------------------------------------------
 
@@ -90,10 +106,12 @@ namespace Vistas
                     TotalCarro += CantProds*int.Parse(row[2].ToString());
                 }
 
-                InnerHTML += TotalCarro +"(" + CantProds + ")";
+                InnerHTML += "$" + TotalCarro +"(" + CantProds + ")";
                 datosCarrito.InnerHtml = InnerHTML;
             }
 
+            
+                
         }
 
         protected void txtBuscar_TextChanged(object sender, EventArgs e)

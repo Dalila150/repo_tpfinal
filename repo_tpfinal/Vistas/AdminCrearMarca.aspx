@@ -79,12 +79,12 @@
             <hr style="width:90%" />
             <div>
                 <h3 style="display: inline;margin-top:15px">Nombre marca:</h3>
-                <asp:TextBox class="txtASP" ID="txt_Nombre_Marca" runat="server" required="true"></asp:TextBox>
+                <asp:TextBox class="txtASP" ID="txt_Nombre_Marca" runat="server"></asp:TextBox>
             </div>
             <asp:Label ID="lbl_Mensaje" runat="server"></asp:Label>
             <div style="padding-bottom: 25px; text-align:center; margin-top:3%; " class="auto-style3">
                 <asp:Button class="btnASP" ID="btn_Crear_Marca" runat="server" Text="CREAR MARCA" Height="40px" OnClick="btn_Crear_Marca_Click"/>
-                <asp:Button class="btnASP" ID="btn_Cancelar" runat="server" Text="CANCELAR" Height="40px"/>
+                <asp:Button class="btnASP" ID="btn_Cancelar" runat="server" Text="CANCELAR" Height="40px" OnClick="btn_Cancelar_Click"/>
             </div>
             </div>
     </div>

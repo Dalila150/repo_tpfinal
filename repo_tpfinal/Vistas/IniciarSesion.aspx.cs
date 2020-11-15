@@ -15,6 +15,13 @@ namespace Vistas
         NegocioUsuario neg = new NegocioUsuario();
         protected void Page_Load(object sender, EventArgs e)
         {
+            //-----------------------------------------------
+            Usuarios Usu = new Usuarios();
+            if (Request.Cookies["NombreUsuario"] != null)
+            {
+                Response.Redirect("/Home.aspx");
+            }
+            //-----------------------------------------------
             NegocioCategoria gC = new NegocioCategoria();
             DataTable cat = gC.ObtenerCategorias();
             String CategoriasUl = "";
@@ -55,7 +62,7 @@ namespace Vistas
                     TotalCarro += CantProds * int.Parse(row[2].ToString());
                 }
 
-                InnerHTML += TotalCarro + "(" + CantProds + ")";
+                InnerHTML += "$" + TotalCarro + "(" + CantProds + ")";
                 datosCarrito.InnerHtml = InnerHTML;
             }
         }

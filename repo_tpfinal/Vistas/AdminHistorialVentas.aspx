@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminListPro.aspx.cs" Inherits="Vistas.AdminListPro" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminHistorialVentas.aspx.cs" Inherits="Vistas.AdminHistorialVentas" %>
 
 <!DOCTYPE html>
 
@@ -16,7 +16,6 @@
             width: 45%;
         }
     </style>
-    
 </head>
 
 <body>
@@ -82,57 +81,17 @@
 <!------------------------------------------------------------>
     <div style="display: inline-block;width: 80%">
         <div style="background-color: rgba(197, 93, 102, 0.404);border-radius: 8px;margin-bottom: 5%;padding-bottom: 10px;margin-top:25px">
-            <h1 style="padding-top: 20px; text-align: center;margin:0px;font-size:40px">Productos</h1>
+            <h1 style="padding-top: 20px; text-align: center;margin:0px;font-size:40px">Historial de ventas</h1>
             <hr style="width:90%" />
-            <div class="EspacioBuscador">
-                <asp:TextBox ID="txtBuscar" runat="server" name="search" placeholder="Buscar" class="bus" autocomplete="off" AutoPostBack="True" OnTextChanged="txtBuscar_TextChanged" TabIndex="1" onkeyup="RefreshUpdatePanel()" onfocus="this.selectionStart = this.selectionEnd = this.value.length;"></asp:TextBox>
+            <div style="width:100%">
+                <div class="EspacioBuscador">
+                <asp:TextBox ID="txtBuscar" runat="server" name="search" placeholder="Buscar" class="bus" autocomplete="off" AutoPostBack="True"  TabIndex="1" onkeyup="RefreshUpdatePanel()" onfocus="this.selectionStart = this.selectionEnd = this.value.length;"></asp:TextBox>
+            </div>  
             </div>
             <br />
             <div style="font-size: 20px;margin-left: 5%;width: 100%;text-align: center;" class="auto-style1">
-            <asp:GridView ID="grdProductos" CssClass="GridViewStyled" runat="server" CellPadding="4" AutoGenerateColumns="False" OnSelectedIndexChanging="grdProductos_SelectedIndexChanging" AllowPaging="True" OnRowDeleting="grdProductos_RowDeleting" ForeColor="#333333" GridLines="None" OnPageIndexChanging="grdProductos_PageIndexChanging" PageSize="5" OnRowDataBound="grdProductos_RowDataBound" OnRowUpdating="grdProductos_RowUpdating" >
+            <asp:GridView ID="grdRegistros" CssClass="GridViewStyled" runat="server" CellPadding="4" AllowPaging="True" ForeColor="#333333" GridLines="None" PageSize="5" AutoGenerateSelectButton="True">
                 <AlternatingRowStyle BackColor="#BCC8C3" ForeColor="" />
-                <Columns>
-                    <asp:TemplateField HeaderText="Id" Visible="False">
-                        <ItemTemplate>
-                            <asp:Label class="info-user" ID="lblId" runat="server" Text='<%# Bind("ID") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Modelo">
-                        <ItemTemplate>
-                            <asp:Label ID="lblProd" runat="server" Text='<%# Bind("Producto") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Marca">
-                        <ItemTemplate>
-                            <asp:Label ID="lblMarca" runat="server" Text='<%# Bind("Marca") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Precio">
-                        <ItemTemplate>
-                            <asp:Label ID="lblPrecio" runat="server" Text='<%# Bind("Precio") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Stock">
-                        <ItemTemplate>
-                            <asp:Label ID="lblStock" runat="server" Text='<%# Bind("Disponibles") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Estado">
-                        <ItemTemplate>
-                            <asp:Label ID="lblEstado" runat="server" Text='<%# Bind("estado") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField ShowHeader="False">
-                        <ItemTemplate>
-                            <asp:LinkButton ID="LinkButtonSelect" runat="server" CausesValidation="False" style="color: white" CommandName="Select" Text="Editar"/>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField ShowHeader="False">
-                        <ItemTemplate>
-                            <asp:LinkButton ID="DeleteButton" runat="server" CommandName="Delete" OnClientClick="return confirm('¿Esta seguro de deshabilitar este producto?','Eliminar Producto');" style="color: white" AlternateText="Eliminar" Text="Eliminar" />               
-                        </ItemTemplate>
-                    </asp:TemplateField>  
-                </Columns>
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#90648B" ForeColor="White" Font-Bold="True" />
                 <HeaderStyle BackColor="#AE4750" Font-Bold="True" ForeColor="White" CssClass="headerTable" Height="50px"/>
@@ -145,9 +104,7 @@
                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
                 </div>
-                <div style="text-align:center;width:100%;margin:25px;height: 35px;">
-                    <asp:Button ID="btnCrearProducto" runat="server" Text="Crear Nuevo Producto" style="width: 30%;height: 100%;background-color: rgba(174, 64, 74, 0.84); border: none;border-radius: 10px;" Font-Bold="True" Font-Size="Medium" OnClick="btnCrearProducto_Click"/>
-                </div>
+                
         </div>
         
     </div>
@@ -173,8 +130,7 @@
     </div>
     </form>
 </body>
-    
-    <!-- BUSQUEDA -->
+   <%-- <!-- BUSQUEDA -->
     <!-- CADA VEZ QUE CAMBIA LA LETRA HACE POSTBACK -->
     <script type="text/javascript">
         function RefreshUpdatePanel() {
@@ -199,6 +155,5 @@
     <!-- CADA VEZ QUE ENTRO PONGO LA BUSQUEDA ACTIVA -->
     <script type="text/javascript">
         document.getElementById("txtBuscar").focus();
-    </script>
-    
+    </script>--%>
 </html>

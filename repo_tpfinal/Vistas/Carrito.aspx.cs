@@ -12,8 +12,35 @@ namespace Vistas
 {
     public partial class WebForm16 : System.Web.UI.Page
     {
+
+        NegocioUsuario Neg = new NegocioUsuario();
         protected void Page_Load(object sender, EventArgs e)
         {
+            //-----------------------------------------------
+            Usuarios Usu = new Usuarios();
+            if (Request.Cookies["NombreUsuario"] != null)
+            {
+                HttpCookie ck = Request.Cookies["NombreUsuario"];
+
+                Usu = Neg.DevolverUsuarioCompleto(Request.Cookies["NombreUsuario"].Value);
+
+                String IconosInnerHTML = "";
+                Char A = '"';
+                IconosInnerHTML += "<a href=" + A + "/Datos.aspx" + A + " class=" + A + "fas fa-user user" + A + " style=" + A + "text-decoration: none;" + A + "><div id = 'UsuarioLogueadoNombre' runat='server' style='font-size:20px;'>" + Usu.getNombreUsuario() + "</div><div id = 'UsuarioLogueadoApellido' runat='server' style='font-size:20px;'>" + Usu.getApellidoUsuario() + "</div></a>";
+                infoUser.InnerHtml = IconosInnerHTML;
+                IconosInnerHTML = "";
+                IconosInnerHTML += "<a href=" + A + "/Home.aspx?Sign-out=true" + A + " class=" + A + "fas fa-sign-out-alt" + A + " style=" + A + "font-size: 1.6rem;text-decoration: none;color: rgba(82, 28, 28, 0.959);" + A + " aria-hidden=" + A + "true" + A + "></a>";
+                IconoSalir.InnerHtml = IconosInnerHTML;
+            }
+            else
+            {
+                String IconosInnerHTML = "";
+                Char A = '"';
+                IconosInnerHTML += "<a href=" + A + "/IniciarSesion.aspx" + A + " class=" + A + "fas fa-user user" + A + "><div id = 'UsuarioLogueadoNombre' runat='server' style='font-size:20px'></div><div id = 'UsuarioLogueadoApellido' runat='server' style='font-size:20px;'></div></a>";
+                infoUser.InnerHtml = IconosInnerHTML;
+            }
+            //-----------------------------------------------
+
             if (IsPostBack==false)
             {
 
@@ -29,16 +56,16 @@ namespace Vistas
                 ddlModoEnvio.Items.Add(new ListItem { Text = "Seleccione", Value = "" });
                 ddlModoEnvio.Items.Add(new ListItem { Text = "Retiro por sucursal", Value = "1" });
                 ddlModoEnvio.Items.Add(new ListItem { Text = "Envio a domicilio", Value = "2" });
-                
-                foreach (DataRow dr in listasucursales.Rows)
-                {
-                    ddlSucursales.Items.Add(dr["Id_Sucursal"] + "-" + dr["Nombre"]);
-                }
+
+                ddlSucursales.DataSource = listasucursales;
+                ddlSucursales.DataTextField = "Nombre";
+                ddlSucursales.DataValueField = "Id_Sucursal";
+                ddlSucursales.DataBind();
 
 
             }
 
-            
+
 
             if (Session["carrito"]!= null)
             {
@@ -46,18 +73,17 @@ namespace Vistas
                 grdCarrito.DataBind();
             }
 
+            // ESTO NO ANDA Y ROMPE TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            //int cantidad = int.Parse(grdCarrito.Rows[0].Cells[1].Text);
+            //float precio = float.Parse(grdCarrito.Rows[0].Cells[2].Text);
 
-            int cantidad = int.Parse(grdCarrito.Rows[0].Cells[1].Text);
-            float precio = float.Parse(grdCarrito.Rows[0].Cells[2].Text);
+            //float total = cantidad * precio;
 
-            float total = cantidad * precio;
+            //lblPrecio.Text =  total.ToString();
+            // ESTO NO ANDA Y ROMPE TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 
-            lblPrecio.Text =  total.ToString();
-            
-
-            
             NegocioCategoria gC = new NegocioCategoria();
             DataTable cat = gC.ObtenerCategorias();
             String CategoriasUl = "";
@@ -137,7 +163,7 @@ namespace Vistas
             datos_venta.Modo_pago1 = int.Parse(ddlMododePago.SelectedValue);
             datos_venta.Nro_tarjeta1 = txtNroTarjeta.Text;
             datos_venta.Codigo_tarjeta1 = txtNroSeguridad.Text;
-            datos_venta.ID_sucursal1 = int.Parse(ddlSucursales.SelectedItem.Text);
+            datos_venta.ID_sucursal1 = int.Parse(ddlSucursales.SelectedValue);
 
 
 
@@ -162,6 +188,17 @@ namespace Vistas
 
             Response.Redirect("/productos.aspx" + updatedQueryString);
         }
+
+        protected void ddlSucursales_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+            
+
+
+        }
+
+
 
     }
 }

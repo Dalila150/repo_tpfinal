@@ -12,21 +12,13 @@ namespace Negocio
 {
     public class NegocioMarca
     {
-        public DataTable getTabla()
-        {
-            
-
-            DaoMarcas dao = new DaoMarcas();
-            return dao.getTablaMarcas();
-        }
-
-        public Marcas get(int id)
+        /*public Marcas get(int id)
         {
             DaoMarcas dao = new DaoMarcas();
             Marcas marc = new Marcas();
             marc.setID_Marcas(id);
             return dao.getMarcas(marc);
-        }
+        }*/
 
         public bool eliminarMarcas_neg(String nombre)
         {
@@ -39,6 +31,16 @@ namespace Negocio
                 return true;
             else
                 return false;
+        }
+
+        public bool ActualizarMarca_neg(Marcas marc)
+        {
+            DaoMarcas dao = new DaoMarcas();
+            int op = dao.ActualizarMarcas(marc);
+            if (op == 1)
+                return true;
+            else
+            return false;
         }
 
         public bool agregarMarcas_neg(String nombre)
@@ -58,6 +60,18 @@ namespace Negocio
                 return true;
             else
                 return false;
+        }
+        public DataTable cargar_gridview_neg()
+        {
+            DaoMarcas dao = new DaoMarcas();
+
+            return dao.getTablaMarcas();
+        }
+
+        public DataTable BuscarMarcas(String texto)
+        {
+            DaoMarcas dao = new DaoMarcas();
+            return dao.BusquedaDeMarcas(texto);
         }
     }
 }
