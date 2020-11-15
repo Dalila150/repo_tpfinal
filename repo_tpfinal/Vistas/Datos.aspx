@@ -16,6 +16,7 @@
     </head>
 
     <body>
+        <form id="formulario" runat="server">
         <div class="container">
             <div class="logo">
                 <img src="/img/logo.jpg" class="LogoImagen" />
@@ -49,7 +50,7 @@
                     <!---->
                     <h2>Datos personales</h2>
 
-                    <form id="formulario" runat="server">
+                    
                         <div style="width:100%">
                             <div style="width:30%;display:inline">
                                 <ul style="display: inline-block;padding:0 0 0 25px">
@@ -109,7 +110,7 @@
                         <div>
                             <button class="btnGuardar"  style="width: 30%;border-radius: 8px 8px;padding: 0.5rem;font-size: 18px; border-radius: 20px 20px;color: #ffffff; border: solid 1px rgba(226, 98, 98, 0.116);background-color: rgba(184, 39, 51, 0.753);">Guardar cambios</button>
                         </div>
-                    </form>
+                    
                 </div>
             </div>
             <!---->
@@ -132,5 +133,6 @@
                 </ul>
             </div>
     </div>
+            </form>
 </body>
 </html>
