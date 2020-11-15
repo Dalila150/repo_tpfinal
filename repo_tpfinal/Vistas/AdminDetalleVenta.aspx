@@ -81,14 +81,15 @@
 <!------------------------------------------------------------>
     <div style="display: inline-block;width: 80%">
         <div style="background-color: rgba(197, 93, 102, 0.404);border-radius: 8px;margin-bottom: 5%;padding-bottom: 10px;margin-top:25px">
-            <h1 style="padding-top: 20px; text-align: center;margin:0px;font-size:40px">Detalle venta</h1>
+            <h1 style="padding-top: 20px; text-align: center;margin:0px;font-size:40px">Detalle venta<asp:Label ID="lblMensaje" runat="server"></asp:Label>
+            </h1>
             <hr style="width:90%" />
             <div style="width:100%">
             
             </div>
             <br />
             <div style="font-size: 20px;margin-left: 5%;width: 100%;text-align: center;" class="auto-style1">
-            <asp:GridView ID="grdRegistros" CssClass="GridViewStyled" runat="server" CellPadding="4" AllowPaging="True" ForeColor="#333333" GridLines="None" PageSize="5" AutoGenerateColumns="False">
+            <asp:GridView ID="grdRegistros" CssClass="GridViewStyled" runat="server" CellPadding="4" AllowPaging="True" ForeColor="#333333" GridLines="None" PageSize="5" OnPageIndexChanging="grdRegistros_PageIndexChanging">
                 <AlternatingRowStyle BackColor="#BCC8C3" ForeColor="" />
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#90648B" ForeColor="White" Font-Bold="True" />
@@ -128,7 +129,7 @@
     </div>
     </form>
 </body>
-   <%-- <!-- BUSQUEDA -->
+<%-- <!-- BUSQUEDA -->
     <!-- CADA VEZ QUE CAMBIA LA LETRA HACE POSTBACK -->
     <script type="text/javascript">
         function RefreshUpdatePanel() {

@@ -18,6 +18,8 @@ namespace Entidades
         private string Nro_tarjeta;
         private string Codigo_tarjeta;
         private int ID_sucursal;
+        ///
+
 
         public Ventas()
         {

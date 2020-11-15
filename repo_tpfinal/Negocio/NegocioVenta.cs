@@ -37,5 +37,18 @@ namespace Negocio
             DaoSucursales daosuc = new DaoSucursales();
             return daosuc.ObtenerTodasLasSucursales();
         }
+
+        public DataTable TodasLasVentas()
+        {
+            DaoVentas dp = new DaoVentas();
+            return dp.ObtenerTodasLasVentas();
+        }
+
+        public DataTable TodosDetallesVentas(int idDetV)
+        {
+            DaoVentas dp = new DaoVentas();
+            return dp.ObtenerTodosDetallesVentas(idDetV);
+        }
+
     }
 }

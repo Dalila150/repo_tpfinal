@@ -15,6 +15,19 @@
         .auto-style1 {
             width: 45%;
         }
+        .auto-style2 {
+            background-color: rgb(158, 65, 73);
+            grid-area: nav;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            left: 0px;
+            top: 4px;
+        }
     </style>
 </head>
 
@@ -29,7 +42,7 @@
         <div class="iconos" >
             <a href="/Datos.aspx" class="fas fa-user user"></a>
             <a href="/Home.aspx" class="fas fa-sign-out-alt"></a></div>
-        <div class="navbar" >
+        <div class="auto-style2" >
            <ul class="nav">
             <li><a href="#">Home</a></li>
             <li><a href="#">Administrar</a>
@@ -90,8 +103,55 @@
             </div>
             <br />
             <div style="font-size: 20px;margin-left: 5%;width: 100%;text-align: center;" class="auto-style1">
-            <asp:GridView ID="grdRegistros" CssClass="GridViewStyled" runat="server" CellPadding="4" AllowPaging="True" ForeColor="#333333" GridLines="None" PageSize="5" AutoGenerateSelectButton="True">
+            <asp:GridView ID="grdRegistros" CssClass="GridViewStyled" runat="server" CellPadding="4" AllowPaging="True" ForeColor="#333333" GridLines="None" PageSize="5" AutoGenerateSelectButton="True" AutoGenerateColumns="False" OnPageIndexChanging="grdRegistros_PageIndexChanging" OnSelectedIndexChanging="grdRegistros_SelectedIndexChanging">
                 <AlternatingRowStyle BackColor="#BCC8C3" ForeColor="" />
+                <Columns>
+                    <asp:TemplateField HeaderText="ID">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_id" runat="server" Text='<%# Bind("ID_venta") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="FECHA">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_fecha" runat="server" Text='<%# Bind("Fecha") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="ID USUARIO">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_idU" runat="server" Text='<%# Bind("ID_usuario") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="DIRECCION">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_direccion" runat="server" Text='<%# Bind("Direccion") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="TOTAL">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_total" runat="server" Text='<%# Bind("Total") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="MODO ENVIO">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_modoEnvio" runat="server" Text='<%# Bind("Nombre_Envio") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="MODO PAGO">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_modoPago" runat="server" Text='<%# Bind("Descripcion") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="NRO TARJETA">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_nroTarjeta" runat="server" Text='<%# Bind("Nro_tajeta") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="SUCURSAL">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_idSucursal" runat="server" Text='<%# Bind("Nombre") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#90648B" ForeColor="White" Font-Bold="True" />
                 <HeaderStyle BackColor="#AE4750" Font-Bold="True" ForeColor="White" CssClass="headerTable" Height="50px"/>
@@ -130,7 +190,7 @@
     </div>
     </form>
 </body>
-   <%-- <!-- BUSQUEDA -->
+<%-- <!-- BUSQUEDA -->
     <!-- CADA VEZ QUE CAMBIA LA LETRA HACE POSTBACK -->
     <script type="text/javascript">
         function RefreshUpdatePanel() {
