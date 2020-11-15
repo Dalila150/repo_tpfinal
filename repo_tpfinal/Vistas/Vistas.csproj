@@ -98,6 +98,7 @@
     <Content Include="css\template_admin.css" />
     <Content Include="css\template.css" />
     <Content Include="css\template_home_v1.css" />
+    <Content Include="DetalleVenta.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="HomeAdmin.aspx" />
     <Content Include="Imagenes\10.jpg" />
@@ -199,6 +200,13 @@
     </Compile>
     <Compile Include="ComprasUsuario.aspx.designer.cs">
       <DependentUpon>ComprasUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleVenta.aspx.cs">
+      <DependentUpon>DetalleVenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalleVenta.aspx.designer.cs">
+      <DependentUpon>DetalleVenta.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
