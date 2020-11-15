@@ -12,8 +12,35 @@ namespace Vistas
 {
     public partial class WebForm5 : System.Web.UI.Page
     {
+        NegocioUsuario Neg = new NegocioUsuario();
         protected void Page_Load(object sender, EventArgs e)
         {
+            //-----------------------------------------------
+            Usuarios Usu = new Usuarios();
+            if (Request.Cookies["NombreUsuario"] != null)
+            {
+                HttpCookie ck = Request.Cookies["NombreUsuario"];
+
+                Usu = Neg.DevolverUsuarioCompleto(Request.Cookies["NombreUsuario"].Value);
+
+                String IconosInnerHTML = "";
+                Char A = '"';
+                IconosInnerHTML += "<a href=" + A + "/Datos.aspx" + A + " class=" + A + "fas fa-user user" + A + " style=" + A + "text-decoration: none;" + A + "><div id = 'UsuarioLogueadoNombre' runat='server' style='font-size:20px;'>" + Usu.getNombreUsuario() + "</div><div id = 'UsuarioLogueadoApellido' runat='server' style='font-size:20px;'>" + Usu.getApellidoUsuario() + "</div></a>";
+                infoUser.InnerHtml = IconosInnerHTML;
+                IconosInnerHTML = "";
+                IconosInnerHTML += "<a href=" + A + "/Home.aspx?Sign-out=true" + A + " class=" + A + "fas fa-sign-out-alt" + A + " style=" + A + "font-size: 1.6rem;text-decoration: none;color: rgba(82, 28, 28, 0.959);" + A + " aria-hidden=" + A + "true" + A + "></a>";
+                IconoSalir.InnerHtml = IconosInnerHTML;
+            }
+            else
+            {
+                String IconosInnerHTML = "";
+                Char A = '"';
+                IconosInnerHTML += "<a href=" + A + "/IniciarSesion.aspx" + A + " class=" + A + "fas fa-user user" + A + "><div id = 'UsuarioLogueadoNombre' runat='server' style='font-size:20px'></div><div id = 'UsuarioLogueadoApellido' runat='server' style='font-size:20px;'></div></a>";
+                infoUser.InnerHtml = IconosInnerHTML;
+            }
+            //-----------------------------------------------
+
+
             CargarCategoriasBarraDeNavegacion();
 
             NegocioProducto Np = new NegocioProducto();
@@ -116,7 +143,7 @@ namespace Vistas
                     TotalCarro += CantProds * int.Parse(row[2].ToString());
                 }
 
-                InnerHTML += TotalCarro + "(" + CantProds + ")";
+                InnerHTML += "$" + TotalCarro + "(" + CantProds + ")";
                 datosCarrito.InnerHtml = InnerHTML;
             }
 
@@ -196,6 +223,16 @@ namespace Vistas
 
             infoPro = Np.ObtenerProductoId(cadena);
 
+            int CantidadSeleccionadaActual = 0;
+
+            try
+            {
+                CantidadSeleccionadaActual= int.Parse(selectCant.Value);
+            } catch
+            {
+                CantidadSeleccionadaActual = 1;
+            }
+
             // RECORRO TODOS LOS PRODUCTOS PARA SABER SI YA HAY ALGO CARGADO
             foreach (DataRow row in ProductoCarrito.Rows)
             {
@@ -203,7 +240,7 @@ namespace Vistas
                 if (int.Parse(row[0].ToString()) == int.Parse(cadena))
                 {
                     int cantidadNueva;
-                    cantidadNueva = int.Parse(row[1].ToString()) + int.Parse(selectCant.Value);
+                    cantidadNueva = int.Parse(row[1].ToString()) + CantidadSeleccionadaActual;
                     row[1] = cantidadNueva;
                     yaEstabaCargado = true;
                 }
@@ -213,7 +250,7 @@ namespace Vistas
             // SI NO ESTABA CARGADO ESE PRODUCTO LO CARGO
             if (yaEstabaCargado == false)
             {
-                ProductoCarrito.Rows.Add(int.Parse(cadena), int.Parse(selectCant.Value), float.Parse(infoPro.Rows[0][5].ToString()), infoPro.Rows[0][2].ToString());
+                ProductoCarrito.Rows.Add(int.Parse(cadena), CantidadSeleccionadaActual, float.Parse(infoPro.Rows[0][5].ToString()), infoPro.Rows[0][2].ToString());
             }
 
             // HAYA PASADO LO QUE SEA LO GUARDO

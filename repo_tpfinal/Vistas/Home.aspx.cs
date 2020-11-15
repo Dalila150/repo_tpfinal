@@ -17,7 +17,9 @@ namespace Vistas
         {
             if (Request["Sign-out"] == "true")
             {
-                Request.Cookies.Remove("NombreUsuario");
+                Response.Cookies["NombreUsuario"].Expires = DateTime.Now.AddDays(-1);
+                Session["Carrito"] = null;
+                Response.Redirect("/Home.aspx");
             }
 
             // CATEGORIAS DEL NAVBAR
@@ -50,7 +52,7 @@ namespace Vistas
             {
                 String IconosInnerHTML = "";
                 Char A = '"';
-                IconosInnerHTML += "<a href=" + A + "/Datos.aspx" + A + " class=" + A + "fas fa-user user" + A + "><div id = 'UsuarioLogueadoNombre' runat='server' style='font-size:20px'></div><div id = 'UsuarioLogueadoApellido' runat='server' style='font-size:20px;'></div></a>";
+                IconosInnerHTML += "<a href=" + A + "/IniciarSesion.aspx" + A + " class=" + A + "fas fa-user user" + A + "><div id = 'UsuarioLogueadoNombre' runat='server' style='font-size:20px'></div><div id = 'UsuarioLogueadoApellido' runat='server' style='font-size:20px;'></div></a>";
                 infoUser.InnerHtml = IconosInnerHTML;
             }
             //-----------------------------------------------
@@ -104,7 +106,7 @@ namespace Vistas
                     TotalCarro += CantProds*int.Parse(row[2].ToString());
                 }
 
-                InnerHTML += TotalCarro +"(" + CantProds + ")";
+                InnerHTML += "$" + TotalCarro +"(" + CantProds + ")";
                 datosCarrito.InnerHtml = InnerHTML;
             }
 
