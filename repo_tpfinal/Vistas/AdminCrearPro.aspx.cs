@@ -84,7 +84,7 @@ namespace Vistas
             prod_a_guardar.ID_categoria1 = categoria_prod_guardar;
             prod_a_guardar.Estado1 = estado_prod_guardar;
             prod_a_guardar.Nombre1 = txtModelo.Text;
-            prod_a_guardar.Imagen1 = "";
+            prod_a_guardar.Imagen1 = txtDireccionImagen.Text;
             prod_a_guardar.Descripcion1 = txtDescripcion.Text;
 
             //System.Diagnostics.Debug.WriteLine("");

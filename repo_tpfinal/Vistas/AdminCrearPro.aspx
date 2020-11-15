@@ -118,7 +118,7 @@
                             </ul>
                         </div>
                         <div style="padding-bottom: 25px; text-align: center; height: 35px;">
-                            <asp:Button class="btnASP" ID="btnGuardar" runat="server" Text="Crear Producto" OnClick="btnGuardar_Click" Style="width: 30%; min-width: 158px" />
+                            <asp:Button class="btnASP" ID="btnGuardar" runat="server" Text="Crear Producto" OnClick="btnGuardar_Click"  OnClientClick="return show_confirm(event)"  Style="width: 30%; min-width: 158px" />
                             <button class="btnASP" id="btnCancelar" type="button" onclick="btnCancelar_click()" style="width: 25%;">Cancelar</button>
                         </div>
                     </div>

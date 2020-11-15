@@ -50,10 +50,12 @@ namespace Vistas
             cargarGridView();
         }
 
-        protected void btnCrearProducto_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("AdminCrearPro.aspx");
-        }
+        //protected void btnCrearProducto_Click(object sender, EventArgs e)
+        //{
+            
+        //    Response.Redirect("AdminCrearPro.aspx");
+        //}
+
 
         protected void txtBuscar_TextChanged(object sender, EventArgs e)
         {

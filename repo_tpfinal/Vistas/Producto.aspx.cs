@@ -89,7 +89,7 @@ namespace Vistas
                     InnerHTML = CargarInnerHTML(infoPro);
                     datosDelProducto.InnerHtml = InnerHTML;
                     InnerHTML = "";
-                    InnerHTML = InnerHTML += "<img src='" + infoPro.Rows[0][2].ToString() + "'/>";
+                    InnerHTML = InnerHTML += "<img style='max-width: 90%' src ='" + infoPro.Rows[0][2].ToString() + "'/>";
                     imagenProducto.InnerHtml = InnerHTML;
                     InnerHTML = "";
                     InnerHTML += "<p>" + infoPro.Rows[0][4].ToString() + "</p>";
@@ -102,7 +102,25 @@ namespace Vistas
 
             }
 
-            
+            // SI HAY CARGO DATOS DEL CARRO
+            if (Session["Carrito"] != null)
+            {
+                InnerHTML = "";
+                DataTable infoCarrito = (DataTable)Session["Carrito"];
+                int TotalCarro = 0;
+                int CantProds = 0;
+
+                foreach (DataRow row in infoCarrito.Rows)
+                {
+                    CantProds += int.Parse(row[1].ToString());
+                    TotalCarro += CantProds * int.Parse(row[2].ToString());
+                }
+
+                InnerHTML += TotalCarro + "(" + CantProds + ")";
+                datosCarrito.InnerHtml = InnerHTML;
+            }
+
+
 
         }
         //FUNCION QUE CARGA A STRING INNERHTML LOS PRODUCTOS A PARTIR

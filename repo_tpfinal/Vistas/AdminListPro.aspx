@@ -16,6 +16,7 @@
             width: 45%;
         }
     </style>
+    
 </head>
 
 <body>
@@ -135,7 +136,7 @@
             </asp:GridView>
                 </div>
                 <div style="text-align:center;width:100%;margin:25px;height: 35px;">
-                    <asp:Button ID="btnCrearProducto" runat="server" Text="Crear Nuevo Producto" style="width: 30%;height: 100%;background-color: rgba(174, 64, 74, 0.84); border: none;border-radius: 10px;" Font-Bold="True" Font-Size="Medium" OnClick="btnCrearProducto_Click"/>
+                    <asp:Button ID="btnCrearProducto" runat="server" Text="Crear Nuevo Producto" style="width: 30%;height: 100%;background-color: rgba(174, 64, 74, 0.84); border: none;border-radius: 10px;" Font-Bold="True" Font-Size="Medium"/>
                 </div>
         </div>
         
@@ -162,6 +163,7 @@
     </div>
     </form>
 </body>
+    
     <!-- BUSQUEDA -->
     <!-- CADA VEZ QUE CAMBIA LA LETRA HACE POSTBACK -->
     <script type="text/javascript">
@@ -188,4 +190,5 @@
     <script type="text/javascript">
         document.getElementById("txtBuscar").focus();
     </script>
+    
 </html>
