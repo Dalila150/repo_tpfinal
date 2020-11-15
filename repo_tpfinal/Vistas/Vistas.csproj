@@ -64,7 +64,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminDetalleVenta.aspx" />
     <Content Include="AdminEliminarUsuariosAdmin.aspx" />
+    <Content Include="AdminHistorialVentas.aspx" />
     <Content Include="AdminListCategoria.aspx" />
     <Content Include="AdminListMarcas.aspx" />
     <Content Include="Categorias\10.jpg" />
@@ -156,12 +158,26 @@
     <Compile Include="AdminCrearAdministrador.aspx.designer.cs">
       <DependentUpon>AdminCrearAdministrador.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminDetalleVenta.aspx.cs">
+      <DependentUpon>AdminDetalleVenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminDetalleVenta.aspx.designer.cs">
+      <DependentUpon>AdminDetalleVenta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminEliminarUsuariosAdmin.aspx.cs">
       <DependentUpon>AdminEliminarUsuariosAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AdminEliminarUsuariosAdmin.aspx.designer.cs">
       <DependentUpon>AdminEliminarUsuariosAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminHistorialVentas.aspx.cs">
+      <DependentUpon>AdminHistorialVentas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminHistorialVentas.aspx.designer.cs">
+      <DependentUpon>AdminHistorialVentas.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminListCategoria.aspx.cs">
       <DependentUpon>AdminListCategoria.aspx</DependentUpon>
