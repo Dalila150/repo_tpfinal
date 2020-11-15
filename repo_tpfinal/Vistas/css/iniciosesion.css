@@ -16,7 +16,8 @@
 }
 
 .posicion2 {
-    background-color: rgba(226, 98, 98, 0.548);
+    /*background-color: rgba(226, 98, 98, 0.548);*/
+    background-color: #79B9AE;  
     padding-bottom: 2rem;
     border-radius: 0px 0px 10px 10px;
 }

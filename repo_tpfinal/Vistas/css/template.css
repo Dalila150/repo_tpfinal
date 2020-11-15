@@ -1,5 +1,6 @@
 ﻿body {
-    background-color: rgb(246, 236, 236);
+    /*background-color: rgb(246, 236, 236);*/
+    background-color: #e4f9f5;
     margin: 0px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -15,7 +16,8 @@
 }
 
 .logo {
-    background-color: rgb(158, 65, 73);
+    /* background-color: rgb(158, 65, 73);*/
+    background-color: #11999e;
     grid-area: logo;
     position: absolute;
     width: 100%;
@@ -27,7 +29,8 @@
 }
 
 .header {
-    background-color: rgb(158, 65, 73);
+    /*background-color: rgb(158, 65, 73);*/
+    background-color: #11999e;
     grid-area: header;
     position: absolute;
     width: 100%;
@@ -39,7 +42,8 @@
 }
 
 .iconos {
-    background-color: rgb(158, 65, 73);
+    /*background-color: rgb(158, 65, 73);*/
+    background-color: #11999e;
     grid-area: iconos;
     position: absolute;
     width: 100%;
@@ -51,7 +55,8 @@
 }
 
 .navbar {
-    background-color: rgb(158, 65, 73);
+    /*background-color: rgb(158, 65, 73);*/
+    background-color: #11999e;
     grid-area: nav;
     position: absolute;
     width: 100%;
@@ -73,7 +78,8 @@
 }
 
 .footer {
-    background-color: rgb(177, 63, 72);
+    /*background-color: rgb(177, 63, 72);*/
+    background-color: #11999e;
     grid-area: footer;
     position: absolute;
     width: 100%;
@@ -122,7 +128,8 @@ input.bus {
     .nav li a {
         color: rgb(238, 216, 216);
         text-decoration: none;
-        background-color: rgba(82, 28, 28, 0.959);
+        /*background-color: rgba(82, 28, 28, 0.959);*/
+        background-color: #40514e;
         padding: 8px 15px;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         display: block;
@@ -141,7 +148,8 @@ input.bus {
         }
 
     .nav ul li a:hover {
-        background-color: rgb(241, 194, 197);
+        /*background-color: rgb(241, 194, 197);*/
+        background-color: #30e3ca;
         color: rgb(0, 0, 0);
     }
 
@@ -163,13 +171,15 @@ input.bus {
 .iconos .cart {
     font-size: 1.6rem;
     text-decoration: none;
-    color: rgba(82, 28, 28, 0.959);
+    /*color: rgba(82, 28, 28, 0.959);*/
+    color: #40514e;
 }
 
 .iconos .user {
     font-size: 1.6rem;
     margin-right: 1.5rem;
-    color: rgba(82, 28, 28, 0.959);
+    /*color: rgba(82, 28, 28, 0.959);*/
+    color: #40514e;
 }
 
 .name {
@@ -178,7 +188,8 @@ input.bus {
 
 /*FOOTER*/
 .contactenos {
-    color: rgb(221, 165, 169);
+    /*color: rgb(221, 165, 169);*/
+    color: #30e3ca;
     text-align: left;
 }
 .redes i {
@@ -254,7 +265,8 @@ ul li {
     outline: none;
     height: 100%;
     /*background-color: rgba(174, 64, 74, 0.84);*/
-    background-color: rgba(174, 64, 74, 0.84);
+    /* background-color: rgba(174, 64, 74, 0.84);*/
+    background-color: #11999e;
     border: none;
     border-radius: 10px;
     color: white;
@@ -266,8 +278,9 @@ ul li {
     outline: none;
     padding: 0.3rem;
     border-radius: 20px 20px;
-    background-color: rgba(235, 149, 149, 0.308);
+    /*background-color: rgba(235, 149, 149, 0.308);*/
     /*background-color: rgba(226, 98, 98, 0.548);*/
-    border: solid 2px rgb(235, 149, 149);
+    background-color: #11999e;
+    /*border: solid 2px rgb(235, 149, 149);*/
     height: 20px;
 }

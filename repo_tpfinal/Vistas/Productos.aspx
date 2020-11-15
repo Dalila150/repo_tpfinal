@@ -43,7 +43,7 @@
         <div class="content" >
    
     <!-------------------------------------------------------------------------->
-    <div style="margin-left:15px;margin-top:25px;width:230px;float:left;Background-color: rgba(233, 142, 142, 0.466);border-radius:10px">
+    <div style="margin-left:15px;margin-top:25px;width:230px;float:left;Background-color: #99DBCF;border-radius:10px">
       <ul style="padding-top:10px;text-align:left;padding-left:15px">
           <asp:HiddenField ID="hidden" runat="server" />
           <asp:HiddenField ID="HiddenPrecioMin" runat="server" />
