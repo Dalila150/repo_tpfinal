@@ -31,7 +31,7 @@ namespace Dao
         public DataTable getTablaMarcas()
         {
             // List<Marcas> lista = new List<Marcas>();
-            DataTable tabla = ds.ObtenerTabla("Marcas", "Select * from marca");
+            DataTable tabla = ds.ObtenerTabla("marca", "Select * from marca");
             return tabla;
         }
 

@@ -13,6 +13,7 @@ namespace Vistas
     public partial class AdminListMarcas : System.Web.UI.Page
     {
         NegocioMarca neg = new NegocioMarca();
+        int id;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack == false)
@@ -41,7 +42,8 @@ namespace Vistas
         protected void grdMarcas_RowEditing(object sender, GridViewEditEventArgs e)
         {
             grdMarcas.EditIndex = e.NewEditIndex;
-            grdMarcas.DataSource = neg.cargar_gridview_neg();
+            grdMarcas.DataSource = neg.BuscarMarcas(txtBuscar.Text);
+            //grdMarcas.DataSource = neg.cargar_gridview_neg();
             grdMarcas.DataBind();
         }
 
