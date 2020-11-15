@@ -43,7 +43,7 @@
             <a href="/Home.aspx" class="fas fa-sign-out-alt"></a></div>
         <div class="auto-style2" >
            <ul class="nav">
-            <li><a href="#">Home</a></li>
+            <li><a href="/HomeAdmin.aspx">Home</a></li>
             <li><a href="#">Administrar</a>
                 <ul>
                     <li><a href="#">Productos</a>

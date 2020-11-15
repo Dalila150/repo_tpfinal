@@ -120,7 +120,7 @@ namespace Vistas
             {
 
                 Session["id_producto_modif"] = null;
-                Response.Redirect("AdminListPro.aspx?EdPro=false");/// ? para manejar por url si salio bien la solicitud
+                Response.Redirect("AdminListPro.aspx?EdPro=error");/// ? para manejar por url si salio bien la solicitud
 
             }
         }

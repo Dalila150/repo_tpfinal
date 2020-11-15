@@ -97,7 +97,7 @@ namespace Vistas
             }
             else { 
                 
-                Response.Redirect("AdminListPro.aspx?NewPro=false"); 
+                Response.Redirect("AdminListPro.aspx?NewPro=error"); 
             
             }
             
