@@ -68,7 +68,7 @@
               Marca
               <ul>
                 <li>
-                    <asp:DropDownList class="txtASP" ID="ddMarcas" runat="server" style="height: 39px;width: 115px;border-radius: 10px;" onchange="cambio()" OnSelectedIndexChanged="ddMarcas_SelectedIndexChanged" AppendDataBoundItems="true" ViewStateMode="Enabled" AutoPostBack="True" >
+                    <asp:DropDownList class="txtASP" ID="ddMarcas" runat="server" style="height: 39px;width: 115px;border-radius: 10px;color:white;" onchange="cambio()" OnSelectedIndexChanged="ddMarcas_SelectedIndexChanged" AppendDataBoundItems="true" ViewStateMode="Enabled" AutoPostBack="True" >
                     </asp:DropDownList>
                   </li>
               </ul>
@@ -77,9 +77,9 @@
               Precio
               <ul>
                   <%--<label>maximo</label>--%>
-                <li>$<input class="btnASP" id="txtMaximo" style="width:70%;height: 30px" type="number" min="0" placeholder="Max" runat="server" onchange="cambioDePrecio()"/></li>
+                <li>$ <input class="btnASP" id="txtMaximo" style="width:70%;height: 30px" type="number" min="0" placeholder="Max" runat="server" onchange="cambioDePrecio()"/></li>
                     <%--<label>minimo</label>--%>
-                <li style="margin-top:5px">$<input class="btnASP" id="txtMinimo" style="width:70%;height: 30px" type="number" min="0" placeholder="Min" runat="server" onchange="cambioDePrecio()"/></li>
+                <li style="margin-top:5px">$ <input class="btnASP" id="txtMinimo" style="width:70%;height: 30px" type="number" min="0" placeholder="Min" runat="server" onchange="cambioDePrecio()"/></li>
               </ul>
                 <asp:Button class="btnASP" ID="btnAplicarPrecio"  runat="server" Text="Aplicar" style="margin-top:5px;height: 30px;width: 85%;"  OnClick="btnAplicarPrecio_Click" />
             </li>

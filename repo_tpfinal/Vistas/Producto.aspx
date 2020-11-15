@@ -59,13 +59,13 @@
 
          </div>
         <div>
-          <h3>Cantidad: <asp:DropDownList class="cantidad" style="border-radius:5px;font-size:15px" ID="ddlCantidadSeleccion" runat="server" onchange="cambio()">
+          <h3>Cantidad: <asp:DropDownList class="txtASP" style="height: 39px;border-radius: 10px;color:white;" ID="ddlCantidadSeleccion" runat="server" onchange="cambio()">
           </asp:DropDownList></h3>
         </div>
         <div class="disponibles">
         </div>
         <div>
-          <asp:button runat="server" ID="bntAgregarProdCarrito" style="width: 90%;border-radius: 8px 8px;padding: 0.5rem;font-size: 18px; border-radius: 20px 20px;color: #ffffff; border: solid 1px rgba(226, 98, 98, 0.116);background-color: rgba(184, 39, 51, 0.753);" text="Agregar al carrito" OnClick="bntAgregarProdCarrito_Click"/>
+          <asp:button runat="server" ID="bntAgregarProdCarrito" style="width: 90%" class="btnASP" text="Agregar al carrito" OnClick="bntAgregarProdCarrito_Click"/>
         </div>
         <div class="vacio">&nbsp</div>
       </div>

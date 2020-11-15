@@ -42,7 +42,7 @@
         <div class="content" >
             <!------------------------------------------------------------------!>
     <!--Bloque de registro-->
-    <div class="posicionamiento" style="margin-bottom:25px;min-width: 680px;">
+    <div class="posicionamiento" style="margin-bottom:25px;min-width: 680px;background-color:#b4dee0c2">
       <div>
         <h1 class="titulo">Registrarse</h1>
         <hr />
@@ -57,35 +57,35 @@
             <div>
               <div class="lblCampo" style="margin-top:7px">Nombre:</div>
               <div class="txtDatos" style="margin-bottom:10px">
-                <asp:TextBox ID="txtNombre" type="text" class="txtASP" style="" runat="server" required="true"></asp:TextBox>
+                <asp:TextBox ID="txtNombre" type="text" class="txtASP" style="font-size:17px" runat="server" required="true"></asp:TextBox>
               </div>
             </div>
 
             <div class="datDivision">
               <div class="lblCampo" style="margin-top:7px">Apellido:</div>
               <div class="txtDatos" style="margin-bottom:10px">
-                <asp:TextBox class="txtASP" ID="txtApellido" type="text" runat="server" required="true" OnTextChanged="txtApellido_TextChanged"></asp:TextBox>
+                <asp:TextBox class="txtASP" ID="txtApellido" type="text" style="font-size:17px" runat="server" required="true" OnTextChanged="txtApellido_TextChanged"></asp:TextBox>
               </div>
                 </div>
 
             <div class="datDivision">
               <div class="lblCampo" style="margin-top:7px">Direccion:</div>
               <div class="txtDatos" style="margin-bottom:10px">
-                <asp:TextBox class="txtASP" ID="txtDireccion" type="text" runat="server" required="true" OnTextChanged="txtApellido_TextChanged"></asp:TextBox>
+                <asp:TextBox class="txtASP" ID="txtDireccion" type="text" style="font-size:17px" runat="server" required="true" OnTextChanged="txtApellido_TextChanged"></asp:TextBox>
               </div>
                 </div>
 
             <div class="datDivision">
               <div class="lblCampo" style="margin-top:7px">DNI:</div>
               <div class="txtDatos" style="margin-bottom:10px">
-                <asp:TextBox class="txtASP" ID="txtDni" type="text" runat="server" required="true" OnTextChanged="txtApellido_TextChanged"></asp:TextBox>
+                <asp:TextBox class="txtASP" ID="txtDni" type="text" style="font-size:17px" runat="server" required="true" OnTextChanged="txtApellido_TextChanged"></asp:TextBox>
               </div>
                 </div>
 
             <div class="datDivision">
               <div class="lblCampo" style="margin-top:7px">Telefono:</div>
               <div class="txtDatos" style="margin-bottom:10px">
-                <asp:TextBox class="txtASP" ID="txtTelefono" type="text" runat="server" required="true" OnTextChanged="txtApellido_TextChanged"></asp:TextBox>
+                <asp:TextBox class="txtASP" ID="txtTelefono" type="text" style="font-size:17px" runat="server" required="true" OnTextChanged="txtApellido_TextChanged"></asp:TextBox>
               </div>
                 </div>
 
@@ -101,31 +101,31 @@
             <div>
               <div class="lblCampo" style="margin-top:7px">Usuario:</div>
               <div class="txtDatos"  style="margin-bottom:10px">
-                <asp:TextBox ID="txtNombreUsuario" type="text" class="txtASP" runat="server" required="true"></asp:TextBox>
+                <asp:TextBox ID="txtNombreUsuario" type="text" class="txtASP" style="font-size:17px" runat="server" required="true"></asp:TextBox>
               </div>
             </div>
             <div class="datDivision">
               <div class="lblCampo" style="margin-top:7px"> E-mail:</div>
               <div class="txtDatos" style="margin-bottom:10px">
-                <asp:TextBox ID="txtEmail" class="txtASP" runat="server" required="true"></asp:TextBox>
+                <asp:TextBox ID="txtEmail" class="txtASP" runat="server" style="font-size:17px" required="true"></asp:TextBox>
               </div>
             </div>
             <div class="datDivision">
               <div class="lblCampo" style="margin-top:7px">&nbsp;Contraseña:</div>
               <div class="txtDatos" style="margin-bottom:10px">
-                <asp:TextBox ID="txtClave" type="password" class="txtASP" runat="server" required="true"></asp:TextBox>
+                <asp:TextBox ID="txtClave" type="password" class="txtASP" style="font-size:17px" runat="server" required="true"></asp:TextBox>
               </div>
                 </div>
             <div class="datDivision">
               <div class="lblCampo" style="margin-top:7px">&nbsp;Confirme contraseña:</div>
               <div class="txtDatos" style="margin-top:5px">
-                <asp:TextBox ID="txtValidarClave" type="password" class="txtASP" runat="server" required="true"></asp:TextBox>
+                <asp:TextBox ID="txtValidarClave" type="password" class="txtASP" style="font-size:17px" runat="server" required="true"></asp:TextBox>
               </div>
             </div>
           </div>
         </div>
           <div class="botonRegistro" style="margin-top:15px">
-                <asp:button runat="server" ID="bntCrearCuenta" style="width: 50%;border-radius: 8px 8px;padding: 0.5rem;font-size: 18px; border-radius: 20px 20px;color: #ffffff; border: solid 1px rgba(226, 98, 98, 0.116);background-color: rgba(184, 39, 51, 0.753);" text="Crear Cuenta" OnClick="bntCrearCuenta_Click"/>
+                <asp:button runat="server" ID="bntCrearCuenta" style="width: 30%;border-radius: 8px 8px;padding: 0.5rem;font-size: 18px;border-radius: 20px 20px;border: solid 2px;color: white;background-color: #16765696;border-color: #167656;" text="Crear Cuenta" OnClick="bntCrearCuenta_Click"/>
               </div>
      
     </div>

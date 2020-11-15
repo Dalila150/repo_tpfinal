@@ -46,7 +46,7 @@ namespace Vistas
                 IconosInnerHTML += "<a href=" + A + "/Datos.aspx" + A + " class=" + A + "fas fa-user user" + A + " style=" + A + "text-decoration: none;" + A + "><div id = 'UsuarioLogueadoNombre' runat='server' style='font-size:20px;'>" + Usu.getNombreUsuario() + "</div><div id = 'UsuarioLogueadoApellido' runat='server' style='font-size:20px;'>" + Usu.getApellidoUsuario() + "</div></a>";
                 infoUser.InnerHtml = IconosInnerHTML;
                 IconosInnerHTML = "";
-                IconosInnerHTML += "<a href=" + A + "/Home.aspx?Sign-out=true" + A + " class=" + A + "fas fa-sign-out-alt" + A + " style=" + A + "font-size: 1.6rem;text-decoration: none;color: rgba(82, 28, 28, 0.959);" + A + " aria-hidden=" + A + "true" + A + "></a>";
+                IconosInnerHTML += "<a href=" + A + "/Home.aspx?Sign-out=true" + A + " class=" + A + "fas fa-sign-out-alt" + A + " style=" + A + "font-size: 1.6rem;text-decoration: none;color: #40514e;" + A + " aria-hidden=" + A + "true" + A + "></a>";
                 IconoSalir.InnerHtml = IconosInnerHTML;
             } else
             {
@@ -87,7 +87,7 @@ namespace Vistas
                 A += " style='background: url(" + row[3].ToString() + ") no-repeat center;background-size: cover;'";
                 A += '>';
                 InnerHTML += A;
-                InnerHTML += "<label class='lbl'>" + row[1].ToString() + "</label>";
+                InnerHTML += "<label class='lbl' style=" + '"' + "font-size:1.8rem" + '"' + ">" + row[1].ToString() + "</label>";
                 InnerHTML += "</a>";
             }
 

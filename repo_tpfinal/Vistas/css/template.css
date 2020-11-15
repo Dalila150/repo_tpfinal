@@ -117,10 +117,6 @@ input.bus {
         box-shadow: 0 0 5px;
     }
 
-::placeholder {
-    color: rgb(0, 0, 0);
-}
-
 .nav {
     padding: 22px 0 0 0;
 }
@@ -196,7 +192,8 @@ input.bus {
     list-style: none;
     justify-content: left;
     width: 25%;
-    color: rgba(82, 28, 28, 0.959);
+    /*color: rgba(82, 28, 28, 0.959);*/
+    color: #40514e;
     padding-bottom: 8px;
 }
 
@@ -283,4 +280,39 @@ ul li {
     background-color: #11999e;
     /*border: solid 2px rgb(235, 149, 149);*/
     height: 20px;
+    border: none;
+}
+
+/*PARA LAS FLECHITAS DEL INPUT NUMBER*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+/*input[type=number] {
+    -moz-appearance: textfield;
+}*/
+
+/*PLACEHOLDER COLOR*/
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: white;
+}
+
+input[type="submit" i]:disabled {
+    width: 90%;
+    border-radius: 8px;
+    border: none;
+    height: 40px;
+    background-color: rgba(17, 153, 158, 0.5);
 }

@@ -57,19 +57,19 @@
               <label>Usuario</label>
             </div>
             <div class="txtDatosUsu">
-                <asp:TextBox ID="txtUsuario" Class="txt" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtUsuario" Class="txtASP" runat="server" style="width: 70%;background-color:rgba(62, 164, 148, 0.51);font-size:21px"></asp:TextBox>
             </div>
 
             <div class="contrac">
               <div class="lblCampo">Contraseña:</div>
               <div class="txtDatosCon">
-                  <asp:TextBox ID="txtContraseña" type="password" Class="txt" runat="server"></asp:TextBox>
+                  <asp:TextBox ID="txtContraseña" type="password" Class="txtASP" style="width: 70%;background-color:rgba(62, 164, 148, 0.51);font-size:21px" runat="server"></asp:TextBox>
                   <br />
               </div>
             </div>
             <div class="datDivision">
               <div class="botonInicio">
-                  <asp:Button ID="btnIniciarSesion" runat="server" class="inicio" OnClick="btnIniciarSesion_Click" Text="Iniciar Sesion" BorderColor="#CC0000" />
+                  <asp:Button ID="btnIniciarSesion" runat="server" class="inicio" OnClick="btnIniciarSesion_Click" Text="Iniciar Sesion" />
                   <br />
                   <asp:Label ID="lblMensaje" style="font-size:13px" runat="server"></asp:Label>
               </div>
