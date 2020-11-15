@@ -13,14 +13,14 @@ namespace Dao
     {
         AccesoaDatos ds = new AccesoaDatos();
 
-        public Marcas getMarcas(Marcas marc)
+        /*public Marcas getMarcas(Marcas marc)
         {
             DataTable tabla = ds.ObtenerTabla("Marcas", "Select * from marca where ID_marca=" + marc.getID_Marcas());
             marc.setID_Marcas(Convert.ToInt32(tabla.Rows[0][0].ToString()));
             marc.setNombre(tabla.Rows[0][1].ToString());
             marc.setEstado(tabla.Rows[0][2].ToString());
             return marc;
-        }
+        }*/
 
         public Boolean existeMarcas(Marcas marc)
         {
@@ -42,20 +42,24 @@ namespace Dao
             //SE INGRESA EL NOMBRE DEL PROCEDIMIENTO ALMACENADO
             return ds.EjecutarProcedimientoAlmacenado(comando, "sp_EliminarMarca");
         }
-
+        public int ActualizarMarcas(Marcas marc)
+        {
+            SqlCommand comando = new SqlCommand();
+            ArmarParametrosMarcasActualizar(ref comando, marc);
+            //SE INGRESA EL NOMBRE DEL PROCEDIMIENTO ALMACENADO
+            return ds.EjecutarProcedimientoAlmacenado(comando, "sp_ActualizarMarca");
+        }
 
         public int agregarMarcas(Marcas marc)
         {
             // -------------------IMPORTANTE------------------
             //FORMA DE QUE SEA AUTONUMERICO EL ID_MARCA
             //marc.setID_Marcas(ds.ObtenerMaximo("SELECT max(ID_marca) FROM marca") + 1);
-
-            string estado = "True";
-            marc.setEstado(estado);
+            marc.setEstado(true);
             SqlCommand comando = new SqlCommand();
             ArmarParametrosMarcasAgregar(ref comando, marc);
             //SE INGRESA EL NOMBRE DEL PROCEDIMIENTO ALMACENADO
-            return ds.EjecutarProcedimientoAlmacenado(comando, "sp_Create_Marca");
+            return ds.EjecutarProcedimientoAlmacenado(comando, "sp_Crear_Marca");
         }
 
         private void ArmarParametrosMarcasEliminar(ref SqlCommand Comando, Marcas marc)
@@ -64,7 +68,16 @@ namespace Dao
             SqlParametros = Comando.Parameters.Add("@Nombre_v", SqlDbType.VarChar);
             SqlParametros.Value = marc.getNombre();
         }
-
+        private void ArmarParametrosMarcasActualizar(ref SqlCommand Comando, Marcas marc)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+            SqlParametros = Comando.Parameters.Add("@ID_marca_v", SqlDbType.Int);
+            SqlParametros.Value = marc.getID_Marcas();
+            SqlParametros = Comando.Parameters.Add("@Nombre_v", SqlDbType.VarChar);
+            SqlParametros.Value = marc.getNombre();
+            SqlParametros = Comando.Parameters.Add("@Estado_v", SqlDbType.Bit);
+            SqlParametros.Value = marc.getEstado();
+        }
         private void ArmarParametrosMarcasAgregar(ref SqlCommand Comando, Marcas marc)
         {
             SqlParameter SqlParametros = new SqlParameter();
@@ -77,6 +90,10 @@ namespace Dao
             //INGRESE EL PARAMETRO NOMBRE DE LA MARCA
             SqlParametros = Comando.Parameters.Add("@Estado_v", SqlDbType.VarChar);
             SqlParametros.Value = marc.getEstado();
+        }
+        public DataTable BusquedaDeMarcas(String texto)
+        {
+            return ds.ObtenerTabla("marca", "Select ID_marca, marca.Nombre, Estado from marca WHERE marca.Nombre LIKE '%" + texto + "%'");
         }
 
     }

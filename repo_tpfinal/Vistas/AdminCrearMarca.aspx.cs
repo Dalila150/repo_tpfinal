@@ -22,16 +22,28 @@ namespace Vistas
 
         protected void btn_Crear_Marca_Click(object sender, EventArgs e)
         {
-            Boolean estado = false;
-            estado = neg.agregarMarcas_neg(txt_Nombre_Marca.Text);
-            if (estado == true)
+            if (txt_Nombre_Marca.Text.Length != 0)
             {
-                lbl_Mensaje.Text = "Marcas agregada con exito";
+                Boolean estado = false;
+                estado = neg.agregarMarcas_neg(txt_Nombre_Marca.Text);
+                if (estado == true)
+                {
+                    lbl_Mensaje.Text = "Marcas agregada con exito";
+                }
+                else
+                {
+                    lbl_Mensaje.Text = "No se pudo agregar la marca";
+                }
             }
             else
             {
-                lbl_Mensaje.Text = "No se pudo agregar la marca";
+                lbl_Mensaje.Text = "Ingrese un Nombre por favor";
             }
+        }
+
+        protected void btn_Cancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminListMarcas.aspx");
         }
     }
 }
