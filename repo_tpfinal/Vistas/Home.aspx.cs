@@ -12,6 +12,7 @@ namespace Vistas
 {
     public partial class Home : System.Web.UI.Page
     {
+        NegocioUsuario Neg = new NegocioUsuario();
         protected void Page_Load(object sender, EventArgs e)
         {
             // CATEGORIAS DEL NAVBAR
@@ -24,6 +25,21 @@ namespace Vistas
             CategoriasUl += '"';
             CategoriasUl += "> Categorias </a>";
             CategoriasUl += "<ul>";
+
+            //-----------------------------------------------
+            Usuarios Usu = new Usuarios();
+            if (Request.Cookies["NombreUsuario"] != null)
+            {
+                HttpCookie ck = Request.Cookies["NombreUsuario"];
+
+                Usu = Neg.DevolverUsuarioCompleto(Request.Cookies["NombreUsuario"].Value);
+
+
+                lblNombre.Text = Usu.getNombreUsuario();
+                lblApellido.Text = Usu.getApellidoUsuario();
+
+            }
+            //-----------------------------------------------
 
             foreach (DataRow row in cat.Rows)
             {

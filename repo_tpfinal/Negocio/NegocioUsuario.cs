@@ -160,6 +160,25 @@ namespace Negocio
             return du.CantidadUsuarioAdmin();
         }
 
+        //-------------------------------------------------------------------------
+        public Usuarios DevolverUsuarioCompleto(string NombreUsuario)
+        {
+            DaoUsuario dao = new DaoUsuario();
+            Usuarios Usu = new Usuarios();
+            DataTable Con = dao.getTablaUsuarioCompleto(NombreUsuario);
 
+            Usu.setNombreUsuario(Con.Rows[0]["Nombre"].ToString());
+            Usu.setApellidoUsuario(Con.Rows[0]["Apellido"].ToString());
+            Usu.setEmailUsuario(Con.Rows[0]["Email"].ToString());
+            Usu.setDireccionUsuario(Con.Rows[0]["Direccion"].ToString());
+            Usu.setNombre_UsuarioUsuario(Con.Rows[0]["Nombre_Usuario"].ToString());
+            Usu.setPasswordUsuario(Con.Rows[0]["Password"].ToString());
+            Usu.setTelefonoUsuario(Con.Rows[0]["Telefono"].ToString());
+            Usu.setDNIUsuario(Con.Rows[0]["DNI"].ToString());
+
+            return Usu;
+        }
+
+        //-------------------------------------------------------------------------
     }
 }

@@ -43,6 +43,8 @@
             <div class="slider">
               <ul>
                 <li id="slide1">
+                    <asp:Label ID="lblNombre" runat="server"></asp:Label>
+&nbsp;<asp:Label ID="lblApellido" runat="server"></asp:Label>
                   <img src="/Slider/1.png" />
                 </li>
                 <li id="slide2">
