@@ -36,12 +36,12 @@ namespace Negocio
             cat.Nombre1 = nombre;
 
             DaoCategoria dao = new DaoCategoria();
-            if (dao.existeCategoría(cat) == false)
+            if (dao.existeCategoría(cat) == false) //si la categ no existe, LA AGREGA
             {
                 cantFilas = dao.agregarCategoria(cat);
             }
 
-            if (cantFilas == 1)
+            if (cantFilas == 1) //si se guardo correctamente va true
                 return true;
             else
                 return false;
@@ -98,6 +98,12 @@ namespace Negocio
         {
             DaoCategoria dm = new DaoCategoria();
             return dm.ObtenerCategorias();
+        }
+
+        public DataTable BuscarCategoria(String texto) //para poder buscar por nombre
+        {
+            DaoCategoria dc = new DaoCategoria();
+            return dc.BusquedaDeCategoria(texto);
         }
 
         //////////////////////

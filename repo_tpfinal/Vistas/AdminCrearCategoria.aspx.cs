@@ -19,17 +19,28 @@ namespace Vistas
 
         protected void BtnCrearCate_Click(object sender, EventArgs e)
         {
-            bool existe = false;
-            existe = negcat.agregarCategoria(txtCategoria.Text);
 
-            if (existe == true)
+
+            if (txtCategoria.Text.Trim()!="")
             {
-                lblMensaje.Text = "Categoria agregada con exito";
+                bool existe = false;
+                existe = negcat.agregarCategoria(txtCategoria.Text);
+
+                if (existe == true) //existe = si se guardo o no
+                {
+                    lblMensaje.Text = "Categoria agregada con exito la categoria: "+ txtCategoria.Text ;
+                    txtCategoria.Text = "";
+                }
+                else
+                {
+                    lblMensaje.Text = "No se pudo agregar la categoria. (Esta ya existe).";
+                }
             }
             else
             {
-                lblMensaje.Text = "No se pudo agregar la categoria";
+                lblMensaje.Text = "Usted no ha ingresado ninguna categoria aun.";
             }
+            
 
         }
 

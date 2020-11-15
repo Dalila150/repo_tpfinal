@@ -24,6 +24,11 @@ namespace Dao
             return ds.ObtenerTabla("categorias", "SELECT categoria.id_categoria, categoria.Nombre, categoria.Estado, categoria.Imagen FROM categoria");
         }
 
+        public DataTable BusquedaDeCategoria(String texto)
+        {
+            return ds.ObtenerTabla("categoria", "Select id_categoria, categoria.Nombre, categoria.Estado from categoria WHERE categoria.Nombre LIKE '%" + texto + "%'");
+        }
+
         public Boolean existeCategoría(Categorias cat)
         {
             String consulta = "Select * from categoria where Nombre='" + cat.Nombre1 + "'";

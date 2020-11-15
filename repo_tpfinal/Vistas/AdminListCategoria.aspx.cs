@@ -37,16 +37,16 @@ namespace Vistas
         {
             NegocioCategoria gCategorias = new NegocioCategoria();
 
-            //if (txtBuscar.Text != "")
-            //{
-            //    grdCategorias.DataSource = gProductos.BuscarProductos(txtBuscar.Text);
-            //    grdCategorias.DataBind();
-            //}
-            //else
-            //{
-            //    grdCategorias.DataSource = gProductos.TodosLosProductos();
-            //    grdCategorias.DataBind();
-            //}
+            if (txtBuscar.Text != "")
+            {
+                grdCategorias.DataSource = gCategorias.BuscarCategoria(txtBuscar.Text);
+                grdCategorias.DataBind();
+            }
+            else
+            {
+                grdCategorias.DataSource = gCategorias.TodasLasCategorias();
+                grdCategorias.DataBind();
+            }
         }
 
         protected void btnCrearCategoria_Click(object sender, EventArgs e)
@@ -72,7 +72,8 @@ namespace Vistas
             //busca los editItemTemplate
             string s_id_categoria = ((Label)grdCategorias.Rows[e.RowIndex].FindControl("lbl_eit_idCat")).Text;
             string s_nombre_categoria = ((TextBox)grdCategorias.Rows[e.RowIndex].FindControl("txt_eit_nombreCat")).Text;
-            string s_estado_categoria = ((TextBox)grdCategorias.Rows[e.RowIndex].FindControl("txt_eit_estadoCat")).Text;
+            //string s_estado_categoria = ((TextBox)grdCategorias.Rows[e.RowIndex].FindControl("txt_eit_estadoCat")).Text;
+            string s_estado_categoria = ((DropDownList)grdCategorias.Rows[e.RowIndex].FindControl("ddl_eit_estadoCat")).SelectedValue;
 
             Categorias cat = new Categorias();
             cat.Id_categoria = Convert.ToInt32(s_id_categoria);
