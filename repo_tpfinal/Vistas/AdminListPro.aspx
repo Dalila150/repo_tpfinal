@@ -129,7 +129,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField ShowHeader="False">
                         <ItemTemplate>
-                            <asp:LinkButton ID="DeleteButton" runat="server" CommandName="Delete" OnClientClick="return confirm('¿Esta seguro de deshabilitar este producto?','Eliminar Producto');" style="color: white" AlternateText="Eliminar" Text="Eliminar" />               
+                            <asp:LinkButton ID="DeleteButton" runat="server" CommandName="Delete" OnClientClick="return confirm('¿Esta seguro de deshabilitar este producto?','Eliminar Producto');" style="color: white" AlternateText="Eliminar" Text="Desactivar" />               
                         </ItemTemplate>
                     </asp:TemplateField>  
                 </Columns>

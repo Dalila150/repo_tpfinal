@@ -107,7 +107,7 @@ namespace Vistas
             prod_a_guardar.Imagen1 = txtDireccionImagen.Text;
             prod_a_guardar.Descripcion1 = txtDescripcion.Text;
 
-            //System.Diagnostics.Debug.WriteLine("");
+            System.Diagnostics.Debug.WriteLine(preciou_prod_guardar);
             //true o false -- actualizo producto
             if (gProducto.ActualizarProducto(prod_a_guardar))
             {

@@ -46,16 +46,12 @@
                             <li><a href="#">Marcas</a>
                                 <ul>
                                     <li><a href="#">Listar</a></li>
-                                    <li><a href="#">Editar</a></li>
-                                    <li><a href="/AdminEliminarMarca.aspx">Eliminar</a></li>
                                     <li><a href="/AdminCrearMarca.aspx">Crear</a></li>
                                 </ul>
                             </li>
                             <li><a href="#">Categorias</a>
                                 <ul>
                                     <li><a href="#">Listar</a></li>
-                                    <li><a href="#">Editar</a></li>
-                                    <li><a href="/AdminEliminarCategoria.aspx">Eliminar</a></li>
                                     <li><a href="/AdminCrearCategoria.aspx">Crear</a></li>
                                 </ul>
                             </li>
@@ -76,7 +72,7 @@
                 <!------------------------------------------------------------>
                 <div style="display: inline-block; width: 60%;">
                     <div style="background-color: rgba(197, 93, 102, 0.404); border-radius: 8px; text-align: center; margin-top: 25px; margin-bottom: 25px">
-                        <h1 style="padding-top: 20px;">Edicion de producto</h1>
+                        <h1 style="padding-top: 20px;">Crear producto</h1>
                         <hr style="width: 90%" />
                         <ul style="font-size: 18px; text-align: left; display: inline-block; width: 15%; margin-left: 2%">
                             <li style="height: 35px; width: 25%; margin-bottom: 14px">Modelo</li>
@@ -100,10 +96,10 @@
                                     <asp:DropDownList class="txtASP" ID="ddCategoria" runat="server" Style="width: 100%; font-size: 18px; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:DropDownList>
                                 </li>
                                 <li style="height: 35px; width: 80%; margin-bottom: 15px">
-                                    <asp:TextBox class="txtASP" ID="txtStock" runat="server" Style="width: 100%; font-size: 18px; height: 60%; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:TextBox>
+                                    <asp:TextBox class="txtASP" ID="txtStock" runat="server" TextMode="Number" min="1" Style="width: 100%; font-size: 18px; height: 60%; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:TextBox>
                                 </li>
                                 <li style="height: 35px; width: 80%; margin-bottom: 15px">
-                                    <asp:TextBox class="txtASP" ID="txtPrecio" runat="server" Style="width: 100%; font-size: 18px; height: 60%; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;"  required="true"></asp:TextBox>
+                                    <asp:TextBox class="txtASP" ID="txtPrecio" runat="server" ValidationExpression="([0-9])[0-9]*[.]?[0-9]*" min="1" Style="width: 100%; font-size: 18px; height: 60%; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;"  required="true"></asp:TextBox>
                                 </li>
                                 <li style="height: 180px; width: 80%; margin-bottom: 15px">
                                     <asp:TextBox class="txtASP" ID="txtDescripcion" TextMode="MultiLine" runat="server" Style="width: 100%; font-size: 15px; height: 90%; resize: none; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:TextBox>
@@ -119,7 +115,7 @@
                         </div>
                         <div style="padding-bottom: 25px; text-align: center; height: 35px;">
                             <asp:Button class="btnASP" id="btnGuardar" runat="server" Text="Crear Producto" onclientclick="return confirm('¿Esta seguro que desea continuar?');" OnClick="btnGuardar_Click" Style="width: 30%; min-width: 158px" />
-                            <asp:Button class="btnASP" id="btnCancelar" runat="server" Text="Cancelar" onclientclick="return confirm('¿Esta seguro que desea cancelar?');" OnClick="btnCancelar_click" style="width: 25%" />
+                            <button class="btnASP" id="btnCancelar" type="button" runat="server" onclick="btnCancelar_click()" style="width: 25%">Cancelar</button>
                         </div>
                     </div>
                 </div>
@@ -148,7 +144,9 @@
     
 <script type="text/javascript">
     function btnCancelar_click() {
-        window.location.href = '/AdminListPro.aspx';
+        if (confirm('¿Desea Cancelar la creacion del producto?')) {
+            window.location.href = '/AdminListPro.aspx';
+        }
     }
 </script>
 </html>

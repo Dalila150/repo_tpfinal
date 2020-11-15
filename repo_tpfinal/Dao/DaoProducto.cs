@@ -160,7 +160,7 @@ namespace Dao
             sqlparametros.Value = productos.Stock1;
             sqlparametros = Comando.Parameters.Add("@MARCA", SqlDbType.Int);
             sqlparametros.Value = productos.ID_marca1;
-            sqlparametros = Comando.Parameters.Add("@PRECIO", SqlDbType.Decimal, 18);
+            sqlparametros = Comando.Parameters.Add("@PRECIO", SqlDbType.Float);
             sqlparametros.Value = productos.Precio_unitario1;
             sqlparametros = Comando.Parameters.Add("@CATEGORIA", SqlDbType.Int);
             sqlparametros.Value = productos.ID_categoria1;
