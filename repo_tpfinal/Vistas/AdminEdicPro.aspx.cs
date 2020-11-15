@@ -56,6 +56,7 @@ namespace Vistas
                     //dentro del campo agrego el valor de la columna correspondiente
                     txtModelo.Text = dt_Pro.Rows[0][6].ToString();//linea 1 columna x
                     txtPrecio.Text = dt_Pro.Rows[0][3].ToString();
+                    txtDireccionImagen.Text = dt_Pro.Rows[0][7].ToString();
                     txtDescripcion.Text = dt_Pro.Rows[0][8].ToString();
                     txtStock.Text = dt_Pro.Rows[0][1].ToString();
                     ddEstado.SelectedValue = dt_Pro.Rows[0][5].ToString();
@@ -103,7 +104,7 @@ namespace Vistas
             prod_a_guardar.ID_categoria1 = categoria_prod_guardar;
             prod_a_guardar.Estado1 = estado_prod_guardar;
             prod_a_guardar.Nombre1 = txtModelo.Text;
-            prod_a_guardar.Imagen1 = "";
+            prod_a_guardar.Imagen1 = txtDireccionImagen.Text;
             prod_a_guardar.Descripcion1 = txtDescripcion.Text;
 
             //System.Diagnostics.Debug.WriteLine("");
