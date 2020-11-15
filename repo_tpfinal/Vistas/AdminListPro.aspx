@@ -32,7 +32,7 @@
             <a href="/Home.aspx" class="fas fa-sign-out-alt"></a></div>
         <div class="navbar" >
            <ul class="nav">
-            <li><a href="#">Home</a></li>
+            <li><a href="/HomeAdmin.aspx">Home</a></li>
             <li><a href="#">Administrar</a>
                 <ul>
                     <li><a href="#">Productos</a>
@@ -89,6 +89,9 @@
             </div>
             <br />
             <div style="font-size: 20px;margin-left: 5%;width: 100%;text-align: center;" class="auto-style1">
+            <div id="AcaVaLaAlerta" runat="server" style="width:90%;border-radius:8px;">
+            </div>
+            <br />
             <asp:GridView ID="grdProductos" CssClass="GridViewStyled" runat="server" CellPadding="4" AutoGenerateColumns="False" OnSelectedIndexChanging="grdProductos_SelectedIndexChanging" AllowPaging="True" OnRowDeleting="grdProductos_RowDeleting" ForeColor="#333333" GridLines="None" OnPageIndexChanging="grdProductos_PageIndexChanging" PageSize="5" OnRowDataBound="grdProductos_RowDataBound" OnRowUpdating="grdProductos_RowUpdating" >
                 <AlternatingRowStyle BackColor="#BCC8C3" ForeColor="" />
                 <Columns>

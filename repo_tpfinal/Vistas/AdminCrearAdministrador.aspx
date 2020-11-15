@@ -25,7 +25,7 @@
             </div>
             <div class="navbar">
                 <ul class="nav">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="/HomeAdmin.aspx">Home</a></li>
                     <li><a href="#">Administrar</a>
                         <ul>
                             <li><a href="#">Productos</a>
@@ -69,7 +69,7 @@
                         </ul>
                     </li>
 
-                </ul>--%>
+                </ul>
            </div>
             <div class="content">
                 <!------------------------------------------------------------>
@@ -92,7 +92,7 @@
                         <div style="display: inline-block;">
                             <ul style="font-size: 18px; text-align: left; display: inline-block; width: 95%; margin-right: 1%">
                                 <li style="height: 35px; width: 80%; margin-bottom: 15px">
-                                    <asp:DropDownList ID="ddlRol" runat="server">
+                                    <asp:DropDownList class="txtASP" Height="35px" ID="ddlRol" runat="server">
                                     </asp:DropDownList>
                                 </li>
                                 <li style="height: 35px; width: 80%; margin-bottom: 15px">
@@ -126,7 +126,7 @@
                         <asp:Label ID="lblUsuarioExiste" runat="server" Text="Label"></asp:Label>
                     </div>
                 </div>
-            </div>
+            
        </div>
         <div class="footer">
             <!-- Iconos de redes sociales -->
@@ -145,7 +145,7 @@
                     <a href="https://github.com/"><i class="fab fa-github tamIcoRed"><b style="padding-left: 10px; padding-top: 0px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">GitHub</b></i></a>
                 </li>
             </ul>
-
+            </div>
         </div>
     </form>
 </body>

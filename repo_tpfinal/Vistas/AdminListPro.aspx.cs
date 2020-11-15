@@ -14,10 +14,43 @@ namespace Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            String InnerHTML = "";
+
             if (IsPostBack == false)
             {
                 cargarGridView();
             }
+
+            string cadenaResultado = Request["EdPro"];
+
+            if(cadenaResultado == "true")
+            {
+                InnerHTML = CargarInnerHTML("ok");
+            } else if (cadenaResultado == "false")
+            {
+                InnerHTML = CargarInnerHTML("error");
+            }
+            else if (cadenaResultado == "none")
+            {
+                InnerHTML = CargarInnerHTML("none");
+            }
+
+            cadenaResultado = Request["NewPro"];
+
+            if (cadenaResultado == "true")
+            {
+                InnerHTML = CargarInnerHTML2("ok");
+            }
+            else if (cadenaResultado == "error")
+            {
+                InnerHTML = CargarInnerHTML2("error");
+            }
+            else if (cadenaResultado == "none")
+            {
+                InnerHTML = CargarInnerHTML2("none");
+            }
+
+            AcaVaLaAlerta.InnerHtml = InnerHTML;
 
         }
 
@@ -28,6 +61,65 @@ namespace Vistas
             grdProductos.DataBind();
         }
 
+        protected String CargarInnerHTML(String Tipo)
+        {
+            String InnerHTML = "";
+            String Color = "";
+            String Mensaje = "";
+
+            switch (Tipo)
+            {
+                case "ok":
+                    Mensaje = "Producto modificado correctamente.";
+                    Color = "color: #155724;background-color: #d4edda;border-color: #c3e6cb;border-radius:8px;list-style: unset;height:35px;font-size:25px";
+                    break;
+                case "error":
+                    Mensaje = "Se produjo un error al modificar el producto.";
+                    Color = "color: #721c24;background-color: #f8d7da;border-color: #f5c6cb;border-radius:8px;list-style: unset;height:35px;font-size:25px";
+                    break;
+                case "none":
+                    Mensaje = "Primero Seleccione un producto.";
+                    Color = "color: #856404;background-color: #fff3cd;border-color: #ffeeba;border-radius:8px;list-style: unset;height:35px;font-size:25px";
+                    break;
+            }
+
+            Char A = '"';
+            InnerHTML += "<ul style=" + A + Color + ";padding: 0.5rem;" + A + " >";
+            InnerHTML += "<li style=" + A + "display: list-item;" + A + " >" + Mensaje + "</li>";
+            InnerHTML += "</ul>";
+
+            return InnerHTML;
+        }
+
+        protected String CargarInnerHTML2(String Tipo)
+        {
+            String InnerHTML = "";
+            String Color = "";
+            String Mensaje = "";
+
+            switch (Tipo)
+            {
+                case "ok":
+                    Mensaje = "Producto creado correctamente.";
+                    Color = "color: #155724;background-color: #d4edda;border-color: #c3e6cb;border-radius:8px;list-style: unset;height:35px;font-size:25px";
+                    break;
+                case "error":
+                    Mensaje = "Se produjo un error al crear el producto.";
+                    Color = "color: #721c24;background-color: #f8d7da;border-color: #f5c6cb;border-radius:8px;list-style: unset;height:35px;font-size:25px";
+                    break;
+                case "none":
+                    Mensaje = "Primero Seleccione un producto.";
+                    Color = "color: #856404;background-color: #fff3cd;border-color: #ffeeba;border-radius:8px;list-style: unset;height:35px;font-size:25px";
+                    break;
+            }
+
+            Char A = '"';
+            InnerHTML += "<ul style=" + A + Color + ";padding: 0.5rem;" + A + " >";
+            InnerHTML += "<li style=" + A + "display: list-item;" + A + " >" + Mensaje + "</li>";
+            InnerHTML += "</ul>";
+
+            return InnerHTML;
+        }
 
         protected void grdProductos_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
