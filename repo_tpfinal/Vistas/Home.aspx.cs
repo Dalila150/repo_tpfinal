@@ -111,13 +111,13 @@ namespace Vistas
             if(Session["Carrito"] != null) {
                 InnerHTML = "";
                 DataTable infoCarrito = (DataTable)Session["Carrito"];
-                int TotalCarro = 0;
+                float TotalCarro = 0;
                 int CantProds = 0;
 
                 foreach (DataRow row in infoCarrito.Rows)
                 {
                     CantProds += int.Parse(row[1].ToString());
-                    TotalCarro += CantProds*int.Parse(row[2].ToString());
+                    TotalCarro += CantProds* float.Parse(row[2].ToString());
                 }
 
                 InnerHTML += "$" + TotalCarro +"(" + CantProds + ")";
