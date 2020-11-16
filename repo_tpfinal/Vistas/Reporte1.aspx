@@ -86,14 +86,29 @@
             <hr style="width:90%" />
             <div style="width:100%">
 
-                <asp:TextBox style="width:40%" ID="TextBox1" class="bus" placeholder="Fecha1" runat="server"></asp:TextBox>
-                <asp:TextBox style="width:40%" ID="TextBox2"  class="bus" placeholder="Fecha2" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtFecha" class="bus" runat="server" Width="249px"></asp:TextBox>
+                <br />
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtFecha" ErrorMessage="Ingrese en el siguiente formato YYYY-MM-DD" ValidationExpression="^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$">*</asp:RegularExpressionValidator>
+                <br />
+                <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" ShowSummary="False" />
                 
             </div>
             <br />
             <div style="font-size: 20px;margin-left: 5%;width: 100%;text-align: center;" class="auto-style1">
-            <asp:GridView ID="grdRegistros" CssClass="GridViewStyled" runat="server" CellPadding="4" AllowPaging="True" ForeColor="#333333" GridLines="None" PageSize="5">
+            <asp:GridView ID="grdRegistros" CssClass="GridViewStyled" runat="server" CellPadding="4" AllowPaging="True" ForeColor="#333333" GridLines="None" PageSize="5" AutoGenerateColumns="False" OnPageIndexChanging="grdRegistros_PageIndexChanging">
                 <AlternatingRowStyle BackColor="#BCC8C3" ForeColor="" />
+                <Columns>
+                    <asp:TemplateField HeaderText="Producto">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_Producto" runat="server" Text='<%# Bind("Producto") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Cantidad">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_Cantidad" runat="server" Text='<%# Bind("Cantidad_Vendida") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#90648B" ForeColor="White" Font-Bold="True" />
                 <HeaderStyle BackColor="#AE4750" Font-Bold="True" ForeColor="White" CssClass="headerTable" Height="50px"/>
@@ -105,7 +120,18 @@
                 <SortedDescendingCellStyle BackColor="#FFFDF8" />
                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
-                </div>
+                <br />
+                <asp:Button class="btnASP" ID="btn_Buscar" runat="server" Text="BUSCAR" Height="40px" OnClick="btn_Buscar_Click"/>
+                <asp:Button class="btnASP" ID="btn_Cancelar" runat="server" Text="CANCELAR" Height="39px" OnClick="btn_Cancelar_Click"/>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <br />
+                <asp:Label ID="lbl_Mensaje" runat="server"></asp:Label>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            </div>
                 
         </div>
         
@@ -132,7 +158,7 @@
     </div>
     </form>
 </body>
-  <%--  <!-- BUSQUEDA -->
+<%--  <!-- BUSQUEDA -->
     <!-- CADA VEZ QUE CAMBIA LA LETRA HACE POSTBACK -->
     <script type="text/javascript">
         function RefreshUpdatePanel() {

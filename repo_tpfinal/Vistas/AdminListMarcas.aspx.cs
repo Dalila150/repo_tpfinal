@@ -13,7 +13,7 @@ namespace Vistas
     public partial class AdminListMarcas : System.Web.UI.Page
     {
         NegocioMarca neg = new NegocioMarca();
-        int id;
+       
         protected void Page_Load(object sender, EventArgs e)
         {
             //-----------------------------------------------

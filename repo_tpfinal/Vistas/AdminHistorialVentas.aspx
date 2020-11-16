@@ -96,9 +96,7 @@
             <h1 style="padding-top: 20px; text-align: center;margin:0px;font-size:40px">Historial de ventas</h1>
             <hr style="width:90%" />
             <div style="width:100%">
-                <div class="EspacioBuscador">
-                <asp:TextBox ID="txtBuscar" runat="server" name="search" placeholder="Buscar" class="bus" autocomplete="off" AutoPostBack="True"  TabIndex="1" onkeyup="RefreshUpdatePanel()" onfocus="this.selectionStart = this.selectionEnd = this.value.length;"></asp:TextBox>
-            </div>  
+                 
             </div>
             <br />
             <div style="font-size: 20px;margin-left: 5%;width: 100%;text-align: center;" class="auto-style1">

@@ -60,34 +60,16 @@
         <div class="content" >
 
     <!-------------------------------------------------------------------------->
-   
-    <div class="engloba">
-      <div class="cajita">
-        <div class="tituloCarrito">
-          <label class="titulo">Carrito de compras</label>
-        </div>
-        <div class="subtitulo">
-          <hr />
-        </div>
-        <div class="detalleVenta">
-          <div class="imagen">
-            &nbsp;<asp:GridView ID="grdCarrito" runat="server" Width="359px">
+            <div style="display: inline-block; width: 60%;">
+                <div style="background-color: rgba(197, 93, 102, 0.404); border-radius: 8px; text-align: center; margin-top: 25px; margin-bottom: 25px">
+                          <label style="font-size:25px" class="titulo">Carrito de compras</label>
+                   
+                    <asp:GridView style="width:80%; margin-left:10%;margin-top:2%" ID="grdCarrito" runat="server" Width="359px">
               </asp:GridView>
-          </div>
-          <div class="detalles" style="text-align:left">
-            <div class="nombre">
-                <label> &nbsp;&nbsp; </label>
-&nbsp;</div>
-          </div>
-          <div class="Eliminar">
-          </div>
-        </div>
-      </div>
-      <div class="vaciar"><asp:button runat="server" ID="btnVaciar" style="width: 40%;border-radius: 8px 8px;padding: 0.5rem;font-size: 18px; border-radius: 20px 20px;color: #ffffff; border: solid 1px rgba(226, 98, 98, 0.116);background-color: rgba(184, 39, 51, 0.753);" text="Vaciar carrito" OnClick="btnVaciar_Click"/>
-          <br />
-          <br />
-          <table class="auto-style3">
-              <tr>
+                                         <h3>Ingrese datos para modo de pago crédito o débito<br /></h3> 
+
+                     <table class="auto-style3">
+              <tr style="margin-top:2%; margin-bottom:5%">
                   <td>Modo de envio</td>
                   <td>
                       <asp:DropDownList ID="ddlModoEnvio" runat="server">
@@ -100,8 +82,6 @@
                   </td>
               </tr>
           </table>
-          <br />
-          Ingrese datos para modo de pago crédito o débito<br />
           <br />
           <table class="auto-style3">
               <tr>
@@ -126,38 +106,20 @@
                   <td>&nbsp;</td>
               </tr>
           </table>
+                </div>
+            </div>
+    
+      <div class="vaciar"><asp:button runat="server" ID="btnVaciar" style="width: 40%;border-radius: 8px 8px;padding: 0.5rem;font-size: 18px; border-radius: 20px 20px;color: #ffffff; border: solid 1px rgba(226, 98, 98, 0.116);background-color: rgba(184, 39, 51, 0.753);" text="Vaciar carrito" OnClick="btnVaciar_Click"/>
+                        <asp:Button ID="btnFinalizarCompra"  style="width: 40%;border-radius: 8px 8px;padding: 0.5rem;font-size: 18px; border-radius: 20px 20px;color: #ffffff; border: solid 1px rgba(226, 98, 98, 0.116);background-color: rgba(184, 39, 51, 0.753);" class="vaciar" runat="server" CssClass="auto-style2" OnClick="btnFinalizarCompra_Click" Text="FINALIZAR COMPRA" />
         </div>
     </div>
 
-    <div class="Total">
-      <ul class="Dcompra">
-        <li class="tit">
-          <label>RESUMEN DE COMPRA
-        </li>
-          <li>
-              <p>
-                  &nbsp;</p>
-          </li>
-        <div class="datImporte">
-        <div class="izquierda">
-          <li>Total</li>
-        </div>
-        <div class="auto-style1">
-          <li>$<$<asp:Label ID="lblPrecio" runat="server"></asp:Label>
-            </li>
-          <li></li>
-        </div>
-      </div>
-          <li class="finaliza">
-              <asp:Button ID="btnFinalizarCompra" runat="server" CssClass="auto-style2" OnClick="btnFinalizarCompra_Click" Text="FINALIZAR COMPRA" />
-&nbsp;&nbsp;&nbsp;&nbsp;
+    
+       
+
               <asp:Label ID="lblMensajeCompra" runat="server"></asp:Label>
-&nbsp;
-        </li>
-      </ul>
-        </div>
+
             
-    </div>
     <!-------------------------------------------------------------------------->
      <div class="footer" >
         <!-- Iconos de redes sociales -->
@@ -177,7 +139,7 @@
               </li>
             </ul>
         </div>
-    </div>
+   </div>
           </form>
   </body>
 </html>

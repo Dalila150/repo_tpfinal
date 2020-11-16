@@ -4,15 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 using Negocio;
 using Entidades;
-
 namespace Vistas
 {
     public partial class ComprasUsuario : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (Request.Cookies["NombreUsuario"] != null)
             {
                 HttpCookie ck = Request.Cookies["NombreUsuario"];
@@ -24,6 +25,8 @@ namespace Vistas
             }
         }
 
+        
+        
         public void cargarGridView()
         {
 

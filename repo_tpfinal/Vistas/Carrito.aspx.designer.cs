@@ -87,15 +87,6 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.GridView grdCarrito;
 
         /// <summary>
-        /// btnVaciar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVaciar;
-
-        /// <summary>
         /// ddlModoEnvio control.
         /// </summary>
         /// <remarks>
@@ -141,13 +132,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.DropDownList ddlSucursales;
 
         /// <summary>
-        /// lblPrecio control.
+        /// btnVaciar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPrecio;
+        protected global::System.Web.UI.WebControls.Button btnVaciar;
 
         /// <summary>
         /// btnFinalizarCompra control.
