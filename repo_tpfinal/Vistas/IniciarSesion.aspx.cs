@@ -119,12 +119,8 @@ namespace Vistas
                     {
                         Response.Redirect("Home.aspx");
                     }
-                    
-                }
                 lblMensaje.Text = "La Contraseña Es incorrectas";
-            }
-
-            else
+            } else
             {
                 lblMensaje.Text = "El Usuario Es incorrecto";
             }

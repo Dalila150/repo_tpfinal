@@ -36,6 +36,9 @@
               <!--Aca deberian ir las categorias-->
                     </li>
                     <li class="name">
+                        <a href="/ComprasUsuario.aspx">Historial de compras</a>
+                    </li>
+                    <li class="name">
                         <a href="#">Contacto</a>
                     </li>
                 </ul>
