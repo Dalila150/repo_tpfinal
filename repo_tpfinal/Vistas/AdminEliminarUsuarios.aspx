@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminEliminarUsuariosAdmin.aspx.cs" Inherits="Vistas.AdminEliminarUsuariosAdmin" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminEliminarUsuarios.aspx.cs" Inherits="Vistas.AdminEliminarUsuariosAdmin" %>
 
 <!DOCTYPE html>
 
@@ -10,11 +10,26 @@
     <title>Eliminar Administrador</title>
     <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style type="text/css">
+        .auto-style1 {
+            background-color: rgb(158, 65, 73);
+            grid-area: logo;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            left: 0px;
+            top: 5px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
     <div class="container">
-        <div class="logo" >
+        <div class="auto-style1" >
             <img src="/img/logo.jpg" class="LogoImagen" />
         </div>
         <div class="header" >
@@ -94,9 +109,10 @@
             </div>
             <div style="padding-bottom: 25px; text-align:center; margin-top:3%;height: 35px;">
                 <asp:Button class="btnASP" ID="BtnEliminarUsuario" runat="server" style="width: 65%;" Height="40px" OnClick="BtnEliminarUsuario_Click" Text="ELIMINAR USUARIO ADMINISTRADOR" Width="270px" />
-                <asp:Button class="btnASP" ID="BtnCancelar" runat="server" style="width: 20%;"  Height="40px" Text="CANCELAR" Width="143px" />
+                <asp:Button class="btnASP" ID="BtnCancelar" runat="server" style="width: 20%;"  Height="40px" Text="CANCELAR" Width="143px" OnClick="BtnCancelar_Click" />
             </div>
         </div>
+        <asp:Label ID="lblDadobaja" runat="server"></asp:Label>
     </div>
     </div>
         <div class="footer" >

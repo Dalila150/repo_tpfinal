@@ -16,6 +16,10 @@ namespace Vistas
         protected void Page_Load(object sender, EventArgs e)
         {
             //-----------------------------------------------
+
+
+
+
             Usuarios Usu = new Usuarios();
             if (Request.Cookies["NombreUsuario"] != null)
             {
@@ -79,6 +83,18 @@ namespace Vistas
 
                 Session["IdUsuario"] = usuario_ent.getID_usuario();
                 Session["DireccionUsuario"] = usuario_ent.getDireccionUsuario();
+                Session["Nombre"] = usuario_ent.getNombreUsuario();
+                Session["Usuario"] = usuario_ent.getNombre_UsuarioUsuario();
+                Session["Apellido"] = usuario_ent.getApellidoUsuario();
+                Session["Contraseña"] = usuario_ent.getPasswordUsuario();
+                Session["Email"] = usuario_ent.getEmailUsuario();
+                Session["Telefono"] = usuario_ent.getTelefonoUsuario();
+                  
+
+                }
+
+
+
 
                 if (neg.BuscarUsuarioYclave(txtUsuario.Text, txtContraseña.Text) == true)
                 {

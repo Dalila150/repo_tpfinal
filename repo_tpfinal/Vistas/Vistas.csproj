@@ -65,7 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminDetalleVenta.aspx" />
-    <Content Include="AdminEliminarUsuariosAdmin.aspx" />
+    <Content Include="AdminEliminarUsuarios.aspx" />
     <Content Include="AdminHistorialVentas.aspx" />
     <Content Include="AdminListCategoria.aspx" />
     <Content Include="AdminListMarcas.aspx" />
@@ -166,12 +166,12 @@
     <Compile Include="AdminDetalleVenta.aspx.designer.cs">
       <DependentUpon>AdminDetalleVenta.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AdminEliminarUsuariosAdmin.aspx.cs">
-      <DependentUpon>AdminEliminarUsuariosAdmin.aspx</DependentUpon>
+    <Compile Include="AdminEliminarUsuarios.aspx.cs">
+      <DependentUpon>AdminEliminarUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminEliminarUsuariosAdmin.aspx.designer.cs">
-      <DependentUpon>AdminEliminarUsuariosAdmin.aspx</DependentUpon>
+    <Compile Include="AdminEliminarUsuarios.aspx.designer.cs">
+      <DependentUpon>AdminEliminarUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminHistorialVentas.aspx.cs">
       <DependentUpon>AdminHistorialVentas.aspx</DependentUpon>

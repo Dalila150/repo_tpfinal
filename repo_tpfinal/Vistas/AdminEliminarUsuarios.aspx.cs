@@ -56,12 +56,19 @@ namespace Vistas
             estado = neg.eliminarUsuarioAdmin_neg(txtEliminarAdministrador.Text);
             if (estado == true)
             {
-                lblMensaje.Text = "El usuario fue dado de baja";
+                lblDadobaja.Text = "El usuario fue dado de baja";
             }
             else
             {
-                lblMensaje.Text = "Hubo un error al intentar dar de baja al usuario";
+                lblDadobaja.Text = "Hubo un error al intentar dar de baja al usuario";
             }
+
+            txtEliminarAdministrador.Text = " ";
+        }
+
+        protected void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("HomeAdmin.aspx");
         }
     }
 }

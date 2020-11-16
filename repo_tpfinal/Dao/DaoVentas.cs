@@ -42,7 +42,7 @@ namespace Dao
             SqlParametros.Value = ven.ID_venta1;
             SqlParametros = comando.Parameters.Add("@MODO_PAGO", SqlDbType.Int);
             SqlParametros.Value = ven.ID_venta1;
-            SqlParametros = comando.Parameters.Add("@NROTARJETA", SqlDbType.VarChar);
+            SqlParametros = comando.Parameters.Add("@NROTAJETA", SqlDbType.VarChar);
             SqlParametros.Value = ven.ID_venta1;
             SqlParametros = comando.Parameters.Add("@CODTARJETA", SqlDbType.VarChar);
             SqlParametros.Value = ven.ID_venta1;

@@ -57,20 +57,20 @@ namespace Vistas
 
         protected void btnAgregarUsuario_Click(object sender, EventArgs e)
         {
-            NegocioUsuario nuevo_usuario = new NegocioUsuario();
-            Usuarios Datos_usuario = new Usuarios();
+            NegocioUsuario nuevo_usuario_admin = new NegocioUsuario();
+            Usuarios Datos_usuario_admin = new Usuarios();
 
-            Datos_usuario.setRolUsuario(int.Parse(ddlRol.SelectedValue));
-            Datos_usuario.setNombreUsuario(txtNombre.Text);
-            Datos_usuario.setApellidoUsuario(txtApellido.Text);
-            Datos_usuario.setEmailUsuario(txtEmail.Text);
-            Datos_usuario.setDireccionUsuario(txtDireccion.Text);
-            Datos_usuario.setNombre_UsuarioUsuario(txtNombre_de_Usuario.Text);
-            Datos_usuario.setPasswordUsuario(txtContraseña.Text);
-            Datos_usuario.setTelefonoUsuario(txtTelefono.Text);
-            Datos_usuario.setDNIUsuario(txtDni.Text);
+            Datos_usuario_admin.setRolUsuario(int.Parse(ddlRol.SelectedValue));
+            Datos_usuario_admin.setNombreUsuario(txtNombre.Text);
+            Datos_usuario_admin.setApellidoUsuario(txtApellido.Text);
+            Datos_usuario_admin.setEmailUsuario(txtEmail.Text);
+            Datos_usuario_admin.setDireccionUsuario(txtDireccion.Text);
+            Datos_usuario_admin.setNombre_UsuarioUsuario(txtNombre_de_Usuario.Text);
+            Datos_usuario_admin.setPasswordUsuario(txtContraseña.Text);
+            Datos_usuario_admin.setTelefonoUsuario(txtTelefono.Text);
+            Datos_usuario_admin.setDNIUsuario(txtDni.Text);
 
-            bool existe = nuevo_usuario.CrearUsuario(Datos_usuario);
+            bool existe = nuevo_usuario_admin.CrearUsuario(Datos_usuario_admin);
 
             if (existe == true)
             {
