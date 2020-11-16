@@ -22,7 +22,6 @@
             align-items: center;
             display: flex;
             left: 0px;
-            top: 5px;
         }
     </style>
 </head>

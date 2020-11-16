@@ -97,7 +97,7 @@ namespace Vistas
             calculo1 = Convert.ToInt32(UsuAdmin.Rows[0][0]);
             calculoFin = (calculo1 / calculo2) * 100;
 
-            Porcentaje = "Porcentaje de administradores: ";
+            Porcentaje = "Porcentaje de clientes logueados: ";
             Porcentaje += Math.Round(calculoFin, 2);
             Porcentaje += "%";
 
