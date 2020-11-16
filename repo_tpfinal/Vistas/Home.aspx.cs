@@ -18,7 +18,9 @@ namespace Vistas
             if (Request["Sign-out"] == "true")
             {
                 Response.Cookies["NombreUsuario"].Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies["NombreClave"].Expires = DateTime.Now.AddDays(-1);
                 Session["Carrito"] = null;
+                Session["tipo_usuario_logueado"] = null;
                 Response.Redirect("/Home.aspx");
             }
 

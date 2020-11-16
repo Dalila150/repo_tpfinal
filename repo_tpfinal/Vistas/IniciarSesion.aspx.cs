@@ -82,12 +82,8 @@ namespace Vistas
 
                 if (neg.BuscarUsuarioYclave(txtUsuario.Text, txtContraseña.Text) == true)
                 {
-<<<<<<< Updated upstream
-                  
 
-=======
                     Usuarios EsAdmin = new Usuarios();
->>>>>>> Stashed changes
                     HttpCookie Usu = new HttpCookie("NombreUsuario", txtUsuario.Text);
                     Usu.Expires = DateTime.Now.AddDays(1);
                     this.Response.Cookies.Add(Usu);

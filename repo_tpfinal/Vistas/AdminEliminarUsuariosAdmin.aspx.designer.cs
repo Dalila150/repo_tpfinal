@@ -24,9 +24,7 @@ namespace Vistas
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-<<<<<<< Updated upstream
         /// Control txtEliminarAdministrador.
-=======
         /// IconoSalir control.
         /// </summary>
         /// <remarks>
@@ -37,7 +35,6 @@ namespace Vistas
 
         /// <summary>
         /// txtEliminarAdministrador control.
->>>>>>> Stashed changes
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
