@@ -92,7 +92,10 @@ namespace Vistas
                     this.Response.Cookies.Add(Cla);
                     NegocioUsuario nU = new NegocioUsuario();
                     EsAdmin = nU.DevolverUsuarioCompleto(txtUsuario.Text);
-                    Session["tipo_usuario_logueado"] = EsAdmin.getRolUsuario().ToString();
+                    HttpCookie Tipo = new HttpCookie("tipo_usuario_logueado", EsAdmin.getRolUsuario().ToString());
+                    Tipo.Expires = DateTime.Now.AddDays(1);
+                    this.Response.Cookies.Add(Tipo);
+                    //System.Diagnostics.Debug.WriteLine("TIPO USUARIO = " + EsAdmin.getRolUsuario().ToString());
                     if (EsAdmin.getRolUsuario() == 1)
                     {
                         Response.Redirect("HomeAdmin.aspx");

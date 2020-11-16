@@ -15,15 +15,14 @@ namespace Vistas
         NegocioUsuario Neg = new NegocioUsuario();
         protected void Page_Load(object sender, EventArgs e)
         {
-
             //-----------------------------------------------
             Usuarios Usu = new Usuarios();
             if (Request.Cookies["NombreUsuario"] != null)
             {
 
-                if ((String)Session["tipo_usuario_logueado"] != null) { 
+                if (Request.Cookies["tipo_usuario_logueado"] != null) { 
 
-                    if((String)Session["tipo_usuario_logueado"] == "1") {
+                    if(Request.Cookies["tipo_usuario_logueado"].Value == "1") {
                         String IconosInnerHTML = "";
                         Char B = '"';
                         IconosInnerHTML = "";

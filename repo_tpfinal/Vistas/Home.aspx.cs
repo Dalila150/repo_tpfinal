@@ -20,7 +20,7 @@ namespace Vistas
                 Response.Cookies["NombreUsuario"].Expires = DateTime.Now.AddDays(-1);
                 Response.Cookies["NombreClave"].Expires = DateTime.Now.AddDays(-1);
                 Session["Carrito"] = null;
-                Session["tipo_usuario_logueado"] = null;
+                Request.Cookies["tipo_usuario_logueado"].Expires = DateTime.Now.AddDays(-1);
                 Response.Redirect("/Home.aspx");
             }
 
@@ -47,9 +47,9 @@ namespace Vistas
                 String IconosInnerHTML = "";
                 Char A = '"';
 
-                if ((String)Session["tipo_usuario_logueado"] != null)
+                if (Request.Cookies["tipo_usuario_logueado"] != null)
                 {
-                    if ((String)Session["tipo_usuario_logueado"] == "1")
+                    if (Request.Cookies["tipo_usuario_logueado"].Value == "1")
                     {
                         IconosInnerHTML += "<a href=" + A + "/HomeAdmin.aspx" + A + " class=" + A + "fas fa-crown" + A + " style=" + A + "font-size: 1.6rem;text-decoration: none;color: #40514e;" + A + " aria-hidden=" + A + "true" + A + "></a>";
                         accesoAdmin.InnerHtml = IconosInnerHTML;
