@@ -118,14 +118,8 @@ namespace Vistas
             Response.Redirect("/productos.aspx" + updatedQueryString);
         }
 
-        protected void BtnGuardarCamb_Click(object sender, EventArgs e)
-        {
 
-            ///
-
-        }
-
-        protected void btnGuardarCamb_Click1(object sender, EventArgs e)
+        protected void btnGuardarCamb_Click(object sender, EventArgs e)
         {
             Usuarios Usu = new Usuarios();
 
@@ -154,5 +148,16 @@ namespace Vistas
                 lblMensaje.Text = "Hubo un error al actualizar datos";
             }
         }
+
+        protected void btnDatos_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Datos.aspx");
+        }
+
+        protected void btnCompras_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Compras.aspx");
+        }
+
     }
 }

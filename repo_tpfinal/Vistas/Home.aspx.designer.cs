@@ -78,15 +78,6 @@ namespace Vistas
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl CargameLasCats;
 
         /// <summary>
-        /// btnVentas control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVentas;
-
-        /// <summary>
         /// CategoriasSpace control.
         /// </summary>
         /// <remarks>

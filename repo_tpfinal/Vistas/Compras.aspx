@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DetalleVenta.aspx.cs" Inherits="Vistas.DetalleVenta" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Compras.aspx.cs" Inherits="Vistas.Compras" %>
 
 <!DOCTYPE html>
 
@@ -6,21 +6,21 @@
 
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="StyleSheet" href="/css/template.css"type="text/css" />
+    <link rel="StyleSheet" href="/css/template.css" type="text/css" />
 
-    <title>detalle compra - usu</title>
+    <title>Lista Marcas - Admin</title>
     <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style type="text/css">
         .auto-style1 {
-            width: 45%;
+            width: 100%;
         }
     </style>
 </head>
 
 <body>
-    <form id="form1" runat="server"> 
-       <div class="container">
+    <form id="form1" runat="server">
+        <div class="container">
             <div class="logo">
                 <img src="/img/logo.jpg" class="LogoImagen" />
             </div>
@@ -49,22 +49,24 @@
             </div>
             <div class="content">
                 <!------------------------------------------------------------>
-                <div style="margin-left:15px;margin-top:25px;width:230px;float:left;Background-color: #99DBCF;border-radius:10px;margin-bottom:25px;">
+                <div style="margin-left: 15px; margin-top: 25px; width: 230px; float: left; background-color: #99DBCF; border-radius: 10px; margin-bottom: 25px;">
                     <h2>CUENTA</h2>
-                    <ul style="padding-top:10px;text-align:left;padding-left:15px;padding-right:15px">
-                            <li><asp:Button class="btnASP" ID="btnDatos" runat="server" Text="Datos" style="height: 30px;width:100%" OnClick="btnDatos_Click" />  </li>
-                            <li><asp:Button class="btnASP" ID="btnCompras" runat="server" Text="Compras" style="margin-top:5px;height: 30px;width:100%" OnClick="btnCompras_Click"/></li>
+                    <ul style="padding-top: 10px; text-align: left; padding-left: 15px; padding-right: 15px">
+                        <li>
+                            <asp:Button class="btnASP" ID="btnDatos" runat="server" Text="Datos" Style="height: 30px; width: 100%" OnClick="btnDatos_Click" />
+                        </li>
+                        <li>
+                            <asp:Button class="btnASP" ID="btnCompras" runat="server" Text="Compras" Style="margin-top: 5px; height: 30px; width: 100%" OnClick="btnCompras_Click" /></li>
                     </ul>
                 </div>
                 <!------------------------------------------------------------->
                 <div style="background-color: #b4dee0c2;width: 60%;display: inline-block;padding-bottom: 2rem;border-radius: 10px;margin-bottom: 20px;padding-top: 1rem;margin-left: 20%;margin-right: 20%;margin-top: 1rem;display:block">
-                        <h1 style="padding-top: 20px; text-align: center; margin: 0px; font-size: 40px">Detalle compra</h1>
+                        <h1 style="padding-top: 20px; text-align: center; margin: 0px; font-size: 40px">Compras realizadas</h1>
                         <hr style="width: 90%" />
-                        <div style="width: 100%">
-                        </div>
+
                         <br />
-                        <div style="font-size: 20px; margin-left: 5%; width: 100%; text-align: center;" class="auto-style1">
-                            <asp:GridView ID="grdDetalleVentasUsuario" CssClass="GridViewStyled" runat="server" CellPadding="4" AllowPaging="True" ForeColor="#333333" GridLines="None" PageSize="5" OnSelectedIndexChanging="grdDetalleVentasUsuario_SelectedIndexChanging">
+                        <div style="font-size: 20px; margin-left: 5%; text-align: center;" class="auto-style1">
+                            <asp:GridView ID="grdVentasUsuarios" CssClass="GridViewStyled" runat="server" CellPadding="4" AllowPaging="True" ForeColor="#333333" GridLines="None" PageSize="5" AutoGenerateSelectButton="True" OnSelectedIndexChanged="grdVentasUsuarios_SelectedIndexChanged">
                                 <AlternatingRowStyle BackColor="#BCC8C3" ForeColor="" />
                                 <EditRowStyle BackColor="#999999" />
                                 <FooterStyle BackColor="#90648B" ForeColor="White" Font-Bold="True" />
@@ -78,10 +80,7 @@
                                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                             </asp:GridView>
                         </div>
-                        <div>
-                                <asp:Button CssClass="btnASP" ID="btnVolver" runat="server" OnClick="btnVolver_Click" Text="Volver a Compras" style="margin-top:15px" />
-                            </div>
-                    </div>
+                </div>
             </div>
             <div class="footer">
                 <!-- Iconos de redes sociales -->
@@ -104,7 +103,7 @@
         </div>
     </form>
 </body>
-<!-- BUSQUEDA -->
+    <!-- BUSQUEDA -->
     <!-- CADA VEZ QUE CAMBIA LA LETRA HACE POSTBACK -->
     <script type="text/javascript">
         function RefreshUpdatePanel() {

@@ -43,17 +43,21 @@
                 </ul>
             </div>
             <div class="content">
-
                 <!------------------------------------------------------------>
-                <div class="BloqueDatos">
+                <div style="margin-left:15px;margin-top:25px;width:230px;float:left;Background-color: #99DBCF;border-radius:10px;margin-bottom:25px;">
+                    <h2>CUENTA</h2>
+                    <ul style="padding-top:10px;text-align:left;padding-left:15px;padding-right:15px">
+                            <li><asp:Button class="btnASP" ID="btnDatos" runat="server" Text="Datos" style="height: 30px;width:100%" OnClick="btnDatos_Click" />  </li>
+                            <li><asp:Button class="btnASP" ID="btnCompras" runat="server" Text="Compras" style="margin-top:5px;height: 30px;width:100%" OnClick="btnCompras_Click"/></li>
+                    </ul>
+                </div>
+                <!------------------------------------------------------------->
+                <div class="BloqueDatos" style="display:block;">
                     <div>
                         <h1>Editar datos</h1>
                         <hr />
                     </div>
-                    <!---->
                     <h2>Datos personales</h2>
-
-                    
                         <div style="width:100%">
                             <div style="width:30%;display:inline">
                                 <ul class="PrimerosDatos">
@@ -97,7 +101,7 @@
                                 <div style="width:30%;display:inline">
                                     <ul class="SegundaEntrada">
                                         <li>
-                                            <asp:textbox required="true" class="input" runat="server" id="txtDireccion" type="text" placeholder="Direccion" style=";"/>
+                                            <asp:textbox required="true" class="input" runat="server" id="txtDireccion" type="text" placeholder="Direccion" style=""/>
                                         </li>
                                         <li >
                                             <asp:textbox required="true" class="input" runat="server" id="txtTelefono" type="text" placeholder="Cuidad" />
@@ -111,7 +115,7 @@
                             </div>
 
                         <div>
-                            <asp:Button ID="btnGuardarCamb" runat="server" OnClick="btnGuardarCamb_Click1" Text="GUARDAR CAMBIOS" />
+                            <asp:Button CssClass="btnASP" ID="btnGuardarCamb" runat="server" OnClick="btnGuardarCamb_Click" Text="GUARDAR CAMBIOS" />
                         </div>
                     
                 </div>

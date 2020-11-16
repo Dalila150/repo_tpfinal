@@ -11,7 +11,7 @@ namespace Vistas
 {
 
 
-    public partial class DetalleVenta
+    public partial class Compras
     {
 
         /// <summary>
@@ -96,21 +96,12 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnCompras;
 
         /// <summary>
-        /// grdDetalleVentasUsuario control.
+        /// grdVentasUsuarios control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdDetalleVentasUsuario;
-
-        /// <summary>
-        /// btnVolver control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVolver;
+        protected global::System.Web.UI.WebControls.GridView grdVentasUsuarios;
     }
 }

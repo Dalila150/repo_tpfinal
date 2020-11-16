@@ -4,13 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 using Negocio;
 using Entidades;
-using System.Data;
 
 namespace Vistas
 {
-    public partial class DetalleVenta : System.Web.UI.Page
+    public partial class Compras : System.Web.UI.Page
     {
         NegocioUsuario Neg = new NegocioUsuario();
         protected void Page_Load(object sender, EventArgs e)
@@ -50,70 +50,24 @@ namespace Vistas
             //-----------------------------------------------
 
             CargarCategoriasBarraDeNavegacion();
-
-            // SI HAY CARGO DATOS DEL CARRO
-            if (Session["Carrito"] != null)
-            {
-                String InnerHTML = "";
-                DataTable infoCarrito = (DataTable)Session["Carrito"];
-                float TotalCarro = 0;
-                int CantProds = 0;
-
-                foreach (DataRow row in infoCarrito.Rows)
-                {
-                    CantProds += int.Parse(row[1].ToString());
-                    TotalCarro += CantProds * float.Parse(row[2].ToString());
-                }
-
-                InnerHTML += TotalCarro + "(" + CantProds + ")";
-                datosCarrito.InnerHtml = InnerHTML;
-            }
-
             cargarGridView();
-        }
-        public void cargarGridView()
-        {
-            NegocioVenta NegV = new NegocioVenta();
-            int ID_Venta = Convert.ToInt32(Session["ID_DetalleVenta"]);
-
-            grdDetalleVentasUsuario.DataSource = NegV.DetallesVentasUsuario(ID_Venta);
-            grdDetalleVentasUsuario.DataBind();
-        }
-
-        protected void grdDetalleVentasUsuario_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
-        {
-
-        }
-
-        protected void btnVolver_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Compras.aspx");
         }
 
         protected void txtBuscar_TextChanged(object sender, EventArgs e)
         {
+
+            // CREAR VARIABLE DE PARAMETROS
             var nameValues = HttpUtility.ParseQueryString(Request.QueryString.ToString());
+            //SETEO EL PARAMETRO DEL FILTRO QUE SELECCIONE
+            //EN ESTE CASO A BUSQUEDA LE PONGO EL VALOR DEL TEXTBOX
             nameValues.Set("Busqueda", txtBuscar.Text);
+            //OBTENGO LA URL ACTUAL CON LOS FILTROS ACTUALES SI LOS HAY
             string url = Request.Url.AbsolutePath;
+            //AGREGO o REEMPLAZO EL PARAMETRO DEL FILTRO EN EL QUE ESTOY
             string updatedQueryString = "?" + nameValues.ToString();
 
-            Response.Redirect("/productos.aspx" + updatedQueryString);
-        }
-
-        protected void grdDetalleVentasUsuario_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            grdDetalleVentasUsuario.PageIndex = e.NewPageIndex;
-            cargarGridView();
-        }
-
-        protected void btnDatos_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Datos.aspx");
-        }
-
-        protected void btnCompras_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Compras.aspx");
+            //REDIRIJO NUEVAMENTE A PRODUCTOS PARA QUE EN EL ONLOAD LEVANTE TODOS LOS FILTROS
+            Response.Redirect(url + updatedQueryString);
         }
 
         protected void CargarCategoriasBarraDeNavegacion()
@@ -143,6 +97,30 @@ namespace Vistas
             CategoriasUl += "</ul>";
             CargameLasCats.InnerHtml = CategoriasUl;
 
+        }
+
+        public void cargarGridView()
+        {
+
+             NegocioVenta NegV = new NegocioVenta();
+            grdVentasUsuarios.DataSource = NegV.TodasLasVentasUsuario(Request.Cookies["NombreUsuario"].Value);
+            grdVentasUsuarios.DataBind();
+        }
+
+        protected void grdVentasUsuarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Session["ID_DetalleVenta"] = grdVentasUsuarios.SelectedRow.Cells[1].Text;
+            Response.Redirect("DetalleVenta.aspx");
+        }
+
+        protected void btnDatos_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Datos.aspx");
+        }
+
+        protected void btnCompras_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Compras.aspx");
         }
     }
 }

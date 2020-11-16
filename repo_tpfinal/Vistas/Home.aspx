@@ -35,14 +35,10 @@
                     <li id="CargameLasCats" class="name" runat="server">
               <!--Aca deberian ir las categorias-->
                     </li>
-                    <li class="name">
-                       <asp:Button class="btnASP" ID="btnVentas" runat="server" Style="margin-top:2px; padding: 7px;background-color: #40514e;margin-left: 2%;border-radius: 17px;" OnClick="btnVentas_Click" Text="Compras" />
-                    </li>
-                   
                 </ul>
             </div>
             <div class="content">
-        
+
             <!------------------------------------------------------------>
 
             <div class="slider">
