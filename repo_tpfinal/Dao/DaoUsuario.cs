@@ -46,7 +46,7 @@ namespace Dao
         public DataTable getTablaUsuario()
         {
             // List<Categoria> lista = new List<Categoria>();
-            DataTable tabla = ds.ObtenerTabla("Usuario", "Select [ID_usuario] , [Nombre] , [Apellido] , [Rol] from Usuario");
+            DataTable tabla = ds.ObtenerTabla("Usuario", "SELECT u.Nombre,u.Apellido,u.ID_usuario,r.Tipo_de_Rol FROM usuario u INNER JOIN rol r ON U.Rol = r.ID_rol");
             return tabla;
         }
 
