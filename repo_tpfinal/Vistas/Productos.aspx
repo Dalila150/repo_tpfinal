@@ -22,6 +22,7 @@
             <asp:TextBox ID="txtBuscar" runat="server" name="search" placeholder="Buscar" class="bus" autocomplete="off" AutoPostBack="True" OnTextChanged="txtBuscar_TextChanged" TabIndex="1" onkeyup="RefreshUpdatePanel()" onfocus="this.selectionStart = this.selectionEnd = this.value.length;"></asp:TextBox>
         </div>
         <div class="iconos" >
+            <div runat="server" id="accesoAdmin" style="margin-right: 1.5rem;"></div>
             <div runat="server" id="infoUser"></div>
             <%--<a href="/IniciarSesion.aspx" class="fas fa-user user"><div id="UsuarioLogueadoNombre" runat="server" style="font-size:20px"></div><div id="UsuarioLogueadoApellido" runat="server" style="font-size:20px;text-decoration: none;"></div></a>--%>
             <a href="/Carrito.aspx" class="fas fa-shopping-cart cart" style="margin-right: 1.5rem;"><div id="datosCarrito" runat="server" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:20px;text-decoration: none;"></div></a>
@@ -43,7 +44,7 @@
         <div class="content" >
    
     <!-------------------------------------------------------------------------->
-    <div style="margin-left:15px;margin-top:25px;width:230px;float:left;Background-color: #99DBCF;border-radius:10px">
+    <div style="margin-left:15px;margin-top:25px;width:230px;float:left;Background-color: #99DBCF;border-radius:10px;margin-bottom:25px">
       <ul style="padding-top:10px;text-align:left;padding-left:15px">
           <asp:HiddenField ID="hidden" runat="server" />
           <asp:HiddenField ID="HiddenPrecioMin" runat="server" />

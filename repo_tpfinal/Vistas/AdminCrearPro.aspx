@@ -98,7 +98,7 @@
                                     <asp:TextBox class="txtASP" ID="txtStock" runat="server" TextMode="Number" min="1" Style="width: 100%; font-size: 18px; height: 60%; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:TextBox>
                                 </li>
                                 <li style="height: 35px; width: 80%; margin-bottom: 15px">
-                                    <asp:TextBox class="txtASP" ID="txtPrecio" runat="server" ValidationExpression="([0-9])[0-9]*[.]?[0-9]*" min="1" Style="width: 100%; font-size: 18px; height: 60%; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;"  required="true"></asp:TextBox>
+                                    <asp:TextBox class="txtASP" ID="txtPrecio" runat="server" onkeypress="return isNumberKey(event)" min="1" Style="width: 100%; font-size: 18px; height: 60%; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;"  required="true"></asp:TextBox>
                                 </li>
                                 <li style="height: 180px; width: 80%; margin-bottom: 15px">
                                     <asp:TextBox class="txtASP" ID="txtDescripcion" TextMode="MultiLine" runat="server" Style="width: 100%; font-size: 15px; height: 90%; resize: none; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:TextBox>
@@ -148,5 +148,15 @@
         }
     }
 </script>
+    <script type="text/Javascript">
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode != 46 && charCode > 31
+            && (charCode < 48 || charCode > 57))
+            return false;
+
+        return true;
+    }
+    </script>
 </html>
 
