@@ -282,87 +282,28 @@ namespace Vistas
 
         protected void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            string cadenaCat = Request["Cat"];
-            string cadenaOrdPre = Request["OrdPre"];
-            string cadenaAntiguedad = Request["Anti"];
-            string cadenaMarca = Request["Marca"];
-            string cadenaPrecioMin = Request["PrecioMin"];
-            string cadenaPrecioMax = Request["PrecioMax"];
-            string cadenaBusqueda = Request["Busqueda"];
 
             // CREAR VARIABLE DE PARAMETROS
             var nameValues = HttpUtility.ParseQueryString(Request.QueryString.ToString());
-            //if (cadenaCat != null)
-            //{
-            //    nameValues.Set("Cat", cadenaCat);
-            //}
-            //if (cadenaOrdPre != null)
-            //{
-            //    nameValues.Set("OrdPre", cadenaOrdPre);
-            //}
-            //if (cadenaAntiguedad != null)
-            //{
-            //    nameValues.Set("Anti", cadenaAntiguedad);
-            //}
-            //if (cadenaMarca != null)
-            //{
-            //    nameValues.Set("Marca", cadenaMarca);
-            //}
-            //if (cadenaPrecioMin != null)
-            //{
-            //    nameValues.Set("PrecioMin", cadenaPrecioMin);
-            //}
-            //if (cadenaPrecioMax != null)
-            //{
-            //    nameValues.Set("PrecioMax", cadenaPrecioMax);
-            //}
-            //if (cadenaBusqueda != null)
-            //{
-            //    nameValues.Set("Busqueda", cadenaBusqueda);
-            //}
+            //SETEO EL PARAMETRO DEL FILTRO QUE SELECCIONE
+            //EN ESTE CASO A BUSQUEDA LE PONGO EL VALOR DEL TEXTBOX
             nameValues.Set("Busqueda", txtBuscar.Text);
+            //OBTENGO LA URL ACTUAL CON LOS FILTROS ACTUALES SI LOS HAY
             string url = Request.Url.AbsolutePath;
+            //AGREGO o REEMPLAZO EL PARAMETRO DEL FILTRO EN EL QUE ESTOY
             string updatedQueryString = "?" + nameValues.ToString();
 
+            //REDIRIJO NUEVAMENTE A PRODUCTOS PARA QUE EN EL ONLOAD LEVANTE TODOS LOS FILTROS
             Response.Redirect(url + updatedQueryString);
         }
 
         protected void btnMayorPrecio_Click(object sender, EventArgs e)
         {
 
-            string cadenaCat = Request["Cat"];
-            string cadenaAntiguedad = Request["Anti"];
-            string cadenaMarca = Request["Marca"];
-            string cadenaPrecioMin = Request["PrecioMin"];
-            string cadenaPrecioMax = Request["PrecioMax"];
-            string cadenaBusqueda = Request["Busqueda"];
-
             // CREAR VARIABLE DE PARAMETROS
             var nameValues = HttpUtility.ParseQueryString(Request.QueryString.ToString());
-            //if(cadenaCat != null) { 
-            //    nameValues.Set("Cat", cadenaCat);
-            //}
-            ////if (cadenaAntiguedad != null)
-            ////{
-            ////    nameValues.Set("Anti", cadenaAntiguedad);
-            ////}
+            //remuevo el parametro de antiguedad porque ahora voy a ordenar por precio
             nameValues.Remove("Anti");
-            //if (cadenaMarca != null)
-            //{
-            //    nameValues.Set("Marca", cadenaMarca);
-            //}
-            //if (cadenaPrecioMin != null)
-            //{
-            //    nameValues.Set("PrecioMin", cadenaPrecioMin);
-            //}
-            //if (cadenaPrecioMax != null)
-            //{
-            //    nameValues.Set("PrecioMax", cadenaPrecioMax);
-            //}
-            //if (cadenaBusqueda != null)
-            //{
-            //    nameValues.Set("Busqueda", cadenaBusqueda);
-            //}
             nameValues.Set("OrdPre", "MayorPrimero");
             string url = Request.Url.AbsolutePath;
             string updatedQueryString = "?" + nameValues.ToString();
@@ -372,43 +313,10 @@ namespace Vistas
 
         protected void btnMenorPrecio_Click(object sender, EventArgs e)
         {
-            string cadenaCat = Request["Cat"];
-            string cadenaAntiguedad = Request["Anti"];
-            string cadenaMarca = Request["Marca"];
-            string cadenaPrecioMin = Request["PrecioMin"];
-            string cadenaPrecioMax = Request["PrecioMax"];
-            string cadenaBusqueda = Request["Busqueda"];
 
             var nameValues = HttpUtility.ParseQueryString(Request.QueryString.ToString());
-            //if (cadenaCat != null)
-            //{
-            //    nameValues.Set("Cat", cadenaCat);
-            //}
-            ////if (cadenaAntiguedad != null)
-            ////{
-            ////    nameValues.Set("Anti", cadenaAntiguedad);
-            ////}
+            //remuevo el parametro de antiguedad porque ahora voy a ordenar por precio
             nameValues.Remove("Anti");
-            //if (cadenaMarca != null)
-            //{
-            //    nameValues.Set("Marca", cadenaMarca);
-            //}
-            //if (cadenaPrecioMin != null)
-            //{
-            //    nameValues.Set("PrecioMin", cadenaPrecioMin);
-            //}
-            //if (cadenaPrecioMax != null)
-            //{
-            //    nameValues.Set("PrecioMax", cadenaPrecioMax);
-            //}
-            //if (cadenaBusqueda != null)
-            //{
-            //    nameValues.Set("Busqueda", cadenaBusqueda);
-            //}
-            //if (cadenaBusqueda != null)
-            //{
-            //    nameValues.Set("Busqueda", cadenaBusqueda);
-            //}
             nameValues.Set("OrdPre", "MenorPrimero");
             string url = Request.Url.AbsolutePath;
             string updatedQueryString = "?" + nameValues.ToString();
@@ -419,39 +327,10 @@ namespace Vistas
 
         protected void btnMasViejo_Click(object sender, EventArgs e)
         {
-            string cadenaCat = Request["Cat"];
-            string cadenaOrdPre = Request["OrdPre"];
-            string cadenaMarca = Request["Marca"];
-            string cadenaPrecioMin = Request["PrecioMin"];
-            string cadenaPrecioMax = Request["PrecioMax"];
-            string cadenaBusqueda = Request["Busqueda"];
 
             var nameValues = HttpUtility.ParseQueryString(Request.QueryString.ToString());
-            //if (cadenaCat != null)
-            //{
-            //    nameValues.Set("Cat", cadenaCat);
-            //}
-            ////if (cadenaOrdPre != null)
-            ////{
-            ////    nameValues.Set("OrdPre", cadenaOrdPre);
-            ////}
+            //remuevo el parametro de orden por precio porque ahora voy a ordenar por antiguedad
             nameValues.Remove("OrdPre");
-            //if (cadenaMarca != null)
-            //{
-            //    nameValues.Set("Marca", cadenaMarca);
-            //}
-            //if (cadenaPrecioMin != null)
-            //{
-            //    nameValues.Set("PrecioMin", cadenaPrecioMin);
-            //}
-            //if (cadenaPrecioMax != null)
-            //{
-            //    nameValues.Set("PrecioMax", cadenaPrecioMax);
-            //}
-            //if (cadenaBusqueda != null)
-            //{
-            //    nameValues.Set("Busqueda", cadenaBusqueda);
-            //}
             nameValues.Set("Anti", "viejo");
             string url = Request.Url.AbsolutePath;
             string updatedQueryString = "?" + nameValues.ToString();
@@ -461,39 +340,10 @@ namespace Vistas
 
         protected void btnMasNuevo_Click(object sender, EventArgs e)
         {
-            string cadenaCat = Request["Cat"];
-            string cadenaOrdPre = Request["OrdPre"];
-            string cadenaMarca = Request["Marca"];
-            string cadenaPrecioMin = Request["PrecioMin"];
-            string cadenaPrecioMax = Request["PrecioMax"];
-            string cadenaBusqueda = Request["Busqueda"];
-
+           
             var nameValues = HttpUtility.ParseQueryString(Request.QueryString.ToString());
-            //if (cadenaCat != null)
-            //{
-            //    nameValues.Set("Cat", cadenaCat);
-            //}
-            ////if (cadenaOrdPre != null)
-            ////{
-            ////    nameValues.Set("OrdPre", cadenaOrdPre);
-            ////}
+            //remuevo el parametro de orden por precio porque ahora voy a ordenar por antiguedad
             nameValues.Remove("OrdPre");
-            //if (cadenaMarca != null)
-            //{
-            //    nameValues.Set("Marca", cadenaMarca);
-            //}
-            //if (cadenaPrecioMin != null)
-            //{
-            //    nameValues.Set("PrecioMin", cadenaPrecioMin);
-            //}
-            //if (cadenaPrecioMax != null)
-            //{
-            //    nameValues.Set("PrecioMax", cadenaPrecioMax);
-            //}
-            //if (cadenaBusqueda != null)
-            //{
-            //    nameValues.Set("Busqueda", cadenaBusqueda);
-            //}
             nameValues.Set("Anti", "nuevo");
             string url = Request.Url.AbsolutePath;
             string updatedQueryString = "?" + nameValues.ToString();
@@ -508,38 +358,7 @@ namespace Vistas
             if (hidden.Value != "" || hidden.Value != null)
             {
 
-                string cadenaCat = Request["Cat"];
-                string cadenaAntiguedad = Request["Anti"];
-                string cadenaOrdPre = Request["OrdPre"];
-                string cadenaPrecioMin = Request["PrecioMin"];
-                string cadenaPrecioMax = Request["PrecioMax"];
-                string cadenaBusqueda = Request["Busqueda"];
-
                 var nameValues = HttpUtility.ParseQueryString(Request.QueryString.ToString());
-                //if (cadenaCat != null)
-                //{
-                //    nameValues.Set("Cat", cadenaCat);
-                //}
-                //if (cadenaAntiguedad != null)
-                //{
-                //    nameValues.Set("Anti", cadenaAntiguedad);
-                //}
-                //if (cadenaOrdPre != null)
-                //{
-                //    nameValues.Set("OrdPre", cadenaOrdPre);
-                //}
-                //if (cadenaPrecioMin != null)
-                //{
-                //    nameValues.Set("PrecioMin", cadenaPrecioMin);
-                //}
-                //if (cadenaPrecioMax != null)
-                //{
-                //    nameValues.Set("PrecioMax", cadenaPrecioMax);
-                //}
-                //if (cadenaBusqueda != null)
-                //{
-                //    nameValues.Set("Busqueda", cadenaBusqueda);
-                //}
                 nameValues.Set("Marca", hidden.Value);
                 string url = Request.Url.AbsolutePath;
                 string updatedQueryString = "?" + nameValues.ToString();
@@ -553,34 +372,10 @@ namespace Vistas
 
         protected void btnAplicarPrecio_Click(object sender, EventArgs e)
         {
-            string cadenaCat = Request["Cat"];
-            string cadenaAntiguedad = Request["Anti"];
-            string cadenaMarca = Request["Marca"];
             string cadenaPrecioMin = Request["PrecioMin"];
             string cadenaPrecioMax = Request["PrecioMax"];
-            string cadenaOrdPre = Request["OrdPre"];
-            string cadenaBusqueda = Request["Busqueda"];
 
             var nameValues = HttpUtility.ParseQueryString(Request.QueryString.ToString());
-            //if (cadenaCat != null)
-            //{
-            //    nameValues.Set("Cat", cadenaCat);
-            //}
-            //if (cadenaAntiguedad != null)
-            //{
-            //    nameValues.Set("Anti", cadenaAntiguedad);
-            //}
-            //if (cadenaMarca != null)
-            //{
-            //    nameValues.Set("Marca", cadenaMarca);
-            //}
-            //if (cadenaOrdPre != null)
-            //{
-            //    nameValues.Set("OrdPre", cadenaOrdPre);
-            //}
-
-           
-
             if (cadenaPrecioMax != HiddenPrecioMax.Value)
             {
                 if (HiddenPrecioMax.Value != "0") { 
@@ -624,10 +419,6 @@ namespace Vistas
             else
             {
                 nameValues.Set("PrecioMin", HiddenPrecioMin.Value);
-            }
-            if (cadenaBusqueda != null)
-            {
-                nameValues.Set("Busqueda", cadenaBusqueda);
             }
 
             //System.Diagnostics.Debug.WriteLine("");
