@@ -69,16 +69,16 @@
                                 <div style="width:30%;display:inline">
                                     <ul  class="PrimeraEntrada">
                                         <li>
-                                            <asp:textbox runat="server" class="input" id="txtNombre" type="text" placeholder="Nombre" />
+                                            <asp:textbox required="true" runat="server" class="input" id="txtNombre" type="text" placeholder="Nombre" />
                                         </li>
                                         <li>
-                                            <asp:textbox runat="server" class="input" id="txtApellido" type="text" placeholder="Apellido"/>
+                                            <asp:textbox required="true" runat="server" class="input" id="txtApellido" type="text" placeholder="Apellido"/>
                                         </li>
                                         <li>
-                                            <asp:textbox runat="server" class="input" id="txtEmail" type="text" placeholder="E-mail"/>
+                                            <asp:textbox required="true" runat="server" class="input" id="txtEmail" type="text" placeholder="E-mail"/>
                                         </li>
                                         <li>
-                                            <asp:textbox runat="server" class="input" id="txtPassword" type="text" placeholder="Contraseña"/>
+                                            <asp:textbox required="true" runat="server" class="input" id="txtPassword" type="text" placeholder="Contraseña"/>
                                         </li>
                                     </ul>
                                 </div>
@@ -88,32 +88,32 @@
                                 <div style="width:30%;display:inline;">
                                     <ul class="SegundosDatos">
                                         <li >Direccion:</li>
-                                        <li >Ciudad:</li>
-                                        <li >Provincia:</li>
-                                        <li >Codigo Postal:</li>
+                                        <li >Telefono:</li>
+                                        <li ></li>
+                                        <li >
+                                            <asp:Label ID="lblMensaje" runat="server"></asp:Label>
+                                        </li>
                                     </ul>
                                 </div>
 
                                 <div style="width:30%;display:inline">
                                     <ul class="SegundaEntrada">
                                         <li>
-                                            <asp:textbox class="input" runat="server" id="txtDireccion" type="text" placeholder="Direccion" style=";"/>
+                                            <asp:textbox required="true" class="input" runat="server" id="txtDireccion" type="text" placeholder="Direccion" style=";"/>
                                         </li>
                                         <li >
-                                            <asp:textbox class="input" runat="server" id="txtCuidad" type="text" placeholder="Cuidad" />
+                                            <asp:textbox required="true" class="input" runat="server" id="txtTelefono" type="text" placeholder="Cuidad" />
                                         </li>
                                         <li>
-                                            <asp:textbox class="input" runat="server" id="txtProv" type="text" placeholder="Provincia" />
                                         </li>
                                         <li>
-                                            <asp:textbox class="input" runat="server" id="txtCP" type="text" placeholder="Codigo Postal" />
                                         </li>
                                     </ul>
                                 </div>
                             </div>
 
                         <div>
-                            <button class="btnGuardar" >Guardar cambios</button>
+                            <asp:Button ID="btnGuardarCamb" runat="server" OnClick="btnGuardarCamb_Click1" Text="GUARDAR CAMBIOS" />
                         </div>
                     
                 </div>

@@ -132,6 +132,10 @@ namespace Dao
         {
             SqlParameter SqlParametros = new SqlParameter();
 
+            SqlParametros = comando.Parameters.Add("@IDUSUARIO", SqlDbType.Int);
+            SqlParametros.Value = usur.getID_usuario();
+            SqlParametros = comando.Parameters.Add("@DNI", SqlDbType.VarChar);
+            SqlParametros.Value = usur.getDNIUsuario();
             SqlParametros = comando.Parameters.Add("@NOMBRE", SqlDbType.VarChar);
             SqlParametros.Value = usur.getNombreUsuario();
             SqlParametros = comando.Parameters.Add("@APELLIDO", SqlDbType.VarChar);
@@ -146,6 +150,8 @@ namespace Dao
             SqlParametros.Value = usur.getPasswordUsuario();
             SqlParametros = comando.Parameters.Add("@TELEFONO", SqlDbType.VarChar);
             SqlParametros.Value = usur.getTelefonoUsuario();
+            SqlParametros = comando.Parameters.Add("@ROL", SqlDbType.Int);
+            SqlParametros.Value = usur.getRolUsuario();
 
 
         }
@@ -155,7 +161,7 @@ namespace Dao
         {
             // List<Categoria> lista = new List<Categoria>();
             SqlDataAdapter comando = new SqlDataAdapter();
-            DataTable tabla = ds.ObtenerTabla("Usuario", "Select Nombre,Apellido,Email,Direccion,Nombre_Usuario,Password,Telefono,DNI,Rol from Usuario where Nombre_Usuario ='" + Nombre + "'");
+            DataTable tabla = ds.ObtenerTabla("Usuario", "Select * from Usuario where Nombre_Usuario ='" + Nombre + "'");
             return tabla;
         }
         //---------------------------------------------------------------

@@ -167,6 +167,7 @@ namespace Negocio
             Usuarios Usu = new Usuarios();
             DataTable Con = dao.getTablaUsuarioCompleto(NombreUsuario);
 
+            Usu.setID_usuario(Convert.ToInt32(Con.Rows[0]["ID_usuario"]));
             Usu.setNombreUsuario(Con.Rows[0]["Nombre"].ToString());
             Usu.setApellidoUsuario(Con.Rows[0]["Apellido"].ToString());
             Usu.setEmailUsuario(Con.Rows[0]["Email"].ToString());

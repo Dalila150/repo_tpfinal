@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,34 +18,29 @@ namespace Vistas
         {
             //-----------------------------------------------
             Usuarios Usu = new Usuarios();
-            // COMPRUEBO SI HAY ALGUIEN LOGUEADO
             if (Request.Cookies["NombreUsuario"] != null)
             {
                 HttpCookie ck = Request.Cookies["NombreUsuario"];
 
-                // MEDIANTE EL USUARIO DE LAS COOKIES OBTENGO INFORMACION COMO EL NOMBRE Y APELLIDO
                 Usu = Neg.DevolverUsuarioCompleto(Request.Cookies["NombreUsuario"].Value);
+
 
                 String IconosInnerHTML = "";
                 Char A = '"';
 
-                if (Request.Cookies["tipo_usuario_logueado"] != null)
+                if ((String)Session["tipo_usuario_logueado"] != null)
                 {
-                    //SI ES ROL ADMIN
-                    if (Request.Cookies["tipo_usuario_logueado"].Value == "1")
+                    if ((String)Session["tipo_usuario_logueado"] == "1")
                     {
-                        //CORONITA
                         IconosInnerHTML += "<a href=" + A + "/HomeAdmin.aspx" + A + " class=" + A + "fas fa-crown" + A + " style=" + A + "font-size: 1.6rem;text-decoration: none;color: #40514e;" + A + " aria-hidden=" + A + "true" + A + "></a>";
                         accesoAdmin.InnerHtml = IconosInnerHTML;
                         IconosInnerHTML = "";
                     }
                 }
 
-                //BOTONES DE USUARIO COMUN
                 IconosInnerHTML += "<a href=" + A + "/Datos.aspx" + A + " class=" + A + "fas fa-user user" + A + " style=" + A + "text-decoration: none;" + A + "><div id = 'UsuarioLogueadoNombre' runat='server' style='font-size:20px;'>" + Usu.getNombreUsuario() + "</div><div id = 'UsuarioLogueadoApellido' runat='server' style='font-size:20px;'>" + Usu.getApellidoUsuario() + "</div></a>";
                 infoUser.InnerHtml = IconosInnerHTML;
                 IconosInnerHTML = "";
-                // FLECHA PARA DESLOGUEAR
                 IconosInnerHTML += "<a href=" + A + "/Home.aspx?Sign-out=true" + A + " class=" + A + "fas fa-sign-out-alt" + A + " style=" + A + "font-size: 1.6rem;text-decoration: none;color: #40514e;" + A + " aria-hidden=" + A + "true" + A + "></a>";
                 IconoSalir.InnerHtml = IconosInnerHTML;
             }
@@ -98,6 +94,18 @@ namespace Vistas
                 InnerHTML += TotalCarro + "(" + CantProds + ")";
                 datosCarrito.InnerHtml = InnerHTML;
             }
+            if (IsPostBack == false)
+            {
+                txtNombre.Text = Usu.getNombreUsuario();
+                txtApellido.Text = Usu.getApellidoUsuario();
+                txtEmail.Text = Usu.getEmailUsuario();
+                txtPassword.Text = Usu.getPasswordUsuario();
+                txtDireccion.Text = Usu.getDireccionUsuario();
+                txtTelefono.Text = Usu.getTelefonoUsuario();
+
+            }
+
+
         }
 
         protected void txtBuscar_TextChanged(object sender, EventArgs e)
@@ -110,6 +118,41 @@ namespace Vistas
             Response.Redirect("/productos.aspx" + updatedQueryString);
         }
 
+        protected void BtnGuardarCamb_Click(object sender, EventArgs e)
+        {
 
+            ///
+
+        }
+
+        protected void btnGuardarCamb_Click1(object sender, EventArgs e)
+        {
+            Usuarios Usu = new Usuarios();
+
+            HttpCookie ck = Request.Cookies["NombreUsuario"];
+
+            Usu = Neg.DevolverUsuarioCompleto(Request.Cookies["NombreUsuario"].Value);
+            int actualizo = 0;
+
+
+            Usu.setNombreUsuario(txtNombre.Text);
+            Usu.setApellidoUsuario(txtApellido.Text);
+            Usu.setEmailUsuario(txtEmail.Text);
+            Usu.setPasswordUsuario(txtPassword.Text.ToString());
+            Usu.setDireccionUsuario(txtDireccion.Text);
+            Usu.setTelefonoUsuario(txtTelefono.Text);
+
+
+            actualizo = Neg.ActualizarUsuario(Usu);
+
+            if (actualizo == 1)
+            {
+                lblMensaje.Text = "Los datos fueron actualizados correctamente";
+            }
+            else
+            {
+                lblMensaje.Text = "Hubo un error al actualizar datos";
+            }
+        }
     }
 }
