@@ -27,42 +27,41 @@
                 <ul class="nav">
                     <li><a href="/HomeAdmin.aspx">Home</a></li>
                     <li><a href="#">Administrar</a>
-                        <ul>
-                            <li><a href="#">Productos</a>
-                                <ul>
-                                    <li><a href="/AdminListPro.aspx">Listar</a></li>
-                                    <li><a href="/AdminCrearPro.aspx">Crear</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Usuarios</a>
-                                <ul>
-                                    <li><a href="/AdminListUsu.aspx">Listar</a></li>
-                                    <li><a href="/AdminEdicUsu.aspx">Editar</a></li>
-                                    <li><a href="/AdminEliminarUsuariosAdmin.aspx">Eliminar</a></li>
-                                    <li><a href="/AdminCrearAdministrador.aspx">Crear</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Marcas</a>
-                                <ul>
-                                    <li><a href="#">Listar</a></li>
-                                    <li><a href="/AdminCrearMarca.aspx">Crear</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Categorias</a>
-                                <ul>
-                                    <li><a href="#">Listar</a></li>
-                                    <li><a href="/AdminCrearCategoria.aspx">Crear</a></li>
-                                </ul>
-                            </li>
+                       <ul>
+                        <li><a href="#">Productos</a>
+                            <ul>
+                                <li><a href="/AdminListPro.aspx">Listar</a></li>
+                                <li><a href="/AdminCrearPro.aspx">Crear</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Usuarios</a>
+                            <ul>
+                                <li><a href="/AdminListUsu.aspx">Listar</a></li>
+                                <li><a href="/AdminEliminarUsuarios.aspx">Eliminar</a></li>
+                                <li><a href="/AdminCrearAdministrador.aspx">Crear</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Marcas</a>
+                            <ul>
+                                <li><a href="/AdminListMarcas.aspx">Listar</a></li>
+                                <li><a href="/AdminCrearMarca.aspx">Crear</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Categorias</a>
+                            <ul>
+                                <li><a href="/AdminListCategoria.aspx">Listar</a></li>
+                                <li><a href="/AdminCrearCategoria.aspx">Crear</a></li>
+                            </ul>
+                        </li>
 
-                        </ul>
+                    </ul>
                     </li>
                     <li><a href="#">Registros</a>
                         <ul>
-                            <li><a href="#">Registro 1</a></li>
-                            <li><a href="#">Registro 2</a></li>
-                            <li><a href="#">Historial de ventas</a></li>
-                        </ul>
+                        <li><a href="#">Registro 1</a></li>
+                        <li><a href="/Reporte2.aspx">Registro 2</a></li>
+                        <li><a href="/AdminHistorialVentas.aspx">Historial de ventas</a></li>
+                    </ul>
                     </li>
 
                 </ul>

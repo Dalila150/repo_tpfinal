@@ -36,7 +36,7 @@
               <!--Aca deberian ir las categorias-->
                     </li>
                     <li class="name">
-                       <asp:Button class="btnASP" ID="btnVentas" runat="server" Style="background-color: #40514e;margin-left: 2%;border-radius: 17px;" OnClick="btnVentas_Click" Text="Compras" />
+                       <asp:Button class="btnASP" ID="btnVentas" runat="server" Style="margin-top:2px; padding: 7px;background-color: #40514e;margin-left: 2%;border-radius: 17px;" OnClick="btnVentas_Click" Text="Compras" />
                     </li>
                    
                 </ul>
