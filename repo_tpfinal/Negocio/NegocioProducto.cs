@@ -183,5 +183,12 @@ namespace Negocio
             DaoProducto dm = new DaoProducto();
             return dm.ObtenerDatosId(id);
         }
+
+        public DataTable cargar_gridview_neg_reporte1_tex(string fecha)
+        {
+            DaoProducto dm = new DaoProducto();
+            return dm.ObtenerProductosPorFecha_R1(fecha);
+        }
+
     }
 }

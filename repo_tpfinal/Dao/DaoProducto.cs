@@ -223,5 +223,16 @@ namespace Dao
             return FilasCambiadas;
         }
 
+        public DataTable ObtenerProductosPorFecha_R1(string f1)
+        {
+            DateTime d1 = Convert.ToDateTime(f1);
+            var dateTime1 = d1;
+            //SACA LA HORA 
+            f1 = dateTime1.ToShortDateString();
+            string consulta = "SELECT P.Nombre as Producto,sum(dv.Cantidad) as Cantidad_Vendida FROM producto P INNER JOIN detalle_venta dv ON P.id_producto = dv.ID_producto INNER JOIN venta v ON dv.ID_venta = v.ID_venta WHERE V.Fecha ='" + f1 + "' GROUP BY p.Nombre ORDER BY SUM(dv.cantidad) desc";
+            return ds.ObtenerTabla("producto", consulta);
+
+        }
+
     }
 }

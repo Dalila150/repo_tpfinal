@@ -76,5 +76,34 @@ namespace Dao
             return acceder.ObtenerTabla("detalle_venta", "select ID_producto,Cantidad,Precio_unitario from detalle_venta inner join venta on detalle_venta.ID_venta = venta.ID_venta  where detalle_venta.ID_venta = " + idDetV);
         }
 
+        public DataTable ObtenerTodasLasVentasPorFecha(string f1, string f2)
+        {
+            DateTime d1 = Convert.ToDateTime(f1);
+            DateTime d2 = Convert.ToDateTime(f2);
+            var dateTime1 = d1;
+            var dateTime2 = d2;
+            //SACA LA HORA 
+            f1 = dateTime1.ToShortDateString();
+            f2 = dateTime2.ToShortDateString();
+
+            System.Diagnostics.Debug.WriteLine("FECHA NUMERO UNO");
+            System.Diagnostics.Debug.WriteLine(f1);
+            System.Diagnostics.Debug.WriteLine("FECHA NUMERO DOS");
+            System.Diagnostics.Debug.WriteLine(f2);
+
+            int res = DateTime.Compare(d1, d2);
+            if (res > 0)
+            {
+                string consulta = "SELECT Fecha,COUNT(Fecha) AS 'Ventas' FROM venta WHERE Fecha between '" + f2 + "' and '" + f1 + "' GROUP BY Fecha";
+                return acceder.ObtenerTabla("venta", consulta);
+            }
+            else
+            {
+                string consulta = "SELECT Fecha,COUNT(Fecha) AS 'Ventas' FROM venta WHERE Fecha between '" + f1 + "' and '" + f2 + "' GROUP BY Fecha";
+                return acceder.ObtenerTabla("venta", consulta);
+            }
+
+        }
+
     }
 }
