@@ -17,10 +17,12 @@ namespace Vistas
         {
             //-----------------------------------------------
             Usuarios Usu = new Usuarios();
+            // COMPRUEBO SI HAY ALGUIEN LOGUEADO
             if (Request.Cookies["NombreUsuario"] != null)
             {
                 HttpCookie ck = Request.Cookies["NombreUsuario"];
 
+                // MEDIANTE EL USUARIO DE LAS COOKIES OBTENGO INFORMACION COMO EL NOMBRE Y APELLIDO
                 Usu = Neg.DevolverUsuarioCompleto(Request.Cookies["NombreUsuario"].Value);
 
                 String IconosInnerHTML = "";
@@ -28,17 +30,21 @@ namespace Vistas
 
                 if ((String)Session["tipo_usuario_logueado"] != null)
                 {
+                    //SI ES ROL ADMIN
                     if ((String)Session["tipo_usuario_logueado"] == "1")
                     {
+                        //CORONITA
                         IconosInnerHTML += "<a href=" + A + "/HomeAdmin.aspx" + A + " class=" + A + "fas fa-crown" + A + " style=" + A + "font-size: 1.6rem;text-decoration: none;color: #40514e;" + A + " aria-hidden=" + A + "true" + A + "></a>";
                         accesoAdmin.InnerHtml = IconosInnerHTML;
                         IconosInnerHTML = "";
                     }
                 }
 
+                //BOTONES DE USUARIO COMUN
                 IconosInnerHTML += "<a href=" + A + "/Datos.aspx" + A + " class=" + A + "fas fa-user user" + A + " style=" + A + "text-decoration: none;" + A + "><div id = 'UsuarioLogueadoNombre' runat='server' style='font-size:20px;'>" + Usu.getNombreUsuario() + "</div><div id = 'UsuarioLogueadoApellido' runat='server' style='font-size:20px;'>" + Usu.getApellidoUsuario() + "</div></a>";
                 infoUser.InnerHtml = IconosInnerHTML;
                 IconosInnerHTML = "";
+                // FLECHA PARA DESLOGUEAR
                 IconosInnerHTML += "<a href=" + A + "/Home.aspx?Sign-out=true" + A + " class=" + A + "fas fa-sign-out-alt" + A + " style=" + A + "font-size: 1.6rem;text-decoration: none;color: #40514e;" + A + " aria-hidden=" + A + "true" + A + "></a>";
                 IconoSalir.InnerHtml = IconosInnerHTML;
             }

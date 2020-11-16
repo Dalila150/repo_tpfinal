@@ -14,6 +14,8 @@ namespace Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // LIMPIO POR LAS DUDAS QUE VUELVA DE EDITAR O CREAR
+            Session["id_producto_modif"] = null;
             //-----------------------------------------------
             Usuarios Usu = new Usuarios();
             if (Request.Cookies["NombreUsuario"] != null)
@@ -69,17 +71,17 @@ namespace Vistas
                 InnerHTML = CargarInnerHTML("none");
             }
 
-            cadenaResultado = Request["NewPro"];
+            string cadenaResultado2 = Request["NewPro"];
 
-            if (cadenaResultado == "true")
+            if (cadenaResultado2 == "true")
             {
                 InnerHTML = CargarInnerHTML2("ok");
             }
-            else if (cadenaResultado == "error")
+            else if (cadenaResultado2 == "error")
             {
                 InnerHTML = CargarInnerHTML2("error");
             }
-            else if (cadenaResultado == "none")
+            else if (cadenaResultado2 == "none")
             {
                 InnerHTML = CargarInnerHTML2("none");
             }
@@ -213,7 +215,9 @@ namespace Vistas
                     {
                         estadoCelda = "Inactivo";
                         LinkButton lbtnDelete = (LinkButton)e.Row.FindControl("DeleteButton");
+                    //cambio el texto del boton
                         lbtnDelete.Text = "Activar";
+                    //cambio la funcion del btoron
                         lbtnDelete.CommandName = "Update";
                         lbtnDelete.OnClientClick = "return confirm('¿Esta seguro de activar este producto?','Activar Producto');";
                     }
