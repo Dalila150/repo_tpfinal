@@ -19,21 +19,15 @@ VALUES ('Motorola','True'),
 ('Alcatel','True');
 GO
 
-INSERT INTO categoria("Nombre","Estado")
-VALUES ('Monitores','True'),
-('Televisores','1'),
-('Telefonos','1'),
-('Tabletas','1');
-GO
 
 
-INSERT INTO categoria("Nombre","Estado")
-VALUES ('Equipo de música','0'),
-('Reproductor de audio','0'),
-('Reproductor de DVD','0'),
-('Computador personal','0'),
-('Tabletas graficas','0'),
-('Telefonía fija','0');
+INSERT INTO categoria("Nombre","Estado","Imagen")
+VALUES ('Equipo de música','0','/Categorias/monitor.jpg'),
+('Televisores','0','/Categorias/televisor.jpg'),
+('Celulares','0','/Categorias/celular.png'),
+('Tablets','0','/Categorias/tablet.jpg'),
+('Pantallas','0','/Categorias/Pantalla.jpg'),
+('Monitores','0','/Categorias/monitor.jpg);
 GO
 
 INSERT INTO pago("ID_pago","Descripcion")

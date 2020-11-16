@@ -30,7 +30,7 @@
        <div class="navbar">
                 <ul class="nav">
                     <li class="name">
-                        <a href="#">Home</a>
+                        <a href="/Home.aspx">Home</a>
                     </li>
                     <li id="CargameLasCats" class="name" runat="server">
               <!--Aca deberian ir las categorias-->
