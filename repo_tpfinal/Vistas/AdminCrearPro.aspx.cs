@@ -14,7 +14,7 @@ namespace Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //-----------------------------------------------
+            //----------------------- comprobar permisos del  usuario------------------------
             Usuarios Usu = new Usuarios();
             if (Request.Cookies["NombreUsuario"] != null)
             {
@@ -32,7 +32,7 @@ namespace Vistas
                     }
                     else
                     {
-                        Response.Redirect("/IniciarSesion.aspx");
+                        Response.Redirect("/Home.aspx");
                     }
                 }
                 else

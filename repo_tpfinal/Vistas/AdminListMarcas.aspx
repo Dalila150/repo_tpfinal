@@ -29,7 +29,6 @@
             <div class="iconos">
                 <div runat="server" id="IconoSalir"></div>
             </div>
-            </div>
             <div class="navbar">
                 <ul class="nav">
                     <li><a href="/HomeAdmin.aspx">Home</a></li>
