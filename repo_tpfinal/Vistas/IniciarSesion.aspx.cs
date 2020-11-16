@@ -82,15 +82,29 @@ namespace Vistas
 
                 if (neg.BuscarUsuarioYclave(txtUsuario.Text, txtContraseña.Text) == true)
                 {
+<<<<<<< Updated upstream
                   
 
+=======
+                    Usuarios EsAdmin = new Usuarios();
+>>>>>>> Stashed changes
                     HttpCookie Usu = new HttpCookie("NombreUsuario", txtUsuario.Text);
                     Usu.Expires = DateTime.Now.AddDays(1);
                     this.Response.Cookies.Add(Usu);
                     HttpCookie Cla = new HttpCookie("NombreClave", txtContraseña.Text);
                     Cla.Expires = DateTime.Now.AddHours(1);
                     this.Response.Cookies.Add(Cla);
-                    Response.Redirect("Home.aspx");
+                    NegocioUsuario nU = new NegocioUsuario();
+                    EsAdmin = nU.DevolverUsuarioCompleto(txtUsuario.Text);
+                    Session["tipo_usuario_logueado"] = EsAdmin.getRolUsuario().ToString();
+                    if (EsAdmin.getRolUsuario() == 1)
+                    {
+                        Response.Redirect("HomeAdmin.aspx");
+                    } else
+                    {
+                        Response.Redirect("Home.aspx");
+                    }
+                    
                 }
                 lblMensaje.Text = "La Contraseña Es incorrectas";
             }
