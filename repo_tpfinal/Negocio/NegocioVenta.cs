@@ -12,7 +12,7 @@ namespace Negocio
 {
     public class NegocioVenta
     {
-            DaoVentas dv = new DaoVentas();
+        DaoVentas dv = new DaoVentas();
 
         public bool Registro_de_Venta (Ventas ven)
 
@@ -49,6 +49,19 @@ namespace Negocio
             DaoVentas dp = new DaoVentas();
             return dp.ObtenerTodosDetallesVentas(idDetV);
         }
+
+        public DataTable TodasLasVentasUsuario(string Nombre)
+        {
+            DaoVentas dp = new DaoVentas();
+            return dp.ObtenerTodasLasVentasUsuario(Nombre);
+        }
+
+        public DataTable DetallesVentasUsuario(int idDetV)
+        {
+            DaoVentas dp = new DaoVentas();
+            return dp.ObtenerDetallesVentasUsuario(idDetV);
+        }
+
 
     }
 }

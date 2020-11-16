@@ -64,7 +64,17 @@ namespace Dao
             return acceder.ObtenerTabla("detalle_venta", "Select ID_detalle_venta AS #, producto.Nombre , Cantidad, detalle_venta.Precio_unitario AS 'Precio' from detalle_venta INNER JOIN producto on producto.id_producto = detalle_venta.ID_producto WHERE ID_venta= "+ idDetV);
         }
 
+        public DataTable ObtenerTodasLasVentasUsuario(string Nombre)
+        {
+            DataTable Tabla = acceder.ObtenerTabla("venta", "select ID_venta,Fecha, venta.Direccion,Nro_tajeta,Total from venta inner join usuario on venta.ID_usuario = usuario.ID_usuario where usuario.Nombre_Usuario ='" + Nombre + "'");
+            return Tabla;
+        }
 
+        public DataTable ObtenerDetallesVentasUsuario(int idDetV)
+        {
+
+            return acceder.ObtenerTabla("detalle_venta", "select ID_producto,Cantidad,Precio_unitario from detalle_venta inner join venta on detalle_venta.ID_venta = venta.ID_venta  where detalle_venta.ID_venta = " + idDetV);
+        }
 
     }
 }

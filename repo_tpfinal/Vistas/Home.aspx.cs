@@ -137,5 +137,17 @@ namespace Vistas
 
             Response.Redirect("/productos.aspx" + updatedQueryString);
         }
+
+        protected void btnVentas_Click(object sender, EventArgs e)
+        {
+            if (Request.Cookies["NombreUsuario"] != null)
+            {
+                HttpCookie Usu = new HttpCookie("NombreUsuario", Request.Cookies["NombreUsuario"].Value);
+                Usu.Expires = DateTime.Now.AddDays(1);
+                this.Response.Cookies.Add(Usu);
+
+                Response.Redirect("ComprasUsuario.aspx");
+            }
+        }
     }
 }

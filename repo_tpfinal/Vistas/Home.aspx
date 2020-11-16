@@ -36,7 +36,7 @@
               <!--Aca deberian ir las categorias-->
                     </li>
                     <li class="name">
-                        <a href="/ComprasUsuario.aspx">Historial de compras</a>
+                        <button>dfsdfsdfsdf</button>
                     </li>
                     <li class="name">
                         <a href="#">Contacto</a>
@@ -50,6 +50,7 @@
             <div class="slider">
               <ul>
                 <li id="slide1">
+                    <asp:Button ID="btnVentas" runat="server" OnClick="btnVentas_Click" Text="Ventas" />
                   <img src="/Slider/1.png" />
                 </li>
                 <li id="slide2">
