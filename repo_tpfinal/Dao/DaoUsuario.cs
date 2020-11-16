@@ -46,20 +46,21 @@ namespace Dao
         public DataTable getTablaUsuario()
         {
             // List<Categoria> lista = new List<Categoria>();
-            DataTable tabla = ds.ObtenerTabla("Usuario", "SELECT u.Nombre,u.Apellido,u.ID_usuario,r.Tipo_de_Rol FROM usuario u INNER JOIN rol r ON U.Rol = r.ID_rol");
+            DataTable tabla = ds.ObtenerTabla("Usuario", "SELECT u.ID_usuario,u.Nombre,u.Apellido,r.Tipo_de_Rol FROM usuario u INNER JOIN rol r ON U.Rol = r.ID_rol");
             return tabla;
         }
 
         public DataTable getTablaUsuarioEspecifico(string Nombre)
         {
             // List<Categoria> lista = new List<Categoria>();
-            DataTable tabla = ds.ObtenerTabla("Usuario", "Select ID_usuario,Nombre,Apellido,Rol from Usuario where Nombre Like'" + Nombre + "%'");
+            DataTable tabla = ds.ObtenerTabla("Usuario", "SELECT u.ID_usuario,u.Nombre,u.Apellido,r.Tipo_de_Rol FROM usuario u INNER JOIN rol r ON U.Rol = r.ID_rol where Nombre Like'" + Nombre + "%'");
             return tabla;
         }
         public DataTable getTablaUsuarioEspecificoApellido(string Nombre)
         {
             // List<Categoria> lista = new List<Categoria>();
-            DataTable tabla = ds.ObtenerTabla("Usuario", "Select ID_usuario,Nombre,Apellido,Rol from Usuario where Apellido Like'" + Nombre + "%'");
+            DataTable tabla = ds.ObtenerTabla("Usuario", "SELECT u.ID_usuario,u.Nombre,u.Apellido,r.Tipo_de_Rol FROM usuario u INNER JOIN rol r ON U.Rol = r.ID_rol where Apellido Like'" + Nombre + "%'"
+);
             return tabla;
         }
         public int agregarNuevoUsuario(Usuarios usur)

@@ -39,7 +39,7 @@
         <div class="content" >
 <!------------------------------------------------------------>
     <div style="display: inline-block;width: 80%">
-        <div style="background-color: rgba(197, 93, 102, 0.404);border-radius: 8px;margin-bottom: 5%;padding-bottom: 10px;margin-top:25px">
+        <div style="background-color: #b4dee0c2;border-radius: 8px;margin-bottom: 5%;padding-bottom: 10px;margin-top:25px">
             <h1 style="padding-top: 20px; text-align: center;margin:0px;font-size:40px">Detalle compra</h1>
             <hr style="width:90%" />
             <div style="width:100%">

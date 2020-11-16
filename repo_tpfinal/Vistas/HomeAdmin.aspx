@@ -18,7 +18,7 @@
                 <img src="/img/logo.jpg" class="LogoImagen" />
             </div>
             <div class="header" >
-                <a href="Home.aspx" style="width:25%;background-color:#eaffd0;height: 30px;border-radius:10px;margin-top:10px;text-decoration:none;font-size:24px;color:gray;margin-left: 40px;">IR A LA WEB</a>
+                <a href="Home.aspx" style="width:25%;background-color:aliceblue;height: 30px;border-radius:10px;margin-top:10px;text-decoration:none;font-size:24px;color:gray;margin-left: 40px;">IR A LA WEB</a>
             </div>
             <div class="iconos" >
                 <div runat="server" id="IconoSalir"></div>
