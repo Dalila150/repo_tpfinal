@@ -36,43 +36,38 @@
             <li><a href="#">Administrar</a>
                 <ul>
                     <li><a href="#">Productos</a>
-                        <ul>
-                            <li><a href="/AdminListPro.aspx">Listar</a></li>
-                            <li><a href="/AdminCrearPro.aspx">Crear</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Usuarios</a>
-                        <ul>
-                            <li><a href="/AdminListUsu.aspx">Listar</a></li>
-                            <li><a href="/AdminEdicUsu.aspx">Editar</a></li>
-                            <li><a href="/AdminEliminarUsuariosAdmin.aspx">Eliminar</a></li>
-                            <li><a href="/AdminCrearAdministrador.aspx">Crear</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Marcas</a>
-                        <ul>
-                            <li><a href="#">Listar</a></li>
-                            <li><a href="#">Editar</a></li>
-                            <li><a href="/AdminEliminarMarca.aspx">Eliminar</a></li>
-                            <li><a href="/AdminCrearMarca.aspx">Crear</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Categorias</a>
-                        <ul>
-                            <li><a href="#">Listar</a></li>
-                            <li><a href="#">Editar</a></li>
-                            <li><a href="/AdminEliminarCategoria.aspx">Eliminar</a></li>
-                            <li><a href="/AdminCrearCategoria.aspx">Crear</a></li>
-                        </ul>
-                    </li>
+                            <ul>
+                                <li><a href="/AdminListPro.aspx">Listar</a></li>
+                                <li><a href="/AdminCrearPro.aspx">Crear</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Usuarios</a>
+                            <ul>
+                                <li><a href="/AdminListUsu.aspx">Listar</a></li>
+                                <li><a href="/AdminEliminarUsuarios.aspx">Eliminar</a></li>
+                                <li><a href="/AdminCrearAdministrador.aspx">Crear</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Marcas</a>
+                            <ul>
+                                <li><a href="/AdminListMarcas.aspx">Listar</a></li>
+                                <li><a href="/AdminCrearMarca.aspx">Crear</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Categorias</a>
+                            <ul>
+                                <li><a href="/AdminListCategoria.aspx">Listar</a></li>
+                                <li><a href="/AdminCrearCategoria.aspx">Crear</a></li>
+                            </ul>
+                        </li>
 
                 </ul>
             </li>
             <li><a href="#">Registros</a>
                 <ul>
-                    <li><a href="#">Registro 1</a></li>
-                    <li><a href="#">Registro 2</a></li>
-                    <li><a href="#">Historial de ventas</a></li>
+                        <li><a href="/Reporte1.aspx">Registro 1</a></li>
+                    <li><a href="/Reporte2.aspx">Registro 2</a></li>
+                        <li><a href="/AdminHistorialVentas.aspx">Historial de ventas</a></li>
                 </ul>
             </li>
 
@@ -122,7 +117,7 @@
             </asp:GridView>
                 <br />
                 <asp:Button class="btnASP" ID="btn_Buscar" runat="server" Text="BUSCAR" Height="40px" OnClick="btn_Buscar_Click"/>
-                <asp:Button class="btnASP" ID="btn_Cancelar" runat="server" Text="CANCELAR" Height="39px" OnClick="btn_Cancelar_Click"/>
+                <asp:Button class="btnASP" ID="btn_Cancelar" runat="server" Text="CANCELAR" Height="39px"/>
 
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 

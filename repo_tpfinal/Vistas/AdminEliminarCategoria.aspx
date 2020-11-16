@@ -57,7 +57,7 @@
             </li>
             <li><a href="#">Registros</a>
                 <ul>
-                        <li><a href="#">Registro 1</a></li>
+                        <li><a href="/Reporte1.aspx">Registro 1</a></li>
                         <li><a href="/Reporte2.aspx">Registro 2</a></li>
                         <li><a href="/AdminHistorialVentas.aspx">Historial de ventas</a></li>
                     </ul>

@@ -59,7 +59,7 @@ namespace Dao
             SqlCommand comando = new SqlCommand();
             ArmarParametrosMarcasAgregar(ref comando, marc);
             //SE INGRESA EL NOMBRE DEL PROCEDIMIENTO ALMACENADO
-            return ds.EjecutarProcedimientoAlmacenado(comando, "sp_Crear_Marca");
+            return ds.EjecutarProcedimientoAlmacenado(comando, "sp_Create_Marca");
         }
 
         private void ArmarParametrosMarcasEliminar(ref SqlCommand Comando, Marcas marc)
