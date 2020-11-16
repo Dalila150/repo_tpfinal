@@ -29,15 +29,14 @@ namespace Dao
         {
             SqlParameter SqlParametros = new SqlParameter();
 
-            SqlParametros = comando.Parameters.Add("@ID_VENTA", SqlDbType.Int);
-            SqlParametros.Value = ven.ID_venta1;
+           
             SqlParametros = comando.Parameters.Add("@FECHAVENTA", SqlDbType.DateTime);
             SqlParametros.Value = ven.Fecha1;
             SqlParametros = comando.Parameters.Add("@ID_USUARIO", SqlDbType.Int);
             SqlParametros.Value = ven.ID_venta1;
             SqlParametros = comando.Parameters.Add("@DIRECCION", SqlDbType.VarChar);
             SqlParametros.Value = ven.ID_venta1;
-            SqlParametros = comando.Parameters.Add("@TOTAL", SqlDbType.Float);
+            SqlParametros = comando.Parameters.Add("@TOTAL", SqlDbType.Decimal);
             SqlParametros.Value = ven.ID_venta1;
             SqlParametros = comando.Parameters.Add("@MODO_ENVIO", SqlDbType.Int);
             SqlParametros.Value = ven.ID_venta1;

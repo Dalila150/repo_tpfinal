@@ -93,7 +93,7 @@
                 </table>
             </div>
             <div style="padding-bottom: 25px; text-align:center; margin-top:3%;height: 35px;">
-                <asp:Button class="btnASP" ID="BtnEliminarCate" runat="server" style="width: 65%;" Height="40px" OnClick="BtnEliminarCate_Click" Text="ELIMINAR USUARIO ADMINISTRADOR" Width="270px" />
+                <asp:Button class="btnASP" ID="BtnEliminarUsuario" runat="server" style="width: 65%;" Height="40px" OnClick="BtnEliminarUsuario_Click" Text="ELIMINAR USUARIO ADMINISTRADOR" Width="270px" />
                 <asp:Button class="btnASP" ID="BtnCancelar" runat="server" style="width: 20%;"  Height="40px" Text="CANCELAR" Width="143px" />
             </div>
         </div>

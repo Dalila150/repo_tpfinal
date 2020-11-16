@@ -67,9 +67,9 @@ namespace Vistas
 
 
 
-            if (Session["carrito"]!= null)
+            if (Session["Carrito"]!= null)
             {
-                grdCarrito.DataSource = (DataTable)Session["carrito"];
+                grdCarrito.DataSource = (DataTable)Session["Carrito"];
                 grdCarrito.DataBind();
             }
 
@@ -136,7 +136,7 @@ namespace Vistas
 
         protected void btnVaciar_Click(object sender, EventArgs e)
         {
-            Session["carrito"] = null;
+            Session["Carrito"] = null;
             grdCarrito.DataSource = null;
             grdCarrito.DataBind();
         }
@@ -144,20 +144,42 @@ namespace Vistas
         protected void btnFinalizarCompra_Click(object sender, EventArgs e)
         {
 
-            int cantidad = int.Parse(grdCarrito.Rows[0].Cells[1].Text);
-            decimal precio = decimal.Parse(grdCarrito.Rows[0].Cells[2].Text);
-
-            decimal total = cantidad * precio;
-
             NegocioVenta neg_vent = new NegocioVenta();
-
-           
-
             Ventas datos_venta = new Ventas();
 
-            datos_venta.Fecha1 = DateTime.Today;
-            // datos_venta.ID_usuario1 =
-            //datos_venta.Direccion1 =
+            Negocio_DetalleVenta det_v = new Negocio_DetalleVenta();
+            Detalle_venta det_v_entidades = new Detalle_venta();
+
+
+            int total = 0;
+            int CantProds = 0;
+            
+          
+
+            if (Session["Carrito"]!=null)
+            {
+                DataTable info_carrito = (DataTable)Session["Carrito"];
+
+                 
+
+                foreach (DataRow row in info_carrito.Rows)
+                {
+                   
+                    CantProds += int.Parse(row[1].ToString());
+                    total += CantProds * int.Parse(row[2].ToString());
+                  
+                }
+
+            }
+
+
+            DateTime fecha = DateTime.Today;
+            fecha.ToShortDateString().ToString();
+
+              
+            datos_venta.Fecha1 = fecha;
+            datos_venta.ID_usuario1 = Convert.ToInt32(Session["IdUsuario"]);
+            datos_venta.Direccion1 = Session["DireccionUsuario"].ToString();
             datos_venta.Total1 = total;
             datos_venta.Modo_envio1 = int.Parse(ddlModoEnvio.SelectedValue);
             datos_venta.Modo_pago1 = int.Parse(ddlMododePago.SelectedValue);
@@ -167,17 +189,47 @@ namespace Vistas
 
 
 
+
+
             bool registro_venta =  neg_vent.Registro_de_Venta(datos_venta);
 
             if (registro_venta == true)
             {
+             
                 lblMensajeCompra.Text = "Gracias por su compra";
+
+                int id_producto;
+                decimal precio_u;
+
+                if (Session["Carrito"] != null)
+                {
+                    DataTable info_carrito = (DataTable)Session["Carrito"];
+                    id_producto = Convert.ToInt32(info_carrito.Rows[0]["ID_PRODUCTO"]);
+                    precio_u = Convert.ToInt32(info_carrito.Rows[0]["PRECIO"]);
+
+
+                    det_v_entidades.set_idventa(datos_venta.ID_venta1);
+                    det_v_entidades.set_idproducto(id_producto);
+                    det_v_entidades.set_cantidad(CantProds);
+                    det_v_entidades.set_precio_u(precio_u);
+
+                }
+
+               bool registro_detalle = det_v.Registro_detalle_venta(det_v_entidades);
+
+   
+
             }
+
             else
             {
                 lblMensajeCompra.Text = "Hubo un error al registrar su compra";
             }
+
+
         }
+
+        
 
         protected void txtBuscar_TextChanged(object sender, EventArgs e)
         {

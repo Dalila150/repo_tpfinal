@@ -74,9 +74,16 @@ namespace Vistas
 
 
             if (Usuario == true)
-            {
+              {
+                Usuarios usuario_ent = new Usuarios();
+
+                Session["IdUsuario"] = usuario_ent.getID_usuario();
+                Session["DireccionUsuario"] = usuario_ent.getDireccionUsuario();
+
                 if (neg.BuscarUsuarioYclave(txtUsuario.Text, txtContraseña.Text) == true)
                 {
+                  
+
                     HttpCookie Usu = new HttpCookie("NombreUsuario", txtUsuario.Text);
                     Usu.Expires = DateTime.Now.AddDays(1);
                     this.Response.Cookies.Add(Usu);

@@ -16,17 +16,19 @@ namespace Vistas
 
         }
 
-        protected void BtnEliminarCate_Click(object sender, EventArgs e)
+       
+
+        protected void BtnEliminarUsuario_Click(object sender, EventArgs e)
         {
             Boolean estado = false;
             estado = neg.eliminarUsuarioAdmin_neg(txtEliminarAdministrador.Text);
             if (estado == true)
             {
-                lblMensaje.Text = "Usuario Administrador borrada con exito";
+                lblMensaje.Text = "El usuario fue dado de baja";
             }
             else
             {
-                lblMensaje.Text = "NO se pudo borrar el usuario Administrador";
+                lblMensaje.Text = "Hubo un error al intentar dar de baja al usuario";
             }
         }
     }

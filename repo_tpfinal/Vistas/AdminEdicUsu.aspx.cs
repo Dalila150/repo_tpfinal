@@ -36,7 +36,7 @@ namespace Vistas
 
             if (actualizo == 1)
             {
-                lblMensajedeActualizacion.Text = "Los datos fueron actualizados correctamente";
+                lblMensajedeActualizacion.Text = "Los datos del usuario fueron actualizados correctamente";
             }
             else
             {
