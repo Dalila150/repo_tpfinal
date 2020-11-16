@@ -20,8 +20,7 @@
             <div class="header">
             </div>
             <div class="iconos">
-                <a href="/Datos.aspx" class="fas fa-user user"></a>
-                <a href="/Home.aspx" class="fas fa-sign-out-alt"></a>
+               <div runat="server" id="IconoSalir"></div>
             </div>
             <div class="navbar">
                 <ul class="nav">

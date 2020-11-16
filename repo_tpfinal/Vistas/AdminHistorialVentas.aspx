@@ -39,8 +39,8 @@
         <div class="header" >
         </div>
         <div class="iconos" >
-            <a href="/Datos.aspx" class="fas fa-user user"></a>
-            <a href="/Home.aspx" class="fas fa-sign-out-alt"></a></div>
+            <div runat="server" id="IconoSalir"></div>
+            </div>
         <div class="auto-style2" >
            <ul class="nav">
             <li><a href="/HomeAdmin.aspx">Home</a></li>

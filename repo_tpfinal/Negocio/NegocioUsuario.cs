@@ -175,6 +175,7 @@ namespace Negocio
             Usu.setPasswordUsuario(Con.Rows[0]["Password"].ToString());
             Usu.setTelefonoUsuario(Con.Rows[0]["Telefono"].ToString());
             Usu.setDNIUsuario(Con.Rows[0]["DNI"].ToString());
+            Usu.setRolUsuario(int.Parse(Con.Rows[0]["Rol"].ToString()));
 
             return Usu;
         }

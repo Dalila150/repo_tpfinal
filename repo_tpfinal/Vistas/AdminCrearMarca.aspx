@@ -20,8 +20,8 @@
             <div class="header" >
             </div>
             <div class="iconos" >
-                <a href="/Datos.aspx" class="fas fa-user user"></a>
-                <a href="/Home.aspx" class="fas fa-sign-out-alt"></a></div>
+                <div runat="server" id="IconoSalir"></div>
+            </div>
             <div class="navbar" >
                <ul class="nav">
                 <li><a href="/HomeAdmin.aspx">Home</a></li>
@@ -106,7 +106,7 @@
                  <a href="https://github.com/"><i class="fab fa-github tamIcoRed"><b style="padding-left:10px;padding-top:0px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">GitHub</b></i></a>
               </li>
             </ul>
-
+            </div>
     </div>
     </form>
 </body>

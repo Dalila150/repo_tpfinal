@@ -6,13 +6,45 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
 using System.Data;
+using Entidades;
 
 namespace Vistas
 {
     public partial class HomeAdmin : System.Web.UI.Page
     {
+        NegocioUsuario Neg = new NegocioUsuario();
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            //-----------------------------------------------
+            Usuarios Usu = new Usuarios();
+            if (Request.Cookies["NombreUsuario"] != null)
+            {
+
+                if ((String)Session["tipo_usuario_logueado"] != null) { 
+
+                    if((String)Session["tipo_usuario_logueado"] == "1") {
+                        String IconosInnerHTML = "";
+                        Char B = '"';
+                        IconosInnerHTML = "";
+                        IconosInnerHTML += "<a href=" + B + "/Home.aspx?Sign-out=true" + B + " class=" + B + "fas fa-sign-out-alt" + B + " style=" + B + "font-size: 1.6rem;text-decoration: none;color: #40514e;" + B + " aria-hidden=" + B + "true" + B + "></a>";
+                        IconoSalir.InnerHtml = IconosInnerHTML;
+                    } else
+                    {
+                        Response.Redirect("/IniciarSesion.aspx");
+                    }
+                } else
+                {
+                    Response.Redirect("/IniciarSesion.aspx");
+                }
+
+            }
+            else
+            {
+                Response.Redirect("/Home.aspx");
+            }
+            //-----------------------------------------------
+
             NegocioProducto Np = new NegocioProducto();
             NegocioUsuario Nu = new NegocioUsuario();
 

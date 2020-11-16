@@ -155,7 +155,7 @@ namespace Dao
         {
             // List<Categoria> lista = new List<Categoria>();
             SqlDataAdapter comando = new SqlDataAdapter();
-            DataTable tabla = ds.ObtenerTabla("Usuario", "Select Nombre,Apellido,Email,Direccion,Nombre_Usuario,Password,Telefono,DNI from Usuario where Nombre_Usuario ='" + Nombre + "'");
+            DataTable tabla = ds.ObtenerTabla("Usuario", "Select Nombre,Apellido,Email,Direccion,Nombre_Usuario,Password,Telefono,DNI,Rol from Usuario where Nombre_Usuario ='" + Nombre + "'");
             return tabla;
         }
         //---------------------------------------------------------------
