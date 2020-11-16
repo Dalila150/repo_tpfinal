@@ -6,7 +6,7 @@
 
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="StyleSheet" href="/css/template_admin.css"type="text/css" />
+    <link rel="StyleSheet" href="/css/template.css"type="text/css" />
 
     <title>detalle compra - usu</title>
     <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
@@ -31,49 +31,8 @@
             <a href="/Home.aspx" class="fas fa-sign-out-alt"></a></div>
         <div class="navbar" >
            <ul class="nav">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Administrar</a>
-                <ul>
-                    <li><a href="#">Productos</a>
-                        <ul>
-                            <li><a href="/AdminListPro.aspx">Listar</a></li>
-                            <li><a href="/AdminCrearPro.aspx">Crear</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Usuarios</a>
-                        <ul>
-                            <li><a href="/AdminListUsu.aspx">Listar</a></li>
-                            <li><a href="/AdminEdicUsu.aspx">Editar</a></li>
-                            <li><a href="/AdminEliminarUsuariosAdmin.aspx">Eliminar</a></li>
-                            <li><a href="/AdminCrearAdministrador.aspx">Crear</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Marcas</a>
-                        <ul>
-                            <li><a href="#">Listar</a></li>
-                            <li><a href="#">Editar</a></li>
-                            <li><a href="/AdminEliminarMarca.aspx">Eliminar</a></li>
-                            <li><a href="/AdminCrearMarca.aspx">Crear</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Categorias</a>
-                        <ul>
-                            <li><a href="#">Listar</a></li>
-                            <li><a href="#">Editar</a></li>
-                            <li><a href="/AdminEliminarCategoria.aspx">Eliminar</a></li>
-                            <li><a href="/AdminCrearCategoria.aspx">Crear</a></li>
-                        </ul>
-                    </li>
-
-                </ul>
-            </li>
-            <li><a href="#">Registros</a>
-                <ul>
-                    <li><a href="#">Registro 1</a></li>
-                    <li><a href="#">Registro 2</a></li>
-                    <li><a href="#">Historial de ventas</a></li>
-                </ul>
-            </li>
+            <li><a href="/Home.aspx">Home</a></li>
+            
 
         </ul>
         </div>
@@ -88,7 +47,7 @@
             </div>
             <br />
             <div style="font-size: 20px;margin-left: 5%;width: 100%;text-align: center;" class="auto-style1">
-            <asp:GridView ID="grdDetalleVentasUsuario" CssClass="GridViewStyled" runat="server" CellPadding="4" AllowPaging="True" ForeColor="#333333" GridLines="None" PageSize="5" AutoGenerateColumns="False" OnSelectedIndexChanging="grdDetalleVentasUsuario_SelectedIndexChanging">
+            <asp:GridView ID="grdDetalleVentasUsuario" CssClass="GridViewStyled" runat="server" CellPadding="4" AllowPaging="True" ForeColor="#333333" GridLines="None" PageSize="5" OnSelectedIndexChanging="grdDetalleVentasUsuario_SelectedIndexChanging">
                 <AlternatingRowStyle BackColor="#BCC8C3" ForeColor="" />
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#90648B" ForeColor="White" Font-Bold="True" />

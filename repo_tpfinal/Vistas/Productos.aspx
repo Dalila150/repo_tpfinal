@@ -36,9 +36,7 @@
           <li id="CargameLasCats" class="name" runat="server">
               <!--Aca deberian ir las categorias-->
           </li>
-          <li class="name">
-            <a href="#">Contacto</a>
-          </li>
+          
         </ul>
         </div>
         <div class="content" >

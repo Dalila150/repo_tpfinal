@@ -36,11 +36,9 @@
               <!--Aca deberian ir las categorias-->
                     </li>
                     <li class="name">
-                        <button>dfsdfsdfsdf</button>
+                       <asp:Button class="btnASP" ID="btnVentas" runat="server" Style="background-color: #40514e;margin-left: 2%;border-radius: 17px;" OnClick="btnVentas_Click" Text="Compras" />
                     </li>
-                    <li class="name">
-                        <a href="#">Contacto</a>
-                    </li>
+                   
                 </ul>
             </div>
             <div class="content">
@@ -50,7 +48,7 @@
             <div class="slider">
               <ul>
                 <li id="slide1">
-                    <asp:Button ID="btnVentas" runat="server" OnClick="btnVentas_Click" Text="Ventas" />
+                    
                   <img src="/Slider/1.png" />
                 </li>
                 <li id="slide2">
