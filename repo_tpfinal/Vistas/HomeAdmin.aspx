@@ -39,6 +39,7 @@
                                 <li><a href="/AdminListUsu.aspx">Listar</a></li>
                                 <li><a href="/AdminEliminarUsuarios.aspx">Eliminar</a></li>
                                 <li><a href="/AdminCrearAdministrador.aspx">Crear</a></li>
+                                <li><a href="/AdminEdicUsu.aspx">Editar</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Marcas</a>

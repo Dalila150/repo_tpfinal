@@ -46,13 +46,13 @@ namespace Negocio
 
 
 
-        public DataTable llenarcamposusuarios(int id)
+     /*   public DataTable llenarcamposusuarios(int id)
         {
             DaoUsuario dao = new DaoUsuario();
             return dao.getTablaCamposUsuarios(id);
 
 
-        }
+        }*/
 
         public bool BuscarUsuarioApellido(string Nombre)
         {
@@ -92,12 +92,12 @@ namespace Negocio
         }
 
 
-        public bool eliminarUsuarioAdmin_neg(String nombre)
+        public bool eliminarUsuarioAdmin_neg(int id)
         {
             //Validar usuarioadmin
             DaoUsuario dao = new DaoUsuario();
             Usuarios usu = new Usuarios();
-            usu.setNombre_UsuarioUsuario(nombre);
+            usu.setID_usuario(id);
             int op = dao.eliminarUsuarioAdmin(usu);
             if (op == 1)
                 return true;
@@ -138,6 +138,21 @@ namespace Negocio
             DaoUsuario dao = new DaoUsuario();
             bool Existe = dao.existeUsuarioYclave(Nombre_Usuario, Clave);
             if (Existe == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        public Boolean existe_id_user(int id)
+        {
+            DaoUsuario dao = new DaoUsuario();
+            bool Existe = dao.existeid_usuario(id);
+            if (Existe ==true)
             {
                 return true;
             }

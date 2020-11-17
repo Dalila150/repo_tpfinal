@@ -53,15 +53,28 @@ namespace Vistas
         protected void BtnEliminarUsuario_Click(object sender, EventArgs e)
         {
             Boolean estado = false;
-            estado = neg.eliminarUsuarioAdmin_neg(txtEliminarAdministrador.Text);
-            if (estado == true)
+
+            bool ya_existe_id = neg.existe_id_user(int.Parse(txtEliminarAdministrador.Text));
+            if (ya_existe_id==false)
             {
-                lblDadobaja.Text = "El usuario fue dado de baja";
+                lblDadobaja.Text = "No hay registro de usuario";
+
             }
+
             else
             {
-                lblDadobaja.Text = "Hubo un error al intentar dar de baja al usuario";
+                estado = neg.eliminarUsuarioAdmin_neg(int.Parse(txtEliminarAdministrador.Text));
+                if (estado == true)
+                {
+                    lblDadobaja.Text = "El usuario fue dado de baja";
+                }
+                else
+                {
+                    lblDadobaja.Text = "Hubo un error al intentar dar de baja al usuario";
+                }
+
             }
+
 
             txtEliminarAdministrador.Text = " ";
         }

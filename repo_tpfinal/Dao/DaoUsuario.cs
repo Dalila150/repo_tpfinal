@@ -20,6 +20,12 @@ namespace Dao
             return ds.existe(consulta);
         }
 
+        public Boolean existeid_usuario(int id)
+        {
+            string consulta = "Select * from Usuario where ID_usuario='" + id + "'";
+            return ds.existe(consulta);
+        }
+
         public Boolean existeUsuarioApellido(string Nombre)
         {
             String consulta = "Select * from usuario where Apellido='" + Nombre + "'";
@@ -65,11 +71,11 @@ namespace Dao
         }
 
 
-        public DataTable getTablaCamposUsuarios(int id)
+      /*  public DataTable getTablaCamposUsuarios(int id)
         {
             DataTable tabla = ds.ObtenerTabla("Usuario", "SELECT Nombre, Apellido, Email, Direccion, Nombre_Usuario, Telefono FROM usuario WHERE  ID_usuario ='" + id + "'");
             return tabla;
-        }
+        }*/
 
         public int agregarNuevoUsuario(Usuarios usur)
         {
@@ -121,13 +127,13 @@ namespace Dao
             SqlCommand comando = new SqlCommand();
             ArmarParametrosUsuarioAdminEliminar(ref comando, usu);
             //SE INGRESA EL NOMBRE DEL PROCEDIMIENTO ALMACENADO
-            return ds.EjecutarProcedimientoAlmacenado(comando, "sp_EliminarUsuario");
+            return ds.EjecutarProcedimientoAlmacenado(comando, "spEliminarUsuario");
         }
         private void ArmarParametrosUsuarioAdminEliminar(ref SqlCommand Comando, Usuarios usu)
         {
             SqlParameter SqlParametros = new SqlParameter();
-            SqlParametros = Comando.Parameters.Add("@Usuario", SqlDbType.VarChar);
-            SqlParametros.Value = usu.getNombre_UsuarioUsuario();
+            SqlParametros = Comando.Parameters.Add("@IDUSUARIO", SqlDbType.Int);
+            SqlParametros.Value = usu.getID_usuario();
         }
 
         public int actualizar_datos_usuario_en_bd(Usuarios usur)
@@ -143,8 +149,6 @@ namespace Dao
 
             SqlParametros = comando.Parameters.Add("@IDUSUARIO", SqlDbType.Int);
             SqlParametros.Value = usur.getID_usuario();
-            SqlParametros = comando.Parameters.Add("@DNI", SqlDbType.VarChar);
-            SqlParametros.Value = usur.getDNIUsuario();
             SqlParametros = comando.Parameters.Add("@NOMBRE", SqlDbType.VarChar);
             SqlParametros.Value = usur.getNombreUsuario();
             SqlParametros = comando.Parameters.Add("@APELLIDO", SqlDbType.VarChar);
@@ -155,13 +159,9 @@ namespace Dao
             SqlParametros.Value = usur.getDireccionUsuario();
             SqlParametros = comando.Parameters.Add("@NOMBREUSUARIO", SqlDbType.VarChar);
             SqlParametros.Value = usur.getNombre_UsuarioUsuario();
-            SqlParametros = comando.Parameters.Add("@PASSWORD", SqlDbType.VarChar);
-            SqlParametros.Value = usur.getPasswordUsuario();
             SqlParametros = comando.Parameters.Add("@TELEFONO", SqlDbType.VarChar);
             SqlParametros.Value = usur.getTelefonoUsuario();
-            SqlParametros = comando.Parameters.Add("@ROL", SqlDbType.Int);
-            SqlParametros.Value = usur.getRolUsuario();
-
+      
 
         }
 

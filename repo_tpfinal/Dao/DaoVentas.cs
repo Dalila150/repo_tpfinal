@@ -25,6 +25,14 @@ namespace Dao
         }
 
 
+
+       public int id_ultimaventa()
+        {
+            string consulta = "SELECT TOP 1 ID_VENTA from venta order by ID_venta desc";
+
+            return acceder.ejecutar_transaccion(consulta);
+        }
+
         private void ParametrosRegistroVentas(ref SqlCommand comando, Ventas ven)
         {
             SqlParameter SqlParametros = new SqlParameter();

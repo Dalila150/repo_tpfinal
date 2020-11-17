@@ -139,7 +139,22 @@ namespace Vistas
                 // MUESTRO CARTEL DE CARRITO
                 lblMensajeCompra.Text = "Carrito Vacio";
             }
+            //intente codigo para que los textbox de numeros de tarjeta esten activos si solo se selecciona credito o debito, no funco
+           // txtNroSeguridad.Enabled = false;
+            //txtNroTarjeta.Enabled = false;
+          //  ddlSucursales.Enabled = false;
 
+          /*  if (ddlMododePago.SelectedItem.Text == "Débito"||ddlMododePago.SelectedItem.Text == "Credito")
+            {
+                txtNroTarjeta.Enabled = true;
+                txtNroSeguridad.Enabled = true;
+            }
+
+            if (ddlSucursales.SelectedItem.Text == "Retiro por sucursal")
+            {
+                ddlSucursales.Enabled = true;
+            }
+          */
             // ESTO NO ANDA Y ROMPE TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             //int cantidad = int.Parse(grdCarrito.Rows[0].Cells[1].Text);
             //float precio = float.Parse(grdCarrito.Rows[0].Cells[2].Text);
@@ -247,8 +262,13 @@ namespace Vistas
 
                         // ESTA CONSULTA TE TRAE EL ULTIMO ID DE VENTA
                         // select TOP 1 * from venta order by ID_venta desc
+
+//int id_ultima_venta = neg_vent.traerid_venta();
+
+
+
                         det_v_entidades.set_idventa(9);
-                        det_v_entidades.set_idDetalleventa(0);
+                     det_v_entidades.set_idDetalleventa(0);
                         det_v_entidades.set_idproducto(id_producto);
                         det_v_entidades.set_cantidad(CantProds);
                         det_v_entidades.set_precio_u(precio_u);
@@ -271,6 +291,8 @@ namespace Vistas
                     grdCarrito.DataBind();
 
                     lblMensajeCompra.Text = "Gracias por su compra";
+
+                    
 
 
                 }
@@ -300,18 +322,9 @@ namespace Vistas
             Response.Redirect("/productos.aspx" + updatedQueryString);
         }
 
-        protected void ddlSucursales_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        
 
-
-            
-
-
-        }
-
-        protected void ddlMododePago_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+       
+        
     }
 }

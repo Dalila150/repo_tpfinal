@@ -32,6 +32,13 @@ namespace Negocio
         }
 
 
+       public int traerid_venta()
+        {
+            DaoVentas dv = new DaoVentas();
+
+            return dv.id_ultimaventa();
+        }
+
         public DataTable ListadoSucursales()
         {
             DaoSucursales daosuc = new DaoSucursales();

@@ -84,14 +84,14 @@
     <!------------------------------------------------------------>
     <div style="display: inline-block;width: 65%">
         <div style="background-color: rgba(197, 93, 102, 0.404);border-radius: 8px;margin-bottom:25px">
-            <h1 style="padding-top: 20px;">Eliminar Usuario Admin</h1>
+            <h1 style="padding-top: 20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dar de Baja Usuario</h1>
             <hr style="width:90%" />
             <div style="padding-top: 5%;padding-bottom: 5%;">
                 <table style="width: 100%">
                     <tbody>
                             <tr>
                                 <td style="width: 50%;">
-                                    <h3 style="display: inline;">Usuario del administrador:</h3>
+                                    <h3 style="display: inline;">ID Usuario: </h3>
                                 </td>
                                 <td style="width: 50%;">
                                     <asp:TextBox class="txtASP" ID="txtEliminarAdministrador" runat="server" style="width: 70%;" required="true"></asp:TextBox>
@@ -102,11 +102,11 @@
                 </table>
             </div>
             <div style="padding-bottom: 25px; text-align:center; margin-top:3%;height: 35px;">
-                <asp:Button class="btnASP" ID="BtnEliminarUsuario" runat="server" style="width: 65%;" Height="40px" OnClick="BtnEliminarUsuario_Click" Text="ELIMINAR USUARIO ADMINISTRADOR" Width="270px" />
+                <asp:Button class="btnASP" ID="BtnEliminarUsuario" runat="server" style="width: 65%;" Height="40px" OnClick="BtnEliminarUsuario_Click" Text="DAR DE BAJA USUARIO" Width="270px" />
                 <asp:Button class="btnASP" ID="BtnCancelar" runat="server" style="width: 20%;"  Height="40px" Text="CANCELAR" Width="143px" OnClick="BtnCancelar_Click" />
             </div>
         </div>
-        <asp:Label ID="lblDadobaja" runat="server"></asp:Label>
+        <asp:Label ID="lblDadobaja" runat="server" BackColor="#FF5050" BorderStyle="None" Font-Bold="True" ForeColor="Black"></asp:Label>
     </div>
     </div>
         <div class="footer" >

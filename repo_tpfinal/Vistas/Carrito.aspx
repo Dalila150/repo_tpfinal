@@ -28,6 +28,23 @@
           .auto-style7 {
               width: 161px;
           }
+          .auto-style8 {
+              width: 85px;
+          }
+          .auto-style9 {
+              /*background-color: rgb(177, 63, 72);*/
+          background-color: #11999e;
+              grid-area: footer;
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              text-align: center;
+              justify-content: center;
+              align-items: center;
+              display: flex;
+              left: 3px;
+              top: 172px;
+          }
       </style>
   </head>
 
@@ -69,7 +86,7 @@
                     <div style="margin-top:15px">
                         <asp:Label ID="lblMensajeCompra" runat="server" style="font-size:20px"></asp:Label>
                     </div>
-                    <asp:GridView style="width:80%; margin-left:10%;margin-top:2%" ID="grdCarrito" runat="server" Width="359px">
+                    <asp:GridView style="width:80%; margin-left:10%;margin-top:2%" ID="grdCarrito" runat="server" Width="359px" >
               </asp:GridView>
                                          <h3><br /></h3> 
 
@@ -81,34 +98,50 @@
                   <td>
                       <table class="auto-style3">
                           <tr>
+                              <td class="auto-style6">
+                                  <asp:RequiredFieldValidator ID="rfvEnvio" runat="server" ControlToValidate="ddlModoEnvio" ErrorMessage="RequiredFieldValidator">Seleccione un modo de envio</asp:RequiredFieldValidator>
+                              </td>
                               <td class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>&nbsp;Modo de envio</strong></td>
                               <td>
                       <asp:DropDownList ID="ddlModoEnvio" runat="server">
                       </asp:DropDownList>
                               </td>
-                              <td class="auto-style7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>&nbsp;Modo de pago</strong></td>
+                              <td class="auto-style7">&nbsp;&nbsp;&nbsp;&nbsp; <strong>&nbsp;Modo de pago</strong></td>
                               <td>
-                      <asp:DropDownList ID="ddlMododePago" runat="server" OnSelectedIndexChanged="ddlMododePago_SelectedIndexChanged">
+                      <asp:DropDownList ID="ddlMododePago" runat="server" >
                       </asp:DropDownList>
                               </td>
-                          </tr>
-                          <tr>
-                              <td class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Escoja sucursa</strong>l </td>
-                              <td>
-                      <asp:DropDownList ID="ddlSucursales" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlSucursales_SelectedIndexChanged">
-                      </asp:DropDownList>
-                              </td>
-                              <td class="auto-style7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Numero de tarjeta</strong></td>
-                              <td>
-                      <asp:TextBox ID="txtNroTarjeta" runat="server"></asp:TextBox>
+                              <td class="auto-style8">
+                                  <asp:RequiredFieldValidator ID="rfvMododePago" runat="server" ControlToValidate="ddlMododePago" ErrorMessage="RequiredFieldValidator">Elija modo de pago</asp:RequiredFieldValidator>
                               </td>
                           </tr>
                           <tr>
                               <td class="auto-style6">&nbsp;</td>
+                              <td class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Escoja sucursa</strong>l </td>
+                              <td>
+                      <asp:DropDownList ID="ddlSucursales" runat="server" AutoPostBack="True"  ValidateRequestMode="Disabled">
+                      </asp:DropDownList>
+                              </td>
+                              <td class="auto-style7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Numero de tarjeta</strong></td>
+                              <td>
+                      <asp:TextBox ID="txtNroTarjeta" runat="server" require ="true"></asp:TextBox>
+                              </td>
+                              <td class="auto-style8">
+                                  <asp:RequiredFieldValidator ID="rfvTarjetanro" runat="server" ControlToValidate="txtNroTarjeta" ErrorMessage="RequiredFieldValidator">Ingrese un numero de tarjeta</asp:RequiredFieldValidator>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td class="auto-style6">&nbsp;</td>
+                              <td class="auto-style6">
+                                  <asp:RequiredFieldValidator ID="rfvSucursales" runat="server" ControlToValidate="ddlSucursales" ErrorMessage="RequiredFieldValidator" InitialValue="Seleccione">Elija una sucursal</asp:RequiredFieldValidator>
+                              </td>
                               <td>&nbsp;</td>
                               <td class="auto-style7"><strong>Código de seguridad de su tarjeta</strong></td>
                               <td>
-                      <asp:TextBox ID="txtNroSeguridad" runat="server"></asp:TextBox>
+                      <asp:TextBox ID="txtNroSeguridad" runat="server" require ="true"></asp:TextBox>
+                              </td>
+                              <td class="auto-style8">
+                                  <asp:RequiredFieldValidator ID="rfvCodigoseg" runat="server" ControlToValidate="txtNroSeguridad" ErrorMessage="RequiredFieldValidator">Ingrese su numero de seguridad</asp:RequiredFieldValidator>
                               </td>
                           </tr>
                       </table>
@@ -130,7 +163,7 @@
       
 
     </div>
-        <div class="footer" >
+        <div class="auto-style9" >
         <!-- Iconos de redes sociales -->
             <h2 class="contactenos">Contactenos</h2>
             <ul style="text-align:left">
