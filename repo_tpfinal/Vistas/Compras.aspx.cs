@@ -16,12 +16,14 @@ namespace Vistas
         protected void Page_Load(object sender, EventArgs e)
         {
             //-----------------------------------------------
+            //-----------------------------------------------
             Usuarios Usu = new Usuarios();
             if (Request.Cookies["NombreUsuario"] != null)
             {
                 HttpCookie ck = Request.Cookies["NombreUsuario"];
 
                 Usu = Neg.DevolverUsuarioCompleto(Request.Cookies["NombreUsuario"].Value);
+
 
                 String IconosInnerHTML = "";
                 Char A = '"';
@@ -44,10 +46,7 @@ namespace Vistas
             }
             else
             {
-                String IconosInnerHTML = "";
-                Char A = '"';
-                IconosInnerHTML += "<a href=" + A + "/IniciarSesion.aspx" + A + " class=" + A + "fas fa-user user" + A + "><div id = 'UsuarioLogueadoNombre' runat='server' style='font-size:20px'></div><div id = 'UsuarioLogueadoApellido' runat='server' style='font-size:20px;'></div></a>";
-                infoUser.InnerHtml = IconosInnerHTML;
+                Response.Redirect("/Home.aspx");
             }
             //-----------------------------------------------
 

@@ -47,8 +47,8 @@
                 <div style="margin-left:15px;margin-top:25px;width:230px;float:left;Background-color: #99DBCF;border-radius:10px;margin-bottom:25px;">
                     <h2>CUENTA</h2>
                     <ul style="padding-top:10px;text-align:left;padding-left:15px;padding-right:15px">
-                            <li><asp:Button class="btnASP" ID="btnDatos" runat="server" Text="Datos" style="height: 30px;width:100%" OnClick="btnDatos_Click" />  </li>
-                            <li><asp:Button class="btnASP" ID="btnCompras" runat="server" Text="Compras" style="margin-top:5px;height: 30px;width:100%" OnClick="btnCompras_Click"/></li>
+                            <li><button class="btnASP" id="botonDatos" type="button" style="height: 30px;width:100%" onclick="botonDatos_click()">Datos</button>  </li>
+                            <li><button class="btnASP" id="botonCompras" type="button" style="margin-top:5px;height: 30px;width:100%" onclick="botonCompras_click()">Compras</button></li>
                     </ul>
                 </div>
                 <!------------------------------------------------------------->
@@ -142,4 +142,14 @@
     </div>
             </form>
 </body>
+<script type="text/javascript">
+    function botonDatos_click() {
+            window.location.href = '/Datos.aspx';
+    }
+</script>
+<script type="text/javascript">
+    function botonCompras_click() {
+        window.location.href = '/Compras.aspx';
+    }
+</script>
 </html>
