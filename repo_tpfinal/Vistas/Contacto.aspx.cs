@@ -4,28 +4,19 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Entidades;
-using Negocio;
 using System.Data;
+using Negocio;
+using Entidades;
 
 namespace Vistas
 {
-    public partial class Home : System.Web.UI.Page
+    public partial class Contacto : System.Web.UI.Page
     {
-        NegocioUsuario Neg = new NegocioUsuario();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request["Sign-out"] == "true")
-            {
-                Response.Cookies["NombreUsuario"].Expires = DateTime.Now.AddDays(-1);
-                Response.Cookies["NombreClave"].Expires = DateTime.Now.AddDays(-1);
-                Session["Carrito"] = null;
-                Request.Cookies["tipo_usuario_logueado"].Expires = DateTime.Now.AddDays(-1);
-                Response.Redirect("/Home.aspx");
-            }
-
-            //-----------------------------------------------
             Usuarios Usu = new Usuarios();
+            NegocioUsuario Neg = new NegocioUsuario();
+
             if (Request.Cookies["NombreUsuario"] != null)
             {
                 HttpCookie ck = Request.Cookies["NombreUsuario"];
@@ -50,14 +41,15 @@ namespace Vistas
                 IconosInnerHTML = "";
                 IconosInnerHTML += "<a href=" + A + "/Home.aspx?Sign-out=true" + A + " class=" + A + "fas fa-sign-out-alt" + A + " style=" + A + "font-size: 1.6rem;text-decoration: none;color: #40514e;" + A + " aria-hidden=" + A + "true" + A + "></a>";
                 IconoSalir.InnerHtml = IconosInnerHTML;
-            } else
+            }
+            else
             {
                 String IconosInnerHTML = "";
                 Char A = '"';
                 IconosInnerHTML += "<a href=" + A + "/IniciarSesion.aspx" + A + " class=" + A + "fas fa-user user" + A + "><div id = 'UsuarioLogueadoNombre' runat='server' style='font-size:20px'></div><div id = 'UsuarioLogueadoApellido' runat='server' style='font-size:20px;'></div></a>";
                 infoUser.InnerHtml = IconosInnerHTML;
             }
-            //----------------------
+            //-----------------------------------------------
 
             // CATEGORIAS DEL NAVBAR
             NegocioCategoria gC = new NegocioCategoria();
@@ -86,32 +78,10 @@ namespace Vistas
             CategoriasUl += "</ul>";
             CargameLasCats.InnerHtml = CategoriasUl;
 
-            //-----------------------------------------------
-
-            // CATEGORIAS BANNERS INFERIORES
-            String InnerHTML = "";
-            DataTable infoCat = new DataTable();
-            infoCat = gC.ObtenerCategorias();
-
-            foreach (DataRow row in infoCat.Rows)
-            {
-                String A = "<a class='img' href=";
-                A += '"';
-                A += "/Productos.aspx?Cat=" + row[1].ToString();
-                A += '"';
-                A += " style='background: url(" + row[3].ToString() + ") no-repeat center;background-size: cover;'";
-                A += '>';
-                InnerHTML += A;
-                InnerHTML += "<label class='lbl' style=" + '"' + "font-size:1.8rem" + '"' + ">" + row[1].ToString() + "</label>";
-                InnerHTML += "</a>";
-            }
-
-            CategoriasSpace.InnerHtml = InnerHTML;
-
-            //-----------------------------------------------
             // SI HAY CARGO DATOS DEL CARRO
-            if (Session["Carrito"] != null) {
-                InnerHTML = "";
+            if (Session["Carrito"] != null)
+            {
+                String InnerHTML = "";
                 DataTable infoCarrito = (DataTable)Session["Carrito"];
                 float TotalCarro = 0;
                 int CantProds = 0;
@@ -119,15 +89,38 @@ namespace Vistas
                 foreach (DataRow row in infoCarrito.Rows)
                 {
                     CantProds += int.Parse(row[1].ToString());
-                    TotalCarro += CantProds* float.Parse(row[2].ToString());
+                    TotalCarro += CantProds * float.Parse(row[2].ToString());
                 }
 
-                InnerHTML += "$" + TotalCarro +"(" + CantProds + ")";
+                InnerHTML += "$" + TotalCarro + "(" + CantProds + ")";
                 datosCarrito.InnerHtml = InnerHTML;
             }
 
-            
-                
+            String InnerHTMLsucur = "";
+            DataTable infoSucur = new DataTable();
+            NegocioSucursal Ns = new NegocioSucursal();
+
+            infoSucur = Ns.Sucursales();
+
+            foreach(DataRow row in infoSucur.Rows)
+            {
+                InnerHTMLsucur += "<div>";
+                InnerHTMLsucur += "<div style='margin-top:5px; font-size:30px'><a>" + row[1].ToString() + "</a></div>";
+
+                InnerHTMLsucur += "<div style='margin-top:2px; font-size:20px'><a>Telefono: </a> <a href=";
+                InnerHTMLsucur += '"'+ "tel:"+row[3].ToString()+ '"';
+                InnerHTMLsucur += ">" + row[3].ToString() + "</a></div>";
+
+                InnerHTMLsucur += "<div style='margin-top:2px; font-size:20px'><a>E-mail: </a> <a href=";
+                InnerHTMLsucur += '"' + "mailto:" + row[4].ToString() + '"';
+                InnerHTMLsucur += ">" + row[4].ToString() + "</a></div>";
+
+                InnerHTMLsucur += "<div style='margin-top:2px; font-size:20px'><a>Direccion: " + row[2].ToString() + "</div>";
+                InnerHTMLsucur += "</div>";
+            }
+
+            DatosSucur.InnerHtml = InnerHTMLsucur;
+
         }
 
         protected void txtBuscar_TextChanged(object sender, EventArgs e)
@@ -138,18 +131,6 @@ namespace Vistas
             string updatedQueryString = "?" + nameValues.ToString();
 
             Response.Redirect("/productos.aspx" + updatedQueryString);
-        }
-
-        protected void btnVentas_Click(object sender, EventArgs e)
-        {
-            if (Request.Cookies["NombreUsuario"] != null)
-            {
-                HttpCookie Usu = new HttpCookie("NombreUsuario", Request.Cookies["NombreUsuario"].Value);
-                Usu.Expires = DateTime.Now.AddDays(1);
-                this.Response.Cookies.Add(Usu);
-
-                Response.Redirect("ComprasUsuario.aspx");
-            }
         }
     }
 }

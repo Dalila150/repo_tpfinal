@@ -68,6 +68,7 @@ namespace Dao
         public DataTable getTablaCamposUsuarios(int id)
         {
             DataTable tabla = ds.ObtenerTabla("Usuario", "SELECT Nombre, Apellido, Email, Direccion, Nombre_Usuario, Telefono FROM usuario WHERE  ID_usuario ='" + id + "'");
+            return tabla;
         }
 
         public int agregarNuevoUsuario(Usuarios usur)

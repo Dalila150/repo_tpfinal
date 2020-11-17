@@ -12,7 +12,7 @@ namespace Entidades
         private DateTime Fecha;
         private int ID_usuario;
         private string Direccion;
-        private decimal Total;
+        private float Total;
         private int Modo_envio;
         private int Modo_pago;
         private string Nro_tarjeta;
@@ -26,7 +26,7 @@ namespace Entidades
 
         }
 
-        public Ventas(int id_venta, DateTime fecha, int id_usuario, string direccion, decimal total, int modo_envio, int modo_pago, string nro_tarjeta, string codigo_tarjeta, int id_sucursal)
+        public Ventas(int id_venta, DateTime fecha, int id_usuario, string direccion, float total, int modo_envio, int modo_pago, string nro_tarjeta, string codigo_tarjeta, int id_sucursal)
         {
             ID_venta1 = id_venta;
             Fecha1 = fecha;
@@ -44,7 +44,7 @@ namespace Entidades
         public DateTime Fecha1 { get => Fecha; set => Fecha = value; }
         public int ID_usuario1 { get => ID_usuario; set => ID_usuario = value; }
         public string Direccion1 { get => Direccion; set => Direccion = value; }
-        public decimal Total1 { get => Total; set => Total = value; }
+        public float Total1 { get => Total; set => Total = value; }
         public int Modo_envio1 { get => Modo_envio; set => Modo_envio = value; }
         public int Modo_pago1 { get => Modo_pago; set => Modo_pago = value; }
         public string Nro_tarjeta1 { get => Nro_tarjeta; set => Nro_tarjeta = value; }

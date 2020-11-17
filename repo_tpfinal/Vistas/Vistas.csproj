@@ -81,6 +81,7 @@
     <Content Include="Categorias\tablet.jpg" />
     <Content Include="Categorias\televisor.jpg" />
     <Content Include="Compras.aspx" />
+    <Content Include="Contacto.aspx" />
     <Content Include="css\admin1.css" />
     <Content Include="css\AdminHome.css" />
     <Content Include="css\carrito.css" />
@@ -200,6 +201,13 @@
     </Compile>
     <Compile Include="Compras.aspx.designer.cs">
       <DependentUpon>Compras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contacto.aspx.cs">
+      <DependentUpon>Contacto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contacto.aspx.designer.cs">
+      <DependentUpon>Contacto.aspx</DependentUpon>
     </Compile>
     <Compile Include="DetalleVenta.aspx.cs">
       <DependentUpon>DetalleVenta.aspx</DependentUpon>

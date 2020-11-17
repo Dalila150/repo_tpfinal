@@ -49,7 +49,7 @@ namespace Negocio
         public DataTable llenarcamposusuarios(int id)
         {
             DaoUsuario dao = new DaoUsuario();
-            return dao.getTablaCamposUsuarios(int id);
+            return dao.getTablaCamposUsuarios(id);
 
 
         }

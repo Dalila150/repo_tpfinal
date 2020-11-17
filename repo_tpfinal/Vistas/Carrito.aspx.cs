@@ -53,49 +53,6 @@ namespace Vistas
             }
             //-----------------------------------------------
 
-            if (IsPostBack==false)
-            {
-
-                NegocioVenta neg_ven = new NegocioVenta();
-
-                DataTable listasucursales = neg_ven.ListadoSucursales();
-
-
-                ddlMododePago.Items.Add(new ListItem { Text = "Seleccione", Value = "" });
-                ddlMododePago.Items.Add(new ListItem { Text = "Débito", Value = "1" });
-                ddlMododePago.Items.Add(new ListItem { Text = "Crédito", Value = "2" });
-                ddlMododePago.Items.Add(new ListItem { Text = "Efectivo", Value = "3" });
-                ddlModoEnvio.Items.Add(new ListItem { Text = "Seleccione", Value = "" });
-                ddlModoEnvio.Items.Add(new ListItem { Text = "Retiro por sucursal", Value = "1" });
-                ddlModoEnvio.Items.Add(new ListItem { Text = "Envio a domicilio", Value = "2" });
-
-                ddlSucursales.DataSource = listasucursales;
-                ddlSucursales.DataTextField = "Nombre";
-                ddlSucursales.DataValueField = "Id_Sucursal";
-                ddlSucursales.DataBind();
-
-
-            }
-
-
-
-            if (Session["Carrito"]!= null)
-            {
-                grdCarrito.DataSource = (DataTable)Session["Carrito"];
-                grdCarrito.DataBind();
-            }
-
-            // ESTO NO ANDA Y ROMPE TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            //int cantidad = int.Parse(grdCarrito.Rows[0].Cells[1].Text);
-            //float precio = float.Parse(grdCarrito.Rows[0].Cells[2].Text);
-
-            //float total = cantidad * precio;
-
-            //lblPrecio.Text =  total.ToString();
-            // ESTO NO ANDA Y ROMPE TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
-
             NegocioCategoria gC = new NegocioCategoria();
             DataTable cat = gC.ObtenerCategorias();
             String CategoriasUl = "";
@@ -141,109 +98,191 @@ namespace Vistas
             }
 
 
+            //// EMPIEZA LA LOGICA  DEL CARRITO EN SI
+            if (Session["Carrito"] != null)
+            {
+
+                if (IsPostBack==false)
+                {
+
+                    NegocioVenta neg_ven = new NegocioVenta();
+
+                    DataTable listasucursales = neg_ven.ListadoSucursales();
+
+                    ddlMododePago.Items.Add(new ListItem { Text = "Seleccione", Value = "" });
+                    ddlMododePago.Items.Add(new ListItem { Text = "Débito", Value = "1" });
+                    ddlMododePago.Items.Add(new ListItem { Text = "Crédito", Value = "2" });
+                    ddlMododePago.Items.Add(new ListItem { Text = "Efectivo", Value = "3" });
+                    ddlModoEnvio.Items.Add(new ListItem { Text = "Seleccione", Value = "" });
+                    ddlModoEnvio.Items.Add(new ListItem { Text = "Retiro por sucursal", Value = "1" });
+                    ddlModoEnvio.Items.Add(new ListItem { Text = "Envio a domicilio", Value = "2" });
+
+                    ddlSucursales.DataSource = listasucursales;
+                    ddlSucursales.DataTextField = "Nombre";
+                    ddlSucursales.DataValueField = "Id_Sucursal";
+                    ddlSucursales.DataBind();
+
+
+                }
+
+                grdCarrito.DataSource = (DataTable)Session["Carrito"];
+                grdCarrito.DataBind();
+            } else
+            {
+                //OCULTO Y DESHABILITO LOS BOTONES
+                btnVaciar.Enabled = false;
+                btnVaciar.Visible = false;
+                btnFinalizarCompra.Enabled = false;
+                btnFinalizarCompra.Visible = false;
+                // OCULTO LA SECCION DE PAGO
+                OpcionesDePago.Attributes.Add("style", "display:none");
+                // MUESTRO CARTEL DE CARRITO
+                lblMensajeCompra.Text = "Carrito Vacio";
+            }
+
+            // ESTO NO ANDA Y ROMPE TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            //int cantidad = int.Parse(grdCarrito.Rows[0].Cells[1].Text);
+            //float precio = float.Parse(grdCarrito.Rows[0].Cells[2].Text);
+
+            //float total = cantidad * precio;
+
+            //lblPrecio.Text =  total.ToString();
+            // ESTO NO ANDA Y ROMPE TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
         }
 
-        
 
         protected void btnVaciar_Click(object sender, EventArgs e)
-        {
+        {        
+            // SI LLEGUE A ESTE BOTON ES QUE ANTES EL CARRITO TENIA ALGO, ENTONCES MOSTRABA TODO.
             Session["Carrito"] = null;
             grdCarrito.DataSource = null;
+
+            // OCULTO BOTONES Y DESHABILITO
+            btnVaciar.Enabled = false;
+            btnVaciar.Visible = false;
+            btnFinalizarCompra.Enabled = false;
+            btnFinalizarCompra.Visible = false;
+            // PONGO CARRITO VACIO
+            lblMensajeCompra.Text = "Carrito Vacio";
+            //LIMPIO EL ICONO DEL CARRITO DE LA DERECHA
+            datosCarrito.InnerHtml = "";
+            //OCULTO LAS OPCIONES DE PAGO
+            OpcionesDePago.Attributes.Add("style", "display:none");
+
             grdCarrito.DataBind();
         }
 
         protected void btnFinalizarCompra_Click(object sender, EventArgs e)
         {
-
-            NegocioVenta neg_vent = new NegocioVenta();
-            Ventas datos_venta = new Ventas();
-            Usuarios usu = new Usuarios();
-
-            Negocio_DetalleVenta det_v = new Negocio_DetalleVenta();
-            Detalle_venta det_v_entidades = new Detalle_venta();
-
-
-            int total = 0;
-            int CantProds = 0;
-            
-          
-
-            if (Session["Carrito"]!=null)
-            {
-                DataTable info_carrito = (DataTable)Session["Carrito"];
-
-                 
-
-                foreach (DataRow row in info_carrito.Rows)
-                {
-                   
-                    CantProds += int.Parse(row[1].ToString());
-                    total += CantProds * int.Parse(row[2].ToString());
-                  
-                }
-
-            }
-
-
-            DateTime fecha = DateTime.Today;
-            fecha.ToShortDateString().ToString();
-
-
+            // PARA PODER COMPRAR TENGO QUE LOGUEAR AL USUARIO
+            // COMPRUEBO SI HAY USUARIO LOGUEADO, SINO LO PATEO A INICIAR SESION
             if (Request.Cookies["NombreUsuario"] != null)
             {
 
-                usu = Neg.DevolverUsuarioCompleto(Request.Cookies["NombreUsuario"].Value);
 
-            }
+                NegocioVenta neg_vent = new NegocioVenta();
+                Ventas datos_venta = new Ventas();
+                Usuarios usu = new Usuarios();
 
-            datos_venta.Fecha1 = fecha;
-            datos_venta.ID_usuario1 = usu.getID_usuario();
-            datos_venta.Direccion1 = usu.getDireccionUsuario(); 
-            datos_venta.Total1 = total;
-            datos_venta.Modo_envio1 = int.Parse(ddlModoEnvio.SelectedValue);
-            datos_venta.Modo_pago1 = int.Parse(ddlMododePago.SelectedValue);
-            datos_venta.Nro_tarjeta1 = txtNroTarjeta.Text;
-            datos_venta.Codigo_tarjeta1 = txtNroSeguridad.Text;
-            datos_venta.ID_sucursal1 = int.Parse(ddlSucursales.SelectedValue);
+                Negocio_DetalleVenta det_v = new Negocio_DetalleVenta();
+                Detalle_venta det_v_entidades = new Detalle_venta();
 
 
+                float total = 0;
+                int CantProds = 0;
 
 
-
-            bool registro_venta =  neg_vent.Registro_de_Venta(datos_venta);
-
-            if (registro_venta == true)
-            {
-             
-                lblMensajeCompra.Text = "Gracias por su compra";
-
-                int id_producto;
-                decimal precio_u;
 
                 if (Session["Carrito"] != null)
                 {
                     DataTable info_carrito = (DataTable)Session["Carrito"];
-                    id_producto = Convert.ToInt32(info_carrito.Rows[0]["ID_PRODUCTO"]);
-                    precio_u = Convert.ToInt32(info_carrito.Rows[0]["PRECIO"]);
 
 
-                    det_v_entidades.set_idventa(datos_venta.ID_venta1);
-                    det_v_entidades.set_idproducto(id_producto);
-                    det_v_entidades.set_cantidad(CantProds);
-                    det_v_entidades.set_precio_u(precio_u);
+
+                    foreach (DataRow row in info_carrito.Rows)
+                    {
+
+                        CantProds += int.Parse(row[1].ToString());
+                        total += CantProds * float.Parse(row[2].ToString());
+
+                    }
 
                 }
 
-               bool registro_detalle = det_v.Registro_detalle_venta(det_v_entidades);
 
-   
+                DateTime fecha = DateTime.Today;
+                fecha.ToShortDateString().ToString();
 
-            }
 
-            else
+                if (Request.Cookies["NombreUsuario"] != null)
+                {
+
+                    usu = Neg.DevolverUsuarioCompleto(Request.Cookies["NombreUsuario"].Value);
+
+                }
+
+                datos_venta.Fecha1 = fecha;
+                datos_venta.ID_usuario1 = usu.getID_usuario();
+                datos_venta.Direccion1 = usu.getDireccionUsuario();
+                datos_venta.Total1 = total;
+                datos_venta.Modo_envio1 = int.Parse(ddlModoEnvio.SelectedValue);
+                datos_venta.Modo_pago1 = int.Parse(ddlMododePago.SelectedValue);
+                datos_venta.Nro_tarjeta1 = txtNroTarjeta.Text;
+                datos_venta.Codigo_tarjeta1 = txtNroSeguridad.Text;
+                datos_venta.ID_sucursal1 = int.Parse(ddlSucursales.SelectedValue);
+
+                bool registro_venta = neg_vent.Registro_de_Venta(datos_venta);
+
+                if (registro_venta == true)
+                {
+                    int id_producto;
+                    decimal precio_u;
+
+                    if (Session["Carrito"] != null)
+                    {
+                        DataTable info_carrito = (DataTable)Session["Carrito"];
+                        id_producto = Convert.ToInt32(info_carrito.Rows[0]["ID_PRODUCTO"]);
+                        precio_u = Convert.ToInt32(info_carrito.Rows[0]["PRECIO"]);
+
+                        // ESTA CONSULTA TE TRAE EL ULTIMO ID DE VENTA
+                        // select TOP 1 * from venta order by ID_venta desc
+                        det_v_entidades.set_idventa(9);
+                        det_v_entidades.set_idDetalleventa(0);
+                        det_v_entidades.set_idproducto(id_producto);
+                        det_v_entidades.set_cantidad(CantProds);
+                        det_v_entidades.set_precio_u(precio_u);
+
+                    }
+
+                    bool registro_detalle = det_v.Registro_detalle_venta(det_v_entidades);
+
+                    //OCULTO Y DESHABILITO LOS BOTONES
+                    btnVaciar.Enabled = false;
+                    btnVaciar.Visible = false;
+                    btnFinalizarCompra.Enabled = false;
+                    btnFinalizarCompra.Visible = false;
+                    // OCULTO LA SECCION DE PAGO
+                    OpcionesDePago.Attributes.Add("style", "display:none");
+                    // LIMPIO CARRO
+                    datosCarrito.InnerHtml = "";
+                    Session["Carrito"] = null;
+                    grdCarrito.DataSource = null;
+                    grdCarrito.DataBind();
+
+                    lblMensajeCompra.Text = "Gracias por su compra";
+
+
+                }
+
+                else
+                {
+                    lblMensajeCompra.Text = "Hubo un error al registrar su compra";
+                }
+
+            } else
             {
-                lblMensajeCompra.Text = "Hubo un error al registrar su compra";
+                Response.Redirect("IniciarSesion.aspx");
             }
 
 

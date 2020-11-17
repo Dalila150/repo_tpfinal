@@ -56,7 +56,7 @@
               <!--Aca deberian ir las categorias-->
           </li>
           <li class="name">
-            <a href="#">Contacto</a>
+            <a href="/Contacto.aspx">Contacto</a>
           </li>
         </ul>
         </div>
@@ -66,10 +66,14 @@
             <div style="display: inline-block; width: 60%;">
                 <div style="background-color: rgba(197, 93, 102, 0.404); border-radius: 8px; text-align: center; margin-top: 25px; margin-bottom: 25px">
                           <label style="font-size:25px" class="titulo">Carrito de compras</label>
-                   
+                    <div style="margin-top:15px">
+                        <asp:Label ID="lblMensajeCompra" runat="server" style="font-size:20px"></asp:Label>
+                    </div>
                     <asp:GridView style="width:80%; margin-left:10%;margin-top:2%" ID="grdCarrito" runat="server" Width="359px">
               </asp:GridView>
                                          <h3><br /></h3> 
+
+                    <div runat="Server" id="OpcionesDePago">
 
                      <table class="auto-style5">
               <tr style="margin-top:2%; margin-bottom:5%">
@@ -114,27 +118,21 @@
                       &nbsp;</td>
               </tr>
           </table>
+                        </div>
           <br />
                 </div>
+                <div>
+                  <asp:button runat="server" ID="btnVaciar" style="width: 40%;border-radius: 8px 8px;padding: 0.5rem;font-size: 18px; border-radius: 20px 20px;color: #ffffff; border: solid 1px rgba(226, 98, 98, 0.116);background-color: rgba(184, 39, 51, 0.753);" text="Vaciar carrito" OnClick="btnVaciar_Click"/>
+                  <asp:Button ID="btnFinalizarCompra"  style="width: 40%;border-radius: 8px 8px;padding: 0.5rem;font-size: 18px; border-radius: 20px 20px;color: #ffffff; border: solid 1px rgba(226, 98, 98, 0.116);background-color: rgba(184, 39, 51, 0.753);" class="vaciar" runat="server" CssClass="auto-style2" OnClick="btnFinalizarCompra_Click" Text="FINALIZAR COMPRA" />
+              </div>
             </div>
     
-      <div class="vaciar"><asp:button runat="server" ID="btnVaciar" style="width: 40%;border-radius: 8px 8px;padding: 0.5rem;font-size: 18px; border-radius: 20px 20px;color: #ffffff; border: solid 1px rgba(226, 98, 98, 0.116);background-color: rgba(184, 39, 51, 0.753);" text="Vaciar carrito" OnClick="btnVaciar_Click"/>
-                        <asp:Button ID="btnFinalizarCompra"  style="width: 40%;border-radius: 8px 8px;padding: 0.5rem;font-size: 18px; border-radius: 20px 20px;color: #ffffff; border: solid 1px rgba(226, 98, 98, 0.116);background-color: rgba(184, 39, 51, 0.753);" class="vaciar" runat="server" CssClass="auto-style2" OnClick="btnFinalizarCompra_Click" Text="FINALIZAR COMPRA" />
-          <br />
-          <br />
-          <asp:Label ID="lblMensajeCompra" runat="server"></asp:Label>
-          <br />
-          <br />
-        </div>
+      
+
     </div>
-
-    
-       
-
-    <!-------------------------------------------------------------------------->
-           <div class="auto-style6" >
+        <div class="footer" >
         <!-- Iconos de redes sociales -->
-           <h2 class="contactenos">Contactenos</h2>
+            <h2 class="contactenos">Contactenos</h2>
             <ul style="text-align:left">
               <li class="redes">
                 <a href="https://www.instagram.com/"><i class="fab fa-instagram-square tamIcoRed"><b style="padding-left:10px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Instagram</b></i></a>
@@ -150,7 +148,7 @@
               </li>
             </ul>
         </div>
-   </div>--
-          </form>
+    </div>
+        </form>
   </body>
 </html>
