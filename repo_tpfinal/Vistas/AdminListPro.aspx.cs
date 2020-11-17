@@ -62,7 +62,7 @@ namespace Vistas
             if(cadenaResultado == "true")
             {
                 InnerHTML = CargarInnerHTML("ok");
-            } else if (cadenaResultado == "false")
+            } else if (cadenaResultado == "error")
             {
                 InnerHTML = CargarInnerHTML("error");
             }

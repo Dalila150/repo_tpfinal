@@ -19,12 +19,21 @@ namespace Negocio
             SqlCommand Comando = new SqlCommand();
             AccesoaDatos ad = new AccesoaDatos();
             DaoProducto dp = new DaoProducto();
-            dp.ArmarParametrosProductoActualizado(ref Comando, Pro);
-            FilasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spActualizarProducto");
-            if (FilasInsertadas == 1)
-                return true;
-            else
+            NegocioProducto ngp = new NegocioProducto();
+
+            if (dp.ComprobarNombreRepetido(Pro) == false)
+            {
+                dp.ArmarParametrosProductoActualizado(ref Comando, Pro);
+                FilasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spActualizarProducto");
+                if (FilasInsertadas == 1)
+                    return true;
+                else
+                    return false;
+
+            }
+            else{
                 return false;
+            }   
         }
 
         public bool CrearProducto(Producto Pro)

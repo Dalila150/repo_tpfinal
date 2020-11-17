@@ -24,13 +24,12 @@ namespace Vistas
 
                 Usu = Neg.DevolverUsuarioCompleto(Request.Cookies["NombreUsuario"].Value);
 
-
                 String IconosInnerHTML = "";
                 Char A = '"';
 
-                if ((String)Session["tipo_usuario_logueado"] != null)
+                if (Request.Cookies["tipo_usuario_logueado"] != null)
                 {
-                    if ((String)Session["tipo_usuario_logueado"] == "1")
+                    if (Request.Cookies["tipo_usuario_logueado"].Value == "1")
                     {
                         IconosInnerHTML += "<a href=" + A + "/HomeAdmin.aspx" + A + " class=" + A + "fas fa-crown" + A + " style=" + A + "font-size: 1.6rem;text-decoration: none;color: #40514e;" + A + " aria-hidden=" + A + "true" + A + "></a>";
                         accesoAdmin.InnerHtml = IconosInnerHTML;
@@ -46,7 +45,10 @@ namespace Vistas
             }
             else
             {
-                Response.Redirect("/Registro.aspx");
+                String IconosInnerHTML = "";
+                Char A = '"';
+                IconosInnerHTML += "<a href=" + A + "/IniciarSesion.aspx" + A + " class=" + A + "fas fa-user user" + A + "><div id = 'UsuarioLogueadoNombre' runat='server' style='font-size:20px'></div><div id = 'UsuarioLogueadoApellido' runat='server' style='font-size:20px;'></div></a>";
+                infoUser.InnerHtml = IconosInnerHTML;
             }
             //-----------------------------------------------
 
