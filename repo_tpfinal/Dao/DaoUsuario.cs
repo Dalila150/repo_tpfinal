@@ -63,6 +63,13 @@ namespace Dao
 );
             return tabla;
         }
+
+
+        public DataTable getTablaCamposUsuarios(int id)
+        {
+            DataTable tabla = ds.ObtenerTabla("Usuario", "SELECT Nombre, Apellido, Email, Direccion, Nombre_Usuario, Telefono FROM usuario WHERE  ID_usuario ='" + id + "'");
+        }
+
         public int agregarNuevoUsuario(Usuarios usur)
         {
 
@@ -113,7 +120,7 @@ namespace Dao
             SqlCommand comando = new SqlCommand();
             ArmarParametrosUsuarioAdminEliminar(ref comando, usu);
             //SE INGRESA EL NOMBRE DEL PROCEDIMIENTO ALMACENADO
-            return ds.EjecutarProcedimientoAlmacenado(comando, "sp_EliminarUsuarioAdmin");
+            return ds.EjecutarProcedimientoAlmacenado(comando, "sp_EliminarUsuario");
         }
         private void ArmarParametrosUsuarioAdminEliminar(ref SqlCommand Comando, Usuarios usu)
         {

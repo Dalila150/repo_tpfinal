@@ -43,6 +43,17 @@ namespace Negocio
                 return false;
             }
         }
+
+
+
+        public DataTable llenarcamposusuarios(int id)
+        {
+            DaoUsuario dao = new DaoUsuario();
+            return dao.getTablaCamposUsuarios(int id);
+
+
+        }
+
         public bool BuscarUsuarioApellido(string Nombre)
         {
             DaoUsuario dao = new DaoUsuario();
@@ -61,7 +72,7 @@ namespace Negocio
         {
             DaoUsuario dao = new DaoUsuario();
 
-            if (dao.existeUsuario(usuario.getNombreUsuario()) && dao.existeUsuarioApellido(usuario.getApellidoUsuario()))
+            if (dao.existeUsuario(usuario.getNombre_UsuarioUsuario()))
             {
                 return true;
             }

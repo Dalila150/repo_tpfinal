@@ -11,10 +11,6 @@
     <title>Carrito</title>
     <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
       <style type="text/css">
-          .auto-style1 {
-              float: right;
-              text-align: end;
-          }
           .auto-style2 {
               margin-left: 0px;
               margin-top: 0px;
@@ -22,8 +18,15 @@
           .auto-style3 {
               width: 100%;
           }
-          .auto-style4 {
-              width: 150px;
+          .auto-style5 {
+              width: 100%;
+              height: 28px;
+          }
+          .auto-style6 {
+              width: 138px;
+          }
+          .auto-style7 {
+              width: 161px;
           }
       </style>
   </head>
@@ -66,62 +69,70 @@
                    
                     <asp:GridView style="width:80%; margin-left:10%;margin-top:2%" ID="grdCarrito" runat="server" Width="359px">
               </asp:GridView>
-                                         <h3>Ingrese datos para modo de pago crédito o débito<br /></h3> 
+                                         <h3><br /></h3> 
 
-                     <table class="auto-style3">
+                     <table class="auto-style5">
               <tr style="margin-top:2%; margin-bottom:5%">
-                  <td>Modo de envio</td>
+                  <td>&nbsp;</td>
                   <td>
+                      <table class="auto-style3">
+                          <tr>
+                              <td class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>&nbsp;Modo de envio</strong></td>
+                              <td>
                       <asp:DropDownList ID="ddlModoEnvio" runat="server">
                       </asp:DropDownList>
-                  </td>
-                  <td>Modo de pago</td>
-                  <td>
-                      <asp:DropDownList ID="ddlMododePago" runat="server">
+                              </td>
+                              <td class="auto-style7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>&nbsp;Modo de pago</strong></td>
+                              <td>
+                      <asp:DropDownList ID="ddlMododePago" runat="server" OnSelectedIndexChanged="ddlMododePago_SelectedIndexChanged">
                       </asp:DropDownList>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Escoja sucursa</strong>l </td>
+                              <td>
+                      <asp:DropDownList ID="ddlSucursales" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlSucursales_SelectedIndexChanged">
+                      </asp:DropDownList>
+                              </td>
+                              <td class="auto-style7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Numero de tarjeta</strong></td>
+                              <td>
+                      <asp:TextBox ID="txtNroTarjeta" runat="server"></asp:TextBox>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td class="auto-style6">&nbsp;</td>
+                              <td>&nbsp;</td>
+                              <td class="auto-style7"><strong>Código de seguridad de su tarjeta</strong></td>
+                              <td>
+                      <asp:TextBox ID="txtNroSeguridad" runat="server"></asp:TextBox>
+                              </td>
+                          </tr>
+                      </table>
                   </td>
+                  <td>&nbsp;</td>
+                  <td>
+                      &nbsp;</td>
               </tr>
           </table>
           <br />
-          <table class="auto-style3">
-              <tr>
-                  <td class="auto-style4">Número de tarjeta</td>
-                  <td>
-                      <asp:TextBox ID="txtNroTarjeta" runat="server"></asp:TextBox>
-                  </td>
-                  <td>Código de seguridad de su tarjeta</td>
-                  <td>
-                      <asp:TextBox ID="txtNroSeguridad" runat="server"></asp:TextBox>
-                  </td>
-              </tr>
-              <tr>
-                  <td class="auto-style4">
-                      <br />
-                  </td>
-                  <td>Escoja sucursal (modo de pago efectivo)</td>
-                  <td>
-                      <asp:DropDownList ID="ddlSucursales" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlSucursales_SelectedIndexChanged">
-                      </asp:DropDownList>
-                  </td>
-                  <td>&nbsp;</td>
-              </tr>
-          </table>
                 </div>
             </div>
     
       <div class="vaciar"><asp:button runat="server" ID="btnVaciar" style="width: 40%;border-radius: 8px 8px;padding: 0.5rem;font-size: 18px; border-radius: 20px 20px;color: #ffffff; border: solid 1px rgba(226, 98, 98, 0.116);background-color: rgba(184, 39, 51, 0.753);" text="Vaciar carrito" OnClick="btnVaciar_Click"/>
                         <asp:Button ID="btnFinalizarCompra"  style="width: 40%;border-radius: 8px 8px;padding: 0.5rem;font-size: 18px; border-radius: 20px 20px;color: #ffffff; border: solid 1px rgba(226, 98, 98, 0.116);background-color: rgba(184, 39, 51, 0.753);" class="vaciar" runat="server" CssClass="auto-style2" OnClick="btnFinalizarCompra_Click" Text="FINALIZAR COMPRA" />
+          <br />
+          <br />
+          <asp:Label ID="lblMensajeCompra" runat="server"></asp:Label>
+          <br />
+          <br />
         </div>
     </div>
 
     
        
 
-              <asp:Label ID="lblMensajeCompra" runat="server"></asp:Label>
-
-            
     <!-------------------------------------------------------------------------->
-     <div class="footer" >
+           <div class="auto-style6" >
         <!-- Iconos de redes sociales -->
            <h2 class="contactenos">Contactenos</h2>
             <ul style="text-align:left">
@@ -139,7 +150,7 @@
               </li>
             </ul>
         </div>
-   </div>
+   </div>--
           </form>
   </body>
 </html>

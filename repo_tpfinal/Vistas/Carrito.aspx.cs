@@ -158,6 +158,7 @@ namespace Vistas
 
             NegocioVenta neg_vent = new NegocioVenta();
             Ventas datos_venta = new Ventas();
+            Usuarios usu = new Usuarios();
 
             Negocio_DetalleVenta det_v = new Negocio_DetalleVenta();
             Detalle_venta det_v_entidades = new Detalle_venta();
@@ -188,10 +189,17 @@ namespace Vistas
             DateTime fecha = DateTime.Today;
             fecha.ToShortDateString().ToString();
 
-              
+
+            if (Request.Cookies["NombreUsuario"] != null)
+            {
+
+                usu = Neg.DevolverUsuarioCompleto(Request.Cookies["NombreUsuario"].Value);
+
+            }
+
             datos_venta.Fecha1 = fecha;
-            datos_venta.ID_usuario1 = Convert.ToInt32(Session["IdUsuario"]);
-            datos_venta.Direccion1 = Session["DireccionUsuario"].ToString();
+            datos_venta.ID_usuario1 = usu.getID_usuario();
+            datos_venta.Direccion1 = usu.getDireccionUsuario(); 
             datos_venta.Total1 = total;
             datos_venta.Modo_envio1 = int.Parse(ddlModoEnvio.SelectedValue);
             datos_venta.Modo_pago1 = int.Parse(ddlMododePago.SelectedValue);
@@ -262,7 +270,9 @@ namespace Vistas
 
         }
 
+        protected void ddlMododePago_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }

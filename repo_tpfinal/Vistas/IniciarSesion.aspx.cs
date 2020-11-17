@@ -78,25 +78,9 @@ namespace Vistas
 
 
             if (Usuario == true)
-              {
-                Usuarios usuario_ent = new Usuarios();
+             
 
-                Session["IdUsuario"] = usuario_ent.getID_usuario();
-                Session["DireccionUsuario"] = usuario_ent.getDireccionUsuario();
-                Session["Nombre"] = usuario_ent.getNombreUsuario();
-                Session["Usuario"] = usuario_ent.getNombre_UsuarioUsuario();
-                Session["Apellido"] = usuario_ent.getApellidoUsuario();
-                Session["Contraseña"] = usuario_ent.getPasswordUsuario();
-                Session["Email"] = usuario_ent.getEmailUsuario();
-                Session["Telefono"] = usuario_ent.getTelefonoUsuario();
-                  
-
-                }
-
-
-
-
-                if (neg.BuscarUsuarioYclave(txtUsuario.Text, txtContraseña.Text) == true)
+                 if (neg.BuscarUsuarioYclave(txtUsuario.Text, txtContraseña.Text) == true)
                 {
 
                     Usuarios EsAdmin = new Usuarios();

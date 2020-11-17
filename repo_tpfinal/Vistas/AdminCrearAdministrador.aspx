@@ -117,7 +117,8 @@
                             </ul>
                         </div>
                         <asp:Button class="btnASP" ID="btnAgregarUsuario" runat="server" Text="AGREGAR ADMINISTRADOR" Height="40px" Width="60%" OnClick="btnAgregarUsuario_Click" Style="margin-bottom: 25px" />
-                        <asp:Label ID="lblUsuarioExiste" runat="server" Text="Label"></asp:Label>
+                        <br />
+                        <asp:Label ID="lblUsuarioExiste" runat="server" BackColor="#FF5050"></asp:Label>
                     </div>
                 </div>
             

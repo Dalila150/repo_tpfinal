@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Entidades;
 using Negocio;
-
+using System.Data;
 namespace Vistas
 {
     public partial class WebForm14 : System.Web.UI.Page
@@ -15,22 +15,30 @@ namespace Vistas
         {
             //-----------------------------------------------
             Usuarios Usu = new Usuarios();
+            NegocioUsuario neg = new NegocioUsuario();
 
 
 
 
             if (IsPostBack == false)
             {
-                txtNombre.Text = Session["Nombre"].ToString();
-                txtNombre_de_usuario.Text = Session["Usuario"].ToString();
-                txtApellido.Text = Session["Apellido"].ToString();
-                txtContrasena.Text = Session["Contraseña"].ToString();
-                txtEmail.Text = Session["Email"].ToString();
-                txtTelefono.Text = Session["Telefono"].ToString();
-                txtDireccion.Text = Session["DireccionUsuario"].ToString();
+                DataTable usuariocampos = neg.llenarcamposusuarios(int.Parse(txtIdUsuario.Text));
 
+                string nombre = usuariocampos.Rows[0]["Nombre"].ToString();
+                string apellido = usuariocampos.Rows[0]["Apellido"].ToString();
+                string email = usuariocampos.Rows[0]["Email"].ToString();
+                string direccion = usuariocampos.Rows[0]["Direccion"].ToString();
+                string nickname = usuariocampos.Rows[0]["Nombre_Usuario"].ToString();
+                string telefono = usuariocampos.Rows[0]["Telefono"].ToString();
+
+                txtNombre.Text = nombre;
+                txtApellido.Text = apellido;
+                txtEmail.Text = email;
+                txtDireccion.Text = direccion;
+                txtNombredeUsuario.Text = nickname;
+                txtTelefono.Text = telefono;
             }
-
+         
 
             if (Request.Cookies["NombreUsuario"] != null)
             {
@@ -62,7 +70,7 @@ namespace Vistas
                 Response.Redirect("/Home.aspx");
             }
             //-----------------------------------------------
-            if (IsPostBack == false) { txtNombre.Text = Session["Nombre"].ToString(); txtNombre_de_usuario.Text = Session["Usuario"].ToString(); txtApellido.Text = Session["Apellido"].ToString(); txtContrasena.Text = Session["Contraseña"].ToString(); txtEmail.Text = Session["Email"].ToString(); txtTelefono.Text = Session["Telefono"].ToString(); txtDireccion.Text = Session["DireccionUsuario"].ToString(); }
+          //  if (IsPostBack == false) { txtNombre.Text = Session["Nombre"].ToString(); txtNombre_de_usuario.Text = Session["Usuario"].ToString(); txtApellido.Text = Session["Apellido"].ToString(); txtContrasena.Text = Session["Contraseña"].ToString(); txtEmail.Text = Session["Email"].ToString(); txtTelefono.Text = Session["Telefono"].ToString(); txtDireccion.Text = Session["DireccionUsuario"].ToString(); }
 
         }
 
@@ -77,8 +85,8 @@ namespace Vistas
             usur.setApellidoUsuario(txtApellido.Text);
             usur.setEmailUsuario(txtEmail.Text);
             usur.setDireccionUsuario(txtDireccion.Text);
-            usur.setNombre_UsuarioUsuario(txtNombre_de_usuario.Text);
-            usur.setPasswordUsuario(txtContrasena.Text);
+            usur.setNombre_UsuarioUsuario(txtNombredeUsuario.Text);
+          
             usur.setTelefonoUsuario(txtTelefono.Text);
 
 
@@ -92,6 +100,21 @@ namespace Vistas
             {
                 lblMensajedeActualizacion.Text = "Hubo un error al actualizar datos";
             }
+
+        }
+
+        protected void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("HomeAdmin.aspx");
+        }
+
+        protected void TextBox1_TextChanged1(object sender, EventArgs e)
+        {
 
         }
     }

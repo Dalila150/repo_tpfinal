@@ -15,6 +15,28 @@
     <title>Home</title>
     <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style type="text/css">
+        .auto-style1 {
+            height: 35px;
+            width: 94%;
+        }
+        .auto-style2 {
+            width: 100%;
+        }
+        .auto-style3 {
+            background-color: rgb(177, 63, 72);
+            grid-area: footer;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            left: -5px;
+            top: 547px;
+        }
+    </style>
   </head>
 <body>
     <form id="form1" runat="server">
@@ -81,50 +103,58 @@
             <div style="width:100%;text-align:center;margin:0;display: table-footer-group;margin-left:25%;margin-right:25%">
             <div style="width:0%;display:inline-block;margin-right: 50px">
                     <ul style="font-size:18px;text-align:left;display:inline-block;width:50%">
+                       
                        <li style="height: 35px;width: 25%;margin-bottom:14px">Nombre</li>
-                       <li style="height: 35px;width: 25%;margin-bottom:14px">Usuario</li>
                        <li style="height: 35px;width: 25%;margin-bottom:14px">Apellido</li>
-                       <li style="height: 35px;width: 25%;margin-bottom:14px">Contraseña</li>
                        <li style="height: 35px;width: 25%;margin-bottom:14px">Email</li>
-                       <li style="height: 35px;width: 25%;margin-bottom:14px">Telefono</li>
                        <li style="height: 35px;width: 25%;margin-bottom:14px">Direccion</li>
+                       <li style="height: 35px;width: 25%;margin-bottom:14px">Nombre de Usuario</li>
+                       <li style="height: 35px;width: 25%;margin-bottom:14px">Telefono</li>
+                      
                    </ul>
                </div>
             <div style="width:86%;display:inline-block;">
                 <ul style="font-size:18px;text-align:left;display:inline-block;margin-right:1%">
-                       <li style="height: 35px;width: 40%;margin-bottom:15px">
-                           <asp:TextBox class="txtASP" ID="txtNombre" runat="server" required="true"></asp:TextBox>
+                       <li style="margin-bottom:15px" class="auto-style1">
+                           <table class="auto-style2">
+                               <tr>
+                                   <td>INGRESE ID DE USUARIO</td>
+                                   <td>
+                                       <asp:TextBox ID="txtIdUsuario" runat="server" OnTextChanged="TextBox1_TextChanged1"></asp:TextBox>
+                                   </td>
+                               </tr>
+                           </table>
                        </li>
                        <li style="height: 35px;width: 40%;margin-bottom:15px">
-                           <asp:TextBox class="txtASP" ID="txtNombre_de_usuario" runat="server" required="true"></asp:TextBox>
+                           <asp:TextBox class="txtASP" ID="txtNombre" runat="server" required="true"></asp:TextBox>
                        </li>
                        <li style="height: 35px;width: 40%;margin-bottom:15px">
                             <asp:TextBox class="txtASP" ID="txtApellido" runat="server" required="true"></asp:TextBox>
                        </li>
                        <li style="height: 35px;width: 40%;margin-bottom:15px">
-                           <asp:TextBox class="txtASP" ID="txtContrasena" runat="server" required="true"></asp:TextBox>
+                           <asp:TextBox class="txtASP" ID="txtEmail" runat="server" required="true"></asp:TextBox>
                         </li>
                         <li style="height: 35px;width: 40%;margin-bottom:15px">
-                           <asp:TextBox class="txtASP" ID="txtEmail" TextMode="Email" runat="server" required="true"></asp:TextBox>
+                           <asp:TextBox class="txtASP" ID="txtDireccion" TextMode="Email" runat="server" required="true"></asp:TextBox>
                        </li>
                        <li style="height: 35px;width: 40%;margin-bottom:15px">
-                           <asp:TextBox class="txtASP" ID="txtTelefono" TextMode="Number" runat="server" required="true"></asp:TextBox>
+                           <asp:TextBox class="txtASP" ID="txtNombredeUsuario" TextMode="Number" runat="server" required="true"></asp:TextBox>
                        </li>
                        <li style="height: 35px;width: 40%;margin-bottom:15px">
-                           <asp:TextBox class="txtASP" ID="txtDireccion" runat="server" required="true"></asp:TextBox>
+                           <asp:TextBox class="txtASP" ID="txtTelefono" runat="server" required="true"></asp:TextBox>
                        </li>
                    </ul>
                </div>
            </div>
          <div style="padding-bottom: 25px; text-align:center; margin-top:3%;height: 35px;">
                <asp:Button class="btnASP" ID="btnGuardar" runat="server" OnClick="btnGuardar_Click" Text="Guardar" style="width:30%" />
-               <asp:Button class="btnASP" ID="btnCancelar" runat="server" Text="Cancelar" style="width:30%" />
+               <asp:Button class="btnASP" ID="btnCancelar" runat="server" Text="Cancelar" style="width:30%" OnClick="btnCancelar_Click" />
          </div>
           <asp:Label ID="lblMensajedeActualizacion" runat="server" BackColor="#FF9999"></asp:Label>
             </div>
        </div>
        </div>
-        <div class="footer" >
+        <div class="auto-style3" >
         <!-- Iconos de redes sociales -->
             <h2 class="contactenos">Contactenos</h2>
             <ul style="text-align:left">
