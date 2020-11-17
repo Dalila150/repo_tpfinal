@@ -106,16 +106,6 @@ namespace Vistas
             cargarGridView();
         }
 
-        protected void btnDatos_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Datos.aspx");
-        }
-
-        protected void btnCompras_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Compras.aspx");
-        }
-
         protected void CargarCategoriasBarraDeNavegacion()
         {
             NegocioCategoria gC = new NegocioCategoria();

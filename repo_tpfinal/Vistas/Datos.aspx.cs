@@ -149,15 +149,5 @@ namespace Vistas
             }
         }
 
-        protected void btnDatos_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Datos.aspx");
-        }
-
-        protected void btnCompras_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Compras.aspx");
-        }
-
     }
 }
