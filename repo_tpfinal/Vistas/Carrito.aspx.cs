@@ -297,15 +297,6 @@ namespace Vistas
 
                             id_producto = Convert.ToInt32(row["ID_PRODUCTO"]);
                             CantProds = Convert.ToInt32(row["CANTIDAD"]);
-
-                            NegocioProducto Np = new NegocioProducto();
-                            DataTable ProdAActualizar = Np.ObtenerProducto(row["ID_PRODUCTO"].ToString());
-
-                            int StockAnterior = int.Parse(ProdAActualizar.Rows[0][1].ToString());
-                            int NuevoStock = StockAnterior - CantProds;
-
-                            Np.ActualizarStock(id_producto, NuevoStock);
-                            
                             precio_u = Convert.ToInt32(row["PRECIO"]);
 
                             det_v_entidades.set_idventa(int.Parse(id_ultima_venta.Rows[0][0].ToString()));
@@ -324,6 +315,7 @@ namespace Vistas
                     btnVaciarCarrito.Style.Add("display", "none");
                     btnFinalizarCompra.Enabled = false;
                     btnFinalizarCompra.Visible = false;
+                    tablaTotal.Style.Add("display", "none");
                     // OCULTO LA SECCION DE PAGO
                     OpcionesDePago.Attributes.Add("style", "display:none");
                     // LIMPIO CARRO
