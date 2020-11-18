@@ -223,6 +223,26 @@ namespace Dao
             return FilasCambiadas;
         }
 
+        public int descontarStock(SqlCommand Comando, String NombreSP, int id, int stock)
+        {
+            AccesoaDatos ad = new AccesoaDatos();
+            SqlConnection Conexion = ad.ObtenerConexion();
+            SqlCommand cmd = new SqlCommand();
+
+            int FilasCambiadas;
+            cmd = Comando;
+
+            cmd.Connection = Conexion;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = NombreSP;
+            cmd.Parameters.Add("@id_producto", SqlDbType.Int).Value = id;
+            cmd.Parameters.Add("@stock", SqlDbType.Int).Value = stock;
+            FilasCambiadas = cmd.ExecuteNonQuery();
+            Conexion.Close();
+
+            return FilasCambiadas;
+        }
+
         public DataTable ObtenerProductosPorFecha_R1(string f1)
         {
             DateTime d1 = Convert.ToDateTime(f1);

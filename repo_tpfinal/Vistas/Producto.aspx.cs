@@ -227,7 +227,7 @@ namespace Vistas
                 // CREO COLUMNAS PARA NUESTRA TABLA CARRITO
                 ProductoCarrito.Columns.Add("ID_PRODUCTO", typeof(int));
                 ProductoCarrito.Columns.Add("CANTIDAD", typeof(int));
-                ProductoCarrito.Columns.Add("PRECIO", typeof(decimal));
+                ProductoCarrito.Columns.Add("PRECIO", typeof(float));
                 ProductoCarrito.Columns.Add("IMAGEN", typeof(String));
                 ProductoCarrito.Columns.Add("NOMBRE", typeof(String));
 

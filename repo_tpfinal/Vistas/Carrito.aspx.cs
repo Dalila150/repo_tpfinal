@@ -16,6 +16,15 @@ namespace Vistas
         NegocioUsuario Neg = new NegocioUsuario();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Request["Vaciar"] != null)
+            {
+                if(Request["Vaciar"].ToString() == "true")
+                {
+                    Session["Carrito"] = null;
+                    Response.Redirect("/Carrito.aspx");
+                }
+            }
+
             //-----------------------------------------------
             Usuarios Usu = new Usuarios();
             if (Request.Cookies["NombreUsuario"] != null)
@@ -101,33 +110,7 @@ namespace Vistas
             //// EMPIEZA LA LOGICA  DEL CARRITO EN SI
             if (Session["Carrito"] != null)
             {
-                String InnerHTML = "";
                 DataTable infoCarrito = (DataTable)Session["Carrito"];
-
-                char A = '"';
-                int CantProdsC = 0;
-                float TotalCarroC = 0;
-                InnerHTML += "<table><tbody><tr style=" + A + "width:90%" + A + " ><td style=" + A + "width:15%" + A + "></td><td style=" + A + "width:25%" + A + ">PRODUCTO</td><td style=" + A + "width:10%" + A + ">CANTIDAD</td><td style=" + A + "width:10%" + A + ">PRECIO UNITARIO</td><td>PRECIO</td><td style=" + A + "width:10%" + A + ">Eliminar</td></tr>";
-
-
-                foreach (DataRow row in infoCarrito.Rows)
-                {
-
-                        InnerHTML += "<tr><td><img src=" + A + row["IMAGEN"].ToString() + A + " style=" + A + "width:100%;margin-top:13px;border-radius:10px" + A + "></td>";
-                        InnerHTML += "<td>" + row["NOMBRE"].ToString() + "</td>";
-                        CantProdsC += int.Parse(row[1].ToString());
-                        InnerHTML += "<td>" + CantProdsC.ToString() + "</td>";
-                        TotalCarroC += CantProdsC * float.Parse(row[2].ToString());
-                        InnerHTML += "<td>" + row["PRECIO"].ToString() + "</td>";
-                        InnerHTML += "<td>" + TotalCarroC + "</td>";
-                        InnerHTML += "<td><button><i class=" + A + "far fa-trash-alt" + A + "></i></button></td></tr>";
-                        
-                }
-
-                InnerHTML += "</tbody></table>";
-                productosCarrito.InnerHtml = InnerHTML;
-
-                InnerHTML = "";
 
                 if (IsPostBack==false)
                 {
@@ -152,13 +135,29 @@ namespace Vistas
 
                 }
 
-                grdCarrito.DataSource = (DataTable)Session["Carrito"];
+                DataTable tablaConTDEspaciados = new DataTable();
+                DataTable CarroSession = (DataTable)Session["Carrito"];
+
+                tablaConTDEspaciados.Columns.Add("ID_PRODUCTO", typeof(int));
+                tablaConTDEspaciados.Columns.Add("CANTIDAD", typeof(int));
+                tablaConTDEspaciados.Columns.Add("PRECIO", typeof(float));
+                tablaConTDEspaciados.Columns.Add("IMAGEN", typeof(String));
+                tablaConTDEspaciados.Columns.Add("NOMBRE", typeof(String));
+
+                if (CarroSession.Rows.Count != 0 )
+                {
+                    for(int i = 1; i <= CarroSession.Rows.Count; i++) { 
+                            tablaConTDEspaciados.Rows.Add(CarroSession.Rows[i-1][0], CarroSession.Rows[i - 1][1], CarroSession.Rows[i - 1][2], CarroSession.Rows[i - 1][3], CarroSession.Rows[i - 1][4]);
+                            tablaConTDEspaciados.Rows.Add();
+                    }
+                }
+
+                grdCarrito.DataSource = tablaConTDEspaciados;
                 grdCarrito.DataBind();
             } else
             {
                 //OCULTO Y DESHABILITO LOS BOTONES
-                btnVaciar.Enabled = false;
-                btnVaciar.Visible = false;
+                btnVaciarCarrito.Style.Add("display","none");
                 btnFinalizarCompra.Enabled = false;
                 btnFinalizarCompra.Visible = false;
                 // OCULTO LA SECCION DE PAGO
@@ -193,6 +192,23 @@ namespace Vistas
 
         }
 
+        protected void btnEliminarProducto_Click(object sender, CommandEventArgs e)
+        {
+            String idProd = e.CommandArgument.ToString();
+            DataTable info_carrito = (DataTable)Session["Carrito"];
+            foreach (DataRow row in info_carrito.Rows)
+            {
+
+                if(row["ID_PRODUCTO"].ToString() == idProd)
+                {
+                    row.Delete();
+                }
+
+            }
+
+            Response.Redirect("/Carrito.aspx");
+        }
+
 
         protected void btnVaciar_Click(object sender, EventArgs e)
         {        
@@ -201,8 +217,7 @@ namespace Vistas
             grdCarrito.DataSource = null;
 
             // OCULTO BOTONES Y DESHABILITO
-            btnVaciar.Enabled = false;
-            btnVaciar.Visible = false;
+            btnVaciarCarrito.Style.Add("display", "none");
             btnFinalizarCompra.Enabled = false;
             btnFinalizarCompra.Visible = false;
             // PONGO CARRITO VACIO
@@ -277,8 +292,18 @@ namespace Vistas
                         DataTable id_ultima_venta = neg_vent.traerid_venta();
 
                         foreach (DataRow row in info_carrito.Rows) {
-                            
+
                             id_producto = Convert.ToInt32(row["ID_PRODUCTO"]);
+                            CantProds = Convert.ToInt32(row["CANTIDAD"]);
+
+                            NegocioProducto Np = new NegocioProducto();
+                            DataTable ProdAActualizar = Np.ObtenerProducto(row["ID_PRODUCTO"].ToString());
+
+                            int StockAnterior = int.Parse(ProdAActualizar.Rows[0][1].ToString());
+                            int NuevoStock = StockAnterior - CantProds;
+
+                            Np.ActualizarStock(id_producto, NuevoStock);
+                            
                             precio_u = Convert.ToInt32(row["PRECIO"]);
 
                             det_v_entidades.set_idventa(int.Parse(id_ultima_venta.Rows[0][0].ToString()));
@@ -291,11 +316,10 @@ namespace Vistas
 
                     }
 
-                    
+
 
                     //OCULTO Y DESHABILITO LOS BOTONES
-                    btnVaciar.Enabled = false;
-                    btnVaciar.Visible = false;
+                    btnVaciarCarrito.Style.Add("display", "none");
                     btnFinalizarCompra.Enabled = false;
                     btnFinalizarCompra.Visible = false;
                     // OCULTO LA SECCION DE PAGO
@@ -307,6 +331,7 @@ namespace Vistas
                     grdCarrito.DataBind();
 
                     lblMensajeCompra.Text = "Gracias por su compra";
+                    lblMensajeCompra.Style.Add("font-size", "25px");
                 }
 
                 else
@@ -334,9 +359,51 @@ namespace Vistas
             Response.Redirect("/productos.aspx" + updatedQueryString);
         }
 
-        
+        protected void grdCarrito_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            String idProd = ((Label)grdCarrito.Rows[e.RowIndex].FindControl("lblID")).Text;
+            DataTable info_carrito = (DataTable)Session["Carrito"];
+            int rowquequieroborrar = -1;
+            int rowquequieroborrarID = -1;
 
-       
-        
+            foreach (DataRow row in info_carrito.Rows)
+            {
+                rowquequieroborrar++;
+                if (row["ID_PRODUCTO"].ToString() == idProd)
+                {
+                    rowquequieroborrarID = rowquequieroborrar;
+                }
+
+            }
+
+            if (rowquequieroborrarID != -1) {
+                info_carrito.Rows[rowquequieroborrarID].Delete();
+                if(info_carrito.Rows.Count != 0) { 
+                    Session["Carrito"] = info_carrito;
+                } else
+                {
+                    Session["Carrito"] = null;
+                }
+            }
+
+            Response.Redirect("/Carrito.aspx");
+        }
+
+        protected void grdCarrito_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                if(e.Row.RowIndex != 0 && e.Row.RowIndex%2 !=0) {
+                    ((LinkButton)(e.Row.Cells[6].FindControl("LinkButton1"))).Visible = false;
+                    ((LinkButton)(e.Row.Cells[6].FindControl("LinkButton1"))).Enabled = false;
+                } else
+                {
+                    float Precio = float.Parse(((Label)(e.Row.Cells[5].FindControl("lblPrecioU"))).Text);
+                    int Cantidad = int.Parse(((Label)(e.Row.Cells[4].FindControl("lblCantidad"))).Text);
+                    float PrecioTotal = Precio * Cantidad;
+                    ((Label)(e.Row.Cells[6].FindControl("lblPrecio"))).Text = PrecioTotal.ToString();
+                }
+            }
+        }
     }
 }

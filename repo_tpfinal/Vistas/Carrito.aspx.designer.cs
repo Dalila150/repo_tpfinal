@@ -87,15 +87,6 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label lblMensajeCompra;
 
         /// <summary>
-        /// productosCarrito control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl productosCarrito;
-
-        /// <summary>
         /// grdCarrito control.
         /// </summary>
         /// <remarks>
@@ -159,13 +150,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.TextBox txtNroSeguridad;
 
         /// <summary>
-        /// btnVaciar control.
+        /// btnVaciarCarrito control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVaciar;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnVaciarCarrito;
 
         /// <summary>
         /// btnFinalizarCompra control.

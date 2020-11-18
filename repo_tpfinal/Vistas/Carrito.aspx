@@ -52,10 +52,57 @@
                           <div style="margin-top: 15px">
                               <asp:Label ID="lblMensajeCompra" runat="server" Style="font-size: 20px"></asp:Label>
                           </div>
-                          <div style="width: 80%; margin-left: 10%; margin-top: 2%;backgroud-color: #11999e;" id="productosCarrito" runat="server" >
-                              <!----------------------------PRODUCTOS DEL CARRITO---------------------------------->
-                          </div>
-                          <asp:GridView Style="width: 80%; margin-left: 10%; margin-top: 2%" ID="grdCarrito" runat="server" Width="359px">
+                          <asp:GridView style="width: 80%; margin-left: 10%; margin-top: 2%;" ID="grdCarrito" runat="server" AutoGenerateColumns="False" OnRowDeleting="grdCarrito_RowDeleting" OnRowDataBound="grdCarrito_RowDataBound" BorderStyle="None" BorderWidth="0px" GridLines="None" RowStyle-BorderStyle="None">
+                              <Columns>
+                                  <asp:TemplateField HeaderText="ID" ShowHeader="False" Visible="False">
+                                      <ItemTemplate>
+                                          <asp:Label ID="lblID" runat="server" Text='<%# Bind("ID_PRODUCTO") %>'>></asp:Label>
+                                      </ItemTemplate>
+                                  </asp:TemplateField>
+                                  <asp:TemplateField>
+                                      <ItemTemplate>
+                                          <asp:Image ID="ImageProd" ImageUrl='<%# Bind("IMAGEN") %>' style="border-radius:10px;width:80%" runat="server" />
+                                      </ItemTemplate>
+                                      <HeaderStyle Width="15%" />
+                                      <ItemStyle Width="25%" />
+                                  </asp:TemplateField>
+                                  <asp:TemplateField HeaderText="Producto">
+                                      <ItemTemplate>
+                                          <asp:Label ID="lblNombre" runat="server" style="width:25%;" Text='<%# Bind("NOMBRE") %>'>></asp:Label>
+                                      </ItemTemplate>
+                                      <HeaderStyle Width="25%" />
+                                      <ItemStyle Width="20%" />
+                                  </asp:TemplateField>
+                                  <asp:TemplateField HeaderText="Cantidad">
+                                      <ItemTemplate>
+                                          <asp:Label ID="lblCantidad" runat="server" style="width:10%;" Text='<%# Bind("CANTIDAD") %>'>></asp:Label>
+                                      </ItemTemplate>
+                                      <HeaderStyle Width="10%" />
+                                      <ItemStyle Width="10%" />
+                                  </asp:TemplateField>
+                                  <asp:TemplateField HeaderText="Precio Unitario">
+                                      <ItemTemplate>
+                                          <asp:Label ID="lblPrecioU" runat="server" style="width:15%;" Text='<%# Bind("PRECIO") %>'>></asp:Label>
+                                      </ItemTemplate>
+                                      <HeaderStyle Width="10%" />
+                                      <ItemStyle Width="10%" />
+                                  </asp:TemplateField>
+                                  <asp:TemplateField HeaderText="Precio">
+                                      <ItemTemplate>
+                                          <asp:Label ID="lblPrecio" runat="server" style="width:20%;" Text='<%# Bind("PRECIO") %>'>></asp:Label>
+                                      </ItemTemplate>
+                                      <HeaderStyle Width="10%" />
+                                      <ItemStyle Width="10%" />
+                                  </asp:TemplateField>
+                                  <asp:TemplateField ShowHeader="False" ItemStyle-CssClass="ultimo">
+                                      <ItemTemplate>
+                                          <asp:LinkButton ID="LinkButton1" runat="server" style="width:10%;" CausesValidation="False" CommandName="Delete" Text="Eliminar"><i style="text-decoration: none;color: brown;font-size: 30px;" class="far fa-trash-alt"></i></asp:LinkButton>
+                                      </ItemTemplate>
+                                      <HeaderStyle Width="10%" />
+                                  </asp:TemplateField>
+                              </Columns>
+                              <RowStyle CssClass="rcgvTD"/>
+                              <AlternatingRowStyle Height="50px" CssClass="rowAlterna"/>
                           </asp:GridView>
                           <div style="margin-bottom:20px">
                           </div>
@@ -103,7 +150,7 @@
                           <br />
                       </div>
                       <div style="margin-bottom:25px">
-                          <asp:Button runat="server" ID="btnVaciar" CssClass="btnASP" Style="width: 40%;" Text="Vaciar carrito" OnClick="btnVaciar_Click" />
+                          <button runat="server" id="btnVaciarCarrito" type="button" class="btnASP" style="width: 40%;" onclick="btnVaciar_Click()">Vaciar Carrito</button>
                           <asp:Button runat="server" ID="btnFinalizarCompra" CssClass="btnASP" Style="width: 40%;" OnClick="btnFinalizarCompra_Click" Text="FINALIZAR COMPRA" />
                       </div>
                   </div>
@@ -131,4 +178,11 @@
           </div>
       </form>
   </body>
+    <script type="text/javascript">
+    function btnVaciar_click() {
+        if (confirm('¿Desea limpiar el carrito?')) {
+            window.location.href = '/Carrito.aspx?Vaciar=true';
+        }
+    }
+    </script>
 </html>

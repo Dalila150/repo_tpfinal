@@ -92,6 +92,23 @@ namespace Negocio
                 return false;
             }
         }
+
+        public bool ActualizarStock(int id, int stock)
+        {
+            SqlCommand Comando = new SqlCommand();
+            AccesoaDatos ad = new AccesoaDatos();
+            DaoProducto dp = new DaoProducto();
+            int filasActualizadas = dp.descontarStock(Comando, "spDescontarStock", id, stock);
+            if (filasActualizadas == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public DataTable TodosLosProductos()
         {
             DaoProducto dp = new DaoProducto();
