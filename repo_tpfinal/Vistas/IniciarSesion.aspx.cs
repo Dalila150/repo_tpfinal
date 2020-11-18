@@ -74,13 +74,13 @@ namespace Vistas
         protected void btnIniciarSesion_Click(object sender, EventArgs e)
         {
             Boolean Usuario = neg.BuscarUsuarioNombre_Usuario(txtUsuario.Text);
+            Boolean Clave = false;
             lblMensaje.Text = "";
 
 
-            if (Usuario == true)
-             
-
-                 if (neg.BuscarUsuarioYclave(txtUsuario.Text, txtContraseña.Text) == true)
+            if (Usuario == true) 
+            {
+                if (neg.BuscarUsuarioYclave(txtUsuario.Text, txtContraseña.Text) == true)
                 {
 
                     Usuarios EsAdmin = new Usuarios();
@@ -95,16 +95,24 @@ namespace Vistas
                     HttpCookie Tipo = new HttpCookie("tipo_usuario_logueado", EsAdmin.getRolUsuario().ToString());
                     Tipo.Expires = DateTime.Now.AddDays(1);
                     this.Response.Cookies.Add(Tipo);
+                    Clave = true;
                     //System.Diagnostics.Debug.WriteLine("TIPO USUARIO = " + EsAdmin.getRolUsuario().ToString());
                     if (EsAdmin.getRolUsuario() == 1)
                     {
                         Response.Redirect("HomeAdmin.aspx");
-                    } else
+                    }
+                    else
                     {
                         Response.Redirect("Home.aspx");
                     }
-                lblMensaje.Text = "La Contraseña Es incorrectas";
-            } else
+                }
+                if(Clave == false)
+                {
+                    lblMensaje.Text = "La contraseña es incorrecta";
+                }
+
+            }
+            if(Usuario == false)
             {
                 lblMensaje.Text = "El Usuario Es incorrecto";
             }
