@@ -127,8 +127,9 @@
         </div>
           <div class="botonRegistro" style="margin-top:15px">
                 <asp:button runat="server" ID="bntCrearCuenta" style="width: 30%;border-radius: 8px 8px;padding: 0.5rem;font-size: 18px;border-radius: 20px 20px;border: solid 2px;color: white;background-color: #16765696;border-color: #167656;" text="Crear Cuenta" OnClick="bntCrearCuenta_Click"/>
+                
               </div>
-     
+            <asp:Label ID="lblMensaje" style="font-size:13px" runat="server"></asp:Label>
     </div>
             </div>
     <div class="footer" >

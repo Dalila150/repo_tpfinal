@@ -76,7 +76,7 @@ namespace Vistas
 
         protected void bntCrearCuenta_Click(object sender, EventArgs e)
         {
-           // lblMensaje.Text = "";
+           lblMensaje.Text = "";
             Boolean Usuario = Neg.BuscarUsuarioNombre_Usuario(txtNombreUsuario.Text);
 
             if (txtNombre.Text == "" || txtApellido.Text == "" || txtDni.Text == "" || txtTelefono.Text == "" || txtEmail.Text == "" || txtClave.Text == "" || txtValidarClave.Text == "" || txtNombreUsuario.Text == "")
@@ -107,12 +107,12 @@ namespace Vistas
             {
                 if (txtClave.Text != txtValidarClave.Text)
                 {
-                   // lblMensaje.Text = "Las Contraseñas no coinsiden, por favor vuelva a intentar";
+                   lblMensaje.Text = "Las Contraseñas no coinsiden, por favor vuelva a intentar";
                 }
             }
             if (Usuario == true)
             {
-                //lblMensaje.Text = "Este usuario ya exite, por favor intente con otro";
+                lblMensaje.Text = "Este usuario ya exite, por favor intente con otro";
             }
         }
 
