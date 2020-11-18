@@ -229,6 +229,7 @@ namespace Vistas
                 ProductoCarrito.Columns.Add("CANTIDAD", typeof(int));
                 ProductoCarrito.Columns.Add("PRECIO", typeof(decimal));
                 ProductoCarrito.Columns.Add("IMAGEN", typeof(String));
+                ProductoCarrito.Columns.Add("NOMBRE", typeof(String));
 
             }
 
@@ -261,7 +262,7 @@ namespace Vistas
             // SI NO ESTABA CARGADO ESE PRODUCTO LO CARGO
             if (yaEstabaCargado == false)
             {
-                ProductoCarrito.Rows.Add(int.Parse(cadena), CantidadSeleccionadaActual, float.Parse(infoPro.Rows[0][5].ToString()), infoPro.Rows[0][2].ToString());
+                ProductoCarrito.Rows.Add(int.Parse(cadena), CantidadSeleccionadaActual, float.Parse(infoPro.Rows[0][5].ToString()), infoPro.Rows[0][2].ToString(), infoPro.Rows[0][1].ToString());
             }
 
             // HAYA PASADO LO QUE SEA LO GUARDO

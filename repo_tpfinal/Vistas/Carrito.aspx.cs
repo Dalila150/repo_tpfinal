@@ -101,6 +101,33 @@ namespace Vistas
             //// EMPIEZA LA LOGICA  DEL CARRITO EN SI
             if (Session["Carrito"] != null)
             {
+                String InnerHTML = "";
+                DataTable infoCarrito = (DataTable)Session["Carrito"];
+
+                char A = '"';
+                int CantProdsC = 0;
+                float TotalCarroC = 0;
+                InnerHTML += "<table><tbody><tr style=" + A + "width:90%" + A + " ><td style=" + A + "width:15%" + A + "></td><td style=" + A + "width:25%" + A + ">PRODUCTO</td><td style=" + A + "width:10%" + A + ">CANTIDAD</td><td style=" + A + "width:10%" + A + ">PRECIO UNITARIO</td><td>PRECIO</td><td style=" + A + "width:10%" + A + ">Eliminar</td></tr>";
+
+
+                foreach (DataRow row in infoCarrito.Rows)
+                {
+
+                        InnerHTML += "<tr><td><img src=" + A + row["IMAGEN"].ToString() + A + " style=" + A + "width:100%;margin-top:13px;border-radius:10px" + A + "></td>";
+                        InnerHTML += "<td>" + row["NOMBRE"].ToString() + "</td>";
+                        CantProdsC += int.Parse(row[1].ToString());
+                        InnerHTML += "<td>" + CantProdsC.ToString() + "</td>";
+                        TotalCarroC += CantProdsC * float.Parse(row[2].ToString());
+                        InnerHTML += "<td>" + row["PRECIO"].ToString() + "</td>";
+                        InnerHTML += "<td>" + TotalCarroC + "</td>";
+                        InnerHTML += "<td><button><i class=" + A + "far fa-trash-alt" + A + "></i></button></td></tr>";
+                        
+                }
+
+                InnerHTML += "</tbody></table>";
+                productosCarrito.InnerHtml = InnerHTML;
+
+                InnerHTML = "";
 
                 if (IsPostBack==false)
                 {
@@ -194,26 +221,17 @@ namespace Vistas
             // COMPRUEBO SI HAY USUARIO LOGUEADO, SINO LO PATEO A INICIAR SESION
             if (Request.Cookies["NombreUsuario"] != null)
             {
-
-
                 NegocioVenta neg_vent = new NegocioVenta();
                 Ventas datos_venta = new Ventas();
                 Usuarios usu = new Usuarios();
-
                 Negocio_DetalleVenta det_v = new Negocio_DetalleVenta();
                 Detalle_venta det_v_entidades = new Detalle_venta();
-
-
                 float total = 0;
                 int CantProds = 0;
-
-
 
                 if (Session["Carrito"] != null)
                 {
                     DataTable info_carrito = (DataTable)Session["Carrito"];
-
-
 
                     foreach (DataRow row in info_carrito.Rows)
                     {
@@ -225,10 +243,8 @@ namespace Vistas
 
                 }
 
-
                 DateTime fecha = DateTime.Today;
                 fecha.ToShortDateString().ToString();
-
 
                 if (Request.Cookies["NombreUsuario"] != null)
                 {
@@ -257,25 +273,25 @@ namespace Vistas
                     if (Session["Carrito"] != null)
                     {
                         DataTable info_carrito = (DataTable)Session["Carrito"];
-                        id_producto = Convert.ToInt32(info_carrito.Rows[0]["ID_PRODUCTO"]);
-                        precio_u = Convert.ToInt32(info_carrito.Rows[0]["PRECIO"]);
+                        int nroProducto = 0;
+                        DataTable id_ultima_venta = neg_vent.traerid_venta();
 
-                        // ESTA CONSULTA TE TRAE EL ULTIMO ID DE VENTA
-                        // select TOP 1 * from venta order by ID_venta desc
+                        foreach (DataRow row in info_carrito.Rows) {
+                            
+                            id_producto = Convert.ToInt32(row["ID_PRODUCTO"]);
+                            precio_u = Convert.ToInt32(row["PRECIO"]);
 
-//int id_ultima_venta = neg_vent.traerid_venta();
-
-
-
-                        det_v_entidades.set_idventa(9);
-                     det_v_entidades.set_idDetalleventa(0);
-                        det_v_entidades.set_idproducto(id_producto);
-                        det_v_entidades.set_cantidad(CantProds);
-                        det_v_entidades.set_precio_u(precio_u);
+                            det_v_entidades.set_idventa(int.Parse(id_ultima_venta.Rows[0][0].ToString()));
+                            det_v_entidades.set_idDetalleventa(nroProducto);
+                            det_v_entidades.set_idproducto(id_producto);
+                            det_v_entidades.set_cantidad(CantProds);
+                            det_v_entidades.set_precio_u(precio_u);
+                            bool registro_detalle = det_v.Registro_detalle_venta(det_v_entidades);
+                        }
 
                     }
 
-                    bool registro_detalle = det_v.Registro_detalle_venta(det_v_entidades);
+                    
 
                     //OCULTO Y DESHABILITO LOS BOTONES
                     btnVaciar.Enabled = false;
@@ -291,10 +307,6 @@ namespace Vistas
                     grdCarrito.DataBind();
 
                     lblMensajeCompra.Text = "Gracias por su compra";
-
-                    
-
-
                 }
 
                 else

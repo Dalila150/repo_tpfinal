@@ -26,11 +26,11 @@ namespace Dao
 
 
 
-       public int id_ultimaventa()
+       public DataTable id_ultimaventa()
         {
             string consulta = "SELECT TOP 1 ID_VENTA from venta order by ID_venta desc";
 
-            return acceder.ejecutar_transaccion(consulta);
+            return acceder.ObtenerTabla("venta",consulta);
         }
 
         private void ParametrosRegistroVentas(ref SqlCommand comando, Ventas ven)

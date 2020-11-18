@@ -32,7 +32,7 @@ namespace Negocio
         }
 
 
-       public int traerid_venta()
+       public DataTable traerid_venta()
         {
             DaoVentas dv = new DaoVentas();
 
