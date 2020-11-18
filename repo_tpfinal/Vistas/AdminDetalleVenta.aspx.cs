@@ -61,9 +61,9 @@ namespace Vistas
 
         public void cargarGridView(int idV)
         {
-            NegocioVenta gVenta = new NegocioVenta();
+            Negocio_DetalleVenta negDV = new Negocio_DetalleVenta();
 
-            grdRegistros.DataSource = gVenta.TodosDetallesVentas(idV);
+            grdRegistros.DataSource = negDV.TodosDetallesVentas(idV);
             grdRegistros.DataBind();
         }
 

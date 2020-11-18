@@ -31,5 +31,12 @@ namespace Negocio
 
             
         }
+        public DataTable TodosDetallesVentas(int idDetV)
+        {
+            DaoDetalle_venta dp = new DaoDetalle_venta();
+            return dp.ObtenerTodosDetallesVentas(idDetV);
+        }
+
+
     }
 }

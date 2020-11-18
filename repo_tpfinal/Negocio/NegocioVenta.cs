@@ -51,12 +51,6 @@ namespace Negocio
             return dp.ObtenerTodasLasVentas();
         }
 
-        public DataTable TodosDetallesVentas(int idDetV)
-        {
-            DaoVentas dp = new DaoVentas();
-            return dp.ObtenerTodosDetallesVentas(idDetV);
-        }
-
         public DataTable TodasLasVentasUsuario(string Nombre)
         {
             DaoVentas dp = new DaoVentas();
