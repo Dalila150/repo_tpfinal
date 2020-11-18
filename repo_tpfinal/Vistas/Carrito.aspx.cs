@@ -145,7 +145,7 @@ namespace Vistas
                 tablaConTDEspaciados.Columns.Add("PRECIO", typeof(float));
                 tablaConTDEspaciados.Columns.Add("IMAGEN", typeof(String));
                 tablaConTDEspaciados.Columns.Add("NOMBRE", typeof(String));
-
+                //agrego espacio entre los productos del carro
                 if (CarroSession.Rows.Count != 0 )
                 {
                     for(int i = 1; i <= CarroSession.Rows.Count; i++) { 
@@ -194,43 +194,43 @@ namespace Vistas
 
         }
 
-        protected void btnEliminarProducto_Click(object sender, CommandEventArgs e)
-        {
-            String idProd = e.CommandArgument.ToString();
-            DataTable info_carrito = (DataTable)Session["Carrito"];
-            foreach (DataRow row in info_carrito.Rows)
-            {
+        //protected void btnEliminarProducto_Click(object sender, CommandEventArgs e)
+        //{   //borro producto por producto
+        //    String idProd = e.CommandArgument.ToString();
+        //    DataTable info_carrito = (DataTable)Session["Carrito"];
+        //    foreach (DataRow row in info_carrito.Rows)
+        //    {
 
-                if(row["ID_PRODUCTO"].ToString() == idProd)
-                {
-                    row.Delete();
-                }
+        //        if(row["ID_PRODUCTO"].ToString() == idProd)
+        //        {
+        //            row.Delete();
+        //        }
 
-            }
+        //    }
 
-            Response.Redirect("/Carrito.aspx");
-        }
+        //    Response.Redirect("/Carrito.aspx");
+        //}
 
 
-        protected void btnVaciar_Click(object sender, EventArgs e)
-        {        
-            // SI LLEGUE A ESTE BOTON ES QUE ANTES EL CARRITO TENIA ALGO, ENTONCES MOSTRABA TODO.
-            Session["Carrito"] = null;
-            grdCarrito.DataSource = null;
+        //protected void btnVaciar_Click(object sender, EventArgs e)
+        //{        
+        //    // SI LLEGUE A ESTE BOTON ES QUE ANTES EL CARRITO TENIA ALGO, ENTONCES MOSTRABA TODO.
+        //    Session["Carrito"] = null;
+        //    grdCarrito.DataSource = null;
 
-            // OCULTO BOTONES Y DESHABILITO
-            btnVaciarCarrito.Style.Add("display", "none");
-            btnFinalizarCompra.Enabled = false;
-            btnFinalizarCompra.Visible = false;
-            // PONGO CARRITO VACIO
-            lblMensajeCompra.Text = "Carrito Vacio";
-            //LIMPIO EL ICONO DEL CARRITO DE LA DERECHA
-            datosCarrito.InnerHtml = "";
-            //OCULTO LAS OPCIONES DE PAGO
-            OpcionesDePago.Attributes.Add("style", "display:none");
+        //    // OCULTO BOTONES Y DESHABILITO
+        //    btnVaciarCarrito.Style.Add("display", "none");
+        //    btnFinalizarCompra.Enabled = false;
+        //    btnFinalizarCompra.Visible = false;
+        //    // PONGO CARRITO VACIO
+        //    lblMensajeCompra.Text = "Carrito Vacio";
+        //    //LIMPIO EL ICONO DEL CARRITO DE LA DERECHA
+        //    datosCarrito.InnerHtml = "";
+        //    //OCULTO LAS OPCIONES DE PAGO
+        //    OpcionesDePago.Attributes.Add("style", "display:none");
 
-            grdCarrito.DataBind();
-        }
+        //    grdCarrito.DataBind();
+        //}
 
         protected void btnFinalizarCompra_Click(object sender, EventArgs e)
         {
@@ -355,6 +355,7 @@ namespace Vistas
 
         protected void grdCarrito_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            //borro producto por producto
             String idProd = ((Label)grdCarrito.Rows[e.RowIndex].FindControl("lblID")).Text;
             DataTable info_carrito = (DataTable)Session["Carrito"];
             int rowquequieroborrar = -1;
@@ -371,13 +372,16 @@ namespace Vistas
             }
 
             if (rowquequieroborrarID != -1) {
+
                 info_carrito.Rows[rowquequieroborrarID].Delete();
+
                 if(info_carrito.Rows.Count != 0) { 
                     Session["Carrito"] = info_carrito;
                 } else
                 {
                     Session["Carrito"] = null;
                 }
+
             }
 
             Response.Redirect("/Carrito.aspx");
