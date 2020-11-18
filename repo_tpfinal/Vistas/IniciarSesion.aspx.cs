@@ -16,10 +16,6 @@ namespace Vistas
         protected void Page_Load(object sender, EventArgs e)
         {
             //-----------------------------------------------
-
-
-
-
             Usuarios Usu = new Usuarios();
             if (Request.Cookies["NombreUsuario"] != null)
             {
@@ -97,13 +93,32 @@ namespace Vistas
                     this.Response.Cookies.Add(Tipo);
                     Clave = true;
                     //System.Diagnostics.Debug.WriteLine("TIPO USUARIO = " + EsAdmin.getRolUsuario().ToString());
-                    if (EsAdmin.getRolUsuario() == 1)
-                    {
-                        Response.Redirect("HomeAdmin.aspx");
+                    if(Request["Redirect"] == null) {
+                        if (EsAdmin.getRolUsuario() == 1)
+                        {
+                            Response.Redirect("HomeAdmin.aspx");
+                        }
+                        else
+                        {
+                            Response.Redirect("Home.aspx");
+                        }
                     }
                     else
                     {
-                        Response.Redirect("Home.aspx");
+                        if(Request["Redirect"].ToString() == "Carrito")
+                        {
+                            Response.Redirect("Carrito.aspx");
+                        } else
+                        {
+                            if (EsAdmin.getRolUsuario() == 1)
+                            {
+                                Response.Redirect("HomeAdmin.aspx");
+                            }
+                            else
+                            {
+                                Response.Redirect("Home.aspx");
+                            }
+                        }
                     }
                 }
                 if(Clave == false)

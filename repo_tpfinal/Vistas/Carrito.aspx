@@ -61,7 +61,7 @@
                                   </asp:TemplateField>
                                   <asp:TemplateField>
                                       <ItemTemplate>
-                                          <asp:Image ID="ImageProd" ImageUrl='<%# Bind("IMAGEN") %>' style="border-radius:10px;width:80%" runat="server" />
+                                          <asp:Image ID="ImageProd" ImageUrl='<%# Bind("IMAGEN") %>' style="border-radius:10px;width:80%;max-height:150px" runat="server" />
                                       </ItemTemplate>
                                       <HeaderStyle Width="15%" />
                                       <ItemStyle Width="25%" />
@@ -80,12 +80,26 @@
                                       <HeaderStyle Width="10%" />
                                       <ItemStyle Width="10%" />
                                   </asp:TemplateField>
+                                  <asp:TemplateField>
+                                      <ItemTemplate>
+                                          <asp:Label  ID="lblPrecioUPESOS" runat="server" Text="$" style="width:0.1%"></asp:Label>
+                                      </ItemTemplate>
+                                      <HeaderStyle/>
+                                      <ItemStyle/>
+                                  </asp:TemplateField>
                                   <asp:TemplateField HeaderText="Precio Unitario">
                                       <ItemTemplate>
                                           <asp:Label ID="lblPrecioU" runat="server" style="width:15%;" Text='<%# Bind("PRECIO") %>'>></asp:Label>
                                       </ItemTemplate>
                                       <HeaderStyle Width="10%" />
                                       <ItemStyle Width="10%" />
+                                  </asp:TemplateField>
+                                  <asp:TemplateField>
+                                      <ItemTemplate>
+                                          <asp:Label  ID="lblPrecioPESOS" runat="server" Text="$" style="width:0.1%"></asp:Label>
+                                      </ItemTemplate>
+                                      <HeaderStyle/>
+                                      <ItemStyle/>
                                   </asp:TemplateField>
                                   <asp:TemplateField HeaderText="Precio">
                                       <ItemTemplate>
@@ -105,12 +119,23 @@
                               <AlternatingRowStyle Height="50px" CssClass="rowAlterna"/>
                           </asp:GridView>
                           <div style="margin-bottom:20px">
+                              <table id="tablaTotal" runat="server"  style="width:90%;">
+                              <tr style="width:100%;margin-bottom:50px">
+                                                  <td style="width:25%">
+                                                  </td>
+                                                  <td style="width:25%">
+                                                  </td>
+                                                  <td style="width:25%;font-size:18px"><strong>TOTAL :</strong></td>
+                                                  <td id="TOTAL" runat="server" style="width:25%;font-size:18px">
+                                                  </td>
+                                              </tr>
+                                  </table>
                           </div>
                           <div runat="Server" id="OpcionesDePago">
                               <table  style="width:100%;text-align:left;padding-left:5%;padding-right:5%">
                                   <tr style="margin-top: 2%; margin-bottom: 5%">
                                       <td>
-                                          <table  style="width:100%">
+                                          <table style="width:100%">
                                               <tr style="width:100%">
                                                   <td style="width:25%"><strong>Modo de envio</strong></td>
                                                   <td style="width:25%">
@@ -179,7 +204,7 @@
       </form>
   </body>
     <script type="text/javascript">
-    function btnVaciar_click() {
+    function btnVaciar_Click() {
         if (confirm('¿Desea limpiar el carrito?')) {
             window.location.href = '/Carrito.aspx?Vaciar=true';
         }

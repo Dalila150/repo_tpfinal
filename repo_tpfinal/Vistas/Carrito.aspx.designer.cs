@@ -96,6 +96,24 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.GridView grdCarrito;
 
         /// <summary>
+        /// tablaTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTable tablaTotal;
+
+        /// <summary>
+        /// TOTAL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell TOTAL;
+
+        /// <summary>
         /// OpcionesDePago control.
         /// </summary>
         /// <remarks>

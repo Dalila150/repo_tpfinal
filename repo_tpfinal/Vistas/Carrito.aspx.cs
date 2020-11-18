@@ -102,6 +102,8 @@ namespace Vistas
                     TotalCarro += CantProds * float.Parse(row[2].ToString());
                 }
 
+                TOTAL.InnerHtml = "$" + TotalCarro.ToString();
+                TOTAL.Style.Add("display", "block");
                 InnerHTML += TotalCarro + "(" + CantProds + ")";
                 datosCarrito.InnerHtml = InnerHTML;
             }
@@ -151,7 +153,6 @@ namespace Vistas
                             tablaConTDEspaciados.Rows.Add();
                     }
                 }
-
                 grdCarrito.DataSource = tablaConTDEspaciados;
                 grdCarrito.DataBind();
             } else
@@ -160,6 +161,7 @@ namespace Vistas
                 btnVaciarCarrito.Style.Add("display","none");
                 btnFinalizarCompra.Enabled = false;
                 btnFinalizarCompra.Visible = false;
+                tablaTotal.Style.Add("display", "none");
                 // OCULTO LA SECCION DE PAGO
                 OpcionesDePago.Attributes.Add("style", "display:none");
                 // MUESTRO CARTEL DE CARRITO
@@ -341,7 +343,7 @@ namespace Vistas
 
             } else
             {
-                Response.Redirect("IniciarSesion.aspx");
+                Response.Redirect("IniciarSesion.aspx?Redirect=Carrito");
             }
 
 
@@ -396,6 +398,8 @@ namespace Vistas
                 if(e.Row.RowIndex != 0 && e.Row.RowIndex%2 !=0) {
                     ((LinkButton)(e.Row.Cells[6].FindControl("LinkButton1"))).Visible = false;
                     ((LinkButton)(e.Row.Cells[6].FindControl("LinkButton1"))).Enabled = false;
+                    ((Label)(e.Row.Cells[6].FindControl("lblPrecioUPESOS"))).Visible = false;
+                    ((Label)(e.Row.Cells[6].FindControl("lblPrecioPESOS"))).Visible = false;
                 } else
                 {
                     float Precio = float.Parse(((Label)(e.Row.Cells[5].FindControl("lblPrecioU"))).Text);
