@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="css/template.css" />
 
         <title>Datos</title>
-        <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
+        <script src="/js/fontAwesome.js"></script>
     </head>
 
     <body>

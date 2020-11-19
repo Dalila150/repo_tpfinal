@@ -9,7 +9,7 @@
     <link rel="StyleSheet" href="/css/template_admin.css" type="text/css" />
 
     <title>Nuevo Producto - Admin</title>
-    <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
+    <script src="/js/fontAwesome.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>

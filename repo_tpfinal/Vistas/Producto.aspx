@@ -10,7 +10,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet" />    
     <title>Home</title>
-    <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
+    <script src="/js/fontAwesome.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
 <body>

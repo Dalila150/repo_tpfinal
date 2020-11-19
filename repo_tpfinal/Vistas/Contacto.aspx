@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/template.css" />
 
     <title>Contacto</title>
-    <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
+    <script src="/js/fontAwesome.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">

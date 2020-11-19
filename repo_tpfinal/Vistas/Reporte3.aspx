@@ -8,7 +8,7 @@
     <link rel="StyleSheet" href="/css/template_admin.css" type="text/css" />
 
     <title>Reporte 3 - Admin</title>
-    <script src="https://kit.fontawesome.com/475f4f5709.js"></script>
+    <script src="/js/fontAwesome.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
       <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <link rel="stylesheet" href="//jqueryui.com/jquery-wp-content/themes/jqueryui.com/style.css"/>
@@ -105,10 +105,10 @@
                                   <li>Fecha
                                   <ul>
                                       <li>
-                                          <input class="txtASP" type="text" id="datepickerInicial" placeholder="Fecha de inicio" style="width:90px" />
+                                          <input class="txtASP" type="text" id="datepickerInicial" placeholder="Fecha de inicio" style="width:90px" readonly="true" />
                                       </li>
                                       <li>
-                                          <input class="txtASP" type="text" id="datepickerFinal" placeholder="Fecha de fin" style="width:90px; margin-top: 5px;" />
+                                          <input class="txtASP" type="text" id="datepickerFinal" placeholder="Fecha de fin" style="width:90px; margin-top: 5px;" readonly="true" />
                                       </li>
                                   </ul>
                                   </li>
@@ -128,7 +128,7 @@
                                       </ul>
                                   </li>
                               </ul>
-                                <input type="submit" name="btnAplicar" value="Aplicar" id="btnAplicar" class="btnASP" style="margin-top: 5px; height: 30px; width: 92%;" />
+                                <input type="submit" name="btnAplicar" value="Aplicar" id="btnAplicar" class="btnASP" onclick="aplicarFiltros()" style="margin-top: 5px; height: 30px; width: 92%;" />
                             </li>
                         </ul>
                 </div>
@@ -203,13 +203,25 @@
 </body>
 
     <script>
-        var dateTypeVar = $("#datepickerFinal").datepicker('getDate');
-        var dia_final = $.datepicker.formatDate('dd', dateTypeVar);
-        var mes_final = $.datepicker.formatDate('mm', dateTypeVar);
-        var anio_final = $.datepicker.formatDate('yy', dateTypeVar);
-        var dateTypeVar = $("#datepickerInicial").datepicker('getDate');
-        var dia_incial = $.datepicker.formatDate('dd', dateTypeVar);
-        var mes_incial = $.datepicker.formatDate('mm', dateTypeVar);
-        var anio_incial = $.datepicker.formatDate('yy', dateTypeVar);
+        function aplicarFiltros() {
+
+            var dateTypeVar = $("#datepickerFinal").datepicker('getDate');
+            var HayInicio = 0;
+            var HayFinal = 0;
+            if (dateTypeVar != null) {
+                HayFinal = 1;
+                var dia_final = $.datepicker.formatDate('dd', dateTypeVar);
+                var mes_final = $.datepicker.formatDate('mm', dateTypeVar);
+                var anio_final = $.datepicker.formatDate('yy', dateTypeVar);
+            }
+            var dateTypeVar = $("#datepickerInicial").datepicker('getDate');
+            if (dateTypeVar != null) {
+                HayInicio = 1;
+                var dia_incial = $.datepicker.formatDate('dd', dateTypeVar);
+                var mes_incial = $.datepicker.formatDate('mm', dateTypeVar);
+                var anio_incial = $.datepicker.formatDate('yy', dateTypeVar);
+            }
+
+        }
     </script>
 </html>

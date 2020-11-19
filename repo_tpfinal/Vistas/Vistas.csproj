@@ -109,6 +109,7 @@
     <Content Include="Imagenes\8.jpg" />
     <Content Include="Imagenes\9.jpg" />
     <Content Include="ImgAdmin\home1.jpg" />
+    <Content Include="js\fontAwesome.js" />
     <Content Include="Productos\1.jpg" />
     <Content Include="Productos\10.jpg" />
     <Content Include="Productos\11.jpg" />
