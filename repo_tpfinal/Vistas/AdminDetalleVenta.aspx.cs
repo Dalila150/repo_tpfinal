@@ -74,5 +74,23 @@ namespace Vistas
             grdRegistros.PageIndex = e.NewPageIndex;
             cargarGridView(Convert.ToInt32(idV));
         }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            if(Request["Redirect"] != null)
+            {
+                if(Request["Redirect"].ToString() == "Reporte3") {
+                    Response.Redirect("/Reporte3.aspx");
+                }
+                else
+                {
+                    Response.Redirect("/AdminHistorialVentas.aspx");
+                }
+            } else
+            {
+                Response.Redirect("/AdminHistorialVentas.aspx");
+            }
+
+        }
     }
 }

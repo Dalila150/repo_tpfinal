@@ -104,5 +104,11 @@ namespace Vistas
             grdVentas.DataSource = nv.ConsultaParaReporte3(Consulta, Order);
             grdVentas.DataBind();
         }
+
+        protected void grdVentas_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+            String ID = ((Label)grdVentas.Rows[e.NewSelectedIndex].FindControl("lblId")).Text;
+            Response.Redirect("AdminDetalleVenta.aspx?idVenta=" + ID + "&Redirect=Reporte3");
+        }
     }
 }

@@ -103,27 +103,22 @@
             <div style="width:100%;text-align:center;margin:0;display: table-footer-group;margin-left:25%;margin-right:25%">
             <div style="width:0%;display:inline-block;margin-right: 50px">
                     <ul style="font-size:18px;text-align:left;display:inline-block;width:50%">
-                       
-                       <li style="height: 35px;width: 25%;margin-bottom:14px">Nombre</li>
-                       <li style="height: 35px;width: 25%;margin-bottom:14px">Apellido</li>
-                       <li style="height: 35px;width: 25%;margin-bottom:14px">Email</li>
-                       <li style="height: 35px;width: 25%;margin-bottom:14px">Direccion</li>
-                       <li style="height: 35px;width: 25%;margin-bottom:14px">Nombre de Usuario</li>
-                       <li style="height: 35px;width: 25%;margin-bottom:14px">Telefono</li>
-                      
-                   </ul>
+                        <li style="height: 35px; width: 25%; margin-bottom: 14px">ID</li>
+
+                        <li style="height: 35px; width: 25%; margin-bottom: 14px">Nombre</li>
+                        <li style="height: 35px; width: 25%; margin-bottom: 14px">Apellido</li>
+                        <li style="height: 35px; width: 25%; margin-bottom: 14px">Email</li>
+                        <li style="height: 35px; width: 25%; margin-bottom: 14px">Direccion</li>
+                        <li style="height: 35px; width: 25%; margin-bottom: 14px">Usuario</li>
+                        <li style="height: 35px; width: 25%; margin-bottom: 14px">Telefono</li>
+
+
+                    </ul>
                </div>
             <div style="width:86%;display:inline-block;">
                 <ul style="font-size:18px;text-align:left;display:inline-block;margin-right:1%">
-                       <li style="margin-bottom:15px" class="auto-style1">
-                           <table class="auto-style2">
-                               <tr>
-                                   <td>INGRESE ID DE USUARIO</td>
-                                   <td>
-                                       <asp:TextBox ID="txtIdUsuario" runat="server" OnTextChanged="TextBox1_TextChanged1"  required="true" ></asp:TextBox>
-                                   </td>
-                               </tr>
-                           </table>
+                       <li style="height: 35px;width: 40%;margin-bottom:15px">
+                           <asp:TextBox class="txtASP" ID="txtIdUsuario" TextMode ="Number" runat="server" ></asp:TextBox>
                        </li>
                        <li style="height: 35px;width: 40%;margin-bottom:15px">
                            <asp:TextBox class="txtASP" ID="txtNombre" runat="server" ></asp:TextBox>
@@ -143,6 +138,7 @@
                        <li style="height: 35px;width: 40%;margin-bottom:15px">
                            <asp:TextBox class="txtASP" ID="txtTelefono" TextMode ="Number" runat="server" ></asp:TextBox>
                        </li>
+                     
                    </ul>
                </div>
            </div>

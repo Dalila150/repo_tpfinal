@@ -135,7 +135,7 @@
                 <div style="background-color: rgba(197, 93, 102, 0.404); border-radius: 8px; margin-bottom: 5%; width:80%; padding-bottom: 10px; margin-top: 25px;margin-left:295px">
                         <h1 style="padding-top: 20px; text-align: center;margin:0px;font-size:40px">Reporte 3</h1>
                     <hr  style="margin-bottom:15px;width:90%" />
-                    <asp:GridView ID="grdVentas" CssClass="GridViewStyled" runat="server" CellPadding="4" AutoGenerateColumns="False" AllowPaging="True" ForeColor="#333333" GridLines="None" style="width:80%;margin-left:10%" OnPageIndexChanging="grdVentas_PageIndexChanging" >
+                    <asp:GridView ID="grdVentas" CssClass="GridViewStyledReporte3" runat="server" CellPadding="4" AutoGenerateColumns="False" AllowPaging="True" ForeColor="#333333" GridLines="None" style="width:80%;margin-left:10%" OnPageIndexChanging="grdVentas_PageIndexChanging" OnSelectedIndexChanging="grdVentas_SelectedIndexChanging" >
                         <AlternatingRowStyle BackColor="#BCC8C3" ForeColor="" />
                         <Columns>
                             <asp:TemplateField HeaderText="Id" Visible="False">
@@ -158,6 +158,11 @@
                                     <asp:Label ID="lblCantidad" runat="server" Text='<%# Bind("CANTIDAD") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>            
+                            <asp:TemplateField ShowHeader="False" >
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Select" Text=""><i class="fas fa-info-circle" style="color:darkslategray"></i></asp:LinkButton>
+                                </ItemTemplate>
+                            </asp:TemplateField>
                         </Columns>
                         <EditRowStyle BackColor="#999999" />
                         <FooterStyle BackColor="#90648B" ForeColor="White" Font-Bold="True" />

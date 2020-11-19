@@ -295,3 +295,19 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
+/*PARA EL GRIDVIEW DEL REPORTE 3*/
+.GridViewStyledReporte3 {
+    width: 90%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+    .GridViewStyledReporte3 td a {
+        font-size: 30px;
+        border-radius: 25px 25px 25px 25px;
+        font-weight: bold;
+        text-decoration: none;
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+        text-align: center
+    }
