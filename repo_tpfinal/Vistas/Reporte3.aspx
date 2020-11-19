@@ -105,10 +105,10 @@
                                   <li>Fecha
                                   <ul>
                                       <li>
-                                          <input class="txtASP" type="text" id="datepickerInicial" placeholder="Fecha de inicio" style="width:90px" readonly="true" />
+                                          <input runat="server" class="txtASP" type="text" id="datepickerInicial" placeholder="Fecha de inicio" style="width:90px" readonly="true" /><button class="btnASP" type="button" id="btnRemoverFechaI" style="width:90px; margin-top: 5px;display:contents" onclick="LimpiarFechaI()"><i style="text-decoration: none;color: brown;font-size: 15px" class="far fa-trash-alt"></i></button>
                                       </li>
                                       <li>
-                                          <input class="txtASP" type="text" id="datepickerFinal" placeholder="Fecha de fin" style="width:90px; margin-top: 5px;" readonly="true" />
+                                          <input runat="server" class="txtASP" type="text" id="datepickerFinal" placeholder="Fecha de fin" style="width:90px; margin-top: 5px;" readonly="true" /><button class="btnASP" type="button" id="btnRemoverFechaF" style="width:90px; margin-top: 5px;display:contents" onclick="LimpiarFechaF()"><i style="text-decoration: none;color: brown;font-size: 15px" class="far fa-trash-alt"></i></button>
                                       </li>
                                   </ul>
                                   </li>
@@ -116,24 +116,26 @@
                                       <ul>
                                           <li>
                                               <div>
-                                                <input type="radio" id="NoFilter" name="filtro" value="NoFilter" checked/><label for="NoFilter">Sin Filtro</label>
+                                                <input runat="server" type="radio" id="NoFilter" name="filtro" value="NoFilter" checked/><label for="NoFilter">Sin Filtro</label>
                                               </div>
                                               <div>
-                                                  <input type="radio" id="Menor" name="filtro" value="Menor"/><label for="Menor">Menor</label>
+                                                  <input runat="server" type="radio" id="Menor" name="filtro" value="Menor"/><label for="Menor">Menor</label>
                                               </div>
                                               <div>  
-                                                  <input type="radio" id="Mayor" name="filtro" value="Mayor"/><label for="Mayor">Mayor</label>
+                                                  <input runat="server" type="radio" id="Mayor" name="filtro" value="Mayor"/><label for="Mayor">Mayor</label>
                                               </div>
                                         </li>
                                       </ul>
                                   </li>
                               </ul>
-                                <input type="submit" name="btnAplicar" value="Aplicar" id="btnAplicar" class="btnASP" onclick="aplicarFiltros()" style="margin-top: 5px; height: 30px; width: 92%;" />
+                                <input type="button" name="btnAplicar" value="Aplicar" id="btnAplicar" class="btnASP" onclick="aplicarFiltros()" style="margin-top: 5px; height: 30px; width: 92%;" />
                             </li>
                         </ul>
                 </div>
-                <div style="background-color: rgba(197, 93, 102, 0.404); border-radius: 8px; margin-bottom: 5%; height: 500px; width:80%; padding-bottom: 10px; margin-top: 25px;margin-left:295px">
-                        <asp:GridView ID="grdProductos" CssClass="GridViewStyled" runat="server" CellPadding="4" AutoGenerateColumns="False" AllowPaging="True" ForeColor="#333333" GridLines="None" >
+                <div style="background-color: rgba(197, 93, 102, 0.404); border-radius: 8px; margin-bottom: 5%; width:80%; padding-bottom: 10px; margin-top: 25px;margin-left:295px">
+                        <h1 style="padding-top: 20px; text-align: center;margin:0px;font-size:40px">Reporte 3</h1>
+                    <hr  style="margin-bottom:15px;width:90%" />
+                    <asp:GridView ID="grdVentas" CssClass="GridViewStyled" runat="server" CellPadding="4" AutoGenerateColumns="False" AllowPaging="True" ForeColor="#333333" GridLines="None" style="width:80%;margin-left:10%" >
                         <AlternatingRowStyle BackColor="#BCC8C3" ForeColor="" />
                         <Columns>
                             <asp:TemplateField HeaderText="Id" Visible="False">
@@ -141,31 +143,22 @@
                                     <asp:Label class="info-user" ID="lblId" runat="server" Text='<%# Bind("ID") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Modelo">
+                            <asp:TemplateField HeaderText="Fecha">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblProd" runat="server" Text='<%# Bind("Producto") %>'></asp:Label>
+                                    <asp:Label ID="lblFecha" runat="server" Text='<%# Bind("FECHA") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Marca">
+                            <asp:TemplateField HeaderText="Total">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblMarca" runat="server" Text='<%# Bind("Marca") %>'></asp:Label>
+                                    <asp:Label ID="lblTotal" runat="server" Text='<%# Bind("TOTAL") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Precio">
+                            <asp:TemplateField HeaderText="Cantidad de productos">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblPrecio" runat="server" Text='<%# Bind("Precio") %>'></asp:Label>
+                                    <asp:Label ID="lblCantidad" runat="server" Text='<%# Bind("CANTIDAD") %>'></asp:Label>
                                 </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Stock">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblStock" runat="server" Text='<%# Bind("Disponibles") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Estado">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblEstado" runat="server" Text='<%# Bind("estado") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>                </Columns>
+                            </asp:TemplateField>            
+                        </Columns>
                         <EditRowStyle BackColor="#999999" />
                         <FooterStyle BackColor="#90648B" ForeColor="White" Font-Bold="True" />
                         <HeaderStyle BackColor="#AE4750" Font-Bold="True" ForeColor="White" CssClass="headerTable" Height="50px"/>
@@ -203,17 +196,28 @@
 </body>
 
     <script>
+        $("#datepickerInicial").change(function () {
+            selectedDate = $('#datepickerInicial').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+            alert(selectedDate);
+        });
+    </script>
+
+    <script>
         function aplicarFiltros() {
 
-            var dateTypeVar = $("#datepickerFinal").datepicker('getDate');
             var HayInicio = 0;
             var HayFinal = 0;
+            var Filtro = "NoFilter";
+            var paso1 = 0;
+
+            var dateTypeVar = $("#datepickerFinal").datepicker('getDate');
             if (dateTypeVar != null) {
                 HayFinal = 1;
                 var dia_final = $.datepicker.formatDate('dd', dateTypeVar);
                 var mes_final = $.datepicker.formatDate('mm', dateTypeVar);
                 var anio_final = $.datepicker.formatDate('yy', dateTypeVar);
             }
+
             var dateTypeVar = $("#datepickerInicial").datepicker('getDate');
             if (dateTypeVar != null) {
                 HayInicio = 1;
@@ -222,6 +226,81 @@
                 var anio_incial = $.datepicker.formatDate('yy', dateTypeVar);
             }
 
+            var FiltroPrecio = document.querySelector('input[name="filtro"]:checked').value;
+
+            if (FiltroPrecio != "NoFilter") {
+
+                if (FiltroPrecio == "Mayor") {
+
+                    Filtro = "Mayor"
+
+                } else if (FiltroPrecio == "Menor") {
+
+                    Filtro = "Menor"
+
+                }
+
+            }
+
+
+            if (HayInicio == 0 && HayFinal == 0 && Filtro == "NoFilter") {
+
+                window.location.href = '/Reporte3.aspx';
+
+            } else {
+
+                if (HayInicio == 1) {
+                    var URL = "/Reporte3.aspx?Indd=" + dia_incial + "&Inmm=" + mes_incial + "&Inyy=" + anio_incial;
+                    paso1 = 1;
+                }
+
+                if (HayFinal == 1) {
+
+                    if (paso1 == 0) {
+                        var URL = "/Reporte3.aspx?Findd=" + dia_final + "&Finmm=" + mes_final + "&Finyy=" + anio_final;
+                        paso1 = 1;
+                    } else {
+                        var URL = URL + "&Findd=" + dia_final + "&Finmm=" + mes_final + "&Finyy=" + anio_final
+                        paso1 = 1;
+                    }
+                }
+
+                if (Filtro != "NoFilter") {
+
+                    if (paso1 == 0) {
+
+                        if (Filtro == "Mayor") {
+                            var URL = "/Reporte3.aspx?Precio=Mayor";
+                            paso1 = 1;
+                        } else if (Filtro == "Menor") {
+                            var URL = "/Reporte3.aspx?Precio=Menor";
+                            paso1 = 1;
+                        }
+
+                    } else {
+
+                        if (Filtro == "Mayor") {
+                            var URL = URL + "&Precio=Mayor";
+                        } else if (Filtro == "Menor") {
+                            var URL = URL + "&Precio=Menor";
+                        }
+                    }
+                }
+
+                window.location.href = URL;
+
+            }
+        }
+    </script>
+
+    <script>
+        function LimpiarFechaF() {
+            $("#datepickerFinal").datepicker("setDate");
+        }
+    </script>
+    <script>
+        function LimpiarFechaI() {
+            $("#datepickerInicial").datepicker("setDate");
         }
     </script>
 </html>

@@ -58,6 +58,11 @@ namespace Dao
 
         }
 
+        public DataTable Reporte3(String Consulta)
+        {
+            return acceder.ObtenerTabla("venta", "SELECT venta.ID_venta as ID, venta.Total AS TOTAL, venta.Fecha AS FECHA, SUM (detalle_venta.Cantidad) AS CANTIDAD FROM venta INNER JOIN detalle_venta ON venta.ID_venta = detalle_venta.ID_venta WHERE venta.ID_venta = detalle_venta.ID_venta Group by venta.ID_venta, venta.Total, venta.Fecha");
+        }
+
 
         public DataTable ObtenerTodasLasVentas()
         {
