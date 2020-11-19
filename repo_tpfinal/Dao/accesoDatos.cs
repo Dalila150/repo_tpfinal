@@ -39,12 +39,12 @@ namespace Dao
             }
         }
 
-        public SqlDataAdapter ObtenerAdaptador(String consultaSql)
+        public SqlDataAdapter ObtenerAdaptador(String consultaSql, SqlConnection con)
         {
             SqlDataAdapter adaptador;
             try
             {
-                adaptador = new SqlDataAdapter(consultaSql, ObtenerConexion());
+                adaptador = new SqlDataAdapter(consultaSql, con);
                 return adaptador;
             }
             catch (Exception ex)
@@ -59,7 +59,7 @@ namespace Dao
             int milliseconds = 100;
             
                 SqlConnection Conexion = ObtenerConexion();
-                SqlDataAdapter adp = ObtenerAdaptador(Sql);
+                SqlDataAdapter adp = ObtenerAdaptador(Sql,Conexion);
                 Thread.Sleep(milliseconds);
                 adp.Fill(ds, NombreTabla);
                 Conexion.Close();
@@ -108,8 +108,10 @@ namespace Dao
         public DataSet TraerDs(string NombreTabla, string consulta)
         {
             DataSet ds = new DataSet();
-            SqlDataAdapter adap = ObtenerAdaptador(consulta);
+            SqlConnection Conexion = ObtenerConexion();
+            SqlDataAdapter adap = ObtenerAdaptador(consulta, Conexion);
             adap.Fill(ds, NombreTabla);
+            Conexion.Close();
             return ds;
         }
 
@@ -120,6 +122,8 @@ namespace Dao
             SqlConnection Conexion = ObtenerConexion();
             SqlCommand cmd = new SqlCommand(consulta, Conexion);
             SqlDataReader datos = cmd.ExecuteReader();
+            //TONY
+            Conexion.Close();
             if (datos.Read())
             {
                 estado = true;
@@ -141,6 +145,8 @@ namespace Dao
             SqlConnection Conexion = ObtenerConexion();
             SqlCommand cmd = new SqlCommand(consulta, Conexion);
             SqlDataReader datos = cmd.ExecuteReader();
+            //TONY
+            Conexion.Close();
             if (datos.Read())
             {
                 max = Convert.ToInt32(datos[0].ToString());
