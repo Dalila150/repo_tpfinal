@@ -135,7 +135,7 @@
                 <div style="background-color: rgba(197, 93, 102, 0.404); border-radius: 8px; margin-bottom: 5%; width:80%; padding-bottom: 10px; margin-top: 25px;margin-left:295px">
                         <h1 style="padding-top: 20px; text-align: center;margin:0px;font-size:40px">Reporte 3</h1>
                     <hr  style="margin-bottom:15px;width:90%" />
-                    <asp:GridView ID="grdVentas" CssClass="GridViewStyled" runat="server" CellPadding="4" AutoGenerateColumns="False" AllowPaging="True" ForeColor="#333333" GridLines="None" style="width:80%;margin-left:10%" >
+                    <asp:GridView ID="grdVentas" CssClass="GridViewStyled" runat="server" CellPadding="4" AutoGenerateColumns="False" AllowPaging="True" ForeColor="#333333" GridLines="None" style="width:80%;margin-left:10%" OnPageIndexChanging="grdVentas_PageIndexChanging" >
                         <AlternatingRowStyle BackColor="#BCC8C3" ForeColor="" />
                         <Columns>
                             <asp:TemplateField HeaderText="Id" Visible="False">
@@ -169,7 +169,8 @@
                         <SortedAscendingHeaderStyle BackColor="#506C8C" />
                         <SortedDescendingCellStyle BackColor="#FFFDF8" />
                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                    </asp:GridView>    
+                    </asp:GridView> 
+                    <asp:Label runat="server" ID="NOHAYVENTAS"></asp:Label>
                 </div>
 
             </div>

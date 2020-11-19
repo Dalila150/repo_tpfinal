@@ -69,10 +69,10 @@ namespace Negocio
             return dp.ObtenerTodasLasVentasPorFecha(fecha1, fecha2);
         }
 
-        public DataTable ConsultaParaReporte3(string Consulta)
+        public DataTable ConsultaParaReporte3(string Consulta, String Order)
         {
             DaoVentas dp = new DaoVentas();
-            return dp.Reporte3(Consulta);
+            return dp.Reporte3(Consulta, Order);
         }
 
     }

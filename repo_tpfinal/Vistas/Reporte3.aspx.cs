@@ -12,11 +12,11 @@ namespace Vistas
 {
     public partial class Reporte3 : System.Web.UI.Page
     {
+        public String Consulta = "";
+        public String Order = "";
+        NegocioVenta nv = new NegocioVenta();
         protected void Page_Load(object sender, EventArgs e)
         {
-            NegocioVenta nv = new NegocioVenta();
-            String Consulta = " WHERE";
-
             // FALTA VALIDAR USUARIO E ICONOS
 
 
@@ -36,7 +36,7 @@ namespace Vistas
                     {
                         // LE SETEO EL VALOR AL DATEPICKER SI YA TENIA...
                         datepickerInicial.Value = Request["Indd"].ToString() + "/" + Request["Inmm"].ToString() + "/" + Request["Inyy"].ToString();
-                        Consulta += " Fecha >= " + Request["Inyy"].ToString() + "-" + Request["Inmm"].ToString() + "-" + Request["Indd"].ToString();
+                        Consulta += " AND Fecha >= '" + Request["Inyy"].ToString() + "-" + Request["Inmm"].ToString() + "-" + Request["Indd"].ToString() + "'";
                     }
 
                 }
@@ -53,7 +53,7 @@ namespace Vistas
                     {
                         // LE SETEO EL VALOR AL DATEPICKER SI YA TENIA...
                         datepickerFinal.Value = Request["Findd"].ToString() + "/" + Request["Finmm"].ToString() + "/" + Request["Finyy"].ToString();
-                        Consulta += " Fecha <= " + Request["Finyy"].ToString() + "-" + Request["Finmm"].ToString() + "-" + Request["Findd"].ToString();
+                        Consulta += " AND Fecha <= '" + Request["Finyy"].ToString() + "-" + Request["Finmm"].ToString() + "-" + Request["Findd"].ToString() + "'";
                     }
 
                 }
@@ -66,12 +66,12 @@ namespace Vistas
                 if (Request["Precio"].ToString() == "Mayor")
                 {
                     Mayor.Checked = true;
-                    Consulta += " order by Total desc";
+                    Order += " order by Total desc";
                 }
                 else if (Request["Precio"].ToString() == "Menor")
                 {
                     Menor.Checked = true;
-                    Consulta += " order by Total asc";
+                    Order += " order by Total asc";
                 }
                 else
                 {
@@ -83,11 +83,26 @@ namespace Vistas
                 NoFilter.Checked = true;
             }
 
-            grdVentas.DataSource = nv.ConsultaParaReporte3(Consulta);
+            grdVentas.DataSource = nv.ConsultaParaReporte3(Consulta,Order);
             grdVentas.DataBind();
+
+            if(grdVentas.Rows.Count == 0)
+            {
+                NOHAYVENTAS.Text = "No se encontraron ventas para los filtros solicitados";
+                NOHAYVENTAS.Visible = true;
+            } else
+            {
+                NOHAYVENTAS.Visible = false;
+            }
 
 
         }
-     
+
+        protected void grdVentas_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdVentas.PageIndex = e.NewPageIndex;
+            grdVentas.DataSource = nv.ConsultaParaReporte3(Consulta, Order);
+            grdVentas.DataBind();
+        }
     }
 }
