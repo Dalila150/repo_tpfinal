@@ -12,14 +12,6 @@ namespace Negocio
 {
     public class NegocioMarca
     {
-        /*public Marcas get(int id)
-        {
-            DaoMarcas dao = new DaoMarcas();
-            Marcas marc = new Marcas();
-            marc.setID_Marcas(id);
-            return dao.getMarcas(marc);
-        }*/
-
         public bool eliminarMarcas_neg(String nombre)
         {
             //Validar id existente 
@@ -51,7 +43,7 @@ namespace Negocio
             marc.setNombre(nombre);
 
             DaoMarcas dao = new DaoMarcas();
-            if (dao.existeMarcas(marc) == false)
+            if (dao.existeMarcas(marc,1) == false)
             {
                 cantFilas = dao.agregarMarcas(marc);
             }
@@ -61,6 +53,13 @@ namespace Negocio
             else
                 return false;
         }
+
+        public bool ExisteMarcas_Neg(Marcas marc)
+        {
+            DaoMarcas dao = new DaoMarcas();
+            return dao.existeMarcas(marc, 2);
+        }
+
         public DataTable cargar_gridview_neg()
         {
             DaoMarcas dao = new DaoMarcas();

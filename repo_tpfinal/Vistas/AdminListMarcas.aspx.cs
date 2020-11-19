@@ -90,7 +90,7 @@ namespace Vistas
         protected void grdMarcas_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             String s_IdMarca = ((Label)grdMarcas.Rows[e.RowIndex].FindControl("lbl_eit_IDMarca")).Text;
-            String s_Nombre = ((TextBox)grdMarcas.Rows[e.RowIndex].FindControl("txtbox_eit_Nombre")).Text;
+            String s_Nombre = ((TextBox)grdMarcas.Rows[e.RowIndex].FindControl("txtbox_eit_Nombre")).Text.Trim();
             bool s_Estado = ((CheckBox)grdMarcas.Rows[e.RowIndex].FindControl("cb_eit_Estado")).Checked;
 
             Marcas mar = new Marcas();
@@ -98,10 +98,24 @@ namespace Vistas
             mar.setNombre(s_Nombre);
             mar.setEstado(s_Estado);
 
-            neg.ActualizarMarca_neg(mar);
-            grdMarcas.EditIndex = -1;
-            grdMarcas.DataSource = neg.cargar_gridview_neg();
-            grdMarcas.DataBind();
+            if (mar.getNombre().Length != 0)
+            {
+                if (!neg.ExisteMarcas_Neg(mar))
+                {
+                    neg.ActualizarMarca_neg(mar);
+                    grdMarcas.EditIndex = -1;
+                    grdMarcas.DataSource = neg.cargar_gridview_neg();
+                    grdMarcas.DataBind();
+                }
+                else
+                {
+                    Response.Write("<script>alert('El nombre ingresado ya EXISTE');</script>");
+                }
+            }
+            else
+            {
+                Response.Write("<script>alert('Por favor rellene el campo nombre');</script>");
+            }
         }
 
         protected void grdMarcas_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -114,6 +128,12 @@ namespace Vistas
         protected void btnCrearMarcas_Click(object sender, EventArgs e)
         {
             Response.Redirect("AdminCrearMarca.aspx");
+        }
+
+        protected void btn_Limpiar_Click(object sender, EventArgs e)
+        {
+            grdMarcas.DataSource = neg.cargar_gridview_neg();
+            grdMarcas.DataBind();
         }
     }
 }

@@ -54,22 +54,27 @@ namespace Vistas
 
         protected void btn_Crear_Marca_Click(object sender, EventArgs e)
         {
-            if (txt_Nombre_Marca.Text.Length != 0)
+            string aux = txt_Nombre_Marca.Text.Trim();
+
+            if (aux.Length != 0)
             {
                 Boolean estado = false;
-                estado = neg.agregarMarcas_neg(txt_Nombre_Marca.Text);
+                estado = neg.agregarMarcas_neg(txt_Nombre_Marca.Text.Trim());
                 if (estado == true)
                 {
-                    lbl_Mensaje.Text = "Marcas agregada con exito";
+                    lbl_Mensaje.Text = "Marca agregada con exito, pulse 'Cancelar' para poder verlo";
+                    txt_Nombre_Marca.Text = "";
                 }
                 else
                 {
-                    lbl_Mensaje.Text = "No se pudo agregar la marca";
+                    Response.Write("<script>alert('No se pudo agregar la marca');</script>");
+                    txt_Nombre_Marca.Text = "";
                 }
             }
             else
             {
-                lbl_Mensaje.Text = "Ingrese un Nombre por favor";
+                Response.Write("<script>alert('Ingrese un Nombre por favor');</script>");
+                txt_Nombre_Marca.Text = "";
             }
         }
 

@@ -88,23 +88,19 @@ namespace Dao
             f1 = dateTime1.ToShortDateString();
             f2 = dateTime2.ToShortDateString();
 
-            System.Diagnostics.Debug.WriteLine("FECHA NUMERO UNO");
-            System.Diagnostics.Debug.WriteLine(f1);
-            System.Diagnostics.Debug.WriteLine("FECHA NUMERO DOS");
-            System.Diagnostics.Debug.WriteLine(f2);
+            string consulta = "";
 
             int res = DateTime.Compare(d1, d2);
             if (res > 0)
             {
-                string consulta = "SELECT Fecha,COUNT(Fecha) AS 'Ventas' FROM venta WHERE Fecha between '" + f2 + "' and '" + f1 + "' GROUP BY Fecha";
+                consulta = "SELECT Fecha,COUNT(Fecha) AS 'Ventas' FROM venta WHERE Fecha between '" + f2 + "' and '" + f1 + "' GROUP BY Fecha";
                 return acceder.ObtenerTabla("venta", consulta);
             }
             else
             {
-                string consulta = "SELECT Fecha,COUNT(Fecha) AS 'Ventas' FROM venta WHERE Fecha between '" + f1 + "' and '" + f2 + "' GROUP BY Fecha";
+                consulta = "SELECT Fecha,COUNT(Fecha) AS 'Ventas' FROM venta WHERE Fecha between '" + f1 + "' and '" + f2 + "' GROUP BY Fecha";
                 return acceder.ObtenerTabla("venta", consulta);
             }
-
         }
 
     }

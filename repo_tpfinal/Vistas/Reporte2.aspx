@@ -79,20 +79,23 @@
             <hr style="width:90%" />
             <div class="auto-style2">
 
+                Bienvenido al formulario 2, en dicho formulario usted podra visualizar la cantidad de ventas realizadas entre dos fechas indicadas a continuacion:<br />
+                <br />
+
                 <asp:TextBox ID="txtFecha1" class="bus" runat="server" Width="200px"></asp:TextBox>
                 <asp:TextBox ID="txtFecha2"  class="bus" runat="server" Width="200px"></asp:TextBox>
                 
-                <br />
-                <asp:RegularExpressionValidator ID="rxv1" runat="server" ControlToValidate="txtFecha1" ErrorMessage="Ingrese en el siguiente formato YYYY-MM-DD" ValidationExpression="^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$">*</asp:RegularExpressionValidator>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="btn_Limpiar" runat="server" Text="Limpiar busqueda" style="border-style: none; border-color: inherit; border-width: medium; background-color: rgba(174, 64, 74, 0.84); border-radius: 10px;" Font-Bold="True" Font-Size="Medium" Height="28px" Width="170px" OnClick="btn_Limpiar_Click"/><br />
+                <asp:RegularExpressionValidator ID="rxv1" runat="server" ControlToValidate="txtFecha1" ErrorMessage="Ingrese en el siguiente formato DD/MM/YYYY" ValidationExpression="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$">*</asp:RegularExpressionValidator>
 &nbsp;
-                <asp:RegularExpressionValidator ID="rxv2" runat="server" ControlToValidate="txtFecha2" ErrorMessage="Ingrese en el siguiente formato YYYY-MM-DD" ValidationExpression="^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$">*</asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="rxv2" runat="server" ControlToValidate="txtFecha2" ErrorMessage="Ingrese en el siguiente formato DD/MM/YYYY" ValidationExpression="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$">*</asp:RegularExpressionValidator>
                 <br />
                 <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" ShowSummary="False" />
                 
             </div>
             <br />
             <div style="font-size: 20px;margin-left: 5%;width: 100%;text-align: center;" class="auto-style1">
-            <asp:GridView ID="grdRegistros" CssClass="GridViewStyled" runat="server" CellPadding="4" AllowPaging="True" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" OnPageIndexChanging="grdRegistros_PageIndexChanging" PageSize="100">
+            <asp:GridView ID="grdRegistros" CssClass="GridViewStyled" runat="server" CellPadding="4" AllowPaging="True" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" OnPageIndexChanging="grdRegistros_PageIndexChanging" PageSize="5">
                 <AlternatingRowStyle BackColor="#BCC8C3" ForeColor="" />
                 <Columns>
                     <asp:TemplateField HeaderText="Fecha">
