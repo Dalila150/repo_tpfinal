@@ -36,26 +36,24 @@ namespace Dao
         private void ParametrosRegistroVentas(ref SqlCommand comando, Ventas ven)
         {
             SqlParameter SqlParametros = new SqlParameter();
-
-           
             SqlParametros = comando.Parameters.Add("@FECHAVENTA", SqlDbType.DateTime);
             SqlParametros.Value = ven.Fecha1;
             SqlParametros = comando.Parameters.Add("@ID_USUARIO", SqlDbType.Int);
-            SqlParametros.Value = ven.ID_venta1;
+            SqlParametros.Value = ven.ID_usuario1;
             SqlParametros = comando.Parameters.Add("@DIRECCION", SqlDbType.VarChar);
-            SqlParametros.Value = ven.ID_venta1;
+            SqlParametros.Value = ven.Direccion1;
             SqlParametros = comando.Parameters.Add("@TOTAL", SqlDbType.Decimal);
-            SqlParametros.Value = ven.ID_venta1;
+            SqlParametros.Value = ven.Total1;
             SqlParametros = comando.Parameters.Add("@MODO_ENVIO", SqlDbType.Int);
-            SqlParametros.Value = ven.ID_venta1;
+            SqlParametros.Value = ven.Modo_envio1;
             SqlParametros = comando.Parameters.Add("@MODO_PAGO", SqlDbType.Int);
-            SqlParametros.Value = ven.ID_venta1;
+            SqlParametros.Value = ven.Modo_pago1;
             SqlParametros = comando.Parameters.Add("@NROTARJETA", SqlDbType.VarChar);
-            SqlParametros.Value = ven.ID_venta1;
+            SqlParametros.Value = ven.Nro_tarjeta1;
             SqlParametros = comando.Parameters.Add("@CODTARJETA", SqlDbType.VarChar);
-            SqlParametros.Value = ven.ID_venta1;
+            SqlParametros.Value = ven.Codigo_tarjeta1;
             SqlParametros = comando.Parameters.Add("@ID_SUCURSAL", SqlDbType.Int);
-            SqlParametros.Value = ven.ID_venta1;
+            SqlParametros.Value = ven.ID_sucursal1;
 
 
         }

@@ -267,6 +267,7 @@ namespace Vistas
                 {
 
                     usu = Neg.DevolverUsuarioCompleto(Request.Cookies["NombreUsuario"].Value);
+                    System.Diagnostics.Debug.WriteLine("EL USUARIO ES  " + usu.getID_usuario());
 
                 }
 

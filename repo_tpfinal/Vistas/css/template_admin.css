@@ -215,7 +215,6 @@ ul li {
 
 /*PARA LOS GRIDVIEW*/
 .GridViewStyled {
-    width: 90%;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -294,3 +293,4 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
 }
+

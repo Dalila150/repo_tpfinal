@@ -135,6 +135,7 @@
     <Content Include="Productos\9.jpg" />
     <Content Include="Reporte1.aspx" />
     <Content Include="Reporte2.aspx" />
+    <Content Include="Reporte3.aspx" />
     <Content Include="Web.config" />
     <Content Include="AdminCrearCategoria.aspx" />
     <Content Include="AdminCrearMarca.aspx" />
@@ -349,6 +350,13 @@
     </Compile>
     <Compile Include="Reporte2.aspx.designer.cs">
       <DependentUpon>Reporte2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte3.aspx.cs">
+      <DependentUpon>Reporte3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reporte3.aspx.designer.cs">
+      <DependentUpon>Reporte3.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
