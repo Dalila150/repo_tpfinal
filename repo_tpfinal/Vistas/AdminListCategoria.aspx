@@ -65,16 +65,16 @@
 
                     </ul>
             </li>
-            <li><a href="#">Registros</a>
+            <li><a href="#">Reportes</a>
                 <ul>
                         <li><a href="/Reporte1.aspx">Reporte 1</a></li>
                         <li><a href="/Reporte2.aspx">Reporte 2</a></li>
                         <li><a href="/Reporte3.aspx">Reporte 3</a></li>
-                        <li><a href="/AdminHistorialVentas.aspx">Historial de ventas</a></li>
                     </ul>
             </li>
+               <li><a href="/AdminHistorialVentas.aspx">Historial de ventas</a></li>
 
-        </ul>
+           </ul>
         </div>
         <div class="content" >
 <!------------------------------------------------------------>

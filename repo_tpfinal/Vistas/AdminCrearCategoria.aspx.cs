@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Entidades;
 using Negocio;
+using System.Data;
 
 namespace Vistas
 {
@@ -57,7 +58,10 @@ namespace Vistas
             if (txtCategoria.Text.Trim()!="")
             {
                 bool existe = false;
-                existe = negcat.agregarCategoria(txtCategoria.Text);
+                Categorias en_cat = new Categorias();
+                en_cat.Nombre1 = txtCategoria.Text;
+
+                existe = negcat.agregarCategoria(txtCategoria.Text, txtImagen.Text);
 
                 if (existe == true) //existe = si se guardo o no
                 {

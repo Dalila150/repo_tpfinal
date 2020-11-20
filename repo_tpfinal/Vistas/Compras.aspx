@@ -65,7 +65,7 @@
 
                         <br />
                         <div style="font-size: 20px; margin-left: 5%; text-align: center;" class="auto-style1">
-                            <asp:GridView ID="grdVentasUsuarios" CssClass="GridViewStyled" runat="server" CellPadding="4" AllowPaging="True" ForeColor="#333333" GridLines="None" PageSize="5" AutoGenerateSelectButton="True" OnSelectedIndexChanged="grdVentasUsuarios_SelectedIndexChanged">
+                            <asp:GridView ID="grdVentasUsuarios" CssClass="GridViewStyled" runat="server" CellPadding="4" AllowPaging="True" ForeColor="#333333" GridLines="None" PageSize="5" AutoGenerateSelectButton="True" OnSelectedIndexChanged="grdVentasUsuarios_SelectedIndexChanged" OnPageIndexChanging="grdVentasUsuarios_PageIndexChanging">
                                 <AlternatingRowStyle BackColor="#BCC8C3" ForeColor="" />
                                 <EditRowStyle BackColor="#999999" />
                                 <FooterStyle BackColor="#90648B" ForeColor="White" Font-Bold="True" />

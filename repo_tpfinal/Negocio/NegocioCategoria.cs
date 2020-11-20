@@ -27,14 +27,14 @@ namespace Negocio
               //  return false;
         //}
 
-        public bool agregarCategoria(String nombre)
+        public bool agregarCategoria(String nombre, String imagen)
         {
             int cantFilas = 0;
 
             Categorias cat = new Categorias();
             //cat.setNombreCategoria(nombre);
             cat.Nombre1 = nombre;
-
+            cat.Imagen1 = imagen;
             DaoCategoria dao = new DaoCategoria();
             if (dao.existeCategoría(cat) == false) //si la categ no existe, LA AGREGA
             {

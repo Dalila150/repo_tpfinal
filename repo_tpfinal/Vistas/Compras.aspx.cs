@@ -114,5 +114,10 @@ namespace Vistas
             Response.Redirect("DetalleVenta.aspx");
         }
 
+        protected void grdVentasUsuarios_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdVentasUsuarios.PageIndex = e.NewPageIndex;
+            cargarGridView();
+        }
     }
 }

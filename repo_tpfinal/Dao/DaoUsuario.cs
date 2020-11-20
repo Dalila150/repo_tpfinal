@@ -130,6 +130,8 @@ namespace Dao
             SqlParametros.Value = usur.getTelefonoUsuario();
             SqlParametros = comando.Parameters.Add("@DNI", SqlDbType.VarChar);
             SqlParametros.Value = usur.getDNIUsuario();
+            SqlParametros = comando.Parameters.Add("@ESTADO", SqlDbType.VarChar);
+            SqlParametros.Value = true;
         }
         public int eliminarUsuarioAdmin(Usuarios usu)
         {

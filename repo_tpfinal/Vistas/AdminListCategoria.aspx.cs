@@ -84,7 +84,7 @@ namespace Vistas
 
         protected void btnCrearCategoria_Click(object sender, EventArgs e)
         {
-            //redireccionar a CrearCat
+            Response.Redirect("AdminCrearCategoria.aspx");
         }
 
         protected void grdCategorias_RowEditing(object sender, GridViewEditEventArgs e)

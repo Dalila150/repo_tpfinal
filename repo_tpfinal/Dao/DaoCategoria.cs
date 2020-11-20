@@ -97,6 +97,8 @@ namespace Dao
             SqlParametros.Value = cat.Nombre1;
             SqlParametros = Comando.Parameters.Add("@Estado", SqlDbType.Bit);
             SqlParametros.Value = cat.Estado1;
+            SqlParametros = Comando.Parameters.Add("@Imagen", SqlDbType.VarChar);
+            SqlParametros.Value = cat.Imagen1;
         }
 
         public DataTable ObtenerCategorias()

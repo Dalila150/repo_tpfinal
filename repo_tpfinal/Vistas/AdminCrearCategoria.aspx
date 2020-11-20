@@ -55,14 +55,15 @@
 
                     </ul>
             </li>
-            <li><a href="#">Registros</a>
+            <li><a href="#">Reportes</a>
                 <ul>
                         <li><a href="/Reporte1.aspx">Reporte 1</a></li>
                         <li><a href="/Reporte2.aspx">Reporte 2</a></li>
                         <li><a href="/Reporte3.aspx">Reporte 3</a></li>
-                        <li><a href="/AdminHistorialVentas.aspx">Historial de ventas</a></li>
                     </ul>
             </li>
+                         <li><a href="/AdminHistorialVentas.aspx">Historial de ventas</a></li>
+
 
         </ul>
         </div>
@@ -81,6 +82,14 @@
                                 </td>
                                 <td style="width: 50%">
                                     <asp:TextBox class="txtASP" style="width:80%" ID="txtCategoria" runat="server" required="true"></asp:TextBox>
+                                </td>
+                            </tr>
+                         <tr>
+                                <td style="width: 50%; font-size: 18px">
+                                    <h3 style="display: inline;">Imagen :</h3>
+                                </td>
+                                <td style="width: 50%">
+                                    <asp:TextBox class="txtASP" style="width:80%" ID="txtImagen" runat="server" required="true"></asp:TextBox>
                                 </td>
                             </tr>
                     </tbody>
