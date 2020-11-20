@@ -78,7 +78,7 @@ namespace Dao
         public DataTable ObtenerDetallesVentasUsuario(int idDetV)
         {
 
-            return acceder.ObtenerTabla("detalle_venta", "select ID_producto,Cantidad,Precio_unitario from detalle_venta inner join venta on detalle_venta.ID_venta = venta.ID_venta  where detalle_venta.ID_venta = " + idDetV);
+            return acceder.ObtenerTabla("detalle_venta", "select producto.Nombre, detalle_venta.Cantidad, detalle_venta.Precio_unitario from detalle_venta inner join venta on detalle_venta.ID_venta = venta.ID_venta inner join producto on detalle_venta.ID_producto = producto.id_producto  where detalle_venta.ID_venta = " + idDetV);
         }
 
         public DataTable ObtenerTodasLasVentasPorFecha(string f1, string f2)
