@@ -60,7 +60,7 @@ namespace Dao
 
         public DataTable Reporte3(String Consulta, String Order)
         {
-            return acceder.ObtenerTabla("venta", "SELECT venta.ID_venta as ID, venta.Total AS TOTAL, venta.Fecha AS FECHA, SUM (detalle_venta.Cantidad) AS CANTIDAD FROM venta INNER JOIN detalle_venta ON venta.ID_venta = detalle_venta.ID_venta WHERE venta.ID_venta = detalle_venta.ID_venta " + Consulta + " Group by venta.ID_venta, venta.Total, venta.Fecha" + Order);
+            return acceder.ObtenerTabla("venta", "SELECT venta.ID_venta as ID, venta.Total AS TOTAL,  FORMAT (venta.Fecha, 'dd-MM-yyyy') AS FECHA, SUM (detalle_venta.Cantidad) AS CANTIDAD FROM venta INNER JOIN detalle_venta ON venta.ID_venta = detalle_venta.ID_venta WHERE venta.ID_venta = detalle_venta.ID_venta " + Consulta + " Group by venta.ID_venta, venta.Total, venta.Fecha" + Order);
         }
 
 

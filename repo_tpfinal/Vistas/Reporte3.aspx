@@ -110,39 +110,54 @@
                                       </li>
                                   </ul>
                                   </li>
-                                  <li>Precio
+                                  <li>Limite de Precio
+                                  <ul>
+                                      <li>$<input runat="server" class="txtASP" type="text" id="PrecioMin" placeholder="Min" style="width:80px" />
+                                      </li>
+                                      <li>
+                                          $<input runat="server" class="txtASP" type="text" id="PrecioMax" placeholder="Max" style="width:80px; margin-top: 5px;"/>
+                                      </li>
+                                  </ul>
+                                  </li>
+                                  <li>Filtros
                                       <ul>
                                           <li>
                                               <div>
-                                                <input runat="server" type="radio" id="NoFilter" name="filtroPrecio" value="NoFilter" checked/><label for="NoFilter">Sin Filtro</label>
+                                                <input runat="server" type="radio" id="NoFilter" name="filtro" value="NoFilter" checked/><label for="NoFilter">Sin Filtro</label>
                                               </div>
+                                              </li>
+                                          <li>
+                                              <ul style="padding-left:0px">
+                                              <li>Precio
+                                      <ul style="padding-left:0px">
+                                          <li>
                                               <div>
-                                                  <input runat="server" type="radio" id="Menor" name="filtroPrecio" value="Menor"/><label for="Menor">Menor</label>
+                                                  <input runat="server" type="radio" id="Menor" name="filtro" value="Menor"/><label for="Menor">Menor</label>
                                               </div>
                                               <div>  
-                                                  <input runat="server" type="radio" id="Mayor" name="filtroPrecio" value="Mayor"/><label for="Mayor">Mayor</label>
+                                                  <input runat="server" type="radio" id="Mayor" name="filtro" value="Mayor"/><label for="Mayor">Mayor</label>
                                               </div>
                                         </li>
                                       </ul>
                                   </li>
                                   <li>Cantidad de Productos
-                                      <ul>
+                                      <ul style="padding-left:0px">
                                           <li>
                                               <div>
-                                                <input runat="server" type="radio" id="NoFilterProducto" name="filtroProducto" value="NoFilter" checked/><label for="NoFilter">Sin Filtro</label>
-                                              </div>
-                                              <div>
-                                                  <input runat="server" type="radio" id="MenorProducto" name="filtroProducto" value="Menor"/><label for="Menor">Menor</label>
+                                                  <input runat="server" type="radio" id="MenorProducto" name="filtro" value="MenorProducto"/><label for="MenorProducto">Menor</label>
                                               </div>
                                               <div>  
-                                                  <input runat="server" type="radio" id="MayorProducto" name="filtroProducto" value="Mayor"/><label for="Mayor">Mayor</label>
+                                                  <input runat="server" type="radio" id="MayorProducto" name="filtro" value="MayorProducto"/><label for="MayorProducto">Mayor</label>
                                               </div>
                                         </li>
                                       </ul>
                                   </li>
-                              </ul>
-                                <input type="button" name="btnAplicar" value="Aplicar" id="btnAplicar" class="btnASP" onclick="aplicarFiltros()" style="margin-top: 5px; height: 30px; width: 92%;" />
+                              </ul></li>
+                                              </ul>
+                                      <input type="button" name="btnAplicar" value="Aplicar" id="btnAplicar" class="btnASP" onclick="aplicarFiltros()" style="margin-top: 5px; height: 30px; width: 92%;" />
                             </li>
+                        </ul>
+                                </li>
                         </ul>
                 </div>
                 <div style="background-color: rgba(197, 93, 102, 0.404); border-radius: 8px; margin-bottom: 5%; width:80%; padding-bottom: 20px; margin-top: 25px;margin-left:295px">
@@ -227,8 +242,18 @@
 
             var HayInicio = 0;
             var HayFinal = 0;
+            var HayMin = 0
+            var HayMax = 0
             var Filtro = "NoFilter";
             var paso1 = 0;
+
+            if ((document.querySelector('input[name="PrecioMin"]').value) != null) {
+                HayMin = 1;
+            }
+
+            if ((document.querySelector('input[name="PrecioMax"]').value) != null) {
+                HayMax = 1;
+            }
 
             var dateTypeVar = $("#datepickerFinal").datepicker('getDate');
             if (dateTypeVar != null) {
@@ -246,24 +271,9 @@
                 var anio_incial = $.datepicker.formatDate('yy', dateTypeVar);
             }
 
-            var FiltroPrecio = document.querySelector('input[name="filtro"]:checked').value;
+            var Filtro = document.querySelector('input[name="filtro"]:checked').value;
 
-            if (FiltroPrecio != "NoFilter") {
-
-                if (FiltroPrecio == "Mayor") {
-
-                    Filtro = "Mayor"
-
-                } else if (FiltroPrecio == "Menor") {
-
-                    Filtro = "Menor"
-
-                }
-
-            }
-
-
-            if (HayInicio == 0 && HayFinal == 0 && Filtro == "NoFilter") {
+            if (HayInicio == 0 && HayFinal == 0 && Filtro == "NoFilter" && HayMin == 0 && HayMax == 0) {
 
                 window.location.href = '/Reporte3.aspx';
 
@@ -295,6 +305,12 @@
                         } else if (Filtro == "Menor") {
                             var URL = "/Reporte3.aspx?Precio=Menor";
                             paso1 = 1;
+                        } else if (Filtro == "MayorProducto") {
+                            var URL = "/Reporte3.aspx?Producto=Mayor";
+                            paso1 = 1;
+                        } else if (Filtro == "MenorProducto") {
+                            var URL = "/Reporte3.aspx?Producto=Menor";
+                            paso1 = 1;
                         }
 
                     } else {
@@ -303,9 +319,32 @@
                             var URL = URL + "&Precio=Mayor";
                         } else if (Filtro == "Menor") {
                             var URL = URL + "&Precio=Menor";
+                        } else if (Filtro == "MayorProducto") {
+                            var URL = URL + "&Producto=Mayor";
+                        } else if (Filtro == "MenorProducto") {
+                            var URL = URL + "&Producto=Menor";
                         }
                     }
                 }
+
+                if ((document.querySelector('input[name="PrecioMin"]').value) != null && (document.querySelector('input[name="PrecioMin"]').value) != "") {
+                    if (paso1 == 0) {
+                        var URL = "/Reporte3.aspx?RangoMe=" + (document.querySelector('input[name="PrecioMin"]').value);
+                        paso1 = 1;
+                    } else {
+                        var URL = URL + "&RangoMe=" + (document.querySelector('input[name="PrecioMin"]').value);
+                    }
+                }
+
+                if ((document.querySelector('input[name="PrecioMax"]').value) != null && (document.querySelector('input[name="PrecioMax"]').value) != "") {
+                    if (paso1 == 0) {
+                        var URL = "/Reporte3.aspx?RangoMa=" + (document.querySelector('input[name="PrecioMax"]').value);
+                        paso1 = 1;
+                    } else {
+                        var URL = URL + "&RangoMa=" + (document.querySelector('input[name="PrecioMax"]').value);
+                    }
+                }
+
 
                 window.location.href = URL;
 

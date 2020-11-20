@@ -51,6 +51,24 @@ namespace Vistas
         protected global::System.Web.UI.HtmlControls.HtmlInputText datepickerFinal;
 
         /// <summary>
+        /// PrecioMin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText PrecioMin;
+
+        /// <summary>
+        /// PrecioMax control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText PrecioMax;
+
+        /// <summary>
         /// NoFilter control.
         /// </summary>
         /// <remarks>
@@ -76,15 +94,6 @@ namespace Vistas
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton Mayor;
-
-        /// <summary>
-        /// NoFilterProducto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton NoFilterProducto;
 
         /// <summary>
         /// MenorProducto control.

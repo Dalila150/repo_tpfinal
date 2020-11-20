@@ -110,6 +110,65 @@ namespace Vistas
                 NoFilter.Checked = true;
             }
 
+            // PRECIO RANGO
+            if (Request["RangoMe"] != null)
+            {
+                if (Request["RangoMe"].ToString() != null && Request["RangoMe"].ToString() != "")
+                {
+                    PrecioMin.Value = Request["RangoMe"].ToString();
+                    Consulta += " AND Total >= " + Request["RangoMe"].ToString();
+                }
+                else
+                {
+                    PrecioMin.Value = "";
+                }
+            }
+            
+            if (Request["RangoMa"] != null)
+            {
+
+                if (Request["RangoMa"].ToString() != null && Request["RangoMa"].ToString() != "")
+                {
+                    PrecioMax.Value = Request["RangoMa"].ToString();
+                    Consulta += " AND Total <= " + Request["RangoMa"].ToString();
+                }
+                else
+                {
+                    PrecioMax.Value = "";
+                }
+
+            }
+
+            if (Request["RangoMa"] == null && Request["RangoMe"] == null)
+            {
+                PrecioMax.Value = "";
+                PrecioMin.Value = "";
+            }
+
+            // PRODUCTO
+            if (Request["Producto"] != null)
+            {
+                if (Request["Producto"].ToString() == "Mayor")
+                {
+                    MayorProducto.Checked = true;
+                    Order += " order by Cantidad desc";
+                }
+                else if (Request["Producto"].ToString() == "Menor")
+                {
+                    MenorProducto.Checked = true;
+                    Order += " order by Cantidad asc";
+                }
+                else
+                {
+                    NoFilter.Checked = true;
+                }
+            }
+            else
+            {
+                NoFilter.Checked = true;
+            }
+
+
             grdVentas.DataSource = nv.ConsultaParaReporte3(Consulta,Order);
             grdVentas.DataBind();
 
