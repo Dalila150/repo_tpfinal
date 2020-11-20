@@ -16,19 +16,19 @@
 <body>
     <form id="form1" runat="server">
         <div class="container">
-            <div class="logo">
-                <img src="/img/logo.jpg" class="LogoImagen" />
+        <div class="logo" >
+            <img src="/img/logo.jpg" class="LogoImagen" />
+        </div>
+        <div class="header" >
+        </div>
+        <div class="iconos" >
+            <div runat="server" id="IconoSalir"></div>
             </div>
-            <div class="header">
-            </div>
-            <div class="iconos">
-                <div runat="server" id="IconoSalir"></div>
-            </div>
-            <div class="navbar">
-                <ul class="nav">
-                    <li><a href="/HomeAdmin.aspx">Home</a></li>
-                    <li><a href="#">Administrar</a>
-                        <ul>
+        <div class="navbar" >
+           <ul class="nav">
+            <li><a href="/HomeAdmin.aspx">Home</a></li>
+            <li><a href="#">Administrar</a>
+                <ul>
                         <li><a href="#">Productos</a>
                             <ul>
                                 <li><a href="/AdminListPro.aspx">Listar</a></li>
@@ -56,18 +56,19 @@
                         </li>
 
                     </ul>
-                    </li>
-                    <li><a href="#">Registros</a>
-                        <ul>
-                        <li><a href="/Reporte1.aspx">Registro 1</a></li>
-                        <li><a href="/Reporte2.aspx">Registro 2</a></li>
+            </li>
+            <li><a href="#">Registros</a>
+                <ul>
+                        <li><a href="/Reporte1.aspx">Reporte 1</a></li>
+                        <li><a href="/Reporte2.aspx">Reporte 2</a></li>
+                        <li><a href="/Reporte3.aspx">Reporte 3</a></li>
                         <li><a href="/AdminHistorialVentas.aspx">Historial de ventas</a></li>
                     </ul>
-                    </li>
+            </li>
 
-                </ul>
-            </div>
-            <div class="content">
+        </ul>
+        </div>
+        <div class="content" >
                 <!------------------------------------------------------------>
                 <div style="display: inline-block; width: 60%;">
                     <div style="background-color: rgba(197, 93, 102, 0.404); border-radius: 8px; text-align: center; margin-top: 25px; margin-bottom: 25px">
@@ -86,28 +87,28 @@
                         <div style="width: 70%; display: inline-block;">
                             <ul style="font-size: 18px; text-align: left; display: inline-block; width: 95%; margin-right: 1%">
                                 <li style="height: 35px; width: 80%; margin-bottom: 15px">
-                                    <asp:TextBox class="txtASP" ID="txtModelo" runat="server" Style="width: 100%; font-size: 18px; height: 60%; -ms-box-sizing: content-box; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:TextBox>
+                                    <asp:TextBox class="txtASP" ID="txtModelo" runat="server" Style="width: 100%; font-size: 18px; height: 60%; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:TextBox>
                                 </li>
                                 <li style="height: 35px; width: 80%; margin-bottom: 15px">
-                                    <asp:DropDownList class="txtASP" ID="ddMarca" runat="server" Style="width: 100%; font-size: 18px; -ms-box-sizing: content-box; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:DropDownList>
+                                    <asp:DropDownList class="txtASP" ID="ddMarca" runat="server" Style="width: 100%; font-size: 18px; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:DropDownList>
                                 </li>
                                 <li style="height: 35px; width: 80%; margin-bottom: 15px">
-                                    <asp:DropDownList class="txtASP" ID="ddCategoria" runat="server" Style="width: 100%; font-size: 18px; -ms-box-sizing: content-box; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:DropDownList>
+                                    <asp:DropDownList class="txtASP" ID="ddCategoria" runat="server" Style="width: 100%; font-size: 18px; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:DropDownList>
                                 </li>
                                 <li style="height: 35px; width: 80%; margin-bottom: 15px">
-                                    <asp:TextBox class="txtASP" ID="txtStock" runat="server" TextMode="Number" min="1" Style="width: 100%; font-size: 18px; height: 60%; -ms-box-sizing: content-box; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:TextBox>
+                                    <asp:TextBox class="txtASP" ID="txtStock" runat="server" TextMode="Number" min="1" Style="width: 100%; font-size: 18px; height: 60%; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:TextBox>
                                 </li>
                                 <li style="height: 35px; width: 80%; margin-bottom: 15px">
-                                    <asp:TextBox class="txtASP" ID="txtPrecio" runat="server" onkeypress="return isNumberKey(event)" min="1" Style="width: 100%; font-size: 18px; height: 60%; -ms-box-sizing: content-box; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:TextBox>
+                                    <asp:TextBox class="txtASP" ID="txtPrecio" runat="server" onkeypress="return isNumberKey(event)" min="1" Style="width: 100%; font-size: 18px; height: 60%; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:TextBox>
                                 </li>
                                 <li style="height: 180px; width: 80%; margin-bottom: 15px">
-                                    <asp:TextBox class="txtASP" ID="txtDescripcion" TextMode="MultiLine" runat="server" Style="width: 100%; font-size: 15px; height: 90%; resize: none; -ms-box-sizing: content-box; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:TextBox>
+                                    <asp:TextBox class="txtASP" ID="txtDescripcion" TextMode="MultiLine" runat="server" Style="width: 100%; font-size: 15px; height: 90%; resize: none; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:TextBox>
                                 </li>
                                 <li style="height: 35px; width: 80%; margin-bottom: 15px">
-                                    <asp:TextBox class="txtASP" ID="txtDireccionImagen" runat="server" Style="width: 100%; font-size: 18px; height: 60%; -ms-box-sizing: content-box; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:TextBox>
+                                    <asp:TextBox class="txtASP" ID="txtDireccionImagen" runat="server" Style="width: 100%; font-size: 18px; height: 60%; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:TextBox>
                                 </li>
                                 <li style="height: 35px; width: 80%; margin-bottom: 15px">
-                                    <asp:DropDownList class="txtASP" ID="ddEstado" runat="server" Style="width: 100%; font-size: 18px; -ms-box-sizing: content-box; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:DropDownList>
+                                    <asp:DropDownList class="txtASP" ID="ddEstado" runat="server" Style="width: 100%; font-size: 18px; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" required="true"></asp:DropDownList>
                                 </li>
 
                             </ul>

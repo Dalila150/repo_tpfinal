@@ -27,6 +27,7 @@ namespace Vistas
                         String IconosInnerHTML = "";
                         Char B = '"';
                         IconosInnerHTML = "";
+                        //ventanita para salir = true asi elimina cookies
                         IconosInnerHTML += "<a href=" + B + "/Home.aspx?Sign-out=true" + B + " class=" + B + "fas fa-sign-out-alt" + B + " style=" + B + "font-size: 1.6rem;text-decoration: none;color: #40514e;" + B + " aria-hidden=" + B + "true" + B + "></a>";
                         IconoSalir.InnerHtml = IconosInnerHTML;
                     }

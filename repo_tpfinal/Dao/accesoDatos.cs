@@ -35,6 +35,7 @@ namespace Dao
             }
             catch (Exception ex)
             {
+                System.Console.WriteLine(ex);
                 return null;
             }
         }
@@ -49,6 +50,7 @@ namespace Dao
             }
             catch (Exception ex)
             {
+                System.Console.WriteLine(ex);
                 return null;
             }
         }
@@ -122,12 +124,11 @@ namespace Dao
             SqlConnection Conexion = ObtenerConexion();
             SqlCommand cmd = new SqlCommand(consulta, Conexion);
             SqlDataReader datos = cmd.ExecuteReader();
-            //TONY
-            Conexion.Close();
             if (datos.Read())
             {
                 estado = true;
             }
+            Conexion.Close();
             return estado;
         }
 

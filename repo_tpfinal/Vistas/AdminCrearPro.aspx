@@ -15,19 +15,19 @@
 <body>
     <form id="form1" runat="server">
         <div class="container">
-            <div class="logo">
-                <img src="/img/logo.jpg" class="LogoImagen" />
+        <div class="logo" >
+            <img src="/img/logo.jpg" class="LogoImagen" />
+        </div>
+        <div class="header" >
+        </div>
+        <div class="iconos" >
+            <div runat="server" id="IconoSalir"></div>
             </div>
-            <div class="header">
-            </div>
-            <div class="iconos">
-               <div runat="server" id="IconoSalir"></div>
-            </div>
-            <div class="navbar">
-                <ul class="nav">
-                    <li><a href="/HomeAdmin.aspx">Home</a></li>
-                    <li><a href="#">Administrar</a>
-                       <ul>
+        <div class="navbar" >
+           <ul class="nav">
+            <li><a href="/HomeAdmin.aspx">Home</a></li>
+            <li><a href="#">Administrar</a>
+                <ul>
                         <li><a href="#">Productos</a>
                             <ul>
                                 <li><a href="/AdminListPro.aspx">Listar</a></li>
@@ -55,18 +55,19 @@
                         </li>
 
                     </ul>
-                    </li>
-                    <li><a href="#">Registros</a>
-                        <ul>
-                        <li><a href="/Reporte1.aspx">Registro 1</a></li>
-                        <li><a href="/Reporte2.aspx">Registro 2</a></li>
+            </li>
+            <li><a href="#">Registros</a>
+                <ul>
+                        <li><a href="/Reporte1.aspx">Reporte 1</a></li>
+                        <li><a href="/Reporte2.aspx">Reporte 2</a></li>
+                        <li><a href="/Reporte3.aspx">Reporte 3</a></li>
                         <li><a href="/AdminHistorialVentas.aspx">Historial de ventas</a></li>
                     </ul>
-                    </li>
+            </li>
 
-                </ul>
-            </div>
-            <div class="content">
+        </ul>
+        </div>
+        <div class="content" >
                 <!------------------------------------------------------------>
                 <div style="display: inline-block; width: 60%;">
                     <div style="background-color: rgba(197, 93, 102, 0.404); border-radius: 8px; text-align: center; margin-top: 25px; margin-bottom: 25px">

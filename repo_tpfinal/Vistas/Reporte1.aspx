@@ -28,14 +28,14 @@
         <div class="header" >
         </div>
         <div class="iconos" >
-            <a href="/Datos.aspx" class="fas fa-user user"></a>
-            <a href="/Home.aspx" class="fas fa-sign-out-alt"></a></div>
+            <div runat="server" id="IconoSalir"></div>
+            </div>
         <div class="navbar" >
            <ul class="nav">
-            <li><a href="#">Home</a></li>
+            <li><a href="/HomeAdmin.aspx">Home</a></li>
             <li><a href="#">Administrar</a>
                 <ul>
-                    <li><a href="#">Productos</a>
+                        <li><a href="#">Productos</a>
                             <ul>
                                 <li><a href="/AdminListPro.aspx">Listar</a></li>
                                 <li><a href="/AdminCrearPro.aspx">Crear</a></li>
@@ -61,14 +61,15 @@
                             </ul>
                         </li>
 
-                </ul>
+                    </ul>
             </li>
             <li><a href="#">Registros</a>
                 <ul>
-                        <li><a href="/Reporte1.aspx">Registro 1</a></li>
-                    <li><a href="/Reporte2.aspx">Registro 2</a></li>
+                        <li><a href="/Reporte1.aspx">Reporte 1</a></li>
+                        <li><a href="/Reporte2.aspx">Reporte 2</a></li>
+                        <li><a href="/Reporte3.aspx">Reporte 3</a></li>
                         <li><a href="/AdminHistorialVentas.aspx">Historial de ventas</a></li>
-                </ul>
+                    </ul>
             </li>
 
         </ul>

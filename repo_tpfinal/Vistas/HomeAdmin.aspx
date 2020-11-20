@@ -27,7 +27,7 @@
                <ul class="nav">
                 <li><a href="/HomeAdmin.aspx">Home</a></li>
                 <li><a href="#">Administrar</a>
-                    <ul>
+                <ul>
                         <li><a href="#">Productos</a>
                             <ul>
                                 <li><a href="/AdminListPro.aspx">Listar</a></li>
@@ -39,7 +39,6 @@
                                 <li><a href="/AdminListUsu.aspx">Listar</a></li>
                                 <li><a href="/AdminEliminarUsuarios.aspx">Eliminar</a></li>
                                 <li><a href="/AdminCrearAdministrador.aspx">Crear</a></li>
-                                <li><a href="/AdminEdicUsu.aspx">Editar</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Marcas</a>
@@ -56,18 +55,19 @@
                         </li>
 
                     </ul>
-                </li>
-                <li><a href="#">Registros</a>
-                    <ul>
-                        <li><a href="/Reporte1.aspx">Registro 1</a></li>
-                        <li><a href="/Reporte2.aspx">Registro 2</a></li>
+            </li>
+            <li><a href="#">Registros</a>
+                <ul>
+                        <li><a href="/Reporte1.aspx">Reporte 1</a></li>
+                        <li><a href="/Reporte2.aspx">Reporte 2</a></li>
+                        <li><a href="/Reporte3.aspx">Reporte 3</a></li>
                         <li><a href="/AdminHistorialVentas.aspx">Historial de ventas</a></li>
                     </ul>
-                </li>
+            </li>
 
-            </ul>
-            </div>
-            <div class="content" >
+        </ul>
+        </div>
+        <div class="content" >
         
             <!------------------------------------------------------------>
 

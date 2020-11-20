@@ -28,13 +28,13 @@
 <body>
     <form id="form1" runat="server">
     <div class="container">
-        <div class="auto-style1" >
+        <div class="logo" >
             <img src="/img/logo.jpg" class="LogoImagen" />
         </div>
         <div class="header" >
         </div>
         <div class="iconos" >
-          <div runat="server" id="IconoSalir"></div>
+            <div runat="server" id="IconoSalir"></div>
             </div>
         <div class="navbar" >
            <ul class="nav">
@@ -71,8 +71,9 @@
             </li>
             <li><a href="#">Registros</a>
                 <ul>
-                        <li><a href="/Reporte1.aspx">Registro 1</a></li>
-                        <li><a href="/Reporte2.aspx">Registro 2</a></li>
+                        <li><a href="/Reporte1.aspx">Reporte 1</a></li>
+                        <li><a href="/Reporte2.aspx">Reporte 2</a></li>
+                        <li><a href="/Reporte3.aspx">Reporte 3</a></li>
                         <li><a href="/AdminHistorialVentas.aspx">Historial de ventas</a></li>
                     </ul>
             </li>
