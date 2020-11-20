@@ -136,5 +136,12 @@ namespace Vistas
                 lblMensaje.Text = "El Apellido no se encuentran en la base de datos ";
             }
         }
+
+        protected void grdUsuarios_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+            //creo y asigno variable session|| del grd la fila que este seleccionada busco el lblid y saco la prop txt
+            Session["id_usuario_modif"] = (grdUsuarios.Rows[e.NewSelectedIndex].Cells[1]).Text;
+            Response.Redirect("AdminEdicUsu.aspx");
+        }
     }
 }

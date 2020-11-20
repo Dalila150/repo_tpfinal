@@ -99,21 +99,18 @@
             <div style="width:0%;display:inline-block;margin-right: 50px">
                     <ul style="font-size:18px;text-align:left;display:inline-block;width:50%">
                         <li style="height: 35px; width: 25%; margin-bottom: 14px">ID</li>
-
                         <li style="height: 35px; width: 25%; margin-bottom: 14px">Nombre</li>
                         <li style="height: 35px; width: 25%; margin-bottom: 14px">Apellido</li>
                         <li style="height: 35px; width: 25%; margin-bottom: 14px">Email</li>
                         <li style="height: 35px; width: 25%; margin-bottom: 14px">Direccion</li>
                         <li style="height: 35px; width: 25%; margin-bottom: 14px">Usuario</li>
                         <li style="height: 35px; width: 25%; margin-bottom: 14px">Telefono</li>
-
-
                     </ul>
                </div>
             <div style="width:86%;display:inline-block;">
                 <ul style="font-size:18px;text-align:left;display:inline-block;margin-right:1%">
                        <li style="height: 35px;width: 40%;margin-bottom:15px">
-                           <asp:TextBox class="txtASP" ID="txtIdUsuario" TextMode ="Number" runat="server" ></asp:TextBox>
+                           <asp:TextBox CssClass="txtDeshabilitado" ID="txtIdUsuario" TextMode ="Number" runat="server" ></asp:TextBox>
                        </li>
                        <li style="height: 35px;width: 40%;margin-bottom:15px">
                            <asp:TextBox class="txtASP" ID="txtNombre" runat="server" ></asp:TextBox>

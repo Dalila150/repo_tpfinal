@@ -17,47 +17,8 @@ namespace Vistas
             Usuarios Usu = new Usuarios();
             NegocioUsuario neg = new NegocioUsuario();
 
-
-            //  int id = int.Parse(txtIdUsuario.Text);
-
-            if (IsPostBack == false) {
-
-                /*   txtNombre.Enabled = false;
-               txtApellido.Enabled = false;
-               txtEmail.Enabled = false;
-               txtDireccion.Enabled = false;
-               txtNombredeUsuario.Enabled = false;
-               txtTelefono.Enabled = false;
-
-
-
-               if (txtIdUsuario.Text != " ")
-                {
-
-               txtNombre.Enabled = true;
-               txtApellido.Enabled = true;
-               txtEmail.Enabled = true;
-               txtDireccion.Enabled = true;
-               txtNombredeUsuario.Enabled = true;
-               txtTelefono.Enabled = true;
-
-                    DataTable usuariocampos = neg.llenarcamposusuarios(id);
-
-                    string nombre = usuariocampos.Rows[0]["Nombre"].ToString();
-                    string apellido = usuariocampos.Rows[0]["Apellido"].ToString();
-                    string email = usuariocampos.Rows[0]["Email"].ToString();
-                    string direccion = usuariocampos.Rows[0]["Direccion"].ToString();
-                    string nickname = usuariocampos.Rows[0]["Nombre_Usuario"].ToString();
-                    string telefono = usuariocampos.Rows[0]["Telefono"].ToString();
-
-                    txtNombre.Text = nombre;
-                    txtApellido.Text = apellido;
-                    txtEmail.Text = email;
-                    txtDireccion.Text = direccion;
-                    txtNombredeUsuario.Text = nickname;
-                    txtTelefono.Text = telefono;
-
-                }*/
+            if (IsPostBack == false)
+            {
 
                 if (Request.Cookies["NombreUsuario"] != null)
                 {
@@ -90,34 +51,49 @@ namespace Vistas
                     Response.Redirect("/Home.aspx");
                 }
 
-            }
-                /*else
-                {
-                    Response.Redirect("/Home.aspx");
-                }
-                //-----------------------------------------------
-                //  if (IsPostBack == false) { txtNombre.Text = Session["Nombre"].ToString(); txtNombre_de_usuario.Text = Session["Usuario"].ToString(); txtApellido.Text = Session["Apellido"].ToString(); txtContrasena.Text = Session["Contraseña"].ToString(); txtEmail.Text = Session["Email"].ToString(); txtTelefono.Text = Session["Telefono"].ToString(); txtDireccion.Text = Session["DireccionUsuario"].ToString(); }
 
-            */
-            
+                if (Session["id_usuario_modif"] != null)
+                {
+                    NegocioUsuario nu = new NegocioUsuario();
+                    DataTable dat_usu = new DataTable();
+                    dat_usu = nu.ObtenerUsuario(Session["id_usuario_modif"].ToString());
+
+                    txtApellido.Text = dat_usu.Rows[0][3].ToString();
+                    txtDireccion.Text = dat_usu.Rows[0][5].ToString();
+                    txtEmail.Text = dat_usu.Rows[0][4].ToString();
+                    txtNombre.Text = dat_usu.Rows[0][2].ToString();
+                    txtNombredeUsuario.Text = dat_usu.Rows[0][6].ToString();
+                    txtTelefono.Text = dat_usu.Rows[0][8].ToString();
+
+                    txtIdUsuario.Text = (Session["id_usuario_modif"].ToString());
+                    txtIdUsuario.Enabled = false;
+                }
+                else
+                {
+                    Response.Redirect("AdminListUsu.aspx");
+                }
+
+            }
+
         }
 
 
-            protected void btnGuardar_Click(object sender, EventArgs e)
-            {
-                int actualizo;
-                Usuarios usur = new Usuarios();
-                NegocioUsuario neg = new NegocioUsuario();
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            int actualizo;
+            Usuarios usur = new Usuarios();
+            NegocioUsuario neg = new NegocioUsuario();
+
             usur.setID_usuario(int.Parse(txtIdUsuario.Text));
-                usur.setNombreUsuario(txtNombre.Text);
-                usur.setApellidoUsuario(txtApellido.Text);
-                usur.setEmailUsuario(txtEmail.Text);
-                usur.setDireccionUsuario(txtDireccion.Text);
-                usur.setNombre_UsuarioUsuario(txtNombredeUsuario.Text);
+            usur.setNombreUsuario(txtNombre.Text);
+            usur.setApellidoUsuario(txtApellido.Text);
+            usur.setEmailUsuario(txtEmail.Text);
+            usur.setDireccionUsuario(txtDireccion.Text);
+            usur.setNombre_UsuarioUsuario(txtNombredeUsuario.Text);
+            usur.setTelefonoUsuario(txtTelefono.Text);
 
-                usur.setTelefonoUsuario(txtTelefono.Text);
+            bool ya_hay_id = neg.existe_id_user(usur.getID_usuario());
 
-            bool ya_hay_id = neg.existe_id_user(int.Parse(txtIdUsuario.Text));
 
             if (ya_hay_id == false)
             {
@@ -140,18 +116,11 @@ namespace Vistas
             }
                
 
-          }
+        }
 
-           
-
-            protected void btnCancelar_Click(object sender, EventArgs e)
-            {
-                Response.Redirect("HomeAdmin.aspx");
-            }
-
-        protected void TextBox1_TextChanged1(object sender, EventArgs e)
+        protected void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("HomeAdmin.aspx");
         }
     }
 }

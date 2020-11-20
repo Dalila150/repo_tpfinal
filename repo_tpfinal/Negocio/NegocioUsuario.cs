@@ -118,6 +118,11 @@ namespace Negocio
                 return false;
             }
         }
+        public DataTable ObtenerUsuario(String id)
+        {
+            DaoUsuario dp = new DaoUsuario();
+            return dp.ObtenerUnUsuario(id);
+        }
 
         public bool BuscarUsuarioPassword(string Password)
         {

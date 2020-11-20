@@ -311,3 +311,13 @@ input[type=number] {
         padding-right: 10px;
         text-align: center
     }
+
+.aspNetDisabled {
+    outline: none;
+    padding: 0.3rem;
+    border-radius: 20px 20px;
+    background-color: rgba(235, 149, 149, 0.308);
+    /*background-color: rgba(226, 98, 98, 0.548);*/
+    border: solid 2px rgb(235, 149, 149);
+    height: 20px;
+}

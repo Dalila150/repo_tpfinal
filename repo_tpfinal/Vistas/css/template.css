@@ -308,11 +308,3 @@ input::-webkit-inner-spin-button {
 ::-ms-input-placeholder { /* Microsoft Edge */
     color: white;
 }
-
-input[type="submit" i]:disabled {
-    width: 90%;
-    border-radius: 8px;
-    border: none;
-    height: 40px;
-    background-color: rgba(17, 153, 158, 0.5);
-}

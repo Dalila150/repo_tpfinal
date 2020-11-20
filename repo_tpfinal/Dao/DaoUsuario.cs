@@ -23,6 +23,7 @@ namespace Dao
         public Boolean existeid_usuario(int id)
         {
             string consulta = "Select * from Usuario where ID_usuario='" + id + "'";
+            
             return ds.existe(consulta);
         }
 
@@ -37,11 +38,19 @@ namespace Dao
             String consulta = "Select * from Usuario where Nombre_Usuario='" + Nombre_Usuario + "'";
             return ds.existe(consulta);
         }
+    
         public Boolean existeUsuarioPassword(string Password)
         {
             String consulta = "Select * from Usuario where Password='" + Password + "'";
             return ds.existe(consulta);
         }
+        public DataTable ObtenerUnUsuario(String id)
+        {
+            DataTable aux = new DataTable();
+            aux = ds.ObtenerTabla("usuario", "Select * from usuario WHERE ID_usuario = " + id);
+            return aux;
+        }
+
 
         public Boolean existeUsuarioYclave(string Usuario, string Clave)
         {
