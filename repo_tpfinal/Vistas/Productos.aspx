@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/template.css"/>
     <link rel="StyleSheet" ; href="/css/categorias.css" ; type="text/css" />
 
-    <title>Categoria</title>
+    <title>Productos</title>
     <script src="/js/fontAwesome.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>

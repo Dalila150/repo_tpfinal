@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="StyleSheet" href="/css/template_admin.css"type="text/css" />
 
-    <title>Home</title>
+    <title>Nueva Categoria</title>
     <script src="/js/fontAwesome.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>

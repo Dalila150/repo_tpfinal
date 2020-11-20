@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/AdminHome.css"/>
 
 
-    <title>Home</title>
+    <title>Home - Admin</title>
     <script src="/js/fontAwesome.js"></script>
   </head>
 <body>

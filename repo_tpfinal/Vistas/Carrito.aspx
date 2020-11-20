@@ -47,7 +47,7 @@
 
                   <!-------------------------------------------------------------------------->
                   <div style="display: inline-block; width: 60%;">
-                      <div style="background-color: rgba(197, 93, 102, 0.404); border-radius: 8px; text-align: center; margin-top: 25px; margin-bottom: 25px">
+                      <div style="background-color: white; border-radius: 8px; text-align: center; margin-top: 25px; margin-bottom: 25px">
                           <label style="font-size: 25px" class="titulo">Carrito de compras</label>
                           <div style="margin-top: 15px">
                               <asp:Label ID="lblMensajeCompra" runat="server" Style="font-size: 20px"></asp:Label>
@@ -120,15 +120,15 @@
                           </asp:GridView>
                           <div style="margin-bottom:20px">
                               <table id="tablaTotal" runat="server"  style="width:90%;">
-                              <tr style="width:100%;margin-bottom:50px">
-                                                  <td style="width:25%">
-                                                  </td>
-                                                  <td style="width:25%">
-                                                  </td>
-                                                  <td style="width:25%;font-size:18px"><strong>TOTAL :</strong></td>
-                                                  <td id="TOTAL" runat="server" style="width:25%;font-size:18px">
-                                                  </td>
-                                              </tr>
+                                  <tr style="width: 100%; margin-bottom: 50px">
+                                      <td style="width: 25%"></td>
+                                      <td style="width: 25%; font-size: 18px;text-align: end"><strong>TOTAL :</strong>
+                                      </td>
+                                      <td id="TOTAL" runat="server" style="width: 25%; font-size: 18px; margin-left: 20%"></td>
+
+                                      <td style="width: 25%"></td>
+                                      <td></td>
+                                  </tr>
                                   </table>
                           </div>
                           <div runat="Server" id="OpcionesDePago">
