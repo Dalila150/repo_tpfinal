@@ -58,14 +58,11 @@ namespace Dao
         public DataTable ObtenerTabla(String NombreTabla, String Sql)
         {
             DataSet ds = new DataSet();
-            int milliseconds = 100;
-            
-                SqlConnection Conexion = ObtenerConexion();
-                SqlDataAdapter adp = ObtenerAdaptador(Sql,Conexion);
-                Thread.Sleep(milliseconds);
-                adp.Fill(ds, NombreTabla);
-                Conexion.Close();
-                return ds.Tables[NombreTabla];
+            SqlConnection Conexion = ObtenerConexion();
+            SqlDataAdapter adp = ObtenerAdaptador(Sql,Conexion);
+            adp.Fill(ds, NombreTabla);
+            Conexion.Close();
+            return ds.Tables[NombreTabla];
         }
 
         public int EjecutarProcedimientoAlmacenado(SqlCommand Comando, String NombreSP)

@@ -10,28 +10,6 @@
     <title>Editar Usuarios - Admin</title>
     <script src="/js/fontAwesome.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <style type="text/css">
-        .auto-style1 {
-            height: 35px;
-            width: 94%;
-        }
-        .auto-style2 {
-            width: 100%;
-        }
-        .auto-style3 {
-            background-color: rgb(177, 63, 72);
-            grid-area: footer;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            justify-content: center;
-            align-items: center;
-            display: flex;
-            left: -5px;
-            top: 547px;
-        }
-    </style>
   </head>
 <body>
     <form id="form1" runat="server">
@@ -113,36 +91,36 @@
                            <asp:TextBox CssClass="txtDeshabilitado" ID="txtIdUsuario" TextMode ="Number" runat="server" ></asp:TextBox>
                        </li>
                        <li style="height: 35px;width: 40%;margin-bottom:15px">
-                           <asp:TextBox class="txtASP" ID="txtNombre" runat="server" ></asp:TextBox>
+                           <asp:TextBox class="txtASP" ID="txtNombre" runat="server" required="true"></asp:TextBox>
                        </li>
                        <li style="height: 35px;width: 40%;margin-bottom:15px">
-                            <asp:TextBox class="txtASP" ID="txtApellido" runat="server" ></asp:TextBox>
+                            <asp:TextBox class="txtASP" ID="txtApellido" runat="server" required="true"></asp:TextBox>
                        </li>
                        <li style="height: 35px;width: 40%;margin-bottom:15px">
-                           <asp:TextBox class="txtASP" ID="txtEmail"  TextMode="Email" runat="server" ></asp:TextBox>
+                           <asp:TextBox class="txtASP" ID="txtEmail"  TextMode="Email" runat="server" required="true"></asp:TextBox>
                         </li>
                         <li style="height: 35px;width: 40%;margin-bottom:15px">
-                           <asp:TextBox class="txtASP" ID="txtDireccion"  runat="server" ></asp:TextBox>
+                           <asp:TextBox class="txtASP" ID="txtDireccion"  runat="server" required="true"></asp:TextBox>
                        </li>
                        <li style="height: 35px;width: 40%;margin-bottom:15px">
-                           <asp:TextBox class="txtASP" ID="txtNombredeUsuario"  runat="server" ></asp:TextBox>
+                           <asp:TextBox class="txtASP" ID="txtNombredeUsuario"  runat="server" required="true"></asp:TextBox>
                        </li>
                        <li style="height: 35px;width: 40%;margin-bottom:15px">
-                           <asp:TextBox class="txtASP" ID="txtTelefono" TextMode ="Number" runat="server" ></asp:TextBox>
+                           <asp:TextBox class="txtASP" ID="txtTelefono" TextMode ="Number" runat="server" required="true"></asp:TextBox>
                        </li>
                      
                    </ul>
                </div>
            </div>
          <div style="padding-bottom: 25px; text-align:center; margin-top:3%;height: 35px;">
-               <asp:Button class="btnASP" ID="btnGuardar" runat="server" OnClick="btnGuardar_Click" Text="Guardar" style="width:30%" />
-               <asp:Button class="btnASP" ID="btnCancelar" runat="server" Text="Cancelar" style="width:30%" OnClick="btnCancelar_Click" />
+               <asp:Button class="btnASP" ID="btnGuardar" onclientclick="return confirm('¿Esta seguro que desea continuar?');" runat="server" OnClick="btnGuardar_Click" Text="Guardar" style="width:30%" />
+               <button class="btnASP" id="btnCancelar" runat="server" style="width:30%" type="button" onclick="cancelar()">Cancelar</button>
          </div>
           <asp:Label ID="lblMensajedeActualizacion" runat="server" BackColor="#FF9999"></asp:Label>
             </div>
        </div>
        </div>
-        <div class="auto-style3" >
+        <div class="footer" >
         <!-- Iconos de redes sociales -->
             <h2 class="contactenos">Contactenos</h2>
             <ul style="text-align:left">
@@ -163,10 +141,11 @@
     </div>
     </form>
 </body>
+    <script>
+        function cancelar() {
+            if (confirm('¿Desea Cancelar la edicion del Usuario?')) {
+                window.location.href = '/AdminListUsu.aspx';
+            }
+        }
+    </script>
 </html>
-
-
-
-
-           
-                   
