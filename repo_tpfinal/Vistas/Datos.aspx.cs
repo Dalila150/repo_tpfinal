@@ -136,7 +136,20 @@ namespace Vistas
             Usu.setDireccionUsuario(txtDireccion.Text);
             Usu.setTelefonoUsuario(txtTelefono.Text);
 
-
+            /*
+            try
+            {
+                Neg.ActualizarUsuario(Usu);
+                lblMensaje.Text = "Los datos fueron actualizados correctamente";
+            }
+            catch
+            {
+                lblMensaje.Text = "Hubo un error al actualizar datos";
+                return;
+            }
+            */
+            
+            
             actualizo = Neg.ActualizarUsuario(Usu);
 
             if (actualizo == 1)
@@ -147,6 +160,9 @@ namespace Vistas
             {
                 lblMensaje.Text = "Hubo un error al actualizar datos";
             }
+
+            
+
         }
 
     }

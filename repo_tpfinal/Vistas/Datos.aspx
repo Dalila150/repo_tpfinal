@@ -95,7 +95,6 @@
                                         <li >Telefono:</li>
                                         <li ></li>
                                         <li >
-                                            <asp:Label ID="lblMensaje" runat="server"></asp:Label>
                                         </li>
                                     </ul>
                                 </div>
@@ -118,6 +117,9 @@
 
                         <div>
                             <asp:Button CssClass="btnASP" ID="btnGuardarCamb" runat="server" OnClick="btnGuardarCamb_Click" Text="GUARDAR CAMBIOS" />
+                        </div>
+                    <div>
+                                            <asp:Label ID="lblMensaje" runat="server"></asp:Label>
                         </div>
                     
                 </div>

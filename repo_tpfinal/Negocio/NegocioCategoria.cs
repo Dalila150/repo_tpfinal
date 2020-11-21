@@ -36,11 +36,15 @@ namespace Negocio
             cat.Nombre1 = nombre;
             cat.Imagen1 = imagen;
             DaoCategoria dao = new DaoCategoria();
+
+            cantFilas = dao.agregarCategoria(cat);
+
+            /*
             if (dao.existeCategoría(cat) == false) //si la categ no existe, LA AGREGA
             {
                 cantFilas = dao.agregarCategoria(cat);
             }
-
+            */
             if (cantFilas == 1) //si se guardo correctamente va true
                 return true;
             else
