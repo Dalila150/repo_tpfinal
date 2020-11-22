@@ -75,15 +75,30 @@
         </div>
         <div class="content" >
 <!------------------------------------------------------------>
+            <div style="margin-left:15px;margin-top:25px;width:230px;float:left;Background-color: #99DBCF;border-radius:10px;margin-bottom:25px">
+                              <br />
+                              <strong>Fecha :</strong>&nbsp;&nbsp; 
+                                          <asp:TextBox ID="txtFecha" class="bus" runat="server" Width="100px"></asp:TextBox>
+                &nbsp;<asp:RegularExpressionValidator ID="rxv1" runat="server" ControlToValidate="txtFecha" ErrorMessage="Ingrese en el siguiente formato DD/MM/YYYY" ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$">*</asp:RegularExpressionValidator>
+                              <br />
+                              <br />
+                <asp:Button class="btnASP" ID="btn_Buscar" runat="server" Text="BUSCAR" Height="40px" OnClick="btn_Buscar_Click"/>
+                &nbsp;<asp:Button class="btnASP" ID="btn_Cancelar" runat="server" Text="CANCELAR" Height="40px" OnClick="btn_Cancelar_Click" Width="115px"/>
+
+                              <br />
+                              <br />
+                <asp:Label ID="lbl_Mensaje" runat="server"></asp:Label>
+
+                              <br />
+                              <br />
+                              <asp:Button ID="btn_Limpiar" runat="server" Font-Bold="True" Font-Size="Medium" Height="28px" OnClick="btn_Limpiar_Click" style="border-style: none; border-color: inherit; border-width: medium; background-color: rgba(174, 64, 74, 0.84); border-radius: 10px;" Text="Limpiar busqueda" Width="170px" />
+                </div>
     <div style="display: inline-block;width: 80%">
         <div style="background-color: rgba(197, 93, 102, 0.404);border-radius: 8px;margin-bottom: 5%;padding-bottom: 10px;margin-top:25px">
             <h1 style="padding-top: 20px; text-align: center;margin:0px;font-size:40px">Registro de ventas</h1>
             <hr style="width:90%" />
             <div style="width:100%">
 
-                <asp:TextBox ID="txtFecha" class="bus" runat="server" Width="249px"></asp:TextBox>
-                <br />
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtFecha" ErrorMessage="Ingrese en el siguiente formato YYYY-MM-DD" ValidationExpression="^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$">*</asp:RegularExpressionValidator>
                 <br />
                 <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" ShowSummary="False" />
                 
@@ -116,13 +131,10 @@
                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
                 <br />
-                <asp:Button class="btnASP" ID="btn_Buscar" runat="server" Text="BUSCAR" Height="40px" OnClick="btn_Buscar_Click"/>
-                <asp:Button class="btnASP" ID="btn_Cancelar" runat="server" Text="CANCELAR" Height="39px"/>
 
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                 <br />
-                <asp:Label ID="lbl_Mensaje" runat="server"></asp:Label>
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 

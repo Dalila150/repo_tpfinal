@@ -73,29 +73,48 @@
         </div>
         <div class="content" >
 <!------------------------------------------------------------>
-    <div style="display: inline-block;width: 80%">
+        <div style="margin-left:15px;margin-top:25px;width:230px;float:left;Background-color: #99DBCF;border-radius:10px;margin-bottom:25px">
+                              <br />
+                              <strong>Fecha 1:</strong>&nbsp;&nbsp; 
+                                          <asp:TextBox ID="txtFecha1" class="bus" runat="server" Width="100px"></asp:TextBox>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtFecha1" ErrorMessage="Ingrese en el siguiente formato DD/MM/YYYY" ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$">*</asp:RegularExpressionValidator>
+                                                      &nbsp;<p>
+                                      <strong>Fecha 2: </strong>&nbsp;                       
+                                            <asp:TextBox ID="txtFecha2"  class="bus" runat="server" Width="100px"></asp:TextBox>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtFecha2" ErrorMessage="Ingrese en el siguiente formato DD/MM/YYYY" ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$">*</asp:RegularExpressionValidator>
+                              </p>
+                              <strong>
+                              <h3>Orden de fechas:</h3>
+                              Mayor-Menor : <asp:CheckBox ID="cb_Mayor" runat="server" />
+                              <br />
+                              <br />
+                              Menor-Mayor : <asp:CheckBox ID="cb_Menor" runat="server" Checked="True" />
+                              </strong>
+                              <br />
+                              <br />
+                                                      <asp:Button class="btnASP" ID="btn_Buscar" runat="server" Text="BUSCAR" Height="40px" OnClick="btn_Buscar_Click"/>
+                              <asp:Button class="btnASP" ID="btn_Cancelar" runat="server" Text="CANCELAR" Height="40px" OnClick="btn_Cancelar_Click" Width="119px"/>
+                              <br />
+                <asp:Label ID="lbl_Mensaje" runat="server" Font-Size="Large"></asp:Label>
+                              <br />
+                              <br />
+                              <asp:Button ID="btn_Limpiar" runat="server" Text="Limpiar busqueda" style="border-style: none; border-color: inherit; border-width: medium; background-color: rgba(174, 64, 74, 0.84); border-radius: 10px;" Font-Bold="True" Font-Size="Medium" Height="28px" Width="170px" OnClick="btn_Limpiar_Click"/>
+                              <br />
+                </div>
+            <div style="display: inline-block;width: 80%">
         <div style="background-color: rgba(197, 93, 102, 0.404);border-radius: 8px;margin-bottom: 5%;padding-bottom: 10px;margin-top:25px">
             <h1 style="padding-top: 20px; text-align: center;margin:0px;font-size:40px">Registro de ventas</h1>
             <hr style="width:90%" />
             <div class="auto-style2">
 
-                Bienvenido al formulario 2, en dicho formulario usted podra visualizar la cantidad de ventas realizadas entre dos fechas indicadas a continuacion:<br />
-                <br />
-
-                <asp:TextBox ID="txtFecha1" class="bus" runat="server" Width="200px"></asp:TextBox>
-                <asp:TextBox ID="txtFecha2"  class="bus" runat="server" Width="200px"></asp:TextBox>
-                
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="btn_Limpiar" runat="server" Text="Limpiar busqueda" style="border-style: none; border-color: inherit; border-width: medium; background-color: rgba(174, 64, 74, 0.84); border-radius: 10px;" Font-Bold="True" Font-Size="Medium" Height="28px" Width="170px" OnClick="btn_Limpiar_Click"/><br />
-                <asp:RegularExpressionValidator ID="rxv1" runat="server" ControlToValidate="txtFecha1" ErrorMessage="Ingrese en el siguiente formato DD/MM/YYYY" ValidationExpression="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$">*</asp:RegularExpressionValidator>
-&nbsp;
-                <asp:RegularExpressionValidator ID="rxv2" runat="server" ControlToValidate="txtFecha2" ErrorMessage="Ingrese en el siguiente formato DD/MM/YYYY" ValidationExpression="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$">*</asp:RegularExpressionValidator>
+                <h4>Bienvenido al formulario 2, en dicho formulario usted podra visualizar la cantidad de ventas realizadas entre dos fechas indicadas a continuacion:<br /></h4>
                 <br />
                 <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" ShowSummary="False" />
                 
             </div>
             <br />
             <div style="font-size: 20px;margin-left: 5%;width: 100%;text-align: center;" class="auto-style1">
-            <asp:GridView ID="grdRegistros" CssClass="GridViewStyled" runat="server" CellPadding="4" AllowPaging="True" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" OnPageIndexChanging="grdRegistros_PageIndexChanging" PageSize="5">
+            <asp:GridView ID="grdRegistros" CssClass="GridViewStyled" runat="server" CellPadding="4" AllowPaging="True" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" OnPageIndexChanging="grdRegistros_PageIndexChanging" PageSize="1">
                 <AlternatingRowStyle BackColor="#BCC8C3" ForeColor="" />
                 <Columns>
                     <asp:TemplateField HeaderText="Fecha">
@@ -120,11 +139,8 @@
                 <SortedDescendingCellStyle BackColor="#FFFDF8" />
                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
-                <asp:Button class="btnASP" ID="btn_Buscar" runat="server" Text="BUSCAR" Height="40px" OnClick="btn_Buscar_Click"/>
-                <asp:Button class="btnASP" ID="btn_Cancelar" runat="server" Text="CANCELAR" Height="39px" OnClick="btn_Cancelar_Click"/>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <br />
-                <asp:Label ID="lbl_Mensaje" runat="server"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <br />
                 </div>
@@ -137,8 +153,8 @@
         <!-- Iconos de redes sociales -->
             <h2 class="contactenos">Contactenos</h2>
             <ul style="text-align:left">
-              <li class="redes">
-                <a href="https://www.instagram.com/"><i class="fab fa-instagram-square tamIcoRed"><b style="padding-left:10px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Instagram</b></i></a>
+                <li class="redes">
+                    <a href="https://www.instagram.com/"><i class="fab fa-instagram-square tamIcoRed"><b style="padding-left:10px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Instagram</b></i></a>
               </li>
               <li class="redes">
                 <a href="https://twitter.com/"><i class="fab fa-twitter tamIcoRed"><b style="padding-left:10px;padding-top:0px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Twitter</b></i></a>
@@ -154,7 +170,7 @@
     </div>
     </form>
 </body>
-   <%-- <!-- BUSQUEDA -->
+<%-- <!-- BUSQUEDA -->
     <!-- CADA VEZ QUE CAMBIA LA LETRA HACE POSTBACK -->
     <script type="text/javascript">
         function RefreshUpdatePanel() {

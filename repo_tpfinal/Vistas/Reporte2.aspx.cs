@@ -47,37 +47,137 @@ namespace Vistas
             }
 
 
+            var dateTime = DateTime.Now.Date;
+            string F_Actual = Convert.ToString(dateTime.ToShortDateString());
+
             if (IsPostBack == false)
             {
-                var dateTime = DateTime.Now.Date;
-                string F_Actual = Convert.ToString(dateTime.ToShortDateString());
-
-                grdRegistros.DataSource = neg.cargar_gridview_neg_reporte2_tex("01-01-2000",F_Actual);
-                grdRegistros.DataBind();
-
+                if (Session["ConsultaReporte2txt1"] != null && Session["ConsultaReporte2txt2"] != null && Session["ConsultaReporte2Orden"] != null && Session["ConsultaReporte2Pagina"] != null)
+                {
+                    System.Diagnostics.Debug.WriteLine(Session["ConsultaReporte2Pagina"].ToString());
+                    if (Session["ConsultaReporte2Orden"].ToString() == "Menor")
+                    {
+                        txtFecha1.Text = Session["ConsultaReporte2txt1"].ToString();
+                        txtFecha2.Text = Session["ConsultaReporte2txt2"].ToString();
+                        cb_Menor.Checked = true;
+                        cb_Mayor.Checked = false;
+                    }
+                    else
+                    {
+                        txtFecha1.Text = Session["ConsultaReporte2txt1"].ToString();
+                        txtFecha2.Text = Session["ConsultaReporte2txt2"].ToString();
+                        cb_Mayor.Checked = true;
+                        cb_Menor.Checked = false;
+                    }
+                    grdRegistros.PageIndex = int.Parse(Session["ConsultaReporte2Pagina"].ToString());
+                    grdRegistros.DataSource = neg.cargar_gridview_neg_reporte2_tex(Session["ConsultaReporte2txt1"].ToString(), Session["ConsultaReporte2txt2"].ToString(), Session["ConsultaReporte2Orden"].ToString());
+                    grdRegistros.DataBind();
+                }
+                else
+                {
+                    if (Session["ConsultaReporte2txt1"] != null)
+                    {
+                        if (Session["ConsultaReporte2txt2"] != null)
+                        {
+                            if (Session["ConsultaReporte2Orden"] != null)
+                            {
+                                if (Session["ConsultaReporte2Orden"].ToString() == "Menor")
+                                {
+                                    txtFecha1.Text = Session["ConsultaReporte2txt1"].ToString();
+                                    txtFecha2.Text = Session["ConsultaReporte2txt2"].ToString();
+                                    cb_Menor.Checked = true;
+                                    cb_Mayor.Checked = false;
+                                }
+                                else
+                                {
+                                    txtFecha1.Text = Session["ConsultaReporte2txt1"].ToString();
+                                    txtFecha2.Text = Session["ConsultaReporte2txt2"].ToString();
+                                    cb_Mayor.Checked = true;
+                                    cb_Menor.Checked = false;
+                                }
+                                if (Session["ConsultaReporte2Pagina"] != null)
+                                {
+                                    grdRegistros.PageIndex = int.Parse(Session["ConsultaReporte2Pagina"].ToString());
+                                }
+                                grdRegistros.DataSource = neg.cargar_gridview_neg_reporte2_tex(Session["ConsultaReporte2txt1"].ToString(), Session["ConsultaReporte2txt2"].ToString(), Session["ConsultaReporte2Orden"].ToString());
+                                grdRegistros.DataBind();
+                            }
+                            else
+                            {
+                                if (Session["ConsultaReporte2Pagina"] != null)
+                                {
+                                    grdRegistros.PageIndex = int.Parse(Session["ConsultaReporte2Pagina"].ToString());
+                                }
+                                grdRegistros.DataSource = neg.cargar_gridview_neg_reporte2_tex("01-01-2000", F_Actual, "Menor");
+                                grdRegistros.DataBind();
+                            }
+                        }
+                        else
+                        {
+                            if (Session["ConsultaReporte2Pagina"] != null)
+                            {
+                                grdRegistros.PageIndex = int.Parse(Session["ConsultaReporte2Pagina"].ToString());
+                            }
+                            grdRegistros.DataSource = neg.cargar_gridview_neg_reporte2_tex("01-01-2000", F_Actual, "Menor");
+                            grdRegistros.DataBind();
+                        }
+                    }
+                    else
+                    {
+                        if (Session["ConsultaReporte2Pagina"] != null)
+                        {
+                            grdRegistros.PageIndex = int.Parse(Session["ConsultaReporte2Pagina"].ToString());
+                        }
+                        grdRegistros.DataSource = neg.cargar_gridview_neg_reporte2_tex("01-01-2000", F_Actual, "Menor");
+                        grdRegistros.DataBind();
+                    }
+                }
             }
+        }
+
+        private void CargarGridView_Mayor_Menor()
+        {
+            //ME TRAE EL DATATABLE CON LAS FECHAS INGRESADAS EN LOS TEXTBOXS
+            grdRegistros.DataSource = neg.cargar_gridview_neg_reporte2_tex(txtFecha1.Text, txtFecha2.Text, "Mayor");
+            grdRegistros.DataBind();
+        }
+
+        private void CargarGridView_Menor_Mayor()
+        {
+            grdRegistros.DataSource = neg.cargar_gridview_neg_reporte2_tex(txtFecha1.Text, txtFecha2.Text, "Menor");
+            grdRegistros.DataBind();
         }
 
         protected void btn_Buscar_Click(object sender, EventArgs e)
         {
-            //VERIFICO QUE EL USUARIO HAYA ESCRITO ALGO
-            string aux1 = txtFecha1.Text.Trim();
-            string aux2 = txtFecha2.Text.Trim();
-
-            if (aux1.Length != 0 && aux2.Length != 0)
+            if (txtFecha1.Text.Length != 0 && txtFecha2.Text.Length != 0)
             {
-                DateTime d1 = Convert.ToDateTime(txtFecha1.Text.Trim());
-                DateTime d2 = Convert.ToDateTime(txtFecha2.Text.Trim());
+                DateTime d1 = Convert.ToDateTime(txtFecha1.Text);
+                DateTime d2 = Convert.ToDateTime(txtFecha2.Text);
                 //PREGUNTO SI LAS FECHAS SON IGUALES
                 int res = DateTime.Compare(d1, d2);
                 //PREGUNTO SI LA FECHA ES DISTINTO DE CERO, SI LO ES PUEDE TRAER EL DATABLE
                 if (res != 0)
                 {
-                    //ME TRAE EL DATATABLE CON LAS FECHAS INGRESADAS EN LOS TEXTBOXS
-                    grdRegistros.DataSource = neg.cargar_gridview_neg_reporte2_tex(txtFecha1.Text, txtFecha2.Text);
-                    grdRegistros.DataBind();
-                    txtFecha1.Text = "";
-                    txtFecha2.Text = "";
+                    if (cb_Mayor.Checked != cb_Menor.Checked)
+                    {
+                        if (cb_Mayor.Checked == true)
+                        {
+                            CargarGridView_Mayor_Menor();
+                        }
+                        else if (cb_Menor.Checked == true)
+                        {
+                            CargarGridView_Menor_Mayor();
+                        }
+                    }
+                    else
+                    {
+                        lbl_Mensaje.Text = "Seleccione un filtro";
+                        txtFecha1.Text = "";
+                        txtFecha2.Text = "";
+                        cb_Mayor.Checked = false;
+                        cb_Menor.Checked = false;
+                    }
                 }
             }
             else
@@ -96,33 +196,56 @@ namespace Vistas
 
         protected void grdRegistros_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            if (txtFecha1.Text.Length != 0 && txtFecha2.Text.Length != 0)
+            
+            if ((txtFecha1.Text.Length != 0 && txtFecha2.Text.Length != 0))
             {
-                grdRegistros.PageIndex = e.NewPageIndex;
-                grdRegistros.DataSource = neg.cargar_gridview_neg_reporte2_tex(txtFecha1.Text, txtFecha2.Text);
-                grdRegistros.DataBind();
+                
+                if (cb_Mayor.Checked != false || cb_Menor.Checked != false)
+                {
+                    
+                    if (cb_Mayor.Checked == true)
+                    {
+                        grdRegistros.PageIndex = e.NewPageIndex;
+                        grdRegistros.DataSource = neg.cargar_gridview_neg_reporte2_tex(txtFecha1.Text, txtFecha2.Text, "Mayor");
+                        grdRegistros.DataBind();
+
+                        Session["ConsultaReporte2txt1"] = txtFecha1.Text;
+                        Session["ConsultaReporte2txt2"] = txtFecha2.Text;
+                        Session["ConsultaReporte2Orden"] = "Mayor";
+                        Session["ConsultaReporte2Pagina"] = e.NewPageIndex;
+                        Response.Redirect("Reporte2.aspx");
+                    }
+                    else if (cb_Menor.Checked == true)
+                    {
+                        grdRegistros.PageIndex = e.NewPageIndex;
+                        grdRegistros.DataSource = neg.cargar_gridview_neg_reporte2_tex(txtFecha1.Text, txtFecha2.Text, "Menor");
+                        grdRegistros.DataBind();
+
+                        Session["ConsultaReporte2txt1"] = txtFecha1.Text;
+                        Session["ConsultaReporte2txt2"] = txtFecha2.Text;
+                        Session["ConsultaReporte2Orden"] = "Menor";
+                        Session["ConsultaReporte2Pagina"] = e.NewPageIndex;
+                        Response.Redirect("Reporte2.aspx");
+                    }
+                }
             }
             else
             {
                 grdRegistros.PageIndex = e.NewPageIndex;
-
                 var dateTime = DateTime.Now.Date;
                 string F_Actual = Convert.ToString(dateTime.ToShortDateString());
-                grdRegistros.DataSource = neg.cargar_gridview_neg_reporte2_tex("01-01-2000", F_Actual);
+                grdRegistros.DataSource = neg.cargar_gridview_neg_reporte2_tex("01-01-2000", F_Actual, "Menor");
                 grdRegistros.DataBind();
             }
         }
 
         protected void btn_Limpiar_Click(object sender, EventArgs e)
         {
-            var dateTime = DateTime.Now.Date;
-            string F_Actual = Convert.ToString(dateTime.ToShortDateString());
-
-            grdRegistros.DataSource = neg.cargar_gridview_neg_reporte2_tex("01-01-2000", F_Actual);
-            grdRegistros.DataBind();
-            txtFecha1.Text = "";
-            txtFecha2.Text = "";
-            lbl_Mensaje.Text = "";
+            Session["ConsultaReporte2txt1"] = null;
+            Session["ConsultaReporte2txt2"] = null;
+            Session["ConsultaReporte2Orden"] = null;
+            Session["ConsultaReporte2Pagina"] = null;
+            Response.Redirect("Reporte2.aspx");
         }
     }
 }

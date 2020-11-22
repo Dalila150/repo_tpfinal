@@ -77,5 +77,19 @@ namespace Vistas
                 lbl_Mensaje.Text = "Ingrese un fecha por favor";
             }
         }
+
+        protected void btn_Cancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("HomeAdmin.aspx");
+        }
+
+        protected void btn_Limpiar_Click(object sender, EventArgs e)
+        {
+            txtFecha.Text = "";
+            var dateTime = DateTime.Now.Date;
+            string F_Actual = Convert.ToString(dateTime.ToShortDateString());
+            grdRegistros.DataSource = neg.cargar_gridview_neg_reporte1_tex(F_Actual);
+            grdRegistros.DataBind();
+        }
     }
 }

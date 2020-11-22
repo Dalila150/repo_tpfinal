@@ -13,8 +13,6 @@ namespace Dao
    public class DaoVentas
     {
         AccesoaDatos acceder = new AccesoaDatos();
-
-
         public int Registrar_Venta(Ventas vent)
         {
             SqlCommand comando = new SqlCommand();
@@ -81,7 +79,7 @@ namespace Dao
             return acceder.ObtenerTabla("detalle_venta", "select producto.Nombre, detalle_venta.Cantidad, detalle_venta.Precio_unitario from detalle_venta inner join venta on detalle_venta.ID_venta = venta.ID_venta inner join producto on detalle_venta.ID_producto = producto.id_producto  where detalle_venta.ID_venta = " + idDetV);
         }
 
-        public DataTable ObtenerTodasLasVentasPorFecha(string f1, string f2)
+        public DataTable ObtenerTodasLasVentasPorFecha(string f1, string f2, string orden)
         {
             DateTime d1 = Convert.ToDateTime(f1);
             DateTime d2 = Convert.ToDateTime(f2);
@@ -91,19 +89,37 @@ namespace Dao
             f1 = dateTime1.ToShortDateString();
             f2 = dateTime2.ToShortDateString();
 
+            int res = DateTime.Compare(d1, d2);
+
             string consulta = "";
 
-            int res = DateTime.Compare(d1, d2);
-            if (res > 0)
+            if (orden == "Mayor")
             {
-                consulta = "SELECT Fecha,COUNT(Fecha) AS 'Ventas' FROM venta WHERE Fecha between '" + f2 + "' and '" + f1 + "' GROUP BY Fecha";
-                return acceder.ObtenerTabla("venta", consulta);
+                if (res > 0)
+                {
+                    consulta = "SELECT FORMAT (venta.Fecha, 'dd-MM-yyyy') AS Fecha,COUNT(Fecha) AS 'Ventas' FROM venta WHERE Fecha between '" + f2 + "' and '" + f1 + "' GROUP BY Fecha ORDER BY Fecha DESC";
+                    return acceder.ObtenerTabla("venta", consulta);
+                }
+                else
+                {
+                    consulta = "SELECT FORMAT (venta.Fecha, 'dd-MM-yyyy') AS Fecha,COUNT(Fecha) AS 'Ventas' FROM venta WHERE Fecha between '" + f1 + "' and '" + f2 + "' GROUP BY Fecha ORDER BY Fecha DESC";
+                    return acceder.ObtenerTabla("venta", consulta);
+                }
             }
             else
             {
-                consulta = "SELECT Fecha,COUNT(Fecha) AS 'Ventas' FROM venta WHERE Fecha between '" + f1 + "' and '" + f2 + "' GROUP BY Fecha";
-                return acceder.ObtenerTabla("venta", consulta);
+                if (res > 0)
+                {
+                    consulta = "SELECT FORMAT (venta.Fecha, 'dd-MM-yyyy') AS Fecha,COUNT(Fecha) AS 'Ventas' FROM venta WHERE Fecha between '" + f2 + "' and '" + f1 + "' GROUP BY Fecha ORDER BY Fecha ASC";
+                    return acceder.ObtenerTabla("venta", consulta);
+                }
+                else
+                {
+                    consulta = "SELECT FORMAT (venta.Fecha, 'dd-MM-yyyy') AS Fecha,COUNT(Fecha) AS 'Ventas' FROM venta WHERE Fecha between '" + f1 + "' and '" + f2 + "' GROUP BY Fecha ORDER BY Fecha ASC";
+                    return acceder.ObtenerTabla("venta", consulta);
+                }
             }
+
         }
 
     }

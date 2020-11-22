@@ -63,10 +63,18 @@ namespace Negocio
             return dp.ObtenerDetallesVentasUsuario(idDetV);
         }
 
-        public DataTable cargar_gridview_neg_reporte2_tex(string fecha1, string fecha2)
+        public DataTable cargar_gridview_neg_reporte2_tex(string fecha1, string fecha2, string orden)
         {
             DaoVentas dp = new DaoVentas();
-            return dp.ObtenerTodasLasVentasPorFecha(fecha1, fecha2);
+            if (orden == "Mayor")
+            {
+                return dp.ObtenerTodasLasVentasPorFecha(fecha1, fecha2, orden);
+            }
+            else
+            {
+                return dp.ObtenerTodasLasVentasPorFecha(fecha1, fecha2, orden);
+            }
+
         }
 
         public DataTable ConsultaParaReporte3(string Consulta, String Order)
