@@ -69,7 +69,7 @@ namespace Dao
 
         public DataTable ObtenerTodasLasVentasUsuario(string Nombre)
         {
-            DataTable Tabla = acceder.ObtenerTabla("venta", "select ID_venta,Fecha, venta.Direccion,Nro_tajeta,Total from venta inner join usuario on venta.ID_usuario = usuario.ID_usuario where usuario.Nombre_Usuario ='" + Nombre + "'");
+            DataTable Tabla = acceder.ObtenerTabla("venta", "select ID_venta, FORMAT (venta.Fecha, 'dd-MM-yyyy') AS FECHA, venta.Direccion,Nro_tajeta,Total from venta inner join usuario on venta.ID_usuario = usuario.ID_usuario where usuario.Nombre_Usuario ='" + Nombre + "'");
             return Tabla;
         }
 

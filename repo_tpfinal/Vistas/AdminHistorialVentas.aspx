@@ -95,7 +95,7 @@
             </div>
             <br />
             <div style="font-size: 20px;margin-left: 5%;width: 100%;text-align: center;" class="auto-style1">
-            <asp:GridView ID="grdRegistros" CssClass="GridViewStyled" runat="server" CellPadding="4" AllowPaging="True" ForeColor="#333333" GridLines="None" PageSize="5" AutoGenerateSelectButton="True" AutoGenerateColumns="False" OnPageIndexChanging="grdRegistros_PageIndexChanging" OnSelectedIndexChanging="grdRegistros_SelectedIndexChanging">
+            <asp:GridView ID="grdRegistros" CssClass="GridViewStyled" runat="server" CellPadding="4" AllowPaging="True" ForeColor="#333333" GridLines="None" AutoGenerateSelectButton="True" AutoGenerateColumns="False" OnPageIndexChanging="grdRegistros_PageIndexChanging" OnSelectedIndexChanging="grdRegistros_SelectedIndexChanging">
                 <AlternatingRowStyle BackColor="#BCC8C3" ForeColor="" />
                 <Columns>
                     <asp:TemplateField HeaderText="ID">
