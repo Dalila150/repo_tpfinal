@@ -249,8 +249,18 @@ namespace Dao
             var dateTime1 = d1;
             //SACA LA HORA 
             f1 = dateTime1.ToShortDateString();
-            string consulta = "SELECT p.Nombre as Producto,sum(dv.Cantidad) as Cantidad_Vendida FROM producto p INNER JOIN detalle_venta dv ON dv.ID_producto = p.id_producto INNER JOIN venta v ON dv.ID_venta = v.ID_venta WHERE v.Fecha = '" + f1 + "' GROUP BY p.Nombre ORDER BY SUM(dv.cantidad) DESC";
-            return ds.ObtenerTabla("producto", consulta);
+            string consulta = "";
+            DataTable tabla = new DataTable();
+            try {
+                consulta = "SELECT p.Nombre as Producto,sum(dv.Cantidad) as Cantidad_Vendida FROM producto p INNER JOIN detalle_venta dv ON dv.ID_producto = p.id_producto INNER JOIN venta v ON dv.ID_venta = v.ID_venta WHERE v.Fecha = '" + f1 + "' GROUP BY p.Nombre ORDER BY SUM(dv.cantidad) DESC";
+                tabla = ds.ObtenerTabla("producto", consulta);
+            }
+            catch
+            {
+                consulta = "SELECT p.Nombre as Producto,sum(dv.Cantidad) as Cantidad_Vendida FROM producto p INNER JOIN detalle_venta dv ON dv.ID_producto = p.id_producto INNER JOIN venta v ON dv.ID_venta = v.ID_venta WHERE v.Fecha = '" + d1.ToString("yyyy-MM-dd") + "' GROUP BY p.Nombre ORDER BY SUM(dv.cantidad) DESC";
+                tabla = ds.ObtenerTabla("producto", consulta);
+            }
+            return tabla;
         }
 
     }
