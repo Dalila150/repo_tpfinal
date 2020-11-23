@@ -73,6 +73,8 @@ namespace Dao
             //SqlParametros = Comando.Parameters.Add("@NOMBRECAT", SqlDbType.VarChar, 225);
             SqlParametros = Comando.Parameters.Add("@NOMBRECAT", SqlDbType.VarChar);
             SqlParametros.Value = cat.Nombre1;
+            SqlParametros = Comando.Parameters.Add("@IMAGENCAT", SqlDbType.VarChar);
+            SqlParametros.Value = cat.Imagen1;
             SqlParametros = Comando.Parameters.Add("@ESTADOCAT", SqlDbType.Bit);
             SqlParametros.Value = cat.Estado1;
         }

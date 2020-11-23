@@ -106,6 +106,14 @@
                             <asp:Label ID="lbl_it_nombreCat" runat="server" Text='<%# Bind("Nombre") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
+                    <asp:TemplateField HeaderText="URL IMG">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txt_eit_imagen" runat="server" Text='<%# Bind("Imagen") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_imagen" runat="server" Text='<%# Bind("Imagen") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="ESTADO">
                         <EditItemTemplate>
                             <asp:DropDownList ID="ddl_eit_estadoCat" runat="server">

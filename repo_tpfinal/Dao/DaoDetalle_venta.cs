@@ -44,7 +44,7 @@ namespace Dao
         public DataTable ObtenerTodosDetallesVentas(int idDetV)
         {
 
-            return acceder.ObtenerTabla("detalle_venta", "Select ID_detalle_venta AS #, producto.Nombre , Cantidad, detalle_venta.Precio_unitario AS 'Precio' from detalle_venta INNER JOIN producto on producto.id_producto = detalle_venta.ID_producto WHERE ID_venta= " + idDetV);
+            return acceder.ObtenerTabla("detalle_venta", "Select ROW_NUMBER() OVER(ORDER BY ID_detalle_venta) AS #, producto.Nombre , Cantidad, detalle_venta.Precio_unitario AS 'Precio' from detalle_venta INNER JOIN producto on producto.id_producto = detalle_venta.ID_producto WHERE ID_venta= " + idDetV);
         }
 
     }

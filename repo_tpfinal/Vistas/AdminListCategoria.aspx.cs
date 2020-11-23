@@ -106,12 +106,15 @@ namespace Vistas
             string s_id_categoria = ((Label)grdCategorias.Rows[e.RowIndex].FindControl("lbl_eit_idCat")).Text;
             string s_nombre_categoria = ((TextBox)grdCategorias.Rows[e.RowIndex].FindControl("txt_eit_nombreCat")).Text;
             //string s_estado_categoria = ((TextBox)grdCategorias.Rows[e.RowIndex].FindControl("txt_eit_estadoCat")).Text;
+            string s_imagen_categoria = ((TextBox)grdCategorias.Rows[e.RowIndex].FindControl("txt_eit_imagen")).Text;
             string s_estado_categoria = ((DropDownList)grdCategorias.Rows[e.RowIndex].FindControl("ddl_eit_estadoCat")).SelectedValue;
 
             Categorias cat = new Categorias();
             cat.Id_categoria = Convert.ToInt32(s_id_categoria);
             cat.Nombre1 = s_nombre_categoria;
+            cat.Imagen1 = s_imagen_categoria;
             cat.Estado1 = Convert.ToBoolean(s_estado_categoria);
+
 
             NegocioCategoria negCat = new NegocioCategoria();
             negCat.actualizarCategoria(cat);
