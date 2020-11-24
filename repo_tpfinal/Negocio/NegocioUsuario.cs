@@ -118,6 +118,37 @@ namespace Negocio
                 return false;
             }
         }
+
+        public bool BuscarUsuarioEmail(string Email_Usuario)
+        {
+            DaoUsuario dao = new DaoUsuario();
+            bool Existe = dao.existeUsuarioEmail(Email_Usuario);
+            if (Existe == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool BuscarUsuarioDni(string Dni_Usuario)
+        {
+            DaoUsuario dao = new DaoUsuario();
+            bool Existe = dao.existeUsuarioDni(Dni_Usuario);
+            if (Existe == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+
         public DataTable ObtenerUsuario(String id)
         {
             DaoUsuario dp = new DaoUsuario();

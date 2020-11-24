@@ -148,18 +148,29 @@ namespace Vistas
                 return;
             }
             */
-            
-            
-            actualizo = Neg.ActualizarUsuario(Usu);
 
-            if (actualizo == 1)
+
+            Boolean UserEmail = Neg.BuscarUsuarioEmail(txtEmail.Text);
+
+            if(UserEmail == false)
             {
-                lblMensaje.Text = "Los datos fueron actualizados correctamente";
+                actualizo = Neg.ActualizarUsuario(Usu);
+
+                if (actualizo == 1)
+                {
+                    lblMensaje.Text = "Los datos fueron actualizados correctamente";
+                }
+                else
+                {
+                    lblMensaje.Text = "Hubo un error al actualizar datos";
+                }
             }
             else
             {
-                lblMensaje.Text = "Hubo un error al actualizar datos";
+                lblMensaje.Text = "El Email ya esta en uso. Por favor ingrese uno valido.";
             }
+
+            
 
             
 

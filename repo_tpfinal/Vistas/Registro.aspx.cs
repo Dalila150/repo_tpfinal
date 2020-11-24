@@ -78,12 +78,14 @@ namespace Vistas
         {
            lblMensaje.Text = "";
             Boolean Usuario = Neg.BuscarUsuarioNombre_Usuario(txtNombreUsuario.Text);
+            Boolean UserDni = Neg.BuscarUsuarioDni(txtDni.Text);
+            Boolean UserEmail = Neg.BuscarUsuarioEmail(txtEmail.Text);
 
             if (txtNombre.Text == "" || txtApellido.Text == "" || txtDni.Text == "" || txtTelefono.Text == "" || txtEmail.Text == "" || txtClave.Text == "" || txtValidarClave.Text == "" || txtNombreUsuario.Text == "")
             {
                // lblMensaje.Text = "Por favor Complete todos los campos";
             }
-            else if (Usuario == false && txtClave.Text == txtValidarClave.Text)
+            else if (Usuario == false && UserDni == false && UserEmail == false && txtClave.Text == txtValidarClave.Text)
             {
                 //Codigo---------
                 Usuarios Datos_usuario = new Usuarios();
@@ -110,10 +112,11 @@ namespace Vistas
                    lblMensaje.Text = "Las Contraseñas no coinsiden, por favor vuelva a intentar";
                 }
             }
-            if (Usuario == true)
+            else if (Usuario == true || UserDni == true || UserEmail == true)
             {
                 lblMensaje.Text = "Este usuario ya exite, por favor intente con otro";
             }
+            
         }
 
         protected void txtBuscar_TextChanged(object sender, EventArgs e)

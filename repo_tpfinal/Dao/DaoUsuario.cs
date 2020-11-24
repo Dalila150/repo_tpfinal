@@ -38,7 +38,19 @@ namespace Dao
             String consulta = "Select * from Usuario where Estado = 1 and Nombre_Usuario='" + Nombre_Usuario + "'";
             return ds.existe(consulta);
         }
-    
+
+        public Boolean existeUsuarioEmail(string Email_Usuario)
+        {
+            String consulta = "Select * from Usuario where Estado = 1 and Email='" + Email_Usuario + "'";
+            return ds.existe(consulta);
+        }
+
+        public Boolean existeUsuarioDni(string Dni_Usuario)
+        {
+            String consulta = "Select * from Usuario where Estado = 1 and DNI='" + Dni_Usuario + "'";
+            return ds.existe(consulta);
+        }
+
         public Boolean existeUsuarioPassword(string Password)
         {
             String consulta = "Select * from Usuario where Password='" + Password + "'";
