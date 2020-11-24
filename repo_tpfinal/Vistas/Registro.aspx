@@ -79,14 +79,14 @@
             <div class="datDivision">
               <div class="lblCampo" style="margin-top:7px">DNI:</div>
               <div class="txtDatos" style="margin-bottom:10px">
-                <asp:TextBox class="txtASP" ID="txtDni" type="text" style="font-size:17px" runat="server" required="true" OnTextChanged="txtApellido_TextChanged"></asp:TextBox>
+                <asp:TextBox class="txtASP" ID="txtDni" type="Number" style="font-size:17px" runat="server" required="true" OnTextChanged="txtApellido_TextChanged"></asp:TextBox>
               </div>
                 </div>
 
             <div class="datDivision">
               <div class="lblCampo" style="margin-top:7px">Telefono:</div>
               <div class="txtDatos" style="margin-bottom:10px">
-                <asp:TextBox class="txtASP" ID="txtTelefono" type="text" style="font-size:17px" runat="server" required="true" OnTextChanged="txtApellido_TextChanged"></asp:TextBox>
+                <asp:TextBox class="txtASP" ID="txtTelefono" type="Number" style="font-size:17px" runat="server" required="true" OnTextChanged="txtApellido_TextChanged"></asp:TextBox>
               </div>
                 </div>
 

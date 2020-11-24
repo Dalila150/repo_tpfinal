@@ -35,7 +35,7 @@ namespace Dao
 
         public Boolean existeUsuarioNombre_Usuario(string Nombre_Usuario)
         {
-            String consulta = "Select * from Usuario where Nombre_Usuario='" + Nombre_Usuario + "'";
+            String consulta = "Select * from Usuario where Estado = 1 and Nombre_Usuario='" + Nombre_Usuario + "'";
             return ds.existe(consulta);
         }
     

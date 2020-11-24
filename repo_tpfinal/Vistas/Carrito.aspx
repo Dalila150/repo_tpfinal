@@ -156,7 +156,7 @@
                                                   </td>
                                                   <td style="width:25%"><strong>Numero de tarjeta</strong></td>
                                                   <td style="width:25%">
-                                                      <asp:TextBox CssClass="txtASP" type="number" style="width:75%;-moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" ID="txtNroTarjeta" runat="server" required="true"></asp:TextBox>
+                                                      <asp:TextBox CssClass="txtASP" type="number" maxlength="5" style="width:75%;-moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" ID="txtNroTarjeta" runat="server" required="true"></asp:TextBox>
                                                   </td>
                                               </tr>
                                               <tr>
@@ -164,7 +164,7 @@
                                                   <td style="width:25%"></td>
                                                   <td style="width:25%"><strong>Código de seguridad de su tarjeta</strong></td>
                                                   <td style="width:25%">
-                                                      <asp:TextBox CssClass="txtASP" type="number" style="width:75%;-moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" ID="txtNroSeguridad" runat="server" required="true"></asp:TextBox>
+                                                      <asp:TextBox CssClass="txtASP" type="number" maxlength="5" style="width:75%;-moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;" ID="txtNroSeguridad" runat="server" required="true"></asp:TextBox>
                                                   </td>
                                               </tr>
                                           </table>

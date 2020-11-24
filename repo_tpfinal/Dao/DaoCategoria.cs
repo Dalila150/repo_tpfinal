@@ -26,7 +26,7 @@ namespace Dao
 
         public DataTable BusquedaDeCategoria(String texto)
         {
-            return ds.ObtenerTabla("categoria", "Select id_categoria, categoria.Nombre, categoria.Estado from categoria WHERE categoria.Nombre LIKE '%" + texto + "%'");
+            return ds.ObtenerTabla("categoria", "Select id_categoria, categoria.Nombre, categoria.Estado, categoria.Imagen from categoria WHERE categoria.Nombre LIKE '%" + texto + "%'");
         }
 
         public Boolean existeCategoría(Categorias cat)
