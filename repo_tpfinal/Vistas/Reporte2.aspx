@@ -76,11 +76,11 @@
         <div style="margin-left:15px;margin-top:25px;width:230px;float:left;Background-color: #99DBCF;border-radius:10px;margin-bottom:25px">
                               <br />
                               <strong>Fecha 1:</strong>&nbsp;&nbsp; 
-                                          <asp:TextBox ID="txtFecha1" class="bus" runat="server" Width="100px"></asp:TextBox>
+                                          <asp:TextBox ID="txtFecha1" class="bus" runat="server" Width="100px" MaxLength="10"></asp:TextBox>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtFecha1" ErrorMessage="Ingrese en el siguiente formato DD/MM/YYYY" ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$">*</asp:RegularExpressionValidator>
                                                       &nbsp;<p>
                                       <strong>Fecha 2: </strong>&nbsp;                       
-                                            <asp:TextBox ID="txtFecha2"  class="bus" runat="server" Width="100px"></asp:TextBox>
+                                            <asp:TextBox ID="txtFecha2"  class="bus" runat="server" Width="100px" MaxLength="10"></asp:TextBox>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtFecha2" ErrorMessage="Ingrese en el siguiente formato DD/MM/YYYY" ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$">*</asp:RegularExpressionValidator>
                               </p>
                               <strong>
